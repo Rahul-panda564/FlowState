@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import AppShell from '../../layouts/AppShell';
 import Icon from '../../components/common/Icon';
 import GlassPanel from '../../components/common/GlassPanel';
 import StatCard from '../../components/common/StatCard';
@@ -241,27 +240,8 @@ export default function OperationsCommand() {
   );
 
   return (
-    <AppShell 
-      sidebarItems={operationsSidebar} 
-      brand={operationsBrand.brand} 
-      brandSub={operationsBrand.brandSub} 
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-          <div className={`badge ${venue?.status === 'Evacuating' ? 'badge-critical' : 'badge-accent'}`} style={{ padding: '6px 14px' }}>
-            <span className={`status-dot ${venue?.status === 'Evacuating' ? 'alert' : 'online'} pulse`}></span>
-            {venue?.status === 'Evacuating' ? 'OVERRIDE: EVACUATION' : 'CHAMPIONSHIP_LIVE'}
-          </div>
-          <div style={{ display: 'flex', gap: 20 }}>
-            {['Dashboard', 'Analytics', 'Live Map'].map((t) => (
-              <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer' }} onClick={() => { setActiveTab(t); showToast(`Switching view to ${t}`, 'info'); }}>{t}</span>
-            ))}
-          </div>
-          <div style={{ width: 1, height: 16, background: 'var(--border-subtle)' }} />
-          <button className="btn btn-secondary" style={{ fontSize: '0.62rem', padding: '4px 12px' }} onClick={() => showToast('Compiling system intelligence report...', 'success')}>System Report</button>
-        </div>
-      }
-    >
-      <div className="telemetry-strip page-enter" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
+    <>
+      <div className="telemetry-strip" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
         <div style={{ display: 'flex', gap: 24 }}>
           <StatCard compact label="NEXUS TIME" value={clock} style={{ background: 'transparent', padding: 0 }} />
           <StatCard compact label="GAME STATE" value={gameStatus} style={{ background: 'transparent', padding: 0 }} />
@@ -280,11 +260,11 @@ export default function OperationsCommand() {
         </div>
       </div>
 
-      <div className="tab-content page-enter" key={activeTab}>
+      <div className="tab-content" key={activeTab}>
         {activeTab === 'Dashboard' && renderDashboard()}
         {activeTab === 'Analytics' && renderAnalytics()}
         {activeTab === 'Live Map' && renderLiveMap()}
       </div>
-    </AppShell>
+    </>
   );
 }

@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { venueApi, eventApi } from '../../api';
 import { superAdminSidebar, superAdminBrand, superAdminUser } from '../../data/sidebarConfig';
 import Icon from '../../components/common/Icon';
@@ -295,21 +294,7 @@ export default function SuperAdminDashboard() {
   );
 
   return (
-    <AppShell
-      sidebarItems={superAdminSidebar}
-      brand={superAdminBrand.brand}
-      brandSub={superAdminBrand.brandSub}
-      user={superAdminUser}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-          {['System', 'Traffic', 'Network'].map((t) => (
-            <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveTab(t); showToast(`Shifting view to ${t} telemetry...`, 'info'); }}>{t}</span>
-          ))}
-          <div style={{ width: 1, height: 16, background: 'var(--border-subtle)' }} />
-          <button className="btn btn-secondary" style={{ fontSize: '0.62rem', padding: '4px 12px' }} onClick={() => showToast('Compiling global infrastructure audit...', 'success')}>System Audit</button>
-        </div>
-      }
-    >
+    <>
       <div className="page-header">
         <div className="page-header-top">
           <div>
@@ -339,6 +324,6 @@ export default function SuperAdminDashboard() {
         {activeTab === 'Traffic' && renderTrafficDashboard()}
         {activeTab === 'Network' && renderNetworkDashboard()}
       </div>
-    </AppShell>
+    </>
   );
 }

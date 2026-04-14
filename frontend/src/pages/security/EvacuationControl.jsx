@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { venueApi } from '../../api';
 import { evacuationData } from '../../data/mockData';
-import { securitySidebar, securityBrand } from '../../data/sidebarConfig';
 import StatCard from '../../components/common/StatCard';
 
 export default function EvacuationControl() {
@@ -94,22 +92,31 @@ export default function EvacuationControl() {
   const statusColors = { cleared: 'var(--status-ok)', clearing: 'var(--status-warning)', pending: 'var(--text-muted)' };
 
   return (
-    <AppShell 
-      sidebarItems={securitySidebar} 
-      brand={securityBrand.brand} 
-      brandSub={securityBrand.brandSub} 
-      user={null}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
-            {['Protocol', 'Egress', 'Agencies'].map((t) => (
-              <span key={t} className="label-caps" style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => showToast(`Opening ${t.toLowerCase()} control panel...`, 'info')}>{t}</span>
-            ))}
+    <>
+      <div className="page-header">
+        <div className="page-header-top">
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
+              <p className="label-caps">MASS EGRESS & EMERGENCY OPS</p>
+              <div style={{ display: 'flex', gap: 12, marginLeft: 12, borderLeft: '1px solid var(--border-subtle)', paddingLeft: 12 }}>
+                {['Protocol', 'Egress', 'Agencies'].map((t) => (
+                  <span key={t} className="label-caps" style={{ cursor: 'pointer', whiteSpace: 'nowrap', fontSize: '0.65rem' }} onClick={() => showToast(`Opening ${t.toLowerCase()} control panel...`, 'info')}>{t}</span>
+                ))}
+              </div>
+            </div>
+            <h1>Evacuation Command Centre</h1>
           </div>
-          <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Compiling emergency egress report...', 'success')}>Export Intel</button>
+          <div className="page-actions">
+            <button className="btn btn-secondary" onClick={() => showToast('Compiling emergency egress report...', 'success')}>Export Intel</button>
+            <button 
+              className={`btn ${isEvacuating ? 'btn-danger' : 'btn-primary'}`} 
+              onClick={handleEvacToggle}
+            >
+              {isEvacuating ? 'TERMINATE PROTOCOL' : 'TRIGGER MASS EVACUATION'}
+            </button>
+          </div>
         </div>
-      }
-    >
+      </div>
       {/* Emergency Banner */}
       <div className={`evac-header ${isEvacuating ? 'emergency-active' : ''}`} style={{ 
         background: isEvacuating ? 'rgba(255, 71, 87, 0.15)' : 'var(--bg-elevated)',
@@ -197,6 +204,6 @@ export default function EvacuationControl() {
           </div>
         </>
       )}
-    </AppShell>
+    </>
   );
 }

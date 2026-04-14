@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
-import AttendeeShell from '../../layouts/AttendeeShell';
 
 export default function AttendeeNavigate() {
   const [loading, setLoading] = useState(true);
   const [activeLayer, setActiveLayer] = useState('wayfinding');
+  const [userLocation, setUserLocation] = useState({ x: 45, y: 60 });
+  const [destination, setDestination] = useState('Section 427');
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 800);
+    // eslint-disable-next-line react-hooks/purity
+    const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <AttendeeShell title="Tactical HUD">
+    <>
+      <div className="page-header" style={{ position: 'sticky', top: 0, zIndex: 10, background: 'var(--bg-deep)', margin: '-20px -20px 20px -20px', padding: '16px 20px', borderBottom: '1px solid var(--border-subtle)' }}>
+        <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>Digital Beacon</h2>
+      </div>
       <div className="attendee-navigate page-enter">
         {/* Advanced HUD Header */}
         <div className="card-premium" style={{ borderRadius: 24, padding: 20, marginBottom: 20, position: 'relative', overflow: 'hidden' }}>
@@ -172,6 +177,6 @@ export default function AttendeeNavigate() {
           </div>
         </div>
       </div>
-    </AttendeeShell>
+    </>
   );
 }

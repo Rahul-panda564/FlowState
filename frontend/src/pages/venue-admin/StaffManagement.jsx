@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { userApi } from '../../api';
 import InviteStaffModal from '../../components/modals/InviteStaffModal';
-import { venueAdminSidebar, venueAdminBrand, venueAdminUser } from '../../data/sidebarConfig';
 
 const permissionSets = [
   { id: 'dashboard', label: 'Dashboard Access' },
@@ -73,8 +71,6 @@ export default function StaffManagement() {
   const s = filteredStaff[selected] || filteredStaff[0] || null;
 
   const handleRevokeAccess = async (id) => {
-    if (!window.confirm('Are you sure you want to revoke system clearance for this operator? This action is irreversible.')) return;
-    
     setProcessing(true);
     try {
       await userApi.remove(id);
@@ -90,8 +86,6 @@ export default function StaffManagement() {
   const handlePermissionToggle = async (permissionId, e) => {
     if (!s) return;
     
-    // In a real app, 'permissions' would be a field in the User model.
-    // We'll simulate by updating a 'metadata' field or similar.
     try {
       await userApi.update(s._id, {
         [`permissions.${permissionId}`]: e.target.checked
@@ -103,35 +97,27 @@ export default function StaffManagement() {
   };
 
   return (
-    <AppShell 
-      sidebarItems={venueAdminSidebar} 
-      brand={venueAdminBrand.brand} 
-      brandSub={venueAdminBrand.brandSub} 
-      user={venueAdminUser}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
-            {['Directory', 'Clearance', 'Rosters'].map((t) => (
-              <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveTab(t); showToast(`Switching to ${t} panel`, 'info'); }}>{t}</span>
-            ))}
-          </div>
-          <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Compiling personnel audit report...', 'success')}>Audit</button>
-        </div>
-      }
-    >
+    <>
       <div className="page-header">
         <div className="page-header-top">
           <div>
-            <div className="page-pretitle">Personnel Matrix</div>
+            <div className="page-pretitle">Personnel Matrix / {activeTab}</div>
             <h1>Staff & Role Management</h1>
             <p className="page-subtitle">Manage your venue's human assets, assign roles, and control access permissions.</p>
           </div>
-          <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>+ Invite Member</button>
+          <div style={{ display: 'flex', gap: 12 }}>
+            <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
+              {['Directory', 'Clearance', 'Rosters'].map((t) => (
+                <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveTab(t); showToast(`Switching to ${t} panel`, 'info'); }}>{t}</span>
+              ))}
+            </div>
+            <button className="btn btn-secondary" onClick={() => showToast('Compiling personnel audit report...', 'success')}>Audit Log</button>
+            <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>+ Invite Member</button>
+          </div>
         </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 24 }}>
-        {/* Staff List */}
         <div className="card" style={{ padding: 0 }}>
           <div style={{ padding: '16px 20px', borderBottom: '1px solid var(--border-color)' }}>
             <input 
@@ -232,6 +218,6 @@ export default function StaffManagement() {
         onClose={() => setIsModalOpen(false)} 
         onInvited={fetchStaff}
       />
-    </AppShell>
+    </>
   );
 }

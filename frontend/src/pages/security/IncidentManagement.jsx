@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import AppShell from '../../layouts/AppShell';
-import { securitySidebar } from '../../data/sidebarConfig';
 import { securityData, incidentTeams } from '../../data/mockData';
 
 export default function IncidentManagement() {
@@ -31,16 +29,18 @@ export default function IncidentManagement() {
   });
 
   return (
-    <AppShell brandSub="SEC_INCIDENT_CMDR" sidebarItems={securitySidebar}>
-      <header className="panel-header">
-        <div>
-          <h1 className="mono">INCIDENT COMMAND</h1>
-          <p className="text-secondary">Active Security & Medical Response Dispatch</p>
-        </div>
-        <div style={{ display: 'flex', gap: 10 }}>
-          <button className={`btn ${filter === 'active' ? 'btn-primary' : 'btn-secondary'}`} onClick={() => setFilter('active')}>ACTIVE</button>
-          <button className={`btn ${filter === 'resolved' ? 'btn-primary' : 'btn-secondary'}`} onClick={() => setFilter('resolved')}>RESOLVED</button>
-          <button className={`btn ${filter === 'all' ? 'btn-primary' : 'btn-secondary'}`} onClick={() => setFilter('all')}>ALL LOGS</button>
+    <>
+      <header className="page-header">
+        <div className="page-header-top">
+          <div>
+            <h1 className="mono">INCIDENT COMMAND / {filter.toUpperCase()}</h1>
+            <p className="text-secondary">Active Security & Medical Response Dispatch • Node: SEC_INCIDENT_CMDR</p>
+          </div>
+          <div style={{ display: 'flex', gap: 10 }}>
+            <button className={`btn ${filter === 'active' ? 'btn-primary' : 'btn-secondary'}`} onClick={() => setFilter('active')}>ACTIVE</button>
+            <button className={`btn ${filter === 'resolved' ? 'btn-primary' : 'btn-secondary'}`} onClick={() => setFilter('resolved')}>RESOLVED</button>
+            <button className={`btn ${filter === 'all' ? 'btn-primary' : 'btn-secondary'}`} onClick={() => setFilter('all')}>ALL LOGS</button>
+          </div>
         </div>
       </header>
 
@@ -156,6 +156,6 @@ export default function IncidentManagement() {
           </div>
         </div>
       </div>
-    </AppShell>
+    </>
   );
 }

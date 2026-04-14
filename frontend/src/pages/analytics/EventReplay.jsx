@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { eventApi } from '../../api';
-import { analyticsSidebar, analyticsBrand } from '../../data/sidebarConfig';
 import { formatCurrency } from '../../utils/currency';
 
 const timelineEvents = [
@@ -38,24 +36,42 @@ export default function EventReplay() {
   const layers = ['Density', 'Revenue', 'Incidents'];
   const layerColors = { Density: 'badge-accent', Revenue: 'badge-info', Incidents: 'badge-critical' };
 
-  if (loading) return <AppShell sidebarItems={analyticsSidebar} brand={analyticsBrand.brand} brandSub={analyticsBrand.brandSub}><div style={{ padding: 60, textAlign: 'center' }}>Reconstructing Spatio-Temporal Data...</div></AppShell>;
+  if (loading) return <>
+    <div className="page-header">
+      <div className="page-header-top">
+        <div>
+          <h1>Temporal Syncing...</h1>
+        </div>
+      </div>
+    </div>
+    <div style={{ padding: 60, textAlign: 'center' }}>Reconstructing Spatio-Temporal Data...</div>
+  </>;
 
   // Simulated telemetry based on scrubber
   const currentOccupancy = Math.floor((event?.peakAttendance || 75000) * (scrubber / 100));
   const currentRevenue = (currentOccupancy * 0.15).toFixed(2);
 
   return (
-    <AppShell sidebarItems={analyticsSidebar} brand={analyticsBrand.brand} brandSub={analyticsBrand.brandSub} user={null}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div className="badge badge-accent" style={{ padding: '6px 14px' }}>{event?.name || 'Replay Node'} - {event?.date}</div>
-          {['Dashboard', 'Analytics', 'Live Map', 'Archive'].map((t, i) => (
-            <span key={t} className={i === 1 ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer' }}>{t}</span>
-          ))}
-          <button className="btn btn-primary" style={{ fontSize: '0.72rem' }}>↓ Export Intelligence</button>
+    <>
+      <div className="page-header">
+        <div className="page-header-top">
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
+              <p className="label-caps">FORENSIC ANALYSIS // SPATIO-TEMPORAL</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginLeft: 12, borderLeft: '1px solid var(--border-subtle)', paddingLeft: 12 }}>
+                {['Dashboard', 'Analytics', 'Live Map', 'Archive'].map((t, i) => (
+                  <span key={t} className={i === 1 ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', fontSize: '0.65rem' }}>{t}</span>
+                ))}
+              </div>
+            </div>
+            <h1>Event Replay: {event?.name || 'Replay Node'}</h1>
+          </div>
+          <div className="page-actions">
+            <div className="badge badge-accent" style={{ padding: '6px 14px', marginRight: 8 }}>{event?.date}</div>
+            <button className="btn btn-primary" style={{ fontSize: '0.72rem' }}>↓ Export Intelligence</button>
+          </div>
         </div>
-      }
-    >
+      </div>
       <div style={{ display: 'flex', gap: 20, marginBottom: 4 }}>
         <div>
           <div className="label-caps">Forensic Layers</div>
@@ -143,6 +159,6 @@ export default function EventReplay() {
           </div>
         </div>
       </div>
-    </AppShell>
+    </>
   );
 }

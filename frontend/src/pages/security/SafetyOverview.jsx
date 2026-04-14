@@ -1,10 +1,7 @@
-import AppShell from '../../layouts/AppShell';
 import Icon from '../../components/common/Icon';
 import GlassPanel from '../../components/common/GlassPanel';
 import StatCard from '../../components/common/StatCard';
 import { securityData } from '../../data/mockData';
-import { securitySidebar, securityBrand } from '../../data/sidebarConfig';
-
 import { useState } from 'react';
 
 export default function SafetyOverview() {
@@ -41,29 +38,25 @@ export default function SafetyOverview() {
   const incSevColors = { critical: 'badge-critical', medium: 'badge-warning', low: 'badge-neutral' };
 
   return (
-    <AppShell 
-      sidebarItems={securitySidebar} 
-      brand={securityBrand.brand} 
-      brandSub={securityBrand.brandSub} 
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-          {['All', 'Watch', 'Alert'].map((t) => (
-            <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer' }} onClick={() => { setActiveTab(t); showToast(`Filtering security nodes by ${t}`, 'info'); }}>{t}</span>
-          ))}
-          <span className="badge badge-success" style={{ padding: '6px 14px' }}>
-            <span className="status-dot online pulse" style={{ width: 6, height: 6 }}></span> 
-            CHAMPIONSHIP_ACTIVE
-          </span>
-        </div>
-      }
-    >
+    <>
       <div className="page-header">
         <div className="page-header-top">
           <div>
-            <p className="label-caps">SAFETY & SECURITY MONITORING</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
+              <p className="label-caps">SAFETY & SECURITY MONITORING</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginLeft: 12, borderLeft: '1px solid var(--border-subtle)', paddingLeft: 12 }}>
+                {['All', 'Watch', 'Alert'].map((t) => (
+                  <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', fontSize: '0.65rem' }} onClick={() => { setActiveTab(t); showToast(`Filtering security nodes by ${t}`, 'info'); }}>{t}</span>
+                ))}
+              </div>
+            </div>
             <h1>Real-Time Safety Dashboard</h1>
           </div>
           <div className="page-actions">
+            <span className="badge badge-success" style={{ padding: '6px 14px', marginRight: 12 }}>
+              <span className="status-dot online pulse" style={{ width: 6, height: 6 }}></span> 
+              CHAMPIONSHIP_ACTIVE
+            </span>
             <button className="btn btn-secondary" onClick={() => showToast('Compiling Security Audit Report...', 'success')}>
               <Icon name="export" size={14} /> Generate Report
             </button>
@@ -180,6 +173,6 @@ export default function SafetyOverview() {
           </table>
         </GlassPanel>
       </div>
-    </AppShell>
+    </>
   );
 }

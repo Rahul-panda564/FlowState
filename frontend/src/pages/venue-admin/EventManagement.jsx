@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { eventApi } from '../../api';
 import CreateEventModal from '../../components/modals/CreateEventModal';
 import EditEventModal from '../../components/modals/EditEventModal';
-import { venueAdminSidebar, venueAdminBrand, venueAdminUser } from '../../data/sidebarConfig';
 
 export default function EventManagement() {
   const [events, setEvents] = useState([]);
@@ -70,30 +68,23 @@ export default function EventManagement() {
   };
 
   return (
-    <AppShell 
-      sidebarItems={venueAdminSidebar} 
-      brand={venueAdminBrand.brand} 
-      brandSub={venueAdminBrand.brandSub} 
-      user={venueAdminUser}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
-            {['Registry', 'Calendar', 'Drafts'].map((t) => (
-              <span key={t} className={activeSubView === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveSubView(t); showToast(`Switching to ${t} view`, 'info'); }}>{t}</span>
-            ))}
-          </div>
-          <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Exporting event manifest...', 'success')}>Export Grid</button>
-        </div>
-      }
-    >
+    <>
       <div className="page-header">
         <div className="page-header-top">
           <div>
-            <div className="page-pretitle">Event Operations</div>
+            <div className="page-pretitle">Event Operations / {activeTab}</div>
             <h1>Event Management</h1>
             <p className="page-subtitle">Schedule, configure, and monitor all events within your venue infrastructure.</p>
           </div>
-          <button className="btn btn-primary" onClick={() => setIsCreateOpen(true)}>+ Create Event</button>
+          <div style={{ display: 'flex', gap: 12 }}>
+            <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
+              {['Registry', 'Calendar', 'Drafts'].map((t) => (
+                <span key={t} className={activeSubView === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveSubView(t); showToast(`Switching to ${t} view`, 'info'); }}>{t}</span>
+              ))}
+            </div>
+            <button className="btn btn-secondary" onClick={() => showToast('Exporting event manifest...', 'success')}>Export Grid</button>
+            <button className="btn btn-primary" onClick={() => setIsCreateOpen(true)}>+ Create Event</button>
+          </div>
         </div>
       </div>
 
@@ -163,6 +154,6 @@ export default function EventManagement() {
         onUpdated={fetchEvents}
         event={selectedEvent}
       />
-    </AppShell>
+    </>
   );
 }

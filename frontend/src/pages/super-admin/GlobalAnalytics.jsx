@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { globalAnalytics, sensorData, dataIngestion, revenueMetrics, venues, apiPerformance, platformHealth } from '../../data/mockData';
 import { superAdminSidebar, superAdminBrand, superAdminUser } from '../../data/sidebarConfig';
 import Icon from '../../components/common/Icon';
@@ -252,7 +251,7 @@ export default function GlobalAnalytics() {
   );
 
   return (
-    <AppShell sidebarItems={superAdminSidebar} brand={superAdminBrand.brand} brandSub={superAdminBrand.brandSub} user={superAdminUser}>
+    <>
       <div className="page-header">
         <div className="page-header-top">
           <div>
@@ -284,6 +283,6 @@ export default function GlobalAnalytics() {
         {activeTab === 'Business Intelligence' && renderBusinessIntelligence()}
         {activeTab === 'Technical Metrics' && renderTechnicalMetrics()}
       </div>
-    </AppShell>
+    </>
   );
 }

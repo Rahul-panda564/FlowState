@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import AttendeeShell from '../../layouts/AttendeeShell';
 
 const mobilityOptions = [
   { icon: '✏️', label: 'I use stairs easily' },
@@ -33,7 +32,10 @@ export default function AttendeeProfile() {
   };
 
   return (
-    <AttendeeShell title="My Journey Prefs">
+    <>
+      <div className="page-header" style={{ position: 'sticky', top: 0, zIndex: 10, background: 'var(--bg-deep)', margin: '-20px -20px 20px -20px', padding: '16px 20px', borderBottom: '1px solid var(--border-subtle)' }}>
+        <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>My Journey Prefs</h2>
+      </div>
       <div className="attendee-profile page-enter">
         <h2 style={{ fontSize: '1.4rem', lineHeight: 1.3, marginBottom: 8 }}>How can we help you move better?</h2>
         <p style={{ color: 'var(--text-secondary)', marginBottom: 24, fontSize: '0.85rem' }}>Tailor your navigation experience for the best stadium journey.</p>
@@ -83,6 +85,6 @@ export default function AttendeeProfile() {
           {isSaving ? 'SYNCING PREFERENCES...' : saved ? '✓ SAVED SUCCESSFULLY' : 'Save Preferences'}
         </button>
       </div>
-    </AttendeeShell>
+    </>
   );
 }

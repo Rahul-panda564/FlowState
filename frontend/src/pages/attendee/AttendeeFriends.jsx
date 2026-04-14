@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AttendeeShell from '../../layouts/AttendeeShell';
 import { friendsList } from '../../data/mockData';
 
 export default function AttendeeFriends() {
@@ -43,7 +42,10 @@ export default function AttendeeFriends() {
   };
 
   return (
-    <AttendeeShell title="Social Hub">
+    <>
+      <div className="page-header" style={{ position: 'sticky', top: 0, zIndex: 10, background: 'var(--bg-deep)', margin: '-20px -20px 20px -20px', padding: '16px 20px', borderBottom: '1px solid var(--border-subtle)' }}>
+        <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>Social Hub</h2>
+      </div>
       <div className="attendee-friends page-enter">
         {/* Interaction Toast */}
         {pingMessage && (
@@ -207,6 +209,6 @@ export default function AttendeeFriends() {
           </div>
         </div>
       )}
-    </AttendeeShell>
+    </>
   );
 }

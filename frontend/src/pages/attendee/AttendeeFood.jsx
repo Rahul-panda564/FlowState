@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import AttendeeShell from '../../layouts/AttendeeShell';
 import { menuItems } from '../../data/mockData';
 import { formatCurrency } from '../../utils/currency';
+
 export default function AttendeeFood() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [cart, setCart] = useState([]);
@@ -49,7 +49,10 @@ export default function AttendeeFood() {
   };
 
   return (
-    <AttendeeShell title="Express Food">
+    <>
+      <div className="page-header" style={{ position: 'sticky', top: 0, zIndex: 10, background: 'var(--bg-deep)', margin: '-20px -20px 20px -20px', padding: '16px 20px', borderBottom: '1px solid var(--border-subtle)' }}>
+        <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>Express Food</h2>
+      </div>
       <div className="attendee-food page-enter">
         {/* Active Orders Section */}
         {activeOrders.length > 0 && (
@@ -116,11 +119,11 @@ export default function AttendeeFood() {
           <div 
             onClick={() => setShowCheckout(true)}
             style={{ 
-              position: 'absolute', bottom: 90, left: 16, right: 16, 
+              position: 'fixed', bottom: 90, left: 16, right: 16, 
               background: 'var(--accent)', color: 'black', padding: '16px 20px', 
               borderRadius: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               boxShadow: '0 8px 32px rgba(0,212,170,0.4)', cursor: 'pointer',
-              animation: 'slideUp 0.3s ease-out'
+              zIndex: 1000
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -191,6 +194,6 @@ export default function AttendeeFood() {
           </div>
         )}
       </div>
-    </AttendeeShell>
+    </>
   );
 }

@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { sensorApi } from '../../api';
 import AddSensorModal from '../../components/modals/AddSensorModal';
-import { venueAdminSidebar, venueAdminBrand, venueAdminUser } from '../../data/sidebarConfig';
 
 const statusColors = { Online: 'badge-success', Offline: 'badge-critical', Planned: 'badge-neutral' };
 
@@ -78,30 +76,21 @@ export default function SensorManagement() {
   };
 
   return (
-    <AppShell 
-      sidebarItems={venueAdminSidebar} 
-      brand={venueAdminBrand.brand} 
-      brandSub={venueAdminBrand.brandSub} 
-      user={venueAdminUser}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
-            {['Monitor', 'Inventory', 'Diagnostics'].map((t) => (
-              <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveTab(t); showToast(`Switching to sensor ${t.toLowerCase()} view`, 'info'); }}>{t}</span>
-            ))}
-          </div>
-          <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Compiling hardware distribution manifest...', 'success')}>Export</button>
-        </div>
-      }
-    >
+    <>
       <div className="page-header">
         <div className="page-header-top">
           <div>
-            <div className="page-pretitle">SENSOR NETWORK STATUS</div>
+            <div className="page-pretitle">SENSOR NETWORK STATUS // {activeTab}</div>
             <h1>Sensor Management</h1>
             <p className="page-subtitle">Monitor, calibrate, and manage all sensors across your venue infrastructure.</p>
           </div>
-          <div className="page-actions">
+          <div style={{ display: 'flex', gap: 12 }}>
+            <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
+              {['Monitor', 'Inventory', 'Diagnostics'].map((t) => (
+                <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveTab(t); showToast(`Switching to sensor ${t.toLowerCase()} view`, 'info'); }}>{t}</span>
+              ))}
+            </div>
+            <button className="btn btn-secondary" onClick={() => showToast('Compiling hardware distribution manifest...', 'success')}>Export Intel</button>
             <button 
               className={`btn btn-secondary ${diagnosing ? 'loading' : ''}`} 
               onClick={handleRunDiagnostics}
@@ -244,6 +233,6 @@ export default function SensorManagement() {
         onClose={() => setIsModalOpen(false)} 
         onCreated={fetchSensors}
       />
-    </AppShell>
+    </>
   );
 }

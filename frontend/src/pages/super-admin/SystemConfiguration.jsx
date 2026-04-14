@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { settingsApi } from '../../api';
-import { superAdminSidebar, superAdminBrand, superAdminUser } from '../../data/sidebarConfig';
-import { revenueMetrics } from '../../data/mockData';
 import Icon from '../../components/common/Icon';
 import GlassPanel from '../../components/common/GlassPanel';
 import StatCard from '../../components/common/StatCard';
 import { formatCurrency } from '../../utils/currency';
+import { revenueMetrics } from '../../data/mockData';
 
 export default function SystemConfiguration() {
   const [loading, setLoading] = useState(true);
@@ -306,7 +304,7 @@ export default function SystemConfiguration() {
   );
 
   return (
-    <AppShell sidebarItems={superAdminSidebar} brand={superAdminBrand.brand} brandSub={superAdminBrand.brandSub} user={superAdminUser}>
+    <>
       <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 4 }}>
         <span className="label-accent">Terminal Console</span>
         <span className="label-caps">• V4.9.2-STABLE</span>
@@ -340,6 +338,6 @@ export default function SystemConfiguration() {
           UNSAVED_CHANGES_DETECTED // COMMIT REQUIRED TO SYNC NODES
         </div>
       )}
-    </AppShell>
+    </>
   );
 }

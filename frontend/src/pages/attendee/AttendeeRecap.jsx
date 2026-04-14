@@ -1,11 +1,13 @@
-import AttendeeShell from '../../layouts/AttendeeShell';
 import { attendeeRecap } from '../../data/mockData';
 
 export default function AttendeeRecap() {
   const d = attendeeRecap;
 
   return (
-    <AttendeeShell title="Journey Recap">
+    <>
+      <div className="page-header" style={{ position: 'sticky', top: 0, zIndex: 10, background: 'var(--bg-deep)', margin: '-20px -20px 20px -20px', padding: '16px 20px', borderBottom: '1px solid var(--border-subtle)' }}>
+        <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>Journey Recap</h2>
+      </div>
       <div className="attendee-recap page-enter">
         {/* Distance Hero */}
         <div style={{ textAlign: 'center', padding: '24px 0' }}>
@@ -76,6 +78,6 @@ export default function AttendeeRecap() {
           ⊕ Export to Story
         </button>
       </div>
-    </AttendeeShell>
+    </>
   );
 }

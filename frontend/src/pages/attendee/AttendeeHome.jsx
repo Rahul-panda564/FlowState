@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AttendeeShell from '../../layouts/AttendeeShell';
 import { venues } from '../../data/mockData';
 import { formatCurrency } from '../../utils/currency';
 
@@ -30,16 +29,16 @@ export default function AttendeeHome() {
   }, []);
 
   if (loading) return (
-    <AttendeeShell title="Syncing...">
+    <>
       <div style={{ padding: 40, textAlign: 'center', color: 'var(--accent)' }} className="pulse">
         ESTABLISHING SECURE LINK...
       </div>
-    </AttendeeShell>
+    </>
   );
 
   return (
-    <AttendeeShell title="Connect" isEvacuating={isEvacuating}>
-      <div className="attendee-home page-enter" style={{ paddingBottom: 40 }}>
+    <>
+      <div className="attendee-home" style={{ paddingBottom: 40 }}>
         
         {/* Immersive Hero Header */}
         <div style={{ 
@@ -185,6 +184,6 @@ export default function AttendeeHome() {
            </button>
         </div>
       </div>
-    </AttendeeShell>
+    </>
   );
 }

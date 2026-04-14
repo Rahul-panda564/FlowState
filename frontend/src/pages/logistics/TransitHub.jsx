@@ -1,20 +1,24 @@
 import { useState } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { transitData } from '../../data/mockData';
 
 export default function TransitHub() {
   const [data] = useState(transitData);
 
   return (
-    <AppShell brandSub="LOGISTICS_HUB" sidebarItems={[]}>
-      <header className="panel-header">
-        <div>
-          <h1 className="mono">TRANSIT & LOGISTICS</h1>
-          <p className="text-secondary">Global Mobility Intelligence • Stadium Perimeters</p>
-        </div>
-        <div className="header-status">
-          <span className="status-dot online pulse"></span>
-          <span className="mono">LINKED TO METRO_OS</span>
+    <>
+      <header className="page-header">
+        <div className="page-header-top">
+          <div>
+            <h1 className="mono">TRANSIT & LOGISTICS</h1>
+            <p className="text-secondary">Global Mobility Intelligence • Stadium Perimeters • Node: LOGISTICS_HUB</p>
+          </div>
+          <div className="header-status" style={{ display: 'flex', gap: 12 }}>
+            <span className="badge badge-info">
+              <span className="status-dot online pulse"></span>
+              METRO_OS_LINKED
+            </span>
+            <button className="btn btn-secondary" style={{ fontSize: '0.65rem' }} onClick={() => alert('RE-SYNCING WITH METRO_OS...')}>FORCE_SYNC</button>
+          </div>
         </div>
       </header>
 
@@ -138,6 +142,6 @@ export default function TransitHub() {
           </div>
         </div>
       </div>
-    </AppShell>
+    </>
   );
 }

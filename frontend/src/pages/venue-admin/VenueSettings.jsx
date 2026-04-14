@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
-import AppShell from '../../layouts/AppShell';
 import { venueProfile } from '../../data/mockData';
-import { venueAdminSidebar, venueAdminBrand } from '../../data/sidebarConfig';
 
 export default function VenueSettings() {
 
@@ -50,29 +48,19 @@ export default function VenueSettings() {
 
   const v = profile;
   return (
-    <AppShell 
-      sidebarItems={venueAdminSidebar} 
-      brand={venueAdminBrand.brand} 
-      brandSub={venueAdminBrand.brandSub} 
-      user={null}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
-            {['General', 'Policies', 'Advanced'].map((t) => (
-              <span key={t} className="label-caps" style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => showToast(`Opening ${t.toLowerCase()} configuration...`, 'info')}>{t}</span>
-            ))}
-          </div>
-          <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Broadcasting system configuration update...', 'success')}>Deploy Changes</button>
-        </div>
-      }
-    >
+    <>
       <div className="page-header">
         <div className="page-header-top">
           <div>
             <h1>Venue Profile</h1>
             <p className="page-subtitle">Configure core operational parameters and architectural mapping.</p>
           </div>
-          <div className="page-actions">
+          <div style={{ display: 'flex', gap: 12 }}>
+            <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
+              {['General', 'Policies', 'Advanced'].map((t) => (
+                <span key={t} className="label-caps" style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => showToast(`Opening ${t.toLowerCase()} configuration...`, 'info')}>{t}</span>
+              ))}
+            </div>
             <button className="btn btn-secondary" onClick={() => { setHasChanges(false); showToast('Changes Discarded'); }}>Discard</button>
             <button className="btn btn-primary" onClick={handleSave} disabled={!hasChanges}>Save Changes</button>
           </div>
@@ -195,6 +183,6 @@ export default function VenueSettings() {
           Deploy Update
         </button>
       </div>
-    </AppShell>
+    </>
   );
 }

@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AppShell from '../../layouts/AppShell';
 import { venueApi } from '../../api';
-import { superAdminSidebar, superAdminBrand } from '../../data/sidebarConfig';
 
 export default function AddVenueWizard() {
   const navigate = useNavigate();
@@ -45,27 +43,26 @@ export default function AddVenueWizard() {
   };
 
   return (
-    <AppShell sidebarItems={superAdminSidebar} brand={superAdminBrand.brand} brandSub={superAdminBrand.brandSub} user={null}
-      headerExtra={
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-          <span className="label-caps">System Monitoring</span>
-          <span className="label-caps">Asset Library</span>
-          <span className="label-accent">Venues</span>
-          <span style={{ flex: 1 }}></span>
-          <button className="btn btn-ghost" onClick={() => navigate('/super-admin/venues')}>Save & Exit</button>
-          <button className="btn btn-primary" onClick={handleNext} disabled={loading}>
-            {loading ? 'Initializing...' : step < 5 ? 'Next' : 'Complete Setup'}
-          </button>
-        </div>
-      }
-    >
+    <>
       <div className="page-header">
-        <h1>Add New Venue</h1>
-        <p className="page-subtitle">Step {step} of 5: {['Basic Information', 'Sensor Configuration', 'Digital Twin Setup', 'Integration Connections', 'User Onboarding'][step - 1]}</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+          <div>
+            <h1>Add New Venue</h1>
+            <p className="page-subtitle">Step {step} of 5: {['Basic Information', 'Sensor Configuration', 'Digital Twin Setup', 'Integration Connections', 'User Onboarding'][step - 1]}</p>
+          </div>
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <button className="btn btn-ghost" onClick={() => step > 1 ? setStep(step - 1) : navigate('/super-admin/venues')}>
+              {step > 1 ? '← Previous' : 'Cancel'}
+            </button>
+            <button className="btn btn-primary" onClick={handleNext} disabled={loading}>
+              {loading ? 'Initializing...' : step < 5 ? `Next: ${['Sensor Configuration', 'Digital Twin Setup', 'Integration Connections', 'User Onboarding', ''][step]} →` : 'Complete Setup →'}
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Wizard Steps */}
-      <div className="wizard-steps" style={{ maxWidth: 400 }}>
+      <div className="wizard-steps" style={{ maxWidth: 400, marginBottom: 24 }}>
         {[1, 2, 3, 4, 5].map(s => (
           <div key={s} className={`wizard-step ${s < step ? 'completed' : s === step ? 'current' : ''}`}></div>
         ))}
@@ -246,6 +243,6 @@ export default function AddVenueWizard() {
           {step < 5 ? `Next: ${['Sensor Configuration', 'Digital Twin Setup', 'Integration Connections', 'User Onboarding', ''][step]} →` : 'Complete Setup →'}
         </button>
       </div>
-    </AppShell>
+    </>
   );
 }

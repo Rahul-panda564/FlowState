@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import AppShell from '../../layouts/AppShell';
 import { eventApi } from '../../api';
 import { postEventReport } from '../../data/mockData';
-import { analyticsSidebar, analyticsBrand } from '../../data/sidebarConfig';
 import { formatCurrency } from '../../utils/currency';
 
 export default function PostEventReport() {
@@ -66,25 +64,41 @@ export default function PostEventReport() {
   }, []);
 
   const d = reportData || postEventReport;
-  if (loading) return <AppShell sidebarItems={analyticsSidebar} brand={analyticsBrand.brand} brandSub={analyticsBrand.brandSub}><div style={{ padding: 60, textAlign: 'center' }}>Generating Intelligence Report...</div></AppShell>;
-  return (
-    <AppShell sidebarItems={analyticsSidebar} brand={analyticsBrand.brand} brandSub={analyticsBrand.brandSub} user={null}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16, marginRight: 8 }}>
-            {['Dashboard', 'Analytics', 'Stakeholders'].map((t) => (
-              <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveTab(t); showToast(`Switching to ${t} view`, 'info'); }}>{t}</span>
-            ))}
-          </div>
-          <div style={{ display: 'flex', gap: 8 }}>
-            <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Compiling high-resolution PDF...', 'success')}>PDF</button>
-            <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Secure sharing link copied to clipboard', 'success')}>Share</button>
-            <button className="btn btn-primary" style={{ fontSize: '0.65rem', padding: '6px 12px' }} onClick={() => showToast('Report scheduled for recursive delivery', 'success')}>Schedule</button>
+  if (loading) return (
+    <>
+      <div className="page-header">
+        <div className="page-header-top">
+          <div>
+            <h1>Generating Analytics...</h1>
           </div>
         </div>
-      }
-    >
-      {/* Executive Summary */}
+      </div>
+      <div style={{ padding: 60, textAlign: 'center' }}>Generating Intelligence Report...</div>
+    </>
+  );
+
+  return (
+    <>
+      <div className="page-header">
+        <div className="page-header-top">
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
+              <p className="label-caps">POST-EVENT INTELLIGENCE // {activeTab.toUpperCase()}</p>
+              <div style={{ display: 'flex', gap: 12, marginLeft: 12, borderLeft: '1px solid var(--border-subtle)', paddingLeft: 12 }}>
+                {['Dashboard', 'Analytics', 'Stakeholders'].map((t) => (
+                  <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap', fontSize: '0.65rem' }} onClick={() => { setActiveTab(t); showToast(`Switching to ${t} view`, 'info'); }}>{t}</span>
+                ))}
+              </div>
+            </div>
+            <h1>Performance Report: {d.eventName}</h1>
+          </div>
+          <div className="page-actions">
+            <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Compiling high-resolution PDF...', 'success')}>PDF Export</button>
+            <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Secure sharing link copied to clipboard', 'success')}>Share</button>
+            <button className="btn btn-primary" style={{ fontSize: '0.65rem', padding: '6px 12px' }} onClick={() => showToast('Report scheduled for recursive delivery', 'success')}>Schedule Audit</button>
+          </div>
+        </div>
+      </div>
       <div className="card card-accent" style={{ marginBottom: 24, padding: '28px 32px' }}>
         <div className="grid-2" style={{ gridTemplateColumns: '1.5fr 1fr' }}>
           <div>
@@ -257,6 +271,6 @@ export default function PostEventReport() {
           ))}
         </div>
       </div>
-    </AppShell>
+    </>
   );
 }

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import AppShell from '../../layouts/AppShell';
 import { sandboxData } from '../../data/mockData';
 import { operationsSidebar, operationsBrand } from '../../data/sidebarConfig';
 import { formatCurrency } from '../../utils/currency';
@@ -47,20 +46,7 @@ export default function WhatIfSandbox() {
     }, 3000);
   };
   return (
-    <AppShell 
-      sidebarItems={operationsSidebar} 
-      brand={operationsBrand.brand} 
-      brandSub={operationsBrand.brandSub} 
-      user={null}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-          {['Parameters', 'Scenarios', 'Historical'].map((t) => (
-            <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveTab(t); showToast(`Loading simulation set: ${t}`, 'info'); }}>{t}</span>
-          ))}
-          <button className="btn btn-secondary" style={{ fontSize: '0.62rem', padding: '4px 12px' }} onClick={() => showToast('Predictive model weights updated', 'success')}>Update Model</button>
-        </div>
-      }
-    >
+    <>
       <div className="page-header">
         <div className="page-header-top">
           <div>
@@ -174,6 +160,6 @@ export default function WhatIfSandbox() {
           </div>
         </div>
       </div>
-    </AppShell>
+    </>
   );
 }

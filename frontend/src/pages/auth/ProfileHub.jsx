@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import AppShell from '../../layouts/AppShell';
 import GlassPanel from '../../components/common/GlassPanel';
 import Icon from '../../components/common/Icon';
 
 export default function ProfileHub() {
+  const [activeTab, setActiveTab] = useState('Identity');
   const location = useLocation();
-  const initialTab = location.state?.activeTab || 'Identity';
-  const [activeTab, setActiveTab] = useState(initialTab);
 
-  // Sync tab if triggered via header dropdown while already on page
   useEffect(() => {
     if (location.state?.activeTab) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveTab(location.state.activeTab);
     }
   }, [location.state]);
@@ -49,26 +45,25 @@ export default function ProfileHub() {
   ];
 
   return (
-    <AppShell 
-      headerExtra={
-        <div style={{ display: 'flex', gap: 12 }}>
-          {['Identity', 'Security', 'Activity Log'].map(t => (
-            <span 
-              key={t} 
-              className={activeTab === t ? 'label-accent' : 'label-caps'} 
-              style={{ cursor: 'pointer' }}
-              onClick={() => setActiveTab(t)}
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-      }
-    >
+    <>
       <div className="page-header page-enter">
         <div className="page-header-top">
           <div>
-            <div className="page-pretitle">USER_MANAGEMENT // CLEARANCE_LEVEL_4</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
+              <p className="page-pretitle">USER_MANAGEMENT // CLEARANCE_LEVEL_4</p>
+              <div style={{ display: 'flex', gap: 12, marginLeft: 12, borderLeft: '1px solid var(--border-subtle)', paddingLeft: 12 }}>
+                {['Identity', 'Security', 'Activity Log'].map(t => (
+                  <span 
+                    key={t} 
+                    className={activeTab === t ? 'label-accent' : 'label-caps'} 
+                    style={{ cursor: 'pointer', fontSize: '0.65rem' }}
+                    onClick={() => setActiveTab(t)}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
             <h1>User Profile & Security Hub</h1>
           </div>
           <button className="btn btn-secondary" onClick={() => showToast('Syncing profile with central node...', 'info')}>Sync Identity</button>
@@ -191,6 +186,6 @@ export default function ProfileHub() {
           )}
         </div>
       </div>
-    </AppShell>
+    </>
   );
 }

@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AppShell from '../../layouts/AppShell';
 import { superAdminSidebar, superAdminBrand, superAdminUser } from '../../data/sidebarConfig';
 import { venueApi } from '../../api';
 
@@ -35,8 +34,8 @@ export default function VenueManagement() {
   const tierColors = { enterprise: 'badge-accent', pro: 'badge-info', starter: 'badge-neutral' };
 
   return (
-    <AppShell sidebarItems={superAdminSidebar} brand={superAdminBrand.brand} brandSub={superAdminBrand.brandSub} user={superAdminUser}>
-      <div className="page-header page-enter">
+    <>
+      <div className="page-header">
         <div className="page-pretitle"><span className="status-dot online"></span> DIRECTORY NODE: MASTER</div>
         <div className="page-header-top">
           <div>
@@ -178,6 +177,6 @@ export default function VenueManagement() {
           </div>
         </div>
       </div>
-    </AppShell>
+    </>
   );
 }

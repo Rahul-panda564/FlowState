@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AppShell from '../../layouts/AppShell';
 import Icon from '../../components/common/Icon';
 import GlassPanel from '../../components/common/GlassPanel';
 import StatCard from '../../components/common/StatCard';
@@ -80,24 +79,7 @@ export default function VenueCommandCenter() {
   ];
 
   return (
-    <AppShell 
-      sidebarItems={venueAdminSidebar} 
-      brand={venueAdminBrand.brand} 
-      brandSub={venueAdminBrand.brandSub} 
-      user={null}
-      headerExtra={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ display: 'flex', gap: 12, borderRight: '1px solid var(--border-subtle)', paddingRight: 16 }}>
-            {['Overview', 'Traffic', 'Network'].map((t) => (
-              <span key={t} className={activeTab === t ? 'label-accent' : 'label-caps'} style={{ cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => { setActiveTab(t); showToast(`Switching to ${t} telemetry`, 'info'); }}>{t}</span>
-            ))}
-          </div>
-          <button className="btn btn-secondary" style={{ fontSize: '0.65rem', padding: '6px 10px' }} onClick={() => showToast('Syncing all stadium nodes...', 'success')}>Sync Hub</button>
-        </div>
-      }
-    >
-
-
+    <>
       <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr 1fr', gap: 20, marginBottom: 20 }}>
         {/* Zone A: Technical & Core Metrics */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -241,6 +223,6 @@ export default function VenueCommandCenter() {
           <span className="badge badge-neutral">v2.4.92-STABLE</span>
         </div>
       </GlassPanel>
-    </AppShell>
+    </>
   );
 }

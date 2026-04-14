@@ -1062,11 +1062,6 @@ h4 {
   }
 }
 
-/* ── Page Transitions ────────────────────────────────────── */
-.page-enter {
-  animation: fadeIn 0.3s ease;
-}
-
 /* ── App Shell ───────────────────────────────────────────── */
 .app-shell {
   display: flex;
