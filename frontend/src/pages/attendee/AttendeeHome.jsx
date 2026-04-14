@@ -1,0 +1,185 @@
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AttendeeShell from '../../layouts/AttendeeShell';
+import { venues } from '../../data/mockData';
+import { formatCurrency } from '../../utils/currency';
+
+export default function AttendeeHome() {
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState('Fan');
+  const [venue, setVenue] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [isEvacuating, setIsEvacuating] = useState(false);
+
+  // Mock fetching current venue context
+  const fetchLiveStatus = () => {
+    setVenue(venues[0]);
+    const lastUser = localStorage.getItem('flowstate_last_user');
+    if (lastUser) {
+      // In a real app, fetch name from Firestore. Here we use email prefix or stored name.
+      const name = lastUser.split('@')[0];
+      setUserName(name.charAt(0).toUpperCase() + name.slice(1));
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchLiveStatus();
+    const i = setInterval(fetchLiveStatus, 3000);
+    return () => clearInterval(i);
+  }, []);
+
+  if (loading) return (
+    <AttendeeShell title="Syncing...">
+      <div style={{ padding: 40, textAlign: 'center', color: 'var(--accent)' }} className="pulse">
+        ESTABLISHING SECURE LINK...
+      </div>
+    </AttendeeShell>
+  );
+
+  return (
+    <AttendeeShell title="Connect" isEvacuating={isEvacuating}>
+      <div className="attendee-home page-enter" style={{ paddingBottom: 40 }}>
+        
+        {/* Immersive Hero Header */}
+        <div style={{ 
+          position: 'relative', 
+          margin: '-20px -20px 24px -20px', 
+          padding: '40px 24px 30px',
+          background: isEvacuating ? 'radial-gradient(circle at top, rgba(255, 71, 87, 0.4), var(--bg-deep))' : 'radial-gradient(circle at top, rgba(0, 212, 170, 0.15), var(--bg-deep))',
+          overflow: 'hidden'
+        }}>
+          {/* Grid bg */}
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(var(--border-subtle) 1px, transparent 1px)', backgroundSize: '15px 15px', opacity: 0.2 }} />
+          
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <h1 style={{ 
+              fontSize: '2.2rem', 
+              fontWeight: 900, 
+              background: isEvacuating ? 'var(--status-alert)' : 'linear-gradient(90deg, #fff, var(--accent))', 
+              WebkitBackgroundClip: 'text', 
+              WebkitTextFillColor: 'transparent',
+              lineHeight: 1.1,
+              marginBottom: 8
+            }}>
+              {isEvacuating ? 'EVACUATE' : `Namaste, ${userName}.`}
+            </h1>
+            <p style={{ color: isEvacuating ? 'var(--status-alert)' : 'var(--text-secondary)', fontSize: '0.95rem' }}>
+              {isEvacuating ? 'Emergency protocol initialized.' : `Digital Pass Active • ${venue?.name}`}
+            </p>
+          </div>
+        </div>
+
+        {/* Premium Digital Ticket */}
+        <div className="glass-card-accent" style={{ 
+            background: 'rgba(255,255,255,0.03)', 
+            backdropFilter: 'blur(20px)',
+            borderRadius: 24, 
+            padding: 20, 
+            marginBottom: 24, 
+            border: `1px solid ${isEvacuating ? 'var(--status-alert)' : 'var(--accent-border)'}`,
+            boxShadow: isEvacuating ? '0 10px 40px rgba(255, 71, 87, 0.2)' : '0 10px 40px rgba(0, 212, 170, 0.08)'
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+            <div className="label-accent" style={{ color: isEvacuating ? 'var(--status-alert)' : 'var(--accent)', fontSize: '0.75rem' }}>
+              ✦ SMART TICKET
+            </div>
+            <div className={`status-dot pulse ${isEvacuating ? 'critical' : 'online'}`} />
+          </div>
+
+          <div style={{ padding: '0 10px', display: 'flex', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: 4 }}>Gate</div>
+              <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 700 }}>{isEvacuating ? 'EXT 4' : 'G-6'}</div>
+            </div>
+            <div style={{ borderLeft: '1px dashed var(--border-color)', margin: '0 20px' }}></div>
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: 4 }}>Section</div>
+              <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--text-primary)' }}>427</div>
+            </div>
+          </div>
+
+          <button 
+            onClick={() => navigate('/attendee/navigate')} 
+            className={`btn w-full`} 
+            style={{ 
+              marginTop: 24, 
+              padding: '16px', 
+              fontSize: '0.9rem',
+              borderRadius: 14,
+              background: isEvacuating ? 'var(--status-alert)' : 'rgba(0, 212, 170, 0.1)',
+              color: isEvacuating ? '#fff' : 'var(--accent)',
+              border: isEvacuating ? 'none' : '1px solid var(--accent-border)',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91"/></svg>
+              {isEvacuating ? 'INITIATE EVACUATION ROUTE' : 'ACTIVATE NAVIGATION'}
+            </div>
+          </button>
+        </div>
+
+        {/* Dynamic Activity Hub */}
+        {!isEvacuating && (
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 24 }}>
+            <div className="card hover-scale" onClick={() => navigate('/attendee/food')} style={{ padding: 16, cursor: 'pointer', borderRadius: 18, border: '1px solid var(--border-subtle)', background: 'linear-gradient(145deg, var(--bg-card), var(--bg-deep))' }}>
+              <div style={{ fontSize: '1.8rem', marginBottom: 8 }}>🍔</div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Express Food</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--status-ok)', marginTop: 4 }}>+2 Quick Lines</div>
+            </div>
+            
+            <div className="card hover-scale" onClick={() => navigate('/attendee/friends')} style={{ padding: 16, cursor: 'pointer', borderRadius: 18, border: '1px solid var(--border-subtle)', background: 'linear-gradient(145deg, var(--bg-card), var(--bg-deep))' }}>
+              <div style={{ fontSize: '1.8rem', marginBottom: 8 }}>📡</div>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Friend Radar</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--accent)', marginTop: 4 }}>3 Friends Nearby</div>
+            </div>
+          </div>
+        )}
+
+        {/* Transit Intelligence Section */}
+        {!isEvacuating && (
+          <div style={{ marginTop: 24 }}>
+            <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
+              TRANSIT HUB
+              <span className="badge badge-accent" style={{ fontSize: '0.5rem' }}>LIVE</span>
+            </h3>
+            <div className="card" style={{ padding: 0, borderRadius: 20, overflow: 'hidden' }}>
+              <div style={{ padding: 16, borderBottom: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem' }}>🚆</div>
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Blue Line Terminal</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>To Downtown</div>
+                  </div>
+                </div>
+                <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--accent)' }}>4m</div>
+              </div>
+              <div style={{ display: 'flex', background: 'rgba(0,0,0,0.2)' }}>
+                <div style={{ flex: 1, padding: 16, textAlign: 'center', borderRight: '1px solid var(--border-subtle)' }}>
+                  <div className="label-accent" style={{ fontSize: '0.6rem', marginBottom: 4 }}>PARKING P2</div>
+                  <div className="mono" style={{ fontWeight: 700 }}>45% FULL</div>
+                </div>
+                <div style={{ flex: 1, padding: 16, textAlign: 'center' }}>
+                  <div className="label-accent" style={{ fontSize: '0.6rem', marginBottom: 4 }}>SHUTTLE B</div>
+                  <div className="mono" style={{ fontWeight: 700 }}>8m WAIT</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Debug/Emergency Sim */}
+        <div style={{ marginTop: 40, textAlign: 'center' }}>
+           <button 
+             onClick={() => setIsEvacuating(!isEvacuating)}
+             className={`badge ${isEvacuating ? 'badge-neutral' : 'badge-critical'}`}
+             style={{ cursor: 'pointer', opacity: 0.5 }}
+           >
+             {isEvacuating ? 'RESET SIMULATION' : 'SIMULATE EMERGENCY PROTOCOL'}
+           </button>
+        </div>
+      </div>
+    </AttendeeShell>
+  );
+}
