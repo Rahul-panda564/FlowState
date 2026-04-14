@@ -53,10 +53,11 @@ export default function AttendeeFood() {
       <div className="attendee-food page-enter">
         {/* Active Orders Section */}
         {activeOrders.length > 0 && (
-          <div style={{ marginBottom: 24 }}>
-            <div className="label-accent" style={{ marginBottom: 12 }}>ACTIVE ORDERS</div>
+          <div style={{ marginBottom: 24 }} className="stagger-item">
+            <div className="label-hud" style={{ marginBottom: 12 }}>ACTIVE_ORDERS // HUB_SYNC</div>
             {activeOrders.map(order => (
-              <div key={order.id} className="card" style={{ padding: 16, marginBottom: 10, borderLeft: '4px solid var(--status-warning)' }}>
+              <div key={order.id} className="card-premium" style={{ padding: 20, marginBottom: 12, borderLeft: '4px solid var(--status-warning)', borderRadius: 16 }}>
+                <div style={{ position: 'absolute', top: 12, right: 16, fontSize: '0.6rem', color: 'var(--status-warning)' }} className="mono data-pulse">TRACKING...</div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
                   <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>{order.id}</span>
                   <span className="badge badge-warning" style={{ fontSize: '0.6rem' }}>{order.status}</span>
@@ -88,23 +89,23 @@ export default function AttendeeFood() {
         </div>
 
         {/* Menu Grid */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {filteredItems.map((item, idx) => (
-            <div key={idx} className="food-card">
-              <div className="food-card-img" style={{ background: '#1a2332', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>
+            <div key={idx} className="card-premium stagger-item" style={{ display: 'flex', padding: 12, borderRadius: 20, animationDelay: `${(idx % 5) * 0.1}s` }}>
+              <div style={{ width: 80, height: 80, borderRadius: 16, background: 'var(--bg-deep)', border: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>
                 {item.category === 'Beverages' ? '🥤' : item.category === 'Fast Food' ? '🍔' : '🥗'}
               </div>
-              <div className="food-card-info">
-                <div className="food-card-name">{item.name}</div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: 4 }}>{item.standName}</div>
-                <div className="food-card-price">{formatCurrency(item.price)}</div>
+              <div style={{ flex: 1, paddingLeft: 16, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div style={{ fontWeight: 800, fontSize: '1rem', color: 'white', marginBottom: 2 }}>{item.name}</div>
+                <div className="label-hud" style={{ fontSize: '0.62rem', marginBottom: 6 }}>{item.standName}</div>
+                <div className="mono" style={{ fontWeight: 800, color: 'var(--accent)', fontSize: '1.1rem' }}>{formatCurrency(item.price)}</div>
               </div>
               <button 
                 onClick={() => addToCart(item)}
-                className="btn-icon" 
-                style={{ alignSelf: 'center', background: 'var(--accent-dim)', color: 'var(--accent)', border: 'none' }}
+                className="btn-premium" 
+                style={{ alignSelf: 'center', width: 44, height: 44, padding: 0, borderRadius: 12 }}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </button>
             </div>
           ))}

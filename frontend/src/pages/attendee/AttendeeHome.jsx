@@ -54,15 +54,16 @@ export default function AttendeeHome() {
           
           <div style={{ position: 'relative', zIndex: 2 }}>
             <h1 style={{ 
-              fontSize: '2.2rem', 
+              fontSize: '2.5rem', 
               fontWeight: 900, 
               background: isEvacuating ? 'var(--status-alert)' : 'linear-gradient(90deg, #fff, var(--accent))', 
               WebkitBackgroundClip: 'text', 
               WebkitTextFillColor: 'transparent',
-              lineHeight: 1.1,
-              marginBottom: 8
+              lineHeight: 1,
+              marginBottom: 10,
+              letterSpacing: '-0.03em'
             }}>
-              {isEvacuating ? 'EVACUATE' : `Namaste, ${userName}.`}
+              {isEvacuating ? 'EVACUATE' : userName ? `NAMASTE, ${userName}.` : 'NAMASTE.'}
             </h1>
             <p style={{ color: isEvacuating ? 'var(--status-alert)' : 'var(--text-secondary)', fontSize: '0.95rem' }}>
               {isEvacuating ? 'Emergency protocol initialized.' : `Digital Pass Active • ${venue?.name}`}
@@ -71,15 +72,15 @@ export default function AttendeeHome() {
         </div>
 
         {/* Premium Digital Ticket */}
-        <div className="glass-card-accent" style={{ 
-            background: 'rgba(255,255,255,0.03)', 
-            backdropFilter: 'blur(20px)',
-            borderRadius: 24, 
-            padding: 20, 
+        <div className="card-premium stagger-item" style={{ 
+            borderRadius: 28, 
+            padding: 24, 
             marginBottom: 24, 
-            border: `1px solid ${isEvacuating ? 'var(--status-alert)' : 'var(--accent-border)'}`,
-            boxShadow: isEvacuating ? '0 10px 40px rgba(255, 71, 87, 0.2)' : '0 10px 40px rgba(0, 212, 170, 0.08)'
+            border: `1px solid ${isEvacuating ? 'var(--status-alert)' : 'var(--border-accent)'}`,
+            boxShadow: isEvacuating ? '0 10px 40px rgba(255, 71, 87, 0.2)' : 'var(--shadow-card)',
+            animationDelay: '0.1s'
         }}>
+          <div style={{ position: 'absolute', top: 12, right: 24, fontSize: '0.6rem', color: isEvacuating ? 'var(--status-alert)' : 'var(--accent)', opacity: 0.5 }} className="mono">SYST_LINK_OK</div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
             <div className="label-accent" style={{ color: isEvacuating ? 'var(--status-alert)' : 'var(--accent)', fontSize: '0.75rem' }}>
               ✦ SMART TICKET
@@ -122,17 +123,21 @@ export default function AttendeeHome() {
 
         {/* Dynamic Activity Hub */}
         {!isEvacuating && (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 24 }}>
-            <div className="card hover-scale" onClick={() => navigate('/attendee/food')} style={{ padding: 16, cursor: 'pointer', borderRadius: 18, border: '1px solid var(--border-subtle)', background: 'linear-gradient(145deg, var(--bg-card), var(--bg-deep))' }}>
-              <div style={{ fontSize: '1.8rem', marginBottom: 8 }}>🍔</div>
-              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Express Food</div>
-              <div style={{ fontSize: '0.7rem', color: 'var(--status-ok)', marginTop: 4 }}>+2 Quick Lines</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }}>
+            <div className="card-premium hover-scale stagger-item" onClick={() => navigate('/attendee/food')} style={{ padding: 20, cursor: 'pointer', borderRadius: 20, animationDelay: '0.2s' }}>
+              <div style={{ fontSize: '2rem', marginBottom: 12 }}>🍔</div>
+              <div style={{ fontWeight: 800, fontSize: '1rem', color: 'white' }}>Express Food</div>
+              <div style={{ fontSize: '0.72rem', color: 'var(--status-ok)', marginTop: 6, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span className="status-dot online small pulse"></span> 2 Quick Lines
+              </div>
             </div>
             
-            <div className="card hover-scale" onClick={() => navigate('/attendee/friends')} style={{ padding: 16, cursor: 'pointer', borderRadius: 18, border: '1px solid var(--border-subtle)', background: 'linear-gradient(145deg, var(--bg-card), var(--bg-deep))' }}>
-              <div style={{ fontSize: '1.8rem', marginBottom: 8 }}>📡</div>
-              <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Friend Radar</div>
-              <div style={{ fontSize: '0.7rem', color: 'var(--accent)', marginTop: 4 }}>3 Friends Nearby</div>
+            <div className="card-premium hover-scale stagger-item" onClick={() => navigate('/attendee/friends')} style={{ padding: 20, cursor: 'pointer', borderRadius: 20, animationDelay: '0.25s' }}>
+              <div style={{ fontSize: '2rem', marginBottom: 12 }}>📡</div>
+              <div style={{ fontWeight: 800, fontSize: '1rem', color: 'white' }}>Friend Radar</div>
+              <div style={{ fontSize: '0.72rem', color: 'var(--accent)', marginTop: 6, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span className="status-dot online small"></span> 3 Nearby
+              </div>
             </div>
           </div>
         )}

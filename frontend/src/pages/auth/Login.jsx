@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../../firebase';
 import {
@@ -15,6 +15,18 @@ export default function Login() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showAccessModal, setShowAccessModal] = useState(false);
+
+  // Ensure field is empty on mount to prevent browser pre-fill
+  useEffect(() => {
+    // Small timeout to ensure browser autofill is cleared after it tries to populate
+    const timer = setTimeout(() => {
+      setEmail('');
+      setPassword('');
+      // Also clear any lingering session metadata that might trigger autofill
+      localStorage.removeItem('flowstate_last_user');
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -103,9 +115,10 @@ export default function Login() {
       {/* Dynamic Background */}
       <div className="auth-bg-blur" />
       <div className="auth-overlay-glow" />
+      <div className="hud-scanline" style={{ opacity: 0.1 }} />
 
-      <div className="auth-container" style={{ display: 'flex', gap: 24, maxWidth: 900, width: '95%' }}>
-        <div className="auth-card glass-panel" style={{ flex: 1.2 }}>
+      <div className="auth-container page-enter" style={{ display: 'flex', gap: 24, maxWidth: 900, width: '95%' }}>
+        <div className="auth-card glass-panel stagger-item" style={{ flex: 1.2, animationDelay: '0.1s' }}>
           <div className="auth-header">
             <div className="brand-logo">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2.5">
@@ -142,7 +155,7 @@ export default function Login() {
                   placeholder="name@gmail.com"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  autoComplete="off"
+                  autoComplete="chrome-off"
                   required
                 />
               </div>
@@ -162,7 +175,7 @@ export default function Login() {
                   placeholder="••••••••••••"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  autoComplete="off"
+                  autoComplete="new-password"
                   required
                 />
               </div>
@@ -187,7 +200,7 @@ export default function Login() {
         </div>
 
         {/* DEMO BYPASS PANEL */}
-        <div className="auth-card glass-panel demo-bypass-panel" style={{ flex: 0.8, background: 'rgba(0, 212, 170, 0.03)', border: '1px solid rgba(0, 212, 170, 0.2)' }}>
+        <div className="auth-card glass-panel demo-bypass-panel stagger-item" style={{ flex: 0.8, background: 'rgba(0, 212, 170, 0.03)', border: '1px solid rgba(0, 212, 170, 0.2)', animationDelay: '0.2s' }}>
           <div className="auth-header">
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent)', marginBottom: 8 }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>

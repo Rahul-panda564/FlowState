@@ -18,6 +18,19 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
   const [isGoogleAuth, setIsGoogleAuth] = useState(false);
 
+  // Force clear any browser autofill on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Only clear if not already set by Google Auth redirect
+      if (!location.state?.googleUser) {
+        setEmail('');
+        setPassword('');
+        setName('');
+      }
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [location.state]);
+
   // Check for redirected Google User on Mount
   useEffect(() => {
     if (location.state?.googleUser) {
@@ -86,7 +99,7 @@ export default function Signup() {
       <div className="auth-bg-blur" />
       <div className="auth-overlay-glow" />
 
-      <div className="auth-container" style={{
+      <div className="auth-container page-enter" style={{
         display: 'flex',
         gap: 40,
         maxWidth: 1000,
@@ -95,7 +108,7 @@ export default function Signup() {
         alignItems: 'stretch',
         marginTop: '-2vh'
       }}>
-        <div className="auth-card glass-panel" style={{ flex: 1.2 }}>
+        <div className="auth-card glass-panel stagger-item" style={{ flex: 1.2, animationDelay: '0.1s' }}>
           <div className="auth-header">
             <div className="brand-logo">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2.5">
@@ -136,6 +149,7 @@ export default function Signup() {
                   placeholder="Your Name"
                   value={name}
                   onChange={e => setName(e.target.value)}
+                  autoComplete="chrome-off"
                   required
                 />
               </div>
@@ -150,7 +164,7 @@ export default function Signup() {
                   placeholder="name@gmail.com"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  autoComplete="off"
+                  autoComplete="new-email"
                   required
                 />
               </div>
@@ -167,7 +181,7 @@ export default function Signup() {
                   placeholder="••••••••••••"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  autoComplete="off"
+                  autoComplete="new-password"
                   required
                 />
               </div>
@@ -188,12 +202,13 @@ export default function Signup() {
         </div>
 
         {/* FAN DEMO BYPASS PANEL */}
-        <div className="auth-card glass-panel demo-bypass-panel" style={{
+        <div className="auth-card glass-panel demo-bypass-panel stagger-item" style={{
           flex: 0.8,
           background: 'rgba(59, 130, 246, 0.03)',
           border: '1px solid rgba(59, 130, 246, 0.2)',
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          animationDelay: '0.2s'
         }}>
           <div className="auth-header">
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#3b82f6', marginBottom: 8 }}>

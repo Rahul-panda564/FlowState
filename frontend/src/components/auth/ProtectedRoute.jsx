@@ -13,7 +13,8 @@ export default function ProtectedRoute({ children, allowedRoles }) {
   const userEmail = localStorage.getItem('flowstate_last_user');
   const userRole = localStorage.getItem(`flowstate_role_${userEmail}`);
 
-  // 1. If no user is logged in, redirect to login
+  // 1. If no user is logged in, redirect to appropriate login page
+  // 1. If no user is logged in, redirect to login page
   if (!userEmail) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }

@@ -36,7 +36,7 @@ export default function VenueManagement() {
 
   return (
     <AppShell sidebarItems={superAdminSidebar} brand={superAdminBrand.brand} brandSub={superAdminBrand.brandSub} user={superAdminUser}>
-      <div className="page-header">
+      <div className="page-header page-enter">
         <div className="page-pretitle"><span className="status-dot online"></span> DIRECTORY NODE: MASTER</div>
         <div className="page-header-top">
           <div>
@@ -50,7 +50,8 @@ export default function VenueManagement() {
       </div>
 
       {/* Filters */}
-      <div className="card" style={{ marginBottom: 20, padding: 20 }}>
+      <div className="card-premium stagger-item" style={{ marginBottom: 20, padding: 24, borderRadius: 'var(--radius-md)', animationDelay: '0.1s' }}>
+        <div style={{ position: 'absolute', top: 0, right: 20, fontSize: '0.6rem', color: 'var(--accent)', opacity: 0.4, fontFamily: 'var(--font-mono)' }}>FILTER_MODULE_ACTIVE</div>
         <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1.5fr', gap: 16, alignItems: 'end' }}>
           <div>
             <div className="label-caps" style={{ marginBottom: 8 }}>Global Search</div>
@@ -82,7 +83,8 @@ export default function VenueManagement() {
       </div>
 
       {/* Venue Table */}
-      <div className="card" style={{ padding: 0 }}>
+      <div className="card-premium stagger-item" style={{ padding: 0, borderRadius: 'var(--radius-md)', animationDelay: '0.2s' }}>
+        <div style={{ position: 'absolute', top: 12, right: 24, fontSize: '0.55rem', color: 'var(--accent)', opacity: 0.3, fontFamily: 'var(--font-mono)' }}>NODE_CLUSTER_SYNC: 0.42ms</div>
         <table className="data-table">
           <thead>
             <tr>

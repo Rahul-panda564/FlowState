@@ -25,7 +25,11 @@ export default function AttendeeShell({ children, title, isEvacuating }) {
   ];
 
   return (
-    <div className={`mobile-shell ${isEvacuating ? 'emergency-mode' : ''}`}>
+    <div className={`mobile-shell ${isEvacuating ? 'emergency-mode' : ''} page-enter`}>
+      <div className="hud-scanline" style={{ opacity: 0.1 }} />
+      {/* Background Decor */}
+      <div style={{ position: 'fixed', inset: 0, backgroundImage: 'radial-gradient(var(--hud-grid) 1.5px, transparent 0)', backgroundSize: '32px 32px', opacity: 0.4, zIndex: -1, pointerEvents: 'none' }} />
+      
       {/* Emergency Alert Banner */}
       {isEvacuating && (
         <div style={{ background: 'var(--status-alert)', color: 'white', padding: '12px 16px', textAlign: 'center', fontWeight: 700, animation: 'pulse-dot 1.5s infinite', position: 'sticky', top: 0, zIndex: 100 }}>
@@ -62,7 +66,18 @@ export default function AttendeeShell({ children, title, isEvacuating }) {
             key={item.path}
             className={`mobile-nav-item ${location.pathname === item.path ? 'active' : ''}`}
             onClick={() => navigate(item.path)}
+            style={{ position: 'relative' }}
           >
+            {location.pathname === item.path && (
+              <div 
+                className="data-pulse" 
+                style={{ 
+                  position: 'absolute', top: -5, left: '50%', transform: 'translateX(-50%)', 
+                  width: 32, height: 2, background: 'var(--accent)', 
+                  boxShadow: '0 0 10px var(--accent)' 
+                }} 
+              />
+            )}
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">{item.iconPath}</svg>
             {item.label}
           </button>

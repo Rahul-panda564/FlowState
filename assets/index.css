@@ -1473,7 +1473,7 @@ h4 {
 .auth-bg-blur {
   position: absolute;
   inset: 0;
-  background: url("/FlowState/assets/images/hero-cinematic.png") center/cover no-repeat;
+  background: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat;
   filter: blur(40px) brightness(0.35) saturate(0.8);
   transform: scale(1.1);
   z-index: 1;
@@ -2363,7 +2363,7 @@ h4 {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: url("/FlowState/assets/images/hero-cinematic.png") center/cover no-repeat;
+  background: url("https://images.unsplash.com/photo-1540747913346-19e3adca174f?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat;
   filter: brightness(0.5) saturate(1.2);
 }
 
@@ -2967,6 +2967,7 @@ h4 {
   margin-bottom: clamp(12px, 3vh, 24px);
   background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
 }

@@ -65,7 +65,7 @@ export default function ProfileHub() {
         </div>
       }
     >
-      <div className="page-header">
+      <div className="page-header page-enter">
         <div className="page-header-top">
           <div>
             <div className="page-pretitle">USER_MANAGEMENT // CLEARANCE_LEVEL_4</div>
@@ -78,9 +78,9 @@ export default function ProfileHub() {
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(250px, 0.8fr) 2fr', gap: 24 }}>
         {/* Sidebar Mini-Card */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-          <GlassPanel style={{ textAlign: 'center', padding: '32px 20px' }}>
-            <div className="sidebar-avatar" style={{ width: 80, height: 80, fontSize: '2rem', margin: '0 auto 16px', background: 'var(--accent-dim)', color: 'var(--accent)', border: '2px solid var(--accent-border)' }}>R</div>
-            <h2 style={{ marginBottom: 4 }}>Rahul</h2>
+          <GlassPanel className="stagger-item" style={{ textAlign: 'center', padding: '40px 24px', animationDelay: '0.1s' }}>
+            <div className="sidebar-avatar data-pulse" style={{ width: 100, height: 100, fontSize: '2.5rem', margin: '0 auto 20px', background: 'var(--accent-dim)', color: 'var(--accent)', border: '2px solid var(--accent-border)', boxShadow: '0 0 30px rgba(0, 212, 170, 0.2)' }}>R</div>
+            <h2 style={{ marginBottom: 4, letterSpacing: '0.02em' }}>Rahul</h2>
             <div className="label-accent" style={{ marginBottom: 16 }}>Venue Administrator</div>
             <div style={{ padding: '12px', background: 'var(--bg-deep)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', textAlign: 'left' }}>
               <div className="label-caps" style={{ fontSize: '0.65rem', marginBottom: 4 }}>Last Login</div>

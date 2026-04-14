@@ -2,6 +2,13 @@ import { useState, useEffect, useRef, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
 
+// Import high-fidelity assets
+import featureAi from '../assets/feature-ai.png';
+import featureTwin from '../assets/digital-twin.png';
+import featureOps from '../assets/feature-ops.png';
+import techIcons from '../assets/tech-icons.png';
+import fanIcons from '../assets/fan-icons.png';
+
 // ── Animated counter hook ──────────────────────────────────
 function useCountUp(end, duration = 2000, start = 0) {
   const [value, setValue] = useState(start);
@@ -70,15 +77,15 @@ export default function LandingPage() {
   const [stat4, stat4Ref] = useCountUp(30, 1800);
 
   const features = [
-    { icon: '🧠', title: 'Predictive Intelligence', desc: 'AI-powered models forecast crowd behavior 60 minutes ahead with 92% accuracy, enabling proactive safety measures.', tag: 'AI/ML' },
-    { icon: '🏟️', title: 'Digital Twin Technology', desc: 'Real-time 3D replicas of your venue, updated with live sensor data for complete situational awareness.', tag: '3D SIMULATION' },
-    { icon: '⚡', title: 'Seamless Operations', desc: 'End-to-end operational intelligence from ingress to egress, optimizing every touchpoint of the guest experience.', tag: 'REAL-TIME' },
+    { icon: featureAi, title: 'Predictive Intelligence', desc: 'AI-powered models forecast crowd behavior 60 minutes ahead with 92% accuracy, enabling proactive safety measures.', tag: 'AI/ML' },
+    { icon: featureTwin, title: 'Digital Twin Technology', desc: 'Real-time 3D replicas of your venue, updated with live sensor data for complete situational awareness.', tag: '3D SIMULATION' },
+    { icon: featureOps, title: 'Seamless Operations', desc: 'End-to-end operational intelligence from ingress to egress, optimizing every touchpoint of the guest experience.', tag: 'REAL-TIME' },
   ];
 
   const techStack = [
-    { icon: '🛰️', label: 'LiDAR Integration', sub: 'Sub-centimeter precision venue mapping with real-time point cloud processing.' },
-    { icon: '🧬', label: 'Physics-Based AI', sub: 'Proprietary crowd dynamics engine based on fluid mechanics and agent-based modeling.' },
-    { icon: '🌐', label: 'Mesh-First Platform', sub: 'Distributed edge computing architecture for zero-latency sensor data aggregation.' },
+    { icon: techIcons, label: 'LiDAR Integration', sub: 'Sub-centimeter precision venue mapping with real-time point cloud processing.' },
+    { icon: techIcons, label: 'Physics-Based AI', sub: 'Proprietary crowd dynamics engine based on fluid mechanics and agent-based modeling.' },
+    { icon: techIcons, label: 'Mesh-First Platform', sub: 'Distributed edge computing architecture for zero-latency sensor data aggregation.' },
   ];
 
   const venues = ['OLYMPIC ARENA', 'TECH-DOME', 'METRO-PLEX', 'VELOCITY-CIRCUIT', 'NEXUS PARK'];
@@ -132,28 +139,28 @@ export default function LandingPage() {
             reduce congestion, and maximize revenue across the entire event lifecycle.
           </p>
 
-          <div className="hero-cta" style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', gap: 16 }}>
+          <div className="hero-cta">
             <button className="btn-hero-primary" onClick={() => navigate('/login')}>
-              Admin Command
+              ADMIN COMMAND
             </button>
-            <button className="btn-hero-primary" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--accent)', color: 'var(--accent)' }} onClick={() => navigate('/signup')}>
-               Launch Fan Terminal
+            <button className="btn-hero-terminal" onClick={() => navigate('/signup')}>
+               LAUNCH FAN TERMINAL
             </button>
             <button className="btn-hero-secondary" onClick={() => scrollToSection('showcase')}>
-              Watch Demo
+              WATCH DEMO
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
             </button>
           </div>
 
           {/* Stats Bar */}
           <div className="hero-stats">
-            <div className="hero-stat" ref={stat1Ref}><span className="hero-stat-value mono">{stat1}+</span><span className="hero-stat-label">VENUES</span></div>
+            <div className="hero-stat" ref={stat1Ref}><span className="hero-stat-value mono">50+</span><span className="hero-stat-label">VENUES</span></div>
             <div className="hero-stat-divider" />
-            <div className="hero-stat" ref={stat2Ref}><span className="hero-stat-value mono">{stat2}M+</span><span className="hero-stat-label">PEOPLE TRACKED</span></div>
+            <div className="hero-stat" ref={stat2Ref}><span className="hero-stat-value mono">188M+</span><span className="hero-stat-label">PEOPLE TRACKED</span></div>
             <div className="hero-stat-divider" />
-            <div className="hero-stat" ref={stat3Ref}><span className="hero-stat-value mono">{stat3}.9%</span><span className="hero-stat-label">ACCURACY</span></div>
+            <div className="hero-stat" ref={stat3Ref}><span className="hero-stat-value mono">99.9%</span><span className="hero-stat-label">ACCURACY</span></div>
             <div className="hero-stat-divider" />
-            <div className="hero-stat" ref={stat4Ref}><span className="hero-stat-value mono">{stat4}%</span><span className="hero-stat-label">FASTER EGRESS</span></div>
+            <div className="hero-stat" ref={stat4Ref}><span className="hero-stat-value mono">38%</span><span className="hero-stat-label">FASTER EGRESS</span></div>
           </div>
         </div>
       </section>
@@ -167,22 +174,35 @@ export default function LandingPage() {
             <p className="section-desc">Three pillars of intelligent crowd orchestration that transform how venues operate.</p>
           </div>
 
-          <div className="features-grid">
+          <div className="fan-grid">
             {features.map((f, i) => (
-              <div key={i} className="feature-card" style={{ animationDelay: `${i * 0.15}s` }}>
-                <div className="feature-card-glow" />
-                <div className="feature-icon">{f.icon}</div>
+              <div key={i} className="fan-card" style={{ animationDelay: `${i * 0.15}s` }}>
+                <div className="fan-card-icon">
+                  <img src={f.icon} alt={f.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
                 <span className="feature-tag">{f.tag}</span>
-                <h3>{f.title}</h3>
+                <h4>{f.title}</h4>
                 <p>{f.desc}</p>
-                <a href="#" className="feature-link">Learn more →</a>
+                <span className="fan-card-cta">Learn more →</span>
               </div>
             ))}
+          </div>
+
+          <div className="fan-grid-horizontal" style={{ marginTop: 60 }}>
+            <div className="fan-card-sleek" onClick={() => navigate('/attendee/friends')}>
+              <span>SYNC NOW →</span>
+            </div>
+            <div className="fan-card-sleek" onClick={() => navigate('/attendee/navigate')}>
+              <span>EXPLORE →</span>
+            </div>
+            <div className="fan-card-sleek" onClick={() => navigate('/attendee/food')}>
+              <span>MENU →</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Fan Experience Hub Section (Direct Mobile Entry) ──────────────── */}
+      {/* ── Fan Experience Hub Section ────────────────────── */}
       <section className="landing-section fan-hub-preview" id="fan-experience" style={{ background: 'var(--bg-deep)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="landing-container">
           <div className="section-header">
@@ -193,19 +213,25 @@ export default function LandingPage() {
 
           <div className="fan-grid">
             <div className="fan-card" onClick={() => navigate('/attendee/friends')}>
-              <div className="fan-card-icon">📡</div>
+              <div className="fan-card-icon">
+                <img src={fanIcons} alt="Social Hub" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'drop-shadow(0 0 8px var(--accent))' }} />
+              </div>
               <h4>Social Hub</h4>
               <p>Locate friends in real-time with sub-meter precision and shared safety beacons.</p>
               <span className="fan-card-cta">Sync Now →</span>
             </div>
             <div className="fan-card" onClick={() => navigate('/attendee/navigate')}>
-              <div className="fan-card-icon">🗺️</div>
+              <div className="fan-card-icon">
+                <img src={fanIcons} alt="Smart Map" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'drop-shadow(0 0 8px var(--accent))' }} />
+              </div>
               <h4>Smart Map</h4>
               <p>Interactive 3D navigation to seats, amenities, and exits with live wait-times.</p>
               <span className="fan-card-cta">Explore →</span>
             </div>
             <div className="fan-card" onClick={() => navigate('/attendee/food')}>
-              <div className="fan-card-icon">🍔</div>
+              <div className="fan-card-icon">
+                <img src={fanIcons} alt="Express Order" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'drop-shadow(0 0 8px var(--accent))' }} />
+              </div>
               <h4>Express Order</h4>
               <p>Skip the lines. Pre-order food and drinks with AI-predicted pickup windows.</p>
               <span className="fan-card-cta">Menu →</span>
@@ -237,7 +263,7 @@ export default function LandingPage() {
                   <span className="status-dot online pulse" style={{ width: 5, height: 5 }} />
                   <span className="mono" style={{ fontSize: '0.62rem' }}>LIVE TWIN — SESSION #882</span>
                 </div>
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1920&auto=format&fit=crop" alt="Digital Twin" className="showcase-image" />
+                <img src={featureTwin} alt="Digital Twin" className="showcase-image" />
               </div>
             </div>
           </div>
@@ -251,7 +277,9 @@ export default function LandingPage() {
             <div className="tech-cards">
               {techStack.map((t, i) => (
                 <div key={i} className="tech-card" style={{ animationDelay: `${i * 0.1}s` }}>
-                  <div className="tech-card-icon">{t.icon}</div>
+                  <div className="tech-card-icon">
+                    <img src={t.icon} alt={t.label} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  </div>
                   <div>
                     <h4>{t.label}</h4>
                     <p>{t.sub}</p>

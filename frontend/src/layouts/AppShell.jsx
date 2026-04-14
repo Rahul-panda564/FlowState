@@ -155,7 +155,11 @@ export default function AppShell({ children, brand, brandSub, user, sidebarItems
   };
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${isCinematicMode ? 'cinematic-active' : ''}`}>
+      <div className="hud-scanline" />
+      <div className="hud-fixed-decor top-right">VER_4.0.2_STABLE</div>
+      <div className="hud-fixed-decor bottom-left">NEXUS_NODE_ACTIVE</div>
+      
       <aside className="sidebar">
         <div className="sidebar-brand">
           <div className="sidebar-brand-top">
@@ -163,7 +167,11 @@ export default function AppShell({ children, brand, brandSub, user, sidebarItems
               <h2>{brand || 'FlowState'}</h2>
             </NavLink>
           </div>
-          {brandSub && <div className="brand-sub">{brandSub}</div>}
+          {brandSub && (
+            <div className="brand-sub">
+              <span className="data-pulse">●</span> {brandSub}
+            </div>
+          )}
         </div>
         <nav className="sidebar-nav">
           {renderSidebarContent()}

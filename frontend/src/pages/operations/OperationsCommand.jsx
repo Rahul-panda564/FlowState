@@ -95,6 +95,8 @@ export default function OperationsCommand() {
             <path d="M 100,20 L 100,320 M 200,20 L 200,320 M 300,20 L 300,320" stroke="var(--accent)" strokeWidth="1" strokeDasharray="5,5" />
           </svg>
 
+          <div className="hud-scanline" style={{ position: 'absolute', opacity: 0.15, height: '100px' }} />
+
           <div className="heatmap-overlay" style={{ 
             position: 'absolute', inset: 0, 
             background: `radial-gradient(circle at 50% 50%, rgba(255, 71, 87, ${occPct/120}) 0%, rgba(255, 107, 107, 0.05) 50%, transparent 100%)`,
@@ -129,15 +131,17 @@ export default function OperationsCommand() {
         </GlassPanel>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-           <div style={{ display: 'grid', gridTemplateColumns: '130px 1fr', gap: 10 }}>
+           <div className="stagger-item" style={{ display: 'grid', gridTemplateColumns: '130px 1fr', gap: 10, animationDelay: '0.1s' }}>
               <StatCard compact label="Live Occupancy" value={occValue.toLocaleString()} progress={occPct} subtext={`${occPct}% Threshold`} />
               <StatCard compact label="Flow Velocity" value={`${d.flowEfficiency}%`} subtext="Optimization delta +4%" />
            </div>
-           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+           <div className="stagger-item" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, animationDelay: '0.2s' }}>
               <StatCard compact label="Avg Velocity" value={`${d.avgVelocity}m/s`} subtext={`Peak ${d.peakDensity.change}%`} />
               <StatCard compact label="Est Revenue" value={`${formatCurrency(d.estRevenue, { maximumFractionDigits: 0 })}/m`} accent />
            </div>
-           <StatCard label="Egress Projection" value={venue?.status === 'Evacuating' ? 'ACTIVE_EXIT' : d.egressEstimate} subtext={venue?.status === 'Evacuating' ? 'Estimated clearance in 8.2m' : 'Standard exit protocol'} />
+           <div className="stagger-item" style={{ animationDelay: '0.3s' }}>
+             <StatCard label="Egress Projection" value={venue?.status === 'Evacuating' ? 'ACTIVE_EXIT' : d.egressEstimate} subtext={venue?.status === 'Evacuating' ? 'Estimated clearance in 8.2m' : 'Standard exit protocol'} />
+           </div>
         </div>
       </div>
       <GlassPanel header="System Logic Predictions" headerActions={<><Icon name="bolt" color="var(--accent)" /> AI ACTIVE</>}>
@@ -257,7 +261,7 @@ export default function OperationsCommand() {
         </div>
       }
     >
-      <div className="telemetry-strip" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
+      <div className="telemetry-strip page-enter" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
         <div style={{ display: 'flex', gap: 24 }}>
           <StatCard compact label="NEXUS TIME" value={clock} style={{ background: 'transparent', padding: 0 }} />
           <StatCard compact label="GAME STATE" value={gameStatus} style={{ background: 'transparent', padding: 0 }} />

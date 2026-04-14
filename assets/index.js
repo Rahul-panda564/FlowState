@@ -607,7 +607,7 @@ function LandingPage() {
 										children: "LIVE TWIN — SESSION #882"
 									})]
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-									src: "/assets/images/feature-digital-twin.png",
+									src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1920&auto=format&fit=crop",
 									alt: "Digital Twin",
 									className: "showcase-image"
 								})]
