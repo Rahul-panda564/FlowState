@@ -1,5 +1,5 @@
 import { n as __toESM } from "./rolldown-runtime-chunk.js";
-import { _ as require_client, a as signInWithPopup, c as require_jsx_runtime, d as NavLink, f as Navigate, g as useNavigate, h as useLocation, i as signInWithEmailAndPassword, l as HashRouter, m as Routes, n as createUserWithEmailAndPassword, o as updateProfile, p as Route, r as getAuth, s as initializeApp, t as GoogleAuthProvider, u as Link, v as require_react } from "./vendor-chunk.js";
+import { _ as useNavigate, a as signInWithPopup, c as require_jsx_runtime, d as NavLink, f as Navigate, g as useLocation, h as Routes, i as signInWithEmailAndPassword, l as HashRouter, m as Route, n as createUserWithEmailAndPassword, o as updateProfile, p as Outlet, r as getAuth, s as initializeApp, t as GoogleAuthProvider, u as Link, v as require_client, y as require_react } from "./vendor-chunk.js";
 //#region \0vite/modulepreload-polyfill.js
 (function polyfill() {
 	const relList = document.createElement("link").relList;
@@ -78,6 +78,1211 @@ function ProtectedRoute({ children, allowedRoles }) {
 	return children;
 }
 //#endregion
+//#region src/data/sidebarConfig.jsx
+var icons = {
+	grid: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+				x: "3",
+				y: "3",
+				width: "7",
+				height: "7"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+				x: "14",
+				y: "3",
+				width: "7",
+				height: "7"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+				x: "14",
+				y: "14",
+				width: "7",
+				height: "7"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+				x: "3",
+				y: "14",
+				width: "7",
+				height: "7"
+			})
+		]
+	}),
+	pin: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+			cx: "12",
+			cy: "10",
+			r: "3"
+		})]
+	}),
+	chart: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 20V10" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 20V4" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M6 20v-6" })
+		]
+	}),
+	pulse: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M22 12h-4l-3 9L9 3l-3 9H2" })
+	}),
+	gear: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+			cx: "12",
+			cy: "12",
+			r: "3"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68c.17-.38.55-.63.94-.68H12a2 2 0 0 1 0 4h-.09" })]
+	}),
+	users: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+			cx: "9",
+			cy: "7",
+			r: "4"
+		})]
+	}),
+	calendar: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+				x: "3",
+				y: "4",
+				width: "18",
+				height: "18",
+				rx: "2",
+				ry: "2"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+				x1: "16",
+				y1: "2",
+				x2: "16",
+				y2: "6"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+				x1: "8",
+				y1: "2",
+				x2: "8",
+				y2: "6"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+				x1: "3",
+				y1: "10",
+				x2: "21",
+				y2: "10"
+			})
+		]
+	}),
+	shield: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" })
+	}),
+	exit: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "16 17 21 12 16 7" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+				x1: "21",
+				y1: "12",
+				x2: "9",
+				y2: "12"
+			})
+		]
+	}),
+	bell: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M13.73 21a2 2 0 0 1-3.46 0" })]
+	}),
+	box: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" })
+	}),
+	eye: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+			cx: "12",
+			cy: "12",
+			r: "3"
+		})]
+	}),
+	report: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "14 2 14 8 20 8" })]
+	}),
+	replay: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M23 4v6h-6" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M1 20v-6h6" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" })
+		]
+	}),
+	warning: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" })
+	}),
+	dollar: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+			x1: "12",
+			y1: "1",
+			x2: "12",
+			y2: "23"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" })]
+	}),
+	help: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+				cx: "12",
+				cy: "12",
+				r: "10"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 17h.01" })
+		]
+	}),
+	truck: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+				x: "1",
+				y: "3",
+				width: "15",
+				height: "13"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "16 8 20 8 23 11 23 16 16 16 16 8" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+				cx: "5.5",
+				cy: "18.5",
+				r: "2.5"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+				cx: "18.5",
+				cy: "18.5",
+				r: "2.5"
+			})
+		]
+	})
+};
+var superAdminSidebar = [
+	{
+		label: "System Overview",
+		path: "/super-admin",
+		icon: icons.grid,
+		end: true
+	},
+	{
+		label: "Venue Management",
+		path: "/super-admin/venues",
+		icon: icons.pin
+	},
+	{
+		label: "Global Analytics",
+		path: "/super-admin/analytics",
+		icon: icons.chart
+	},
+	{
+		label: "Platform Settings",
+		path: "/super-admin/settings",
+		icon: icons.gear
+	}
+];
+var superAdminBrand = {
+	brand: "FlowState",
+	brandSub: "SUPER ADMIN"
+};
+var superAdminUser = {
+	name: "Alex Rivera",
+	role: "Master Control",
+	initials: "AR"
+};
+var venueAdminSidebar = [
+	{
+		label: "Command Center",
+		path: "/venue-admin",
+		icon: icons.grid,
+		end: true
+	},
+	{
+		label: "Event Management",
+		path: "/venue-admin/events",
+		icon: icons.calendar
+	},
+	{
+		label: "Staff Management",
+		path: "/venue-admin/staff",
+		icon: icons.users
+	},
+	{
+		label: "Sensor Network",
+		path: "/venue-admin/sensors",
+		icon: icons.pulse
+	},
+	{
+		label: "Venue Settings",
+		path: "/venue-admin/settings",
+		icon: icons.gear
+	}
+];
+var venueAdminBrand = {
+	brand: "FlowState",
+	brandSub: "VENUE ADMIN"
+};
+var operationsSidebar = [
+	{
+		label: "Operations Command",
+		path: "/operations",
+		icon: icons.grid,
+		end: true
+	},
+	{
+		label: "What-If Sandbox",
+		path: "/operations/sandbox",
+		icon: icons.box
+	},
+	{ section: "Cross-Panel" },
+	{
+		label: "Safety Overview",
+		path: "/security",
+		icon: icons.shield
+	},
+	{
+		label: "Evacuation Control",
+		path: "/security/evacuation",
+		icon: icons.exit
+	}
+];
+var operationsBrand = {
+	brand: "FlowState",
+	brandSub: "OPS CENTER"
+};
+var securitySidebar = [
+	{
+		label: "Safety Overview",
+		path: "/security",
+		icon: icons.shield,
+		end: true
+	},
+	{
+		label: "Evacuation Control",
+		path: "/security/evacuation",
+		icon: icons.exit
+	},
+	{
+		label: "Incident Command",
+		path: "/security/incidents",
+		icon: icons.warning
+	},
+	{ section: "Cross-Panel" },
+	{
+		label: "Operations Command",
+		path: "/operations",
+		icon: icons.grid
+	},
+	{
+		label: "Post-Event Report",
+		path: "/analytics/report",
+		icon: icons.report
+	}
+];
+var securityBrand = {
+	brand: "FlowState",
+	brandSub: "SECURITY"
+};
+icons.report, icons.replay, icons.grid, icons.shield;
+icons.grid, icons.pin, icons.box, icons.users;
+var globalSidebar = [
+	{
+		section: "Super Admin",
+		items: superAdminSidebar
+	},
+	{
+		section: "Venue Admin",
+		items: [
+			{
+				label: "Command Center",
+				path: "/venue-admin",
+				icon: icons.grid,
+				end: true
+			},
+			{
+				label: "Event Management",
+				path: "/venue-admin/events",
+				icon: icons.calendar
+			},
+			{
+				label: "Staff Management",
+				path: "/venue-admin/staff",
+				icon: icons.users
+			},
+			{
+				label: "Sensor Network",
+				path: "/venue-admin/sensors",
+				icon: icons.pulse
+			},
+			{
+				label: "Venue Settings",
+				path: "/venue-admin/settings",
+				icon: icons.gear
+			}
+		]
+	},
+	{
+		section: "Operations",
+		items: [{
+			label: "Operations Command",
+			path: "/operations",
+			icon: icons.grid,
+			end: true
+		}, {
+			label: "What-If Sandbox",
+			path: "/operations/sandbox",
+			icon: icons.box
+		}]
+	},
+	{
+		section: "Security",
+		items: [{
+			label: "Safety Overview",
+			path: "/security",
+			icon: icons.shield,
+			end: true
+		}, {
+			label: "Evacuation Control",
+			path: "/security/evacuation",
+			icon: icons.exit
+		}]
+	},
+	{
+		section: "Analytics",
+		items: [{
+			label: "Post-Event Report",
+			path: "/analytics/report",
+			icon: icons.report
+		}, {
+			label: "Event Replay",
+			path: "/analytics/replay",
+			icon: icons.replay
+		}]
+	},
+	{
+		section: "Logistics",
+		items: [{
+			label: "Transit Hub",
+			path: "/logistics/transit",
+			icon: icons.truck
+		}]
+	}
+];
+//#endregion
+//#region src/layouts/AppShell.jsx
+function AppShell({ children, brand, brandSub, user, sidebarItems, headerExtra }) {
+	const location = useLocation();
+	const navigate = useNavigate();
+	const autoOpenSection = (0, import_react.useMemo)(() => {
+		if (!sidebarItems) {
+			for (const section of globalSidebar) if (section.items.some((item) => {
+				if (item.end) return location.pathname === item.path;
+				return location.pathname.startsWith(item.path);
+			})) return section.section;
+		}
+		return "";
+	}, [location.pathname, sidebarItems]);
+	const [manualSection, setManualSection] = (0, import_react.useState)(null);
+	const [prevPath, setPrevPath] = (0, import_react.useState)(location.pathname);
+	if (location.pathname !== prevPath) {
+		setPrevPath(location.pathname);
+		setManualSection(null);
+	}
+	const openSection = manualSection !== null ? manualSection : autoOpenSection;
+	const finalSidebar = sidebarItems || [];
+	const isGlobalMode = !sidebarItems;
+	const [activeDropdown, setActiveDropdown] = (0, import_react.useState)(null);
+	const [isCinematicMode, setIsCinematicMode] = (0, import_react.useState)(false);
+	const [telemetry, setTelemetry] = (0, import_react.useState)("FAST");
+	const [notifications, setNotifications] = (0, import_react.useState)([]);
+	const showToast = (msg, type = "success") => {
+		const toast = document.createElement("div");
+		toast.className = `toast toast-${type}`;
+		toast.style.zIndex = "10000";
+		const icon = document.createElement("div");
+		icon.className = "toast-icon";
+		icon.innerHTML = type === "success" ? "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\"><path d=\"M20 6L9 17l-5-5\"/></svg>" : "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"/><polyline points=\"11 12 12 12 12 16 13 16\"/></svg>";
+		const text = document.createElement("div");
+		text.innerText = msg;
+		text.style.fontWeight = "500";
+		text.style.fontSize = "0.9rem";
+		toast.appendChild(icon);
+		toast.appendChild(text);
+		document.body.appendChild(toast);
+		setTimeout(() => {
+			toast.style.opacity = "0";
+			toast.style.transition = "opacity 0.3s ease";
+			setTimeout(() => toast.remove(), 300);
+		}, 3e3);
+	};
+	const handleDismiss = (id) => {
+		setNotifications((prev) => prev.filter((n) => n.id !== id));
+		showToast("Clearing system notification", "info");
+	};
+	const toggleCinematic = () => {
+		const newVal = !isCinematicMode;
+		setIsCinematicMode(newVal);
+		if (newVal) {
+			document.documentElement.style.filter = "contrast(1.1) saturate(1.1) brightness(1.05)";
+			showToast("Cinematic Overlay Enabled", "success");
+		} else {
+			document.documentElement.style.filter = "none";
+			showToast("System Visuals Reset", "info");
+		}
+	};
+	const handleLogout = () => {
+		localStorage.removeItem("flowstate_last_user");
+		showToast("Vault sequence initiated... Logging out.", "info");
+		setTimeout(() => window.location.href = "/", 800);
+	};
+	(0, import_react.useEffect)(() => {
+		document.title = `FlowState — ${brandSub || "Crowd Intelligence"}`;
+	}, [brandSub]);
+	(0, import_react.useEffect)(() => {
+		const handleClick = () => setActiveDropdown(null);
+		window.addEventListener("click", handleClick);
+		return () => window.removeEventListener("click", handleClick);
+	}, []);
+	const toggleSection = (sectionName) => {
+		setManualSection((prev) => {
+			return (prev !== null ? prev : autoOpenSection) === sectionName ? "" : sectionName;
+		});
+	};
+	const renderSidebarContent = () => {
+		if (isGlobalMode) return globalSidebar.map((group, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: `sidebar-group ${openSection === group.section ? "open" : ""}`,
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "sidebar-group-header",
+				onClick: () => toggleSection(group.section),
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: group.section }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+					className: "chevron",
+					viewBox: "0 0 24 24",
+					fill: "none",
+					stroke: "currentColor",
+					strokeWidth: "2",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M6 9l6 6 6-6" })
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "sidebar-group-items",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "sidebar-group-inner",
+					children: group.items.map((item, j) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(NavLink, {
+						to: item.path,
+						className: ({ isActive }) => `sidebar-item ${isActive ? "active" : ""}`,
+						end: item.end,
+						children: [item.icon, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.label })]
+					}, item.path || j))
+				})
+			})]
+		}, i));
+		return finalSidebar.map((item, i) => {
+			if (item.section) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "sidebar-section-label",
+				children: item.section
+			}, i);
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(NavLink, {
+				to: item.path,
+				className: ({ isActive }) => `sidebar-item hover-accent ${isActive ? "active" : ""}`,
+				end: item.end,
+				children: [item.icon, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.label })]
+			}, item.path || i);
+		});
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: `app-shell ${isCinematicMode ? "cinematic-active" : ""}`,
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hud-scanline" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "hud-fixed-decor top-right",
+				children: "VER_4.0.2_STABLE"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "hud-fixed-decor bottom-left",
+				children: "NEXUS_NODE_ACTIVE"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", {
+				className: "sidebar",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "sidebar-brand",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "sidebar-brand-top",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
+								to: "/",
+								className: "brand-link",
+								title: "Return to Public Site",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: brand || "FlowState" })
+							})
+						}), brandSub && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "brand-sub",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "data-pulse",
+									children: "●"
+								}),
+								" ",
+								brandSub
+							]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
+						className: "sidebar-nav",
+						children: renderSidebarContent()
+					}),
+					user && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "sidebar-footer",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "sidebar-user",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "sidebar-avatar",
+								children: user.initials
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "sidebar-user-info",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "sidebar-user-name",
+									children: user.name
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "sidebar-user-role",
+									children: user.role
+								})]
+							})]
+						})
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+				className: "main-content",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+					className: "top-header",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "header-left",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "header-status",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `status-dot ${isCinematicMode ? "critical pulse" : "online pulse"}` }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "label-caps",
+									children: brandSub
+								})]
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "header-center",
+							children: headerExtra
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "header-right",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "header-search",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+										viewBox: "0 0 24 24",
+										fill: "none",
+										stroke: "currentColor",
+										strokeWidth: "2",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+											cx: "11",
+											cy: "11",
+											r: "8"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 21l-4.35-4.35" })]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										type: "text",
+										placeholder: "Global node search..."
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "header-divider",
+									style: {
+										width: 1,
+										height: 20,
+										background: "var(--border-subtle)",
+										margin: "0 8px"
+									}
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "header-dropdown-container",
+									onClick: (e) => e.stopPropagation(),
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+										className: `btn-icon header-notification ${activeDropdown === "notif" ? "active" : ""}`,
+										onClick: () => setActiveDropdown(activeDropdown === "notif" ? null : "notif"),
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+											viewBox: "0 0 24 24",
+											fill: "none",
+											stroke: "currentColor",
+											strokeWidth: "2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M13.73 21a2 2 0 0 1-3.46 0" })]
+										}), notifications.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "count",
+											children: notifications.length
+										})]
+									}), activeDropdown === "notif" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "header-dropdown",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+												className: "dropdown-header",
+												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { children: "Pulse Notifications" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+													className: "btn-ghost",
+													style: { fontSize: "0.6rem" },
+													onClick: () => setNotifications([]),
+													children: "Clear All"
+												})]
+											}),
+											notifications.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												style: {
+													padding: 20,
+													textAlign: "center",
+													color: "var(--text-muted)",
+													fontSize: "0.8rem"
+												},
+												children: "Infrastructure is stable. No active pulses."
+											}) : notifications.map((n) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+												className: `dropdown-item ${n.type === "alert" ? "alert" : ""}`,
+												onClick: () => handleDismiss(n.id),
+												children: [n.type === "alert" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+													background: "var(--status-alert)",
+													width: 8,
+													height: 8,
+													borderRadius: "50%"
+												} }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+													width: "14",
+													height: "14",
+													viewBox: "0 0 24 24",
+													fill: "none",
+													stroke: "currentColor",
+													strokeWidth: "2",
+													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M22 11.08V12a10 10 0 1 1-5.93-9.14" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "22 4 12 14.01 9 11.01" })]
+												}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+													style: { fontWeight: 600 },
+													children: n.title
+												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+													className: "item-meta",
+													children: n.desc
+												})] })]
+											}, n.id)),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												style: {
+													padding: 10,
+													textAlign: "center",
+													borderTop: "1px solid var(--border-color)",
+													marginTop: 4
+												},
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+													href: "#",
+													style: {
+														fontSize: "0.7rem",
+														color: "var(--accent)",
+														textDecoration: "none"
+													},
+													onClick: (e) => {
+														e.preventDefault();
+														showToast("Accessing complete intelligence logs...", "info");
+													},
+													children: "View Intelligence Log"
+												})
+											})
+										]
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "header-dropdown-container",
+									onClick: (e) => e.stopPropagation(),
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										className: `btn-icon ${activeDropdown === "settings" ? "active" : ""}`,
+										onClick: () => setActiveDropdown(activeDropdown === "settings" ? null : "settings"),
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+											viewBox: "0 0 24 24",
+											fill: "none",
+											stroke: "currentColor",
+											strokeWidth: "2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+												cx: "12",
+												cy: "12",
+												r: "3"
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" })]
+										})
+									}), activeDropdown === "settings" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "header-dropdown",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "dropdown-header",
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { children: "Interface Settings" })
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+												className: "dropdown-item",
+												onClick: toggleCinematic,
+												style: { cursor: "pointer" },
+												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Cinematic / High Contrast" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+													style: {
+														marginLeft: "auto",
+														width: 32,
+														height: 16,
+														background: isCinematicMode ? "var(--accent)" : "var(--bg-deep)",
+														borderRadius: 10,
+														position: "relative",
+														border: "1px solid var(--border-color)"
+													},
+													children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+														position: "absolute",
+														top: 2,
+														left: isCinematicMode ? 18 : 2,
+														width: 10,
+														height: 10,
+														background: "white",
+														borderRadius: "50%",
+														transition: "all 0.2s"
+													} })
+												})]
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+												className: "dropdown-item",
+												onClick: () => {
+													const next = telemetry === "FAST" ? "BALANCED" : telemetry === "BALANCED" ? "STABLE" : "FAST";
+													setTelemetry(next);
+													showToast(`Telemetry updated to ${next} frequency`);
+												},
+												style: { cursor: "pointer" },
+												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Telemetry Frequency" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+													style: {
+														marginLeft: "auto",
+														color: "var(--accent)",
+														fontSize: "0.7rem"
+													},
+													children: telemetry
+												})]
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "dropdown-item",
+												onClick: () => showToast("Master diagnostic sweep initiated...", "info"),
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "System Diagnostics" })
+											})
+										]
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "header-dropdown-container",
+									onClick: (e) => e.stopPropagation(),
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										className: `btn-icon ${activeDropdown === "profile" ? "active" : ""}`,
+										onClick: () => setActiveDropdown(activeDropdown === "profile" ? null : "profile"),
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+											viewBox: "0 0 24 24",
+											fill: "none",
+											stroke: "currentColor",
+											strokeWidth: "2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+												cx: "12",
+												cy: "7",
+												r: "4"
+											})]
+										})
+									}), activeDropdown === "profile" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "header-dropdown profile-dropdown",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+												className: "dropdown-header",
+												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+													style: {
+														fontWeight: 700,
+														color: "var(--text-primary)"
+													},
+													children: user?.name || "Operator"
+												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+													className: "item-meta",
+													children: user?.role || "Nexus System User"
+												})]
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "dropdown-item",
+												onClick: () => {
+													navigate("/profile", { state: { activeTab: "Security" } });
+													setActiveDropdown(null);
+												},
+												children: "Account Security"
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "dropdown-item",
+												onClick: () => {
+													navigate("/profile", { state: { activeTab: "Activity Log" } });
+													setActiveDropdown(null);
+												},
+												children: "Session History"
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "sidebar-divider",
+												style: { margin: "8px 0" }
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "dropdown-item",
+												style: {
+													color: "var(--status-alert)",
+													cursor: "pointer"
+												},
+												onClick: handleLogout,
+												children: "Logout System"
+											})
+										]
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "header-divider",
+									style: {
+										width: 1,
+										height: 24,
+										background: "var(--border-subtle)",
+										margin: "0 8px"
+									}
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+									className: "btn btn-secondary",
+									style: {
+										fontSize: "0.65rem",
+										padding: "6px 10px",
+										color: "var(--status-alert)"
+									},
+									title: "Exit System",
+									onClick: handleLogout,
+									children: "LOGOUT"
+								})
+							]
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "page-content page-enter",
+					children
+				})]
+			})
+		]
+	});
+}
+//#endregion
+//#region src/layouts/AttendeeShell.jsx
+function AttendeeShell({ children, title, isEvacuating }) {
+	const navigate = useNavigate();
+	const location = useLocation();
+	const handleLogout = () => {
+		localStorage.removeItem("flowstate_last_user");
+		navigate("/");
+	};
+	(0, import_react.useEffect)(() => {
+		document.body.classList.add("attendee-portal");
+		return () => {
+			document.body.classList.remove("attendee-portal");
+		};
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: `mobile-shell ${isEvacuating ? "emergency-mode" : ""} page-enter`,
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "hud-scanline",
+				style: { opacity: .1 }
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+				position: "fixed",
+				inset: 0,
+				backgroundImage: "radial-gradient(var(--hud-grid) 1.5px, transparent 0)",
+				backgroundSize: "32px 32px",
+				opacity: .4,
+				zIndex: -1,
+				pointerEvents: "none"
+			} }),
+			isEvacuating && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				style: {
+					background: "var(--status-alert)",
+					color: "white",
+					padding: "12px 16px",
+					textAlign: "center",
+					fontWeight: 700,
+					animation: "pulse-dot 1.5s infinite",
+					position: "sticky",
+					top: 0,
+					zIndex: 100
+				},
+				children: "⚠️ URGENT: EVACUATE NOW - PROCURE NEAREST EXIT"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mobile-header",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+					width: "20",
+					height: "20",
+					viewBox: "0 0 24 24",
+					fill: "none",
+					stroke: "currentColor",
+					strokeWidth: "2",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" })
+				}), title || "Stadium Connect"] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						display: "flex",
+						gap: 12,
+						alignItems: "center"
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: handleLogout,
+						style: {
+							padding: 8,
+							color: "var(--text-muted)",
+							transition: "color 0.2s"
+						},
+						title: "Disconnect Session",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+							width: "18",
+							height: "18",
+							viewBox: "0 0 24 24",
+							fill: "none",
+							stroke: "currentColor",
+							strokeWidth: "2",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "16 17 21 12 16 7" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+									x1: "21",
+									y1: "12",
+									x2: "9",
+									y2: "12"
+								})
+							]
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							width: 36,
+							height: 36,
+							borderRadius: "50%",
+							background: "var(--bg-elevated)",
+							border: "2px solid var(--accent-border)",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center"
+						},
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+							width: "16",
+							height: "16",
+							viewBox: "0 0 24 24",
+							fill: "none",
+							stroke: "var(--text-secondary)",
+							strokeWidth: "2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+								cx: "12",
+								cy: "7",
+								r: "4"
+							})]
+						})
+					})]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mobile-content",
+				children
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mobile-bottom-nav",
+				children: [
+					{
+						label: "Home",
+						path: "/attendee",
+						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" })
+					},
+					{
+						label: "Map",
+						path: "/attendee/navigate",
+						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+							cx: "12",
+							cy: "10",
+							r: "3"
+						})] })
+					},
+					{
+						label: "Social",
+						path: "/attendee/friends",
+						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+								cx: "9",
+								cy: "7",
+								r: "4"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M23 21v-2a4 4 0 0 0-3-3.87" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M16 3.13a4 4 0 0 1 0 7.75" })
+						] })
+					},
+					{
+						label: "Food",
+						path: "/attendee/food",
+						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 8h1a4 4 0 0 1 0 8h-1" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" })] })
+					},
+					{
+						label: "Me",
+						path: "/attendee/profile",
+						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+							cx: "12",
+							cy: "7",
+							r: "4"
+						})] })
+					}
+				].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					className: `mobile-nav-item ${location.pathname === item.path ? "active" : ""}`,
+					onClick: () => navigate(item.path),
+					style: { position: "relative" },
+					children: [
+						location.pathname === item.path && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "data-pulse",
+							style: {
+								position: "absolute",
+								top: -5,
+								left: "50%",
+								transform: "translateX(-50%)",
+								width: 32,
+								height: 2,
+								background: "var(--accent)",
+								boxShadow: "0 0 10px var(--accent)"
+							}
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+							width: "22",
+							height: "22",
+							viewBox: "0 0 24 24",
+							fill: "none",
+							stroke: "currentColor",
+							strokeWidth: "2",
+							children: item.iconPath
+						}),
+						item.label
+					]
+				}, item.path))
+			})
+		]
+	});
+}
+//#endregion
+//#region src/layouts/PersistentLayouts.jsx
+function AdminLayout({ role }) {
+	const configs = {
+		"super-admin": {
+			sidebarItems: superAdminSidebar,
+			brand: superAdminBrand.brand,
+			brandSub: superAdminBrand.brandSub,
+			user: superAdminUser
+		},
+		"venue-admin": {
+			sidebarItems: venueAdminSidebar,
+			brand: venueAdminBrand.brand,
+			brandSub: venueAdminBrand.brandSub,
+			user: {
+				...superAdminUser,
+				role: "Venue Administrator"
+			}
+		},
+		"operations": {
+			sidebarItems: operationsSidebar,
+			brand: operationsBrand.brand,
+			brandSub: operationsBrand.brandSub,
+			user: {
+				...superAdminUser,
+				role: "Operations Lead"
+			}
+		},
+		"security": {
+			sidebarItems: securitySidebar,
+			brand: securityBrand.brand,
+			brandSub: securityBrand.brandSub,
+			user: {
+				...superAdminUser,
+				role: "Security Chief"
+			}
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AppShell, {
+		...configs[role] || configs["super-admin"],
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {})
+	});
+}
+function AttendeeLayout() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeShell, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {}) });
+}
+function SharedProfileLayout() {
+	const userEmail = localStorage.getItem("flowstate_last_user");
+	const userRole = localStorage.getItem(`flowstate_role_${userEmail}`);
+	if (userRole === "fan") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeLayout, {});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AdminLayout, { role: userRole === "super-admin" ? "super-admin" : "venue-admin" });
+}
+//#endregion
+//#region src/assets/feature-ai.png
+var feature_ai_default = "/FlowState/assets/feature-ai.png";
+//#endregion
+//#region src/assets/digital-twin.png
+var digital_twin_default = "/FlowState/assets/digital-twin.png";
+//#endregion
+//#region src/assets/feature-ops.png
+var feature_ops_default = "/FlowState/assets/feature-ops.png";
+//#endregion
+//#region src/assets/tech-icons.png
+var tech_icons_default = "/FlowState/assets/tech-icons.png";
+//#endregion
+//#region src/assets/fan-icons.png
+var fan_icons_default = "/FlowState/assets/fan-icons.png";
+//#endregion
 //#region src/pages/LandingPage.jsx
 function useCountUp(end, duration = 2e3, start = 0) {
 	const [value, setValue] = (0, import_react.useState)(start);
@@ -139,19 +1344,19 @@ function LandingPage() {
 	const [stat4, stat4Ref] = useCountUp(30, 1800);
 	const features = [
 		{
-			icon: "🧠",
+			icon: feature_ai_default,
 			title: "Predictive Intelligence",
 			desc: "AI-powered models forecast crowd behavior 60 minutes ahead with 92% accuracy, enabling proactive safety measures.",
 			tag: "AI/ML"
 		},
 		{
-			icon: "🏟️",
+			icon: digital_twin_default,
 			title: "Digital Twin Technology",
 			desc: "Real-time 3D replicas of your venue, updated with live sensor data for complete situational awareness.",
 			tag: "3D SIMULATION"
 		},
 		{
-			icon: "⚡",
+			icon: feature_ops_default,
 			title: "Seamless Operations",
 			desc: "End-to-end operational intelligence from ingress to egress, optimizing every touchpoint of the guest experience.",
 			tag: "REAL-TIME"
@@ -159,17 +1364,17 @@ function LandingPage() {
 	];
 	const techStack = [
 		{
-			icon: "🛰️",
+			icon: tech_icons_default,
 			label: "LiDAR Integration",
 			sub: "Sub-centimeter precision venue mapping with real-time point cloud processing."
 		},
 		{
-			icon: "🧬",
+			icon: tech_icons_default,
 			label: "Physics-Based AI",
 			sub: "Proprietary crowd dynamics engine based on fluid mechanics and agent-based modeling."
 		},
 		{
-			icon: "🌐",
+			icon: tech_icons_default,
 			label: "Mesh-First Platform",
 			sub: "Distributed edge computing architecture for zero-latency sensor data aggregation."
 		}
@@ -319,31 +1524,21 @@ function LandingPage() {
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								className: "hero-cta",
-								style: {
-									display: "flex",
-									flexDirection: window.innerWidth < 768 ? "column" : "row",
-									gap: 16
-								},
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 										className: "btn-hero-primary",
 										onClick: () => navigate("/login"),
-										children: "Admin Command"
+										children: "ADMIN COMMAND"
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										className: "btn-hero-primary",
-										style: {
-											background: "var(--bg-elevated)",
-											border: "1px solid var(--accent)",
-											color: "var(--accent)"
-										},
+										className: "btn-hero-terminal",
 										onClick: () => navigate("/signup"),
-										children: "Launch Fan Terminal"
+										children: "LAUNCH FAN TERMINAL"
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 										className: "btn-hero-secondary",
 										onClick: () => scrollToSection("showcase"),
-										children: ["Watch Demo", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+										children: ["WATCH DEMO", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
 											width: "14",
 											height: "14",
 											viewBox: "0 0 24 24",
@@ -361,9 +1556,9 @@ function LandingPage() {
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 										className: "hero-stat",
 										ref: stat1Ref,
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 											className: "hero-stat-value mono",
-											children: [stat1, "+"]
+											children: "50+"
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 											className: "hero-stat-label",
 											children: "VENUES"
@@ -373,9 +1568,9 @@ function LandingPage() {
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 										className: "hero-stat",
 										ref: stat2Ref,
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 											className: "hero-stat-value mono",
-											children: [stat2, "M+"]
+											children: "188M+"
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 											className: "hero-stat-label",
 											children: "PEOPLE TRACKED"
@@ -385,9 +1580,9 @@ function LandingPage() {
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 										className: "hero-stat",
 										ref: stat3Ref,
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 											className: "hero-stat-value mono",
-											children: [stat3, ".9%"]
+											children: "99.9%"
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 											className: "hero-stat-label",
 											children: "ACCURACY"
@@ -397,9 +1592,9 @@ function LandingPage() {
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 										className: "hero-stat",
 										ref: stat4Ref,
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 											className: "hero-stat-value mono",
-											children: [stat4, "%"]
+											children: "38%"
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 											className: "hero-stat-label",
 											children: "FASTER EGRESS"
@@ -416,47 +1611,77 @@ function LandingPage() {
 				id: "features",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "landing-container",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "section-header",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "section-overline",
-								children: "CAPABILITIES"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-								className: "section-title",
-								children: "The Future of Venue Management"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "section-desc",
-								children: "Three pillars of intelligent crowd orchestration that transform how venues operate."
-							})
-						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "features-grid",
-						children: features.map((f, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "feature-card",
-							style: { animationDelay: `${i * .15}s` },
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "section-header",
 							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "feature-card-glow" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "feature-icon",
-									children: f.icon
-								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "feature-tag",
-									children: f.tag
+									className: "section-overline",
+									children: "CAPABILITIES"
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { children: f.title }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: f.desc }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									href: "#",
-									className: "feature-link",
-									children: "Learn more →"
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+									className: "section-title",
+									children: "The Future of Venue Management"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "section-desc",
+									children: "Three pillars of intelligent crowd orchestration that transform how venues operate."
 								})
 							]
-						}, i))
-					})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "fan-grid",
+							children: features.map((f, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "fan-card",
+								style: { animationDelay: `${i * .15}s` },
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "fan-card-icon",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+											src: f.icon,
+											alt: f.title,
+											style: {
+												width: "100%",
+												height: "100%",
+												objectFit: "contain"
+											}
+										})
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "feature-tag",
+										children: f.tag
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { children: f.title }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: f.desc }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "fan-card-cta",
+										children: "Learn more →"
+									})
+								]
+							}, i))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "fan-grid-horizontal",
+							style: { marginTop: 60 },
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "fan-card-sleek",
+									onClick: () => navigate("/attendee/friends"),
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "SYNC NOW →" })
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "fan-card-sleek",
+									onClick: () => navigate("/attendee/navigate"),
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "EXPLORE →" })
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "fan-card-sleek",
+									onClick: () => navigate("/attendee/food"),
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "MENU →" })
+								})
+							]
+						})
+					]
 				})
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
@@ -494,7 +1719,16 @@ function LandingPage() {
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										className: "fan-card-icon",
-										children: "📡"
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+											src: fan_icons_default,
+											alt: "Social Hub",
+											style: {
+												width: "100%",
+												height: "100%",
+												objectFit: "contain",
+												filter: "drop-shadow(0 0 8px var(--accent))"
+											}
+										})
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { children: "Social Hub" }),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Locate friends in real-time with sub-meter precision and shared safety beacons." }),
@@ -510,7 +1744,16 @@ function LandingPage() {
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										className: "fan-card-icon",
-										children: "🗺️"
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+											src: fan_icons_default,
+											alt: "Smart Map",
+											style: {
+												width: "100%",
+												height: "100%",
+												objectFit: "contain",
+												filter: "drop-shadow(0 0 8px var(--accent))"
+											}
+										})
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { children: "Smart Map" }),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Interactive 3D navigation to seats, amenities, and exits with live wait-times." }),
@@ -526,7 +1769,16 @@ function LandingPage() {
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										className: "fan-card-icon",
-										children: "🍔"
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+											src: fan_icons_default,
+											alt: "Express Order",
+											style: {
+												width: "100%",
+												height: "100%",
+												objectFit: "contain",
+												filter: "drop-shadow(0 0 8px var(--accent))"
+											}
+										})
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { children: "Express Order" }),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Skip the lines. Pre-order food and drinks with AI-predicted pickup windows." }),
@@ -607,7 +1859,7 @@ function LandingPage() {
 										children: "LIVE TWIN — SESSION #882"
 									})]
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-									src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1920&auto=format&fit=crop",
+									src: digital_twin_default,
 									alt: "Digital Twin",
 									className: "showcase-image"
 								})]
@@ -630,7 +1882,15 @@ function LandingPage() {
 								style: { animationDelay: `${i * .1}s` },
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 									className: "tech-card-icon",
-									children: t.icon
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+										src: t.icon,
+										alt: t.label,
+										style: {
+											width: "100%",
+											height: "100%",
+											objectFit: "contain"
+										}
+									})
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { children: t.label }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: t.sub })] })]
 							}, i))
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -1014,6 +2274,14 @@ function Login() {
 	const [error, setError] = (0, import_react.useState)("");
 	const [loading, setLoading] = (0, import_react.useState)(false);
 	const [showAccessModal, setShowAccessModal] = (0, import_react.useState)(false);
+	(0, import_react.useEffect)(() => {
+		const timer = setTimeout(() => {
+			setEmail("");
+			setPassword("");
+			localStorage.removeItem("flowstate_last_user");
+		}, 100);
+		return () => clearTimeout(timer);
+	}, []);
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		setLoading(true);
@@ -1085,8 +2353,12 @@ function Login() {
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "auth-bg-blur" }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "auth-overlay-glow" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "hud-scanline",
+				style: { opacity: .1 }
+			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "auth-container",
+				className: "auth-container page-enter",
 				style: {
 					display: "flex",
 					gap: 24,
@@ -1094,8 +2366,11 @@ function Login() {
 					width: "95%"
 				},
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "auth-card glass-panel",
-					style: { flex: 1.2 },
+					className: "auth-card glass-panel stagger-item",
+					style: {
+						flex: 1.2,
+						animationDelay: "0.1s"
+					},
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "auth-header",
@@ -1159,7 +2434,7 @@ function Login() {
 											placeholder: "name@gmail.com",
 											value: email,
 											onChange: (e) => setEmail(e.target.value),
-											autoComplete: "off",
+											autoComplete: "chrome-off",
 											required: true
 										})]
 									})]
@@ -1195,7 +2470,7 @@ function Login() {
 											placeholder: "••••••••••••",
 											value: password,
 											onChange: (e) => setPassword(e.target.value),
-											autoComplete: "off",
+											autoComplete: "new-password",
 											required: true
 										})]
 									})]
@@ -1239,11 +2514,12 @@ function Login() {
 						})
 					]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "auth-card glass-panel demo-bypass-panel",
+					className: "auth-card glass-panel demo-bypass-panel stagger-item",
 					style: {
 						flex: .8,
 						background: "rgba(0, 212, 170, 0.03)",
-						border: "1px solid rgba(0, 212, 170, 0.2)"
+						border: "1px solid rgba(0, 212, 170, 0.2)",
+						animationDelay: "0.2s"
 					},
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -1441,6 +2717,16 @@ function Signup() {
 	const [loading, setLoading] = (0, import_react.useState)(false);
 	const [isGoogleAuth, setIsGoogleAuth] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
+		const timer = setTimeout(() => {
+			if (!location.state?.googleUser) {
+				setEmail("");
+				setPassword("");
+				setName("");
+			}
+		}, 100);
+		return () => clearTimeout(timer);
+	}, [location.state]);
+	(0, import_react.useEffect)(() => {
 		if (location.state?.googleUser) {
 			setEmail(location.state.googleUser.email);
 			setName(location.state.googleUser.name);
@@ -1494,7 +2780,7 @@ function Signup() {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "auth-bg-blur" }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "auth-overlay-glow" }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "auth-container",
+				className: "auth-container page-enter",
 				style: {
 					display: "flex",
 					gap: 40,
@@ -1505,8 +2791,11 @@ function Signup() {
 					marginTop: "-2vh"
 				},
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "auth-card glass-panel",
-					style: { flex: 1.2 },
+					className: "auth-card glass-panel stagger-item",
+					style: {
+						flex: 1.2,
+						animationDelay: "0.1s"
+					},
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "auth-header",
@@ -1585,6 +2874,7 @@ function Signup() {
 											placeholder: "Your Name",
 											value: name,
 											onChange: (e) => setName(e.target.value),
+											autoComplete: "chrome-off",
 											required: true
 										})]
 									})]
@@ -1601,7 +2891,7 @@ function Signup() {
 											placeholder: "name@gmail.com",
 											value: email,
 											onChange: (e) => setEmail(e.target.value),
-											autoComplete: "off",
+											autoComplete: "new-email",
 											required: true
 										})]
 									})]
@@ -1633,7 +2923,7 @@ function Signup() {
 											placeholder: "••••••••••••",
 											value: password,
 											onChange: (e) => setPassword(e.target.value),
-											autoComplete: "off",
+											autoComplete: "new-password",
 											required: true
 										})]
 									})]
@@ -1665,13 +2955,14 @@ function Signup() {
 						})
 					]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "auth-card glass-panel demo-bypass-panel",
+					className: "auth-card glass-panel demo-bypass-panel stagger-item",
 					style: {
 						flex: .8,
 						background: "rgba(59, 130, 246, 0.03)",
 						border: "1px solid rgba(59, 130, 246, 0.2)",
 						display: "flex",
-						flexDirection: "column"
+						flexDirection: "column",
+						animationDelay: "0.2s"
 					},
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -1765,1032 +3056,30 @@ function Signup() {
 	});
 }
 //#endregion
-//#region src/data/sidebarConfig.jsx
-var icons = {
-	grid: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-				x: "3",
-				y: "3",
-				width: "7",
-				height: "7"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-				x: "14",
-				y: "3",
-				width: "7",
-				height: "7"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-				x: "14",
-				y: "14",
-				width: "7",
-				height: "7"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-				x: "3",
-				y: "14",
-				width: "7",
-				height: "7"
-			})
-		]
-	}),
-	pin: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-			cx: "12",
-			cy: "10",
-			r: "3"
-		})]
-	}),
-	chart: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 20V10" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 20V4" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M6 20v-6" })
-		]
-	}),
-	pulse: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M22 12h-4l-3 9L9 3l-3 9H2" })
-	}),
-	gear: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-			cx: "12",
-			cy: "12",
-			r: "3"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68c.17-.38.55-.63.94-.68H12a2 2 0 0 1 0 4h-.09" })]
-	}),
-	users: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-			cx: "9",
-			cy: "7",
-			r: "4"
-		})]
-	}),
-	calendar: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-				x: "3",
-				y: "4",
-				width: "18",
-				height: "18",
-				rx: "2",
-				ry: "2"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-				x1: "16",
-				y1: "2",
-				x2: "16",
-				y2: "6"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-				x1: "8",
-				y1: "2",
-				x2: "8",
-				y2: "6"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-				x1: "3",
-				y1: "10",
-				x2: "21",
-				y2: "10"
-			})
-		]
-	}),
-	shield: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" })
-	}),
-	exit: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "16 17 21 12 16 7" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-				x1: "21",
-				y1: "12",
-				x2: "9",
-				y2: "12"
-			})
-		]
-	}),
-	bell: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M13.73 21a2 2 0 0 1-3.46 0" })]
-	}),
-	box: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" })
-	}),
-	eye: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-			cx: "12",
-			cy: "12",
-			r: "3"
-		})]
-	}),
-	report: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "14 2 14 8 20 8" })]
-	}),
-	replay: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M23 4v6h-6" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M1 20v-6h6" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" })
-		]
-	}),
-	warning: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" })
-	}),
-	dollar: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-			x1: "12",
-			y1: "1",
-			x2: "12",
-			y2: "23"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" })]
-	}),
-	help: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-				cx: "12",
-				cy: "12",
-				r: "10"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 17h.01" })
-		]
-	}),
-	truck: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: "2",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-				x: "1",
-				y: "3",
-				width: "15",
-				height: "13"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "16 8 20 8 23 11 23 16 16 16 16 8" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-				cx: "5.5",
-				cy: "18.5",
-				r: "2.5"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-				cx: "18.5",
-				cy: "18.5",
-				r: "2.5"
-			})
-		]
-	})
-};
-var superAdminSidebar = [
-	{
-		label: "System Overview",
-		path: "/super-admin",
-		icon: icons.grid,
-		end: true
-	},
-	{
-		label: "Venue Management",
-		path: "/super-admin/venues",
-		icon: icons.pin
-	},
-	{
-		label: "Global Analytics",
-		path: "/super-admin/analytics",
-		icon: icons.chart
-	},
-	{
-		label: "Platform Settings",
-		path: "/super-admin/settings",
-		icon: icons.gear
-	}
-];
-var superAdminBrand = {
-	brand: "FlowState",
-	brandSub: "SUPER ADMIN"
-};
-var superAdminUser = {
-	name: "Alex Rivera",
-	role: "Master Control",
-	initials: "AR"
-};
-var venueAdminSidebar = [
-	{
-		label: "Command Center",
-		path: "/venue-admin",
-		icon: icons.grid,
-		end: true
-	},
-	{
-		label: "Event Management",
-		path: "/venue-admin/events",
-		icon: icons.calendar
-	},
-	{
-		label: "Staff Management",
-		path: "/venue-admin/staff",
-		icon: icons.users
-	},
-	{
-		label: "Sensor Network",
-		path: "/venue-admin/sensors",
-		icon: icons.pulse
-	},
-	{
-		label: "Venue Settings",
-		path: "/venue-admin/settings",
-		icon: icons.gear
-	}
-];
-var venueAdminBrand = {
-	brand: "FlowState",
-	brandSub: "VENUE ADMIN"
-};
-var venueAdminUser = {
-	name: "Ops Lead",
-	role: "Terminal 01",
-	initials: "OL"
-};
-var operationsSidebar = [
-	{
-		label: "Operations Command",
-		path: "/operations",
-		icon: icons.grid,
-		end: true
-	},
-	{
-		label: "What-If Sandbox",
-		path: "/operations/sandbox",
-		icon: icons.box
-	},
-	{ section: "Cross-Panel" },
-	{
-		label: "Safety Overview",
-		path: "/security",
-		icon: icons.shield
-	},
-	{
-		label: "Evacuation Control",
-		path: "/security/evacuation",
-		icon: icons.exit
-	}
-];
-var operationsBrand = {
-	brand: "FlowState",
-	brandSub: "OPS CENTER"
-};
-var securitySidebar = [
-	{
-		label: "Safety Overview",
-		path: "/security",
-		icon: icons.shield,
-		end: true
-	},
-	{
-		label: "Evacuation Control",
-		path: "/security/evacuation",
-		icon: icons.exit
-	},
-	{
-		label: "Incident Command",
-		path: "/security/incidents",
-		icon: icons.warning
-	},
-	{ section: "Cross-Panel" },
-	{
-		label: "Operations Command",
-		path: "/operations",
-		icon: icons.grid
-	},
-	{
-		label: "Post-Event Report",
-		path: "/analytics/report",
-		icon: icons.report
-	}
-];
-var securityBrand = {
-	brand: "FlowState",
-	brandSub: "SECURITY"
-};
-var analyticsSidebar = [
-	{
-		label: "Post-Event Report",
-		path: "/analytics/report",
-		icon: icons.report
-	},
-	{
-		label: "Event Replay",
-		path: "/analytics/replay",
-		icon: icons.replay
-	},
-	{ section: "Cross-Panel" },
-	{
-		label: "Operations Command",
-		path: "/operations",
-		icon: icons.grid
-	},
-	{
-		label: "Safety Overview",
-		path: "/security",
-		icon: icons.shield
-	}
-];
-var analyticsBrand = {
-	brand: "FlowState",
-	brandSub: "ANALYTICS"
-};
-icons.grid, icons.pin, icons.box, icons.users;
-var globalSidebar = [
-	{
-		section: "Super Admin",
-		items: superAdminSidebar
-	},
-	{
-		section: "Venue Admin",
-		items: [
-			{
-				label: "Command Center",
-				path: "/venue-admin",
-				icon: icons.grid,
-				end: true
-			},
-			{
-				label: "Event Management",
-				path: "/venue-admin/events",
-				icon: icons.calendar
-			},
-			{
-				label: "Staff Management",
-				path: "/venue-admin/staff",
-				icon: icons.users
-			},
-			{
-				label: "Sensor Network",
-				path: "/venue-admin/sensors",
-				icon: icons.pulse
-			},
-			{
-				label: "Venue Settings",
-				path: "/venue-admin/settings",
-				icon: icons.gear
-			}
-		]
-	},
-	{
-		section: "Operations",
-		items: [{
-			label: "Operations Command",
-			path: "/operations",
-			icon: icons.grid,
-			end: true
-		}, {
-			label: "What-If Sandbox",
-			path: "/operations/sandbox",
-			icon: icons.box
-		}]
-	},
-	{
-		section: "Security",
-		items: [{
-			label: "Safety Overview",
-			path: "/security",
-			icon: icons.shield,
-			end: true
-		}, {
-			label: "Evacuation Control",
-			path: "/security/evacuation",
-			icon: icons.exit
-		}]
-	},
-	{
-		section: "Analytics",
-		items: [{
-			label: "Post-Event Report",
-			path: "/analytics/report",
-			icon: icons.report
-		}, {
-			label: "Event Replay",
-			path: "/analytics/replay",
-			icon: icons.replay
-		}]
-	},
-	{
-		section: "Logistics",
-		items: [{
-			label: "Transit Hub",
-			path: "/logistics/transit",
-			icon: icons.truck
-		}]
-	}
-];
-//#endregion
-//#region src/layouts/AppShell.jsx
-function AppShell({ children, brand, brandSub, user, sidebarItems, headerExtra }) {
-	const location = useLocation();
-	const navigate = useNavigate();
-	const autoOpenSection = (0, import_react.useMemo)(() => {
-		if (!sidebarItems) {
-			for (const section of globalSidebar) if (section.items.some((item) => {
-				if (item.end) return location.pathname === item.path;
-				return location.pathname.startsWith(item.path);
-			})) return section.section;
-		}
-		return "";
-	}, [location.pathname, sidebarItems]);
-	const [manualSection, setManualSection] = (0, import_react.useState)(null);
-	const [prevPath, setPrevPath] = (0, import_react.useState)(location.pathname);
-	if (location.pathname !== prevPath) {
-		setPrevPath(location.pathname);
-		setManualSection(null);
-	}
-	const openSection = manualSection !== null ? manualSection : autoOpenSection;
-	const finalSidebar = sidebarItems || [];
-	const isGlobalMode = !sidebarItems;
-	const [activeDropdown, setActiveDropdown] = (0, import_react.useState)(null);
-	const [isCinematicMode, setIsCinematicMode] = (0, import_react.useState)(false);
-	const [telemetry, setTelemetry] = (0, import_react.useState)("FAST");
-	const [notifications, setNotifications] = (0, import_react.useState)([]);
-	const showToast = (msg, type = "success") => {
-		const toast = document.createElement("div");
-		toast.className = `toast toast-${type}`;
-		toast.style.zIndex = "10000";
-		const icon = document.createElement("div");
-		icon.className = "toast-icon";
-		icon.innerHTML = type === "success" ? "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\"><path d=\"M20 6L9 17l-5-5\"/></svg>" : "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"/><polyline points=\"11 12 12 12 12 16 13 16\"/></svg>";
-		const text = document.createElement("div");
-		text.innerText = msg;
-		text.style.fontWeight = "500";
-		text.style.fontSize = "0.9rem";
-		toast.appendChild(icon);
-		toast.appendChild(text);
-		document.body.appendChild(toast);
-		setTimeout(() => {
-			toast.style.opacity = "0";
-			toast.style.transition = "opacity 0.3s ease";
-			setTimeout(() => toast.remove(), 300);
-		}, 3e3);
-	};
-	const handleDismiss = (id) => {
-		setNotifications((prev) => prev.filter((n) => n.id !== id));
-		showToast("Clearing system notification", "info");
-	};
-	const toggleCinematic = () => {
-		const newVal = !isCinematicMode;
-		setIsCinematicMode(newVal);
-		if (newVal) {
-			document.documentElement.style.filter = "contrast(1.1) saturate(1.1) brightness(1.05)";
-			showToast("Cinematic Overlay Enabled", "success");
-		} else {
-			document.documentElement.style.filter = "none";
-			showToast("System Visuals Reset", "info");
-		}
-	};
-	const handleLogout = () => {
-		localStorage.removeItem("flowstate_last_user");
-		showToast("Vault sequence initiated... Logging out.", "info");
-		setTimeout(() => window.location.href = "/", 800);
-	};
-	(0, import_react.useEffect)(() => {
-		document.title = `FlowState — ${brandSub || "Crowd Intelligence"}`;
-	}, [brandSub]);
-	(0, import_react.useEffect)(() => {
-		const handleClick = () => setActiveDropdown(null);
-		window.addEventListener("click", handleClick);
-		return () => window.removeEventListener("click", handleClick);
-	}, []);
-	const toggleSection = (sectionName) => {
-		setManualSection((prev) => {
-			return (prev !== null ? prev : autoOpenSection) === sectionName ? "" : sectionName;
-		});
-	};
-	const renderSidebarContent = () => {
-		if (isGlobalMode) return globalSidebar.map((group, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: `sidebar-group ${openSection === group.section ? "open" : ""}`,
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "sidebar-group-header",
-				onClick: () => toggleSection(group.section),
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: group.section }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-					className: "chevron",
-					viewBox: "0 0 24 24",
-					fill: "none",
-					stroke: "currentColor",
-					strokeWidth: "2",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M6 9l6 6 6-6" })
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "sidebar-group-items",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "sidebar-group-inner",
-					children: group.items.map((item, j) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(NavLink, {
-						to: item.path,
-						className: ({ isActive }) => `sidebar-item ${isActive ? "active" : ""}`,
-						end: item.end,
-						children: [item.icon, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.label })]
-					}, item.path || j))
-				})
-			})]
-		}, i));
-		return finalSidebar.map((item, i) => {
-			if (item.section) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "sidebar-section-label",
-				children: item.section
-			}, i);
-			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(NavLink, {
-				to: item.path,
-				className: ({ isActive }) => `sidebar-item hover-accent ${isActive ? "active" : ""}`,
-				end: item.end,
-				children: [item.icon, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.label })]
-			}, item.path || i);
-		});
-	};
+//#region src/components/common/GlassPanel.jsx
+/**
+* Reusable Glassmorphic Container
+* Provides a consistent background, border, and blur effect.
+*/
+function GlassPanel({ children, className = "", style = {}, accent = false, padding = 20, header = null, headerActions = null }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "app-shell",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", {
-			className: "sidebar",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "sidebar-brand",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "sidebar-brand-top",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
-							to: "/",
-							className: "brand-link",
-							title: "Return to Public Site",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: brand || "FlowState" })
-						})
-					}), brandSub && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "brand-sub",
-						children: brandSub
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
-					className: "sidebar-nav",
-					children: renderSidebarContent()
-				}),
-				user && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "sidebar-footer",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "sidebar-user",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "sidebar-avatar",
-							children: user.initials
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "sidebar-user-info",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "sidebar-user-name",
-								children: user.name
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "sidebar-user-role",
-								children: user.role
-							})]
-						})]
-					})
-				})
-			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-			className: "main-content",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
-				className: "top-header",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "header-left",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "header-status",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `status-dot ${isCinematicMode ? "critical pulse" : "online pulse"}` }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "label-caps",
-								children: brandSub
-							})]
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "header-center",
-						children: headerExtra
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "header-right",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "header-search",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-									viewBox: "0 0 24 24",
-									fill: "none",
-									stroke: "currentColor",
-									strokeWidth: "2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-										cx: "11",
-										cy: "11",
-										r: "8"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 21l-4.35-4.35" })]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									type: "text",
-									placeholder: "Global node search..."
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "header-divider",
-								style: {
-									width: 1,
-									height: 20,
-									background: "var(--border-subtle)",
-									margin: "0 8px"
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "header-dropdown-container",
-								onClick: (e) => e.stopPropagation(),
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									className: `btn-icon header-notification ${activeDropdown === "notif" ? "active" : ""}`,
-									onClick: () => setActiveDropdown(activeDropdown === "notif" ? null : "notif"),
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-										viewBox: "0 0 24 24",
-										fill: "none",
-										stroke: "currentColor",
-										strokeWidth: "2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M13.73 21a2 2 0 0 1-3.46 0" })]
-									}), notifications.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "count",
-										children: notifications.length
-									})]
-								}), activeDropdown === "notif" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "header-dropdown",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "dropdown-header",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { children: "Pulse Notifications" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-												className: "btn-ghost",
-												style: { fontSize: "0.6rem" },
-												onClick: () => setNotifications([]),
-												children: "Clear All"
-											})]
-										}),
-										notifications.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											style: {
-												padding: 20,
-												textAlign: "center",
-												color: "var(--text-muted)",
-												fontSize: "0.8rem"
-											},
-											children: "Infrastructure is stable. No active pulses."
-										}) : notifications.map((n) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: `dropdown-item ${n.type === "alert" ? "alert" : ""}`,
-											onClick: () => handleDismiss(n.id),
-											children: [n.type === "alert" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-												background: "var(--status-alert)",
-												width: 8,
-												height: 8,
-												borderRadius: "50%"
-											} }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-												width: "14",
-												height: "14",
-												viewBox: "0 0 24 24",
-												fill: "none",
-												stroke: "currentColor",
-												strokeWidth: "2",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M22 11.08V12a10 10 0 1 1-5.93-9.14" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "22 4 12 14.01 9 11.01" })]
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												style: { fontWeight: 600 },
-												children: n.title
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "item-meta",
-												children: n.desc
-											})] })]
-										}, n.id)),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											style: {
-												padding: 10,
-												textAlign: "center",
-												borderTop: "1px solid var(--border-color)",
-												marginTop: 4
-											},
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-												href: "#",
-												style: {
-													fontSize: "0.7rem",
-													color: "var(--accent)",
-													textDecoration: "none"
-												},
-												onClick: (e) => {
-													e.preventDefault();
-													showToast("Accessing complete intelligence logs...", "info");
-												},
-												children: "View Intelligence Log"
-											})
-										})
-									]
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "header-dropdown-container",
-								onClick: (e) => e.stopPropagation(),
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									className: `btn-icon ${activeDropdown === "settings" ? "active" : ""}`,
-									onClick: () => setActiveDropdown(activeDropdown === "settings" ? null : "settings"),
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-										viewBox: "0 0 24 24",
-										fill: "none",
-										stroke: "currentColor",
-										strokeWidth: "2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-											cx: "12",
-											cy: "12",
-											r: "3"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" })]
-									})
-								}), activeDropdown === "settings" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "header-dropdown",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "dropdown-header",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { children: "Interface Settings" })
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "dropdown-item",
-											onClick: toggleCinematic,
-											style: { cursor: "pointer" },
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Cinematic / High Contrast" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												style: {
-													marginLeft: "auto",
-													width: 32,
-													height: 16,
-													background: isCinematicMode ? "var(--accent)" : "var(--bg-deep)",
-													borderRadius: 10,
-													position: "relative",
-													border: "1px solid var(--border-color)"
-												},
-												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-													position: "absolute",
-													top: 2,
-													left: isCinematicMode ? 18 : 2,
-													width: 10,
-													height: 10,
-													background: "white",
-													borderRadius: "50%",
-													transition: "all 0.2s"
-												} })
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "dropdown-item",
-											onClick: () => {
-												const next = telemetry === "FAST" ? "BALANCED" : telemetry === "BALANCED" ? "STABLE" : "FAST";
-												setTelemetry(next);
-												showToast(`Telemetry updated to ${next} frequency`);
-											},
-											style: { cursor: "pointer" },
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Telemetry Frequency" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												style: {
-													marginLeft: "auto",
-													color: "var(--accent)",
-													fontSize: "0.7rem"
-												},
-												children: telemetry
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "dropdown-item",
-											onClick: () => showToast("Master diagnostic sweep initiated...", "info"),
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "System Diagnostics" })
-										})
-									]
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "header-dropdown-container",
-								onClick: (e) => e.stopPropagation(),
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									className: `btn-icon ${activeDropdown === "profile" ? "active" : ""}`,
-									onClick: () => setActiveDropdown(activeDropdown === "profile" ? null : "profile"),
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-										viewBox: "0 0 24 24",
-										fill: "none",
-										stroke: "currentColor",
-										strokeWidth: "2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-											cx: "12",
-											cy: "7",
-											r: "4"
-										})]
-									})
-								}), activeDropdown === "profile" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "header-dropdown profile-dropdown",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "dropdown-header",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												style: {
-													fontWeight: 700,
-													color: "var(--text-primary)"
-												},
-												children: user?.name || "Operator"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "item-meta",
-												children: user?.role || "Nexus System User"
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "dropdown-item",
-											onClick: () => {
-												navigate("/profile", { state: { activeTab: "Security" } });
-												setActiveDropdown(null);
-											},
-											children: "Account Security"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "dropdown-item",
-											onClick: () => {
-												navigate("/profile", { state: { activeTab: "Activity Log" } });
-												setActiveDropdown(null);
-											},
-											children: "Session History"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "sidebar-divider",
-											style: { margin: "8px 0" }
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "dropdown-item",
-											style: {
-												color: "var(--status-alert)",
-												cursor: "pointer"
-											},
-											onClick: handleLogout,
-											children: "Logout System"
-										})
-									]
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "header-divider",
-								style: {
-									width: 1,
-									height: 24,
-									background: "var(--border-subtle)",
-									margin: "0 8px"
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-secondary",
-								style: {
-									fontSize: "0.65rem",
-									padding: "6px 10px",
-									color: "var(--status-alert)"
-								},
-								title: "Exit System",
-								onClick: handleLogout,
-								children: "LOGOUT"
-							})
-						]
-					})
-				]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "page-content page-enter",
-				children
+		className: `card ${accent ? "card-accent" : ""} ${className}`,
+		style: {
+			padding,
+			...style
+		},
+		children: [(header || headerActions) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "card-header",
+			children: [typeof header === "string" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "card-title",
+				children: header
+			}) : header, headerActions && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "card-header-actions",
+				children: headerActions
 			})]
-		})]
+		}), children]
 	});
 }
-//#endregion
-//#region src/api/index.js
-var API_BASE_URL = "http://localhost:5000/api";
-var apiRequest = async (endpoint, options = {}) => {
-	const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-		...options,
-		headers: {
-			"Content-Type": "application/json",
-			...options.headers
-		}
-	});
-	if (!response.ok) {
-		const error = await response.json();
-		throw new Error(error.message || "API Request Failed");
-	}
-	return response.json();
-};
-var venueApi = {
-	getAll: (params = {}) => {
-		const query = new URLSearchParams(params).toString();
-		return apiRequest(`/venues${query ? "?" + query : ""}`);
-	},
-	getOne: (id) => apiRequest(`/venues/${id}`),
-	create: (data) => apiRequest("/venues", {
-		method: "POST",
-		body: JSON.stringify(data)
-	}),
-	update: (id, data) => apiRequest(`/venues/${id}`, {
-		method: "PATCH",
-		body: JSON.stringify(data)
-	}),
-	delete: (id) => apiRequest(`/venues/${id}`, { method: "DELETE" })
-};
-var eventApi = {
-	getAll: () => apiRequest("/events"),
-	getByVenue: (venueId) => apiRequest(`/events/venue/${venueId}`),
-	create: (data) => apiRequest("/events", {
-		method: "POST",
-		body: JSON.stringify(data)
-	}),
-	update: (id, data) => apiRequest(`/events/${id}`, {
-		method: "PATCH",
-		body: JSON.stringify(data)
-	}),
-	delete: (id) => apiRequest(`/events/${id}`, { method: "DELETE" })
-};
-var userApi = {
-	getAll: () => apiRequest("/users"),
-	getOne: (id) => apiRequest(`/users/${id}`),
-	create: (data) => apiRequest("/users", {
-		method: "POST",
-		body: JSON.stringify(data)
-	}),
-	update: (id, data) => apiRequest(`/users/${id}`, {
-		method: "PATCH",
-		body: JSON.stringify(data)
-	}),
-	remove: (id) => apiRequest(`/users/${id}`, { method: "DELETE" })
-};
-var sensorApi = {
-	getAll: () => apiRequest("/sensors"),
-	create: (data) => apiRequest("/sensors", {
-		method: "POST",
-		body: JSON.stringify(data)
-	}),
-	runDiagnostics: () => apiRequest("/sensors/diagnostics", { method: "POST" })
-};
-var settingsApi = {
-	get: () => apiRequest("/settings"),
-	update: (data) => apiRequest("/settings", {
-		method: "PUT",
-		body: JSON.stringify(data)
-	})
-};
 //#endregion
 //#region src/components/common/Icon.jsx
 /**
@@ -2941,30 +3230,489 @@ function Icon({ name, size = 18, color = "currentColor", className = "" }) {
 	});
 }
 //#endregion
-//#region src/components/common/GlassPanel.jsx
-/**
-* Reusable Glassmorphic Container
-* Provides a consistent background, border, and blur effect.
-*/
-function GlassPanel({ children, className = "", style = {}, accent = false, padding = 20, header = null, headerActions = null }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: `card ${accent ? "card-accent" : ""} ${className}`,
-		style: {
-			padding,
-			...style
-		},
-		children: [(header || headerActions) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "card-header",
-			children: [typeof header === "string" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: "card-title",
-				children: header
-			}) : header, headerActions && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "card-header-actions",
-				children: headerActions
+//#region src/pages/auth/ProfileHub.jsx
+function ProfileHub() {
+	const [activeTab, setActiveTab] = (0, import_react.useState)("Identity");
+	const location = useLocation();
+	(0, import_react.useEffect)(() => {
+		if (location.state?.activeTab) setActiveTab(location.state.activeTab);
+	}, [location.state]);
+	const showToast = (msg, type = "success") => {
+		const toast = document.createElement("div");
+		toast.className = `toast toast-${type}`;
+		toast.style.zIndex = "10000";
+		const icon = document.createElement("div");
+		icon.className = "toast-icon";
+		icon.innerHTML = type === "success" ? "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\"><path d=\"M20 6L9 17l-5-5\"/></svg>" : "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"/><polyline points=\"11 12 12 12 12 16 13 16\"/></svg>";
+		const text = document.createElement("div");
+		text.innerText = msg;
+		text.style.fontWeight = "500";
+		text.style.fontSize = "0.9rem";
+		toast.appendChild(icon);
+		toast.appendChild(text);
+		document.body.appendChild(toast);
+		setTimeout(() => {
+			toast.style.opacity = "0";
+			toast.style.transition = "opacity 0.3s ease";
+			setTimeout(() => toast.remove(), 300);
+		}, 3e3);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "page-header page-enter",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "page-header-top",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "flex",
+					alignItems: "center",
+					gap: 12,
+					marginBottom: 4
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "page-pretitle",
+					children: "USER_MANAGEMENT // CLEARANCE_LEVEL_4"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						display: "flex",
+						gap: 12,
+						marginLeft: 12,
+						borderLeft: "1px solid var(--border-subtle)",
+						paddingLeft: 12
+					},
+					children: [
+						"Identity",
+						"Security",
+						"Activity Log"
+					].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: activeTab === t ? "label-accent" : "label-caps",
+						style: {
+							cursor: "pointer",
+							fontSize: "0.65rem"
+						},
+						onClick: () => setActiveTab(t),
+						children: t
+					}, t))
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "User Profile & Security Hub" })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+				className: "btn btn-secondary",
+				onClick: () => showToast("Syncing profile with central node...", "info"),
+				children: "Sync Identity"
 			})]
-		}), children]
-	});
+		})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		style: {
+			display: "grid",
+			gridTemplateColumns: "minmax(250px, 0.8fr) 2fr",
+			gap: 24
+		},
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "flex",
+				flexDirection: "column",
+				gap: 24
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
+				className: "stagger-item",
+				style: {
+					textAlign: "center",
+					padding: "40px 24px",
+					animationDelay: "0.1s"
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "sidebar-avatar data-pulse",
+						style: {
+							width: 100,
+							height: 100,
+							fontSize: "2.5rem",
+							margin: "0 auto 20px",
+							background: "var(--accent-dim)",
+							color: "var(--accent)",
+							border: "2px solid var(--accent-border)",
+							boxShadow: "0 0 30px rgba(0, 212, 170, 0.2)"
+						},
+						children: "R"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						style: {
+							marginBottom: 4,
+							letterSpacing: "0.02em"
+						},
+						children: "Rahul"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-accent",
+						style: { marginBottom: 16 },
+						children: "Venue Administrator"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							padding: "12px",
+							background: "var(--bg-deep)",
+							borderRadius: "var(--radius-sm)",
+							border: "1px solid var(--border-color)",
+							textAlign: "left"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: {
+								fontSize: "0.65rem",
+								marginBottom: 4
+							},
+							children: "Last Login"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mono",
+							style: { fontSize: "0.78rem" },
+							children: "2026-04-13 14:30:11"
+						})]
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				style: {
+					display: "flex",
+					flexDirection: "column",
+					gap: 8
+				},
+				children: [
+					"Identity",
+					"Security",
+					"Activity Log"
+				].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					className: `btn ${activeTab === t ? "btn-primary" : "btn-ghost"}`,
+					style: {
+						justifyContent: "flex-start",
+						textAlign: "left"
+					},
+					onClick: () => setActiveTab(t),
+					children: t
+				}, t))
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+			activeTab === "Identity" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
+				header: "Identity Management",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "grid-2",
+					style: { gap: 24 },
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "form-group",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+								className: "label-caps",
+								children: "Display Name"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								defaultValue: "Rahul",
+								style: { width: "100%" }
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "form-group",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+								className: "label-caps",
+								children: "Primary Email"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								defaultValue: "rahul@flowstate.ai",
+								style: { width: "100%" },
+								readOnly: true
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "form-group",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+								className: "label-caps",
+								children: "Assigned Role"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								defaultValue: "Venue Administrator",
+								style: { width: "100%" },
+								readOnly: true
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "form-group",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+								className: "label-caps",
+								children: "Organization"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								defaultValue: "Nexus Sports Entertainment",
+								style: { width: "100%" }
+							})]
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						marginTop: 24,
+						display: "flex",
+						gap: 12
+					},
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: "btn btn-primary",
+						onClick: () => showToast("Identity attributes updated successfully"),
+						children: "Update Profile"
+					})
+				})]
+			}),
+			activeTab === "Security" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "flex",
+					flexDirection: "column",
+					gap: 24
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
+					header: "System Access & Authentication",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							flexDirection: "column",
+							gap: 20
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								display: "flex",
+								justifyContent: "space-between",
+								alignItems: "center",
+								padding: "16px",
+								background: "var(--bg-deep)",
+								borderRadius: "var(--radius-md)"
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: { fontWeight: 600 },
+								children: "Password Authentication"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontSize: "0.82rem",
+									color: "var(--text-muted)"
+								},
+								children: "Last changed 42 days ago. Strong entropy detected."
+							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								className: "btn btn-secondary",
+								onClick: () => showToast("Sending password reset protocol to email...", "info"),
+								children: "Change Password"
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								display: "flex",
+								justifyContent: "space-between",
+								alignItems: "center",
+								padding: "16px",
+								background: "var(--bg-deep)",
+								borderRadius: "var(--radius-md)"
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: { fontWeight: 600 },
+								children: "Multi-Factor Authentication (MFA)"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontSize: "0.82rem",
+									color: "var(--status-ok)"
+								},
+								children: "Hardware Security Key Enabled (Yubikey)"
+							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								className: "btn btn-secondary",
+								onClick: () => showToast("Opening MFA management vault...", "info"),
+								children: "Configure"
+							})]
+						})]
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
+					header: "Active Operative Sessions",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center",
+							padding: "12px 0",
+							borderBottom: "1px solid var(--border-subtle)"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								fontSize: "0.9rem",
+								fontWeight: 600
+							},
+							children: "Windows Desktop // Chrome"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								fontSize: "0.75rem",
+								color: "var(--text-muted)"
+							},
+							children: "Current Session • Delhi, India"
+						})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "badge badge-success",
+							children: "ACTIVE"
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							padding: "12px 0",
+							textAlign: "center"
+						},
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-ghost",
+							style: { color: "var(--status-alert)" },
+							onClick: () => showToast("Terminating all other system instances...", "info"),
+							children: "Terminate All Other Sessions"
+						})
+					})]
+				})]
+			}),
+			activeTab === "Activity Log" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
+				header: "Operative Activity Log",
+				headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					className: "btn btn-secondary",
+					style: { fontSize: "0.72rem" },
+					onClick: () => showToast("Exporting session history as encrypted CSV...", "success"),
+					children: "Export Log"
+				}),
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+					className: "data-table",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Timestamp" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Action" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Access Point" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "IP Address" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Result" })
+					] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: [
+						{
+							id: 1,
+							action: "System Login",
+							time: "2026-04-13 09:12:44",
+							node: "NODE-ALPHA-04",
+							ip: "192.168.1.42",
+							status: "Success"
+						},
+						{
+							id: 2,
+							action: "Security Protocol Override",
+							time: "2026-04-13 10:45:21",
+							node: "SEC-CONTROL-01",
+							ip: "192.168.1.42",
+							status: "Authorized"
+						},
+						{
+							id: 3,
+							action: "Sensor Calibration Update",
+							time: "2026-04-13 11:22:05",
+							node: "SNS-NET-B",
+							ip: "192.168.1.42",
+							status: "Complete"
+						},
+						{
+							id: 4,
+							action: "Access Management Update",
+							time: "2026-04-13 11:58:30",
+							node: "SYS-AUTH",
+							ip: "192.168.1.42",
+							status: "Success"
+						},
+						{
+							id: 5,
+							action: "Intelligence Report Export",
+							time: "2026-04-13 14:05:12",
+							node: "ANLYT-HUB",
+							ip: "192.168.1.42",
+							status: "Encrypted"
+						}
+					].map((log) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+							className: "mono",
+							style: { fontSize: "0.75rem" },
+							children: log.time
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+							style: { fontWeight: 600 },
+							children: log.action
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+							className: "label-caps",
+							style: { fontSize: "0.65rem" },
+							children: log.node
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+							className: "mono",
+							style: { fontSize: "0.75rem" },
+							children: log.ip
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: `badge ${log.status === "Success" || log.status === "Authorized" || log.status === "Encrypted" ? "badge-success" : "badge-alert"}`,
+							children: log.status
+						}) })
+					] }, log.id)) })]
+				})
+			})
+		] })]
+	})] });
 }
+//#endregion
+//#region src/api/index.js
+var API_BASE_URL = "http://localhost:5000/api";
+var apiRequest = async (endpoint, options = {}) => {
+	const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+		...options,
+		headers: {
+			"Content-Type": "application/json",
+			...options.headers
+		}
+	});
+	if (!response.ok) {
+		const error = await response.json();
+		throw new Error(error.message || "API Request Failed");
+	}
+	return response.json();
+};
+var venueApi = {
+	getAll: (params = {}) => {
+		const query = new URLSearchParams(params).toString();
+		return apiRequest(`/venues${query ? "?" + query : ""}`);
+	},
+	getOne: (id) => apiRequest(`/venues/${id}`),
+	create: (data) => apiRequest("/venues", {
+		method: "POST",
+		body: JSON.stringify(data)
+	}),
+	update: (id, data) => apiRequest(`/venues/${id}`, {
+		method: "PATCH",
+		body: JSON.stringify(data)
+	}),
+	delete: (id) => apiRequest(`/venues/${id}`, { method: "DELETE" })
+};
+var eventApi = {
+	getAll: () => apiRequest("/events"),
+	getByVenue: (venueId) => apiRequest(`/events/venue/${venueId}`),
+	create: (data) => apiRequest("/events", {
+		method: "POST",
+		body: JSON.stringify(data)
+	}),
+	update: (id, data) => apiRequest(`/events/${id}`, {
+		method: "PATCH",
+		body: JSON.stringify(data)
+	}),
+	delete: (id) => apiRequest(`/events/${id}`, { method: "DELETE" })
+};
+var userApi = {
+	getAll: () => apiRequest("/users"),
+	getOne: (id) => apiRequest(`/users/${id}`),
+	create: (data) => apiRequest("/users", {
+		method: "POST",
+		body: JSON.stringify(data)
+	}),
+	update: (id, data) => apiRequest(`/users/${id}`, {
+		method: "PATCH",
+		body: JSON.stringify(data)
+	}),
+	remove: (id) => apiRequest(`/users/${id}`, { method: "DELETE" })
+};
+var sensorApi = {
+	getAll: () => apiRequest("/sensors"),
+	create: (data) => apiRequest("/sensors", {
+		method: "POST",
+		body: JSON.stringify(data)
+	}),
+	runDiagnostics: () => apiRequest("/sensors/diagnostics", { method: "POST" })
+};
+var settingsApi = {
+	get: () => apiRequest("/settings"),
+	update: (data) => apiRequest("/settings", {
+		method: "PUT",
+		body: JSON.stringify(data)
+	})
+};
 //#endregion
 //#region src/components/common/StatCard.jsx
 /**
@@ -3759,100 +4507,55 @@ function SuperAdminDashboard() {
 			})
 		})]
 	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: superAdminSidebar,
-		brand: superAdminBrand.brand,
-		brandSub: superAdminBrand.brandSub,
-		user: superAdminUser,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 24
-			},
-			children: [
-				[
-					"System",
-					"Traffic",
-					"Network"
-				].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: activeTab === t ? "label-accent" : "label-caps",
-					style: {
-						cursor: "pointer",
-						whiteSpace: "nowrap"
-					},
-					onClick: () => {
-						setActiveTab(t);
-						showToast(`Shifting view to ${t} telemetry...`, "info");
-					},
-					children: t
-				}, t)),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-					width: 1,
-					height: 16,
-					background: "var(--border-subtle)"
-				} }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "page-header",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "page-header-top",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "System Command Centre" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+				className: "label-caps",
+				style: { marginTop: 4 },
+				children: [
+					"CORE_TELEMETRY // VIEW: ",
+					activeTab.toUpperCase(),
+					" // SESSION: ",
+					Math.random().toString(36).substring(7).toUpperCase()
+				]
+			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-actions",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 					className: "btn btn-secondary",
-					style: {
-						fontSize: "0.62rem",
-						padding: "4px 12px"
+					onClick: () => showToast("Syncing mission intelligence log...", "info"),
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
+						name: "export",
+						size: 14
+					}), " Intelligence Log"]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					className: `btn btn-primary ${refreshing ? "loading" : ""}`,
+					onClick: () => {
+						fetchGlobalStats(true);
+						showToast("Re-synchronizing all global nodes...", "success");
 					},
-					onClick: () => showToast("Compiling global infrastructure audit...", "success"),
-					children: "System Audit"
-				})
-			]
-		}),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "page-header",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "page-header-top",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "System Command Centre" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-					className: "label-caps",
-					style: { marginTop: 4 },
+					disabled: refreshing,
 					children: [
-						"CORE_TELEMETRY // VIEW: ",
-						activeTab.toUpperCase(),
-						" // SESSION: ",
-						Math.random().toString(36).substring(7).toUpperCase()
-					]
-				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-actions",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-						className: "btn btn-secondary",
-						onClick: () => showToast("Syncing mission intelligence log...", "info"),
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
-							name: "export",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
+							name: "refresh",
 							size: 14
-						}), " Intelligence Log"]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-						className: `btn btn-primary ${refreshing ? "loading" : ""}`,
-						onClick: () => {
-							fetchGlobalStats(true);
-							showToast("Re-synchronizing all global nodes...", "success");
-						},
-						disabled: refreshing,
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
-								name: "refresh",
-								size: 14
-							}),
-							" ",
-							refreshing ? "Syncing..." : "Force Sync"
-						]
-					})]
+						}),
+						" ",
+						refreshing ? "Syncing..." : "Force Sync"
+					]
 				})]
-			})
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "tab-container",
-			style: { marginTop: 10 },
-			children: [
-				activeTab === "System" && renderSystemDashboard(),
-				activeTab === "Traffic" && renderTrafficDashboard(),
-				activeTab === "Network" && renderNetworkDashboard()
-			]
-		})]
-	});
+			})]
+		})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "tab-container",
+		style: { marginTop: 10 },
+		children: [
+			activeTab === "System" && renderSystemDashboard(),
+			activeTab === "Traffic" && renderTrafficDashboard(),
+			activeTab === "Network" && renderNetworkDashboard()
+		]
+	})] });
 }
 //#endregion
 //#region src/pages/super-admin/VenueManagement.jsx
@@ -3892,103 +4595,128 @@ function VenueManagement() {
 		pro: "badge-info",
 		starter: "badge-neutral"
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: superAdminSidebar,
-		brand: superAdminBrand.brand,
-		brandSub: superAdminBrand.brandSub,
-		user: superAdminUser,
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "page-header",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-pretitle",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online" }), " DIRECTORY NODE: MASTER"]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-header-top",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Venue Management" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "page-subtitle",
-						children: "Centralized command for global venue infrastructure, capacity monitoring, and system-wide status overrides."
-					})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: "btn btn-primary",
-						onClick: () => navigate("/super-admin/venues/new"),
-						children: "+ Add New Venue"
-					})]
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "page-header",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-pretitle",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online" }), " DIRECTORY NODE: MASTER"]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Venue Management" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "page-subtitle",
+					children: "Centralized command for global venue infrastructure, capacity monitoring, and system-wide status overrides."
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					className: "btn btn-primary",
+					onClick: () => navigate("/super-admin/venues/new"),
+					children: "+ Add New Venue"
 				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "card",
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "card-premium stagger-item",
+			style: {
+				marginBottom: 20,
+				padding: 24,
+				borderRadius: "var(--radius-md)",
+				animationDelay: "0.1s"
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				style: {
-					marginBottom: 20,
-					padding: 20
+					position: "absolute",
+					top: 0,
+					right: 20,
+					fontSize: "0.6rem",
+					color: "var(--accent)",
+					opacity: .4,
+					fontFamily: "var(--font-mono)"
 				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				children: "FILTER_MODULE_ACTIVE"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "grid",
+					gridTemplateColumns: "1.5fr 1fr 1fr 1.5fr",
+					gap: 16,
+					alignItems: "end"
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
+						style: { marginBottom: 8 },
+						children: "Global Search"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						placeholder: "Filter by name or city...",
+						value: search,
+						onChange: (e) => setSearch(e.target.value)
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
+						style: { marginBottom: 8 },
+						children: "Region"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+						value: region,
+						onChange: (e) => setRegion(e.target.value),
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "All Regions" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "NA-EAST" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "EU-WEST" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "APAC-01" })
+						]
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
+						style: { marginBottom: 8 },
+						children: "Operational Status"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+						value: status,
+						onChange: (e) => setStatus(e.target.value),
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Any Status" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Active" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Offline" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Paused" })
+						]
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "label-caps",
+						style: { marginBottom: 8 },
+						children: ["Capacity Range ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							style: { float: "right" },
+							children: "0 - 85K"
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						type: "range",
+						min: "0",
+						max: "85000",
+						style: {
+							width: "100%",
+							accentColor: "var(--accent)"
+						}
+					})] })
+				]
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "card-premium stagger-item",
+			style: {
+				padding: 0,
+				borderRadius: "var(--radius-md)",
+				animationDelay: "0.2s"
+			},
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					style: {
-						display: "grid",
-						gridTemplateColumns: "1.5fr 1fr 1fr 1.5fr",
-						gap: 16,
-						alignItems: "end"
+						position: "absolute",
+						top: 12,
+						right: 24,
+						fontSize: "0.55rem",
+						color: "var(--accent)",
+						opacity: .3,
+						fontFamily: "var(--font-mono)"
 					},
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: { marginBottom: 8 },
-							children: "Global Search"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-							placeholder: "Filter by name or city...",
-							value: search,
-							onChange: (e) => setSearch(e.target.value)
-						})] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: { marginBottom: 8 },
-							children: "Region"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
-							value: region,
-							onChange: (e) => setRegion(e.target.value),
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "All Regions" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "NA-EAST" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "EU-WEST" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "APAC-01" })
-							]
-						})] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: { marginBottom: 8 },
-							children: "Operational Status"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
-							value: status,
-							onChange: (e) => setStatus(e.target.value),
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Any Status" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Active" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Offline" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Paused" })
-							]
-						})] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "label-caps",
-							style: { marginBottom: 8 },
-							children: ["Capacity Range ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								style: { float: "right" },
-								children: "0 - 85K"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-							type: "range",
-							min: "0",
-							max: "85000",
-							style: {
-								width: "100%",
-								accentColor: "var(--accent)"
-							}
-						})] })
-					]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "card",
-				style: { padding: 0 },
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+					children: "NODE_CLUSTER_SYNC: 0.42ms"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
 					className: "data-table",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Venue Identity" }),
@@ -4201,7 +4929,8 @@ function VenueManagement() {
 							]
 						}) })
 					] }, v._id)) })]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "pagination",
 					style: { padding: "12px 16px" },
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -4275,10 +5004,10 @@ function VenueManagement() {
 							})
 						]
 					})]
-				})]
-			})
-		]
-	});
+				})
+			]
+		})
+	] });
 }
 //#endregion
 //#region src/pages/super-admin/AddVenueWizard.jsx
@@ -4317,48 +5046,16 @@ function AddVenueWizard() {
 			setLoading(false);
 		}
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: superAdminSidebar,
-		brand: superAdminBrand.brand,
-		brandSub: superAdminBrand.brandSub,
-		user: null,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				gap: 12,
-				alignItems: "center"
-			},
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "label-caps",
-					children: "System Monitoring"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "label-caps",
-					children: "Asset Library"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "label-accent",
-					children: "Venues"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { flex: 1 } }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: "btn btn-ghost",
-					onClick: () => navigate("/super-admin/venues"),
-					children: "Save & Exit"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: "btn btn-primary",
-					onClick: handleNext,
-					disabled: loading,
-					children: loading ? "Initializing..." : step < 5 ? "Next" : "Complete Setup"
-				})
-			]
-		}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "page-header",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Add New Venue" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "flex-start"
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Add New Venue" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
 					className: "page-subtitle",
 					children: [
 						"Step ",
@@ -4372,595 +5069,620 @@ function AddVenueWizard() {
 							"User Onboarding"
 						][step - 1]
 					]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "wizard-steps",
-				style: { maxWidth: 400 },
-				children: [
-					1,
-					2,
-					3,
-					4,
-					5
-				].map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `wizard-step ${s < step ? "completed" : s === step ? "current" : ""}` }, s))
-			}),
-			step === 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "grid",
-					gridTemplateColumns: "1.5fr 1fr",
-					gap: 24
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card-header",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "card-title",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-									viewBox: "0 0 24 24",
-									width: "18",
-									height: "18",
-									fill: "none",
-									stroke: "var(--accent)",
-									strokeWidth: "2",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-											cx: "12",
-											cy: "12",
-											r: "10"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-											x1: "12",
-											y1: "16",
-											x2: "12",
-											y2: "12"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-											x1: "12",
-											y1: "8",
-											x2: "12.01",
-											y2: "8"
-										})
-									]
-								}), "Venue Details"]
-							})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: { marginBottom: 20 },
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-caps",
-									style: { marginBottom: 8 },
-									children: "Venue Name"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									placeholder: "e.g., MetLife Stadium",
-									value: formData.name,
-									onChange: (e) => setFormData({
-										...formData,
-										name: e.target.value
-									}),
-									style: { borderColor: !formData.name ? "var(--status-alert)" : "var(--border-color)" }
-								}),
-								!formData.name && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										color: "var(--status-alert)",
-										fontSize: "0.78rem",
-										marginTop: 6,
-										display: "flex",
-										alignItems: "center",
-										gap: 4
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
-										width: 6,
-										height: 6,
-										borderRadius: "50%",
-										background: "var(--status-alert)",
-										display: "inline-block"
-									} }), "Venue name is required"]
-								})
-							]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "grid",
-								gridTemplateColumns: "1fr 1fr",
-								gap: 16,
-								marginBottom: 20
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { marginBottom: 8 },
-								children: "Venue Type"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
-								value: formData.type,
-								onChange: (e) => setFormData({
-									...formData,
-									type: e.target.value
-								}),
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Stadium" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Arena" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Amphitheater" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Convention Center" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Racetrack" })
-								]
-							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { marginBottom: 8 },
-								children: "Region"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
-								value: formData.region,
-								onChange: (e) => setFormData({
-									...formData,
-									region: e.target.value
-								}),
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "NA-EAST" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "NA-WEST" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "EU-WEST" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "EU-CENTRAL" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "APAC-01" })
-								]
-							})] })]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "grid",
-								gridTemplateColumns: "1fr 1fr",
-								gap: 16,
-								marginBottom: 20
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { marginBottom: 8 },
-								children: "Deployment Tier"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
-								value: formData.tier,
-								onChange: (e) => setFormData({
-									...formData,
-									tier: e.target.value
-								}),
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-										value: "starter",
-										children: "Starter Node"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-										value: "pro",
-										children: "Pro Grid"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-										value: "enterprise",
-										children: "Enterprise Core"
-									})
-								]
-							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { marginBottom: 8 },
-								children: "Timezone"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-								value: formData.timezone,
-								onChange: (e) => setFormData({
-									...formData,
-									timezone: e.target.value
-								})
-							})] })]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: { marginBottom: 8 },
-							children: "Address / Location"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
-							rows: 3,
-							placeholder: "Street address, City, State, Postal Code",
-							value: formData.location,
-							onChange: (e) => setFormData({
-								...formData,
-								location: e.target.value
-							}),
-							style: { resize: "vertical" }
-						})] })
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card-header",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "card-title",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-									viewBox: "0 0 24 24",
-									width: "18",
-									height: "18",
-									fill: "none",
-									stroke: "var(--accent)",
-									strokeWidth: "2",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-											cx: "9",
-											cy: "7",
-											r: "4"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M23 21v-2a4 4 0 0 0-3-3.87" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M16 3.13a4 4 0 0 1 0 7.75" })
-									]
-								}), "Capacity Configuration"]
-							})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: { marginBottom: 16 },
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { marginBottom: 8 },
-								children: "Total Seating Capacity"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-								type: "number",
-								value: formData.capacity,
-								onChange: (e) => setFormData({
-									...formData,
-									capacity: parseInt(e.target.value) || 0
-								})
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								justifyContent: "space-between",
-								alignItems: "center",
-								marginBottom: 12
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "label-caps",
-								children: "Configured Levels"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-ghost",
-								style: {
-									fontSize: "0.72rem",
-									color: "var(--accent)"
-								},
-								onClick: () => setLevels([...levels, {
-									name: `Level ${levels.length + 1}`,
-									seats: 5e3,
-									standingRoom: false
-								}]),
-								children: "+ Add Capacity Level"
-							})]
-						}),
-						levels.map((l, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "card",
-							style: {
-								padding: 14,
-								background: "var(--bg-deep)",
-								marginBottom: 8,
-								display: "flex",
-								justifyContent: "space-between",
-								alignItems: "center"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: { fontWeight: 600 },
-								children: l.name
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									color: "var(--accent)",
-									fontSize: "0.82rem",
-									fontFamily: "var(--font-mono)"
-								},
-								children: [l.seats.toLocaleString(), " seats"]
-							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									alignItems: "center",
-									gap: 12
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
-									style: {
-										display: "flex",
-										alignItems: "center",
-										gap: 6,
-										fontSize: "0.82rem",
-										color: "var(--text-secondary)"
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-										type: "checkbox",
-										checked: l.standingRoom,
-										onChange: (e) => {
-											const newLevels = [...levels];
-											newLevels[i].standingRoom = e.target.checked;
-											setLevels(newLevels);
-										}
-									}), " Standing Room"]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									className: "btn-icon",
-									style: {
-										width: 28,
-										height: 28,
-										color: "var(--status-alert)"
-									},
-									onClick: () => setLevels(levels.filter((_, idx) => idx !== i)),
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-										width: "14",
-										height: "14",
-										viewBox: "0 0 24 24",
-										fill: "none",
-										stroke: "currentColor",
-										strokeWidth: "2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "3 6 5 6 21 6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" })]
-									})
-								})]
-							})]
-						}, i))
-					]
-				})]
-			}),
-			step === 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "card",
-				style: { marginTop: 24 },
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card-header",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-						className: "card-title",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-							viewBox: "0 0 24 24",
-							width: "18",
-							height: "18",
-							fill: "none",
-							stroke: "var(--accent)",
-							strokeWidth: "2",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" })
-						}), "3D Model Upload"]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "badge badge-accent",
-						children: "V2.4.81-FINAL"
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
-						display: "grid",
-						gridTemplateColumns: "1.5fr 1fr",
-						gap: 24
+						display: "flex",
+						gap: 12,
+						alignItems: "center"
 					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						style: {
-							border: "2px dashed var(--border-color)",
-							borderRadius: "var(--radius-md)",
-							padding: 40,
-							textAlign: "center",
-							display: "flex",
-							flexDirection: "column",
-							alignItems: "center",
-							gap: 12
-						},
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									width: 48,
-									height: 48,
-									borderRadius: "var(--radius-md)",
-									background: "var(--bg-deep)",
-									border: "1px solid var(--border-color)",
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center"
-								},
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-									width: "24",
-									height: "24",
-									viewBox: "0 0 24 24",
-									fill: "none",
-									stroke: "var(--text-muted)",
-									strokeWidth: "2",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "17 8 12 3 7 8" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-											x1: "12",
-											y1: "3",
-											x2: "12",
-											y2: "15"
-										})
-									]
-								})
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: ["Drag and drop your 3D file here or ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "label-accent",
-								style: { cursor: "pointer" },
-								onClick: () => alert("Accessing local asset repository..."),
-								children: "browse files"
-							})] }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "mono",
-								style: {
-									fontSize: "0.72rem",
-									color: "var(--text-muted)"
-								},
-								children: "Supported: CAD, BIM, FBX, OBJ"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "label-caps",
-								style: {
-									fontSize: "0.85rem",
-									cursor: "pointer"
-								},
-								onClick: () => alert("Loading architectural templates..."),
-								children: "Use template instead"
-							})
-						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card",
-						style: {
-							background: "var(--bg-deep)",
-							padding: 16,
-							marginBottom: 12
-						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								alignItems: "center",
-								gap: 12
-							},
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										width: 36,
-										height: 36,
-										borderRadius: "var(--radius-sm)",
-										background: "var(--accent-dim)",
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "center"
-									},
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-										width: "18",
-										height: "18",
-										viewBox: "0 0 24 24",
-										fill: "none",
-										stroke: "var(--accent)",
-										strokeWidth: "2",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" })
-									})
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: { flex: 1 },
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontWeight: 600,
-											fontSize: "0.9rem"
-										},
-										children: "stadium_base_mesh.fbx"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontSize: "0.72rem",
-											color: "var(--text-muted)",
-											fontFamily: "var(--font-mono)"
-										},
-										children: "UPLOADED • 12.4 MB • PROCESSING ASSETS..."
-									})]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-									width: "18",
-									height: "18",
-									viewBox: "0 0 24 24",
-									fill: "none",
-									stroke: "var(--accent)",
-									strokeWidth: "2",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 6L9 17l-5-5" })
-								})
-							]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "progress-bar",
-							style: { marginTop: 10 },
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "progress-bar-fill accent",
-								style: { width: "78%" }
-							})
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "card",
-						style: {
-							background: "var(--bg-deep)",
-							padding: 14
-						},
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								alignItems: "flex-start",
-								gap: 8
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								style: { fontSize: "1rem" },
-								children: "💡"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								style: {
-									fontSize: "0.82rem",
-									color: "var(--text-secondary)"
-								},
-								children: "Pro Tip: Uploading a BIM file will automatically populate structural metadata for sensor placement in Step 3."
-							})]
-						})
-					})] })]
-				})]
-			}),
-			step >= 2 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "card",
-				style: {
-					minHeight: 400,
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "center"
-				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: { textAlign: "center" },
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								fontSize: "3rem",
-								marginBottom: 16
-							},
-							children: [
-								"",
-								"📡",
-								"🏗️",
-								"🔗",
-								"👤"
-							][step - 1]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { children: [
-							"",
-							"Sensor Configuration",
-							"Digital Twin Setup",
-							"Integration Connections",
-							"User Onboarding"
-						][step - 1] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-							style: {
-								color: "var(--text-secondary)",
-								marginTop: 8
-							},
-							children: [
-								"Configure ",
-								[
-									"",
-									"LiDAR and IoT sensors",
-									"zones and pathways",
-									"ticketing and transit APIs",
-									"admin accounts and roles"
-								][step - 1],
-								" for your venue"
-							]
-						})
-					]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "wizard-footer",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 						className: "btn btn-ghost",
 						onClick: () => step > 1 ? setStep(step - 1) : navigate("/super-admin/venues"),
-						children: "← Previous"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "auto-save",
-						children: "Auto-saved 2m ago"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						children: step > 1 ? "← Previous" : "Cancel"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 						className: "btn btn-primary",
 						onClick: handleNext,
-						children: step < 5 ? `Next: ${[
+						disabled: loading,
+						children: loading ? "Initializing..." : step < 5 ? `Next: ${[
 							"Sensor Configuration",
 							"Digital Twin Setup",
 							"Integration Connections",
 							"User Onboarding",
 							""
 						][step]} →` : "Complete Setup →"
+					})]
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "wizard-steps",
+			style: {
+				maxWidth: 400,
+				marginBottom: 24
+			},
+			children: [
+				1,
+				2,
+				3,
+				4,
+				5
+			].map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `wizard-step ${s < step ? "completed" : s === step ? "current" : ""}` }, s))
+		}),
+		step === 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "grid",
+				gridTemplateColumns: "1.5fr 1fr",
+				gap: 24
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card-header",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "card-title",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+								viewBox: "0 0 24 24",
+								width: "18",
+								height: "18",
+								fill: "none",
+								stroke: "var(--accent)",
+								strokeWidth: "2",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+										cx: "12",
+										cy: "12",
+										r: "10"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+										x1: "12",
+										y1: "16",
+										x2: "12",
+										y2: "12"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+										x1: "12",
+										y1: "8",
+										x2: "12.01",
+										y2: "8"
+									})
+								]
+							}), "Venue Details"]
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: { marginBottom: 20 },
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "label-caps",
+								style: { marginBottom: 8 },
+								children: "Venue Name"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								placeholder: "e.g., MetLife Stadium",
+								value: formData.name,
+								onChange: (e) => setFormData({
+									...formData,
+									name: e.target.value
+								}),
+								style: { borderColor: !formData.name ? "var(--status-alert)" : "var(--border-color)" }
+							}),
+							!formData.name && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									color: "var(--status-alert)",
+									fontSize: "0.78rem",
+									marginTop: 6,
+									display: "flex",
+									alignItems: "center",
+									gap: 4
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
+									width: 6,
+									height: 6,
+									borderRadius: "50%",
+									background: "var(--status-alert)",
+									display: "inline-block"
+								} }), "Venue name is required"]
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "grid",
+							gridTemplateColumns: "1fr 1fr",
+							gap: 16,
+							marginBottom: 20
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginBottom: 8 },
+							children: "Venue Type"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+							value: formData.type,
+							onChange: (e) => setFormData({
+								...formData,
+								type: e.target.value
+							}),
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Stadium" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Arena" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Amphitheater" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Convention Center" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Racetrack" })
+							]
+						})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginBottom: 8 },
+							children: "Region"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+							value: formData.region,
+							onChange: (e) => setFormData({
+								...formData,
+								region: e.target.value
+							}),
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "NA-EAST" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "NA-WEST" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "EU-WEST" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "EU-CENTRAL" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "APAC-01" })
+							]
+						})] })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "grid",
+							gridTemplateColumns: "1fr 1fr",
+							gap: 16,
+							marginBottom: 20
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginBottom: 8 },
+							children: "Deployment Tier"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+							value: formData.tier,
+							onChange: (e) => setFormData({
+								...formData,
+								tier: e.target.value
+							}),
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "starter",
+									children: "Starter Node"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "pro",
+									children: "Pro Grid"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "enterprise",
+									children: "Enterprise Core"
+								})
+							]
+						})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginBottom: 8 },
+							children: "Timezone"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							value: formData.timezone,
+							onChange: (e) => setFormData({
+								...formData,
+								timezone: e.target.value
+							})
+						})] })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
+						style: { marginBottom: 8 },
+						children: "Address / Location"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+						rows: 3,
+						placeholder: "Street address, City, State, Postal Code",
+						value: formData.location,
+						onChange: (e) => setFormData({
+							...formData,
+							location: e.target.value
+						}),
+						style: { resize: "vertical" }
+					})] })
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card-header",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "card-title",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+								viewBox: "0 0 24 24",
+								width: "18",
+								height: "18",
+								fill: "none",
+								stroke: "var(--accent)",
+								strokeWidth: "2",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+										cx: "9",
+										cy: "7",
+										r: "4"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M23 21v-2a4 4 0 0 0-3-3.87" }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M16 3.13a4 4 0 0 1 0 7.75" })
+								]
+							}), "Capacity Configuration"]
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: { marginBottom: 16 },
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginBottom: 8 },
+							children: "Total Seating Capacity"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							type: "number",
+							value: formData.capacity,
+							onChange: (e) => setFormData({
+								...formData,
+								capacity: parseInt(e.target.value) || 0
+							})
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center",
+							marginBottom: 12
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "label-caps",
+							children: "Configured Levels"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-ghost",
+							style: {
+								fontSize: "0.72rem",
+								color: "var(--accent)"
+							},
+							onClick: () => setLevels([...levels, {
+								name: `Level ${levels.length + 1}`,
+								seats: 5e3,
+								standingRoom: false
+							}]),
+							children: "+ Add Capacity Level"
+						})]
+					}),
+					levels.map((l, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "card",
+						style: {
+							padding: 14,
+							background: "var(--bg-deep)",
+							marginBottom: 8,
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: { fontWeight: 600 },
+							children: l.name
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								color: "var(--accent)",
+								fontSize: "0.82rem",
+								fontFamily: "var(--font-mono)"
+							},
+							children: [l.seats.toLocaleString(), " seats"]
+						})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								display: "flex",
+								alignItems: "center",
+								gap: 12
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+								style: {
+									display: "flex",
+									alignItems: "center",
+									gap: 6,
+									fontSize: "0.82rem",
+									color: "var(--text-secondary)"
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									type: "checkbox",
+									checked: l.standingRoom,
+									onChange: (e) => {
+										const newLevels = [...levels];
+										newLevels[i].standingRoom = e.target.checked;
+										setLevels(newLevels);
+									}
+								}), " Standing Room"]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								className: "btn-icon",
+								style: {
+									width: 28,
+									height: 28,
+									color: "var(--status-alert)"
+								},
+								onClick: () => setLevels(levels.filter((_, idx) => idx !== i)),
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+									width: "14",
+									height: "14",
+									viewBox: "0 0 24 24",
+									fill: "none",
+									stroke: "currentColor",
+									strokeWidth: "2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "3 6 5 6 21 6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" })]
+								})
+							})]
+						})]
+					}, i))
+				]
+			})]
+		}),
+		step === 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "card",
+			style: { marginTop: 24 },
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card-header",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+					className: "card-title",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+						viewBox: "0 0 24 24",
+						width: "18",
+						height: "18",
+						fill: "none",
+						stroke: "var(--accent)",
+						strokeWidth: "2",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" })
+					}), "3D Model Upload"]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "badge badge-accent",
+					children: "V2.4.81-FINAL"
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "grid",
+					gridTemplateColumns: "1.5fr 1fr",
+					gap: 24
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						border: "2px dashed var(--border-color)",
+						borderRadius: "var(--radius-md)",
+						padding: 40,
+						textAlign: "center",
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						gap: 12
+					},
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								width: 48,
+								height: 48,
+								borderRadius: "var(--radius-md)",
+								background: "var(--bg-deep)",
+								border: "1px solid var(--border-color)",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center"
+							},
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+								width: "24",
+								height: "24",
+								viewBox: "0 0 24 24",
+								fill: "none",
+								stroke: "var(--text-muted)",
+								strokeWidth: "2",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "17 8 12 3 7 8" }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+										x1: "12",
+										y1: "3",
+										x2: "12",
+										y2: "15"
+									})
+								]
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: ["Drag and drop your 3D file here or ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "label-accent",
+							style: { cursor: "pointer" },
+							onClick: () => alert("Accessing local asset repository..."),
+							children: "browse files"
+						})] }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mono",
+							style: {
+								fontSize: "0.72rem",
+								color: "var(--text-muted)"
+							},
+							children: "Supported: CAD, BIM, FBX, OBJ"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "label-caps",
+							style: {
+								fontSize: "0.85rem",
+								cursor: "pointer"
+							},
+							onClick: () => alert("Loading architectural templates..."),
+							children: "Use template instead"
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card",
+					style: {
+						background: "var(--bg-deep)",
+						padding: 16,
+						marginBottom: 12
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							alignItems: "center",
+							gap: 12
+						},
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									width: 36,
+									height: 36,
+									borderRadius: "var(--radius-sm)",
+									background: "var(--accent-dim)",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center"
+								},
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+									width: "18",
+									height: "18",
+									viewBox: "0 0 24 24",
+									fill: "none",
+									stroke: "var(--accent)",
+									strokeWidth: "2",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" })
+								})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: { flex: 1 },
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontWeight: 600,
+										fontSize: "0.9rem"
+									},
+									children: "stadium_base_mesh.fbx"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontSize: "0.72rem",
+										color: "var(--text-muted)",
+										fontFamily: "var(--font-mono)"
+									},
+									children: "UPLOADED • 12.4 MB • PROCESSING ASSETS..."
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+								width: "18",
+								height: "18",
+								viewBox: "0 0 24 24",
+								fill: "none",
+								stroke: "var(--accent)",
+								strokeWidth: "2",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 6L9 17l-5-5" })
+							})
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "progress-bar",
+						style: { marginTop: 10 },
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "progress-bar-fill accent",
+							style: { width: "78%" }
+						})
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "card",
+					style: {
+						background: "var(--bg-deep)",
+						padding: 14
+					},
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							alignItems: "flex-start",
+							gap: 8
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							style: { fontSize: "1rem" },
+							children: "💡"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							style: {
+								fontSize: "0.82rem",
+								color: "var(--text-secondary)"
+							},
+							children: "Pro Tip: Uploading a BIM file will automatically populate structural metadata for sensor placement in Step 3."
+						})]
+					})
+				})] })]
+			})]
+		}),
+		step >= 2 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "card",
+			style: {
+				minHeight: 400,
+				display: "flex",
+				alignItems: "center",
+				justifyContent: "center"
+			},
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: { textAlign: "center" },
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							fontSize: "3rem",
+							marginBottom: 16
+						},
+						children: [
+							"",
+							"📡",
+							"🏗️",
+							"🔗",
+							"👤"
+						][step - 1]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { children: [
+						"",
+						"Sensor Configuration",
+						"Digital Twin Setup",
+						"Integration Connections",
+						"User Onboarding"
+					][step - 1] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						style: {
+							color: "var(--text-secondary)",
+							marginTop: 8
+						},
+						children: [
+							"Configure ",
+							[
+								"",
+								"LiDAR and IoT sensors",
+								"zones and pathways",
+								"ticketing and transit APIs",
+								"admin accounts and roles"
+							][step - 1],
+							" for your venue"
+						]
 					})
 				]
 			})
-		]
-	});
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "wizard-footer",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					className: "btn btn-ghost",
+					onClick: () => step > 1 ? setStep(step - 1) : navigate("/super-admin/venues"),
+					children: "← Previous"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "auto-save",
+					children: "Auto-saved 2m ago"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					className: "btn btn-primary",
+					onClick: handleNext,
+					children: step < 5 ? `Next: ${[
+						"Sensor Configuration",
+						"Digital Twin Setup",
+						"Integration Connections",
+						"User Onboarding",
+						""
+					][step]} →` : "Complete Setup →"
+				})
+			]
+		})
+	] });
 }
 //#endregion
 //#region src/data/mockData.js
@@ -6658,63 +7380,57 @@ function GlobalAnalytics() {
 			})]
 		})]
 	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: superAdminSidebar,
-		brand: superAdminBrand.brand,
-		brandSub: superAdminBrand.brandSub,
-		user: superAdminUser,
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "page-header",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-header-top",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Global Analytics" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "page-subtitle",
-						children: "Real-time usage intelligence and kinetic performance metrics."
-					})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "page-actions",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								alignItems: "center",
-								gap: 8
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "label-caps",
-								children: "Last 30 days active"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-							className: "btn btn-primary",
-							onClick: handleDownload,
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
-								name: "export",
-								size: 14,
-								style: { marginRight: 8 }
-							}), "Download Report"]
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Global Analytics" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "page-subtitle",
+					children: "Real-time usage intelligence and kinetic performance metrics."
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "page-actions",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							alignItems: "center",
+							gap: 8
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "label-caps",
+							children: "Last 30 days active"
 						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						className: "btn btn-primary",
+						onClick: handleDownload,
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
+							name: "export",
+							size: 14,
+							style: { marginRight: 8 }
+						}), "Download Report"]
 					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "tabs",
-				style: { marginBottom: 24 },
-				children: tabs.map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: `tab ${activeTab === t ? "active" : ""}`,
-					onClick: () => setActiveTab(t),
-					children: t
-				}, t))
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "tab-container",
-				children: [
-					activeTab === "Usage Analytics" && renderUsageAnalytics(),
-					activeTab === "Performance Metrics" && renderPerformanceMetrics(),
-					activeTab === "Business Intelligence" && renderBusinessIntelligence(),
-					activeTab === "Technical Metrics" && renderTechnicalMetrics()
-				]
+				})]
 			})
-		]
-	});
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "tabs",
+			style: { marginBottom: 24 },
+			children: tabs.map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+				className: `tab ${activeTab === t ? "active" : ""}`,
+				onClick: () => setActiveTab(t),
+				children: t
+			}, t))
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "tab-container",
+			children: [
+				activeTab === "Usage Analytics" && renderUsageAnalytics(),
+				activeTab === "Performance Metrics" && renderPerformanceMetrics(),
+				activeTab === "Business Intelligence" && renderBusinessIntelligence(),
+				activeTab === "Technical Metrics" && renderTechnicalMetrics()
+			]
+		})
+	] });
 }
 //#endregion
 //#region src/pages/super-admin/SystemConfiguration.jsx
@@ -7507,86 +8223,80 @@ function SystemConfiguration() {
 			})]
 		})
 	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: superAdminSidebar,
-		brand: superAdminBrand.brand,
-		brandSub: superAdminBrand.brandSub,
-		user: superAdminUser,
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "flex",
+				gap: 16,
+				alignItems: "center",
+				marginBottom: 4
+			},
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "label-accent",
+					children: "Terminal Console"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "label-caps",
+					children: "• V4.9.2-STABLE"
+				}),
+				tabs.map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: activeTab === t ? "label-accent" : "label-caps",
+					style: { cursor: "pointer" },
+					onClick: () => setActiveTab(t),
+					children: t
+				}, t))
+			]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "page-header",
+			style: {
+				marginBottom: 24,
+				display: "flex",
+				justifyContent: "space-between",
+				alignItems: "flex-end"
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", { children: [activeTab, " Settings"] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "page-subtitle",
+				children: "Configure the core mission parameters for global platform governance."
+			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				style: {
 					display: "flex",
-					gap: 16,
-					alignItems: "center",
-					marginBottom: 4
+					gap: 12,
+					marginBottom: 10
 				},
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "label-accent",
-						children: "Terminal Console"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "label-caps",
-						children: "• V4.9.2-STABLE"
-					}),
-					tabs.map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: activeTab === t ? "label-accent" : "label-caps",
-						style: { cursor: "pointer" },
-						onClick: () => setActiveTab(t),
-						children: t
-					}, t))
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "page-header",
-				style: {
-					marginBottom: 24,
-					display: "flex",
-					justifyContent: "space-between",
-					alignItems: "flex-end"
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", { children: [activeTab, " Settings"] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "page-subtitle",
-					children: "Configure the core mission parameters for global platform governance."
-				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					style: {
-						display: "flex",
-						gap: 12,
-						marginBottom: 10
-					},
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: `btn btn-primary ${loading ? "loading" : ""}`,
-						onClick: handleSave,
-						disabled: !hasChanges || loading,
-						children: loading ? "Synchronizing..." : "Commit Updates"
-					})
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "tab-container",
-				style: { marginBottom: 40 },
-				children: [
-					activeTab === "General" && renderGeneralSettings(),
-					activeTab === "Security" && renderSecuritySettings(),
-					activeTab === "Integrations" && renderIntegrationSettings(),
-					activeTab === "Billing" && renderBillingSettings(),
-					activeTab === "Notifications" && renderNotificationSettings()
-				]
-			}),
-			hasChanges && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "badge badge-accent pulse",
-				style: {
-					position: "fixed",
-					bottom: 24,
-					left: "50%",
-					transform: "translateX(-50%)",
-					padding: "12px 24px",
-					zIndex: 1e3
-				},
-				children: "UNSAVED_CHANGES_DETECTED // COMMIT REQUIRED TO SYNC NODES"
-			})
-		]
-	});
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					className: `btn btn-primary ${loading ? "loading" : ""}`,
+					onClick: handleSave,
+					disabled: !hasChanges || loading,
+					children: loading ? "Synchronizing..." : "Commit Updates"
+				})
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "tab-container",
+			style: { marginBottom: 40 },
+			children: [
+				activeTab === "General" && renderGeneralSettings(),
+				activeTab === "Security" && renderSecuritySettings(),
+				activeTab === "Integrations" && renderIntegrationSettings(),
+				activeTab === "Billing" && renderBillingSettings(),
+				activeTab === "Notifications" && renderNotificationSettings()
+			]
+		}),
+		hasChanges && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "badge badge-accent pulse",
+			style: {
+				position: "fixed",
+				bottom: 24,
+				left: "50%",
+				transform: "translateX(-50%)",
+				padding: "12px 24px",
+				zIndex: 1e3
+			},
+			children: "UNSAVED_CHANGES_DETECTED // COMMIT REQUIRED TO SYNC NODES"
+		})
+	] });
 }
 //#endregion
 //#region src/pages/venue-admin/VenueCommandCenter.jsx
@@ -7696,390 +8406,345 @@ function VenueCommandCenter() {
 		if (cmd.path) navigate(cmd.path);
 		else if (cmd.action === "alert") showToast("🔴 COMMAND_BROADCAST: Emergency Intel Sent To All Nodes", "critical");
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: venueAdminSidebar,
-		brand: venueAdminBrand.brand,
-		brandSub: venueAdminBrand.brandSub,
-		user: null,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		style: {
+			display: "grid",
+			gridTemplateColumns: "1.2fr 0.8fr 1fr",
+			gap: 20,
+			marginBottom: 20
+		},
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "flex",
+					flexDirection: "column",
+					gap: 20
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
+						padding: 0,
+						style: { overflow: "hidden" },
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "map-placeholder-bg",
+							style: { height: 200 },
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									position: "absolute",
+									top: 12,
+									left: 12,
+									display: "flex",
+									alignItems: "center",
+									gap: 6
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online pulse" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "mono",
+									style: {
+										fontSize: "0.68rem",
+										opacity: .7
+									},
+									children: "LIVE: TWIN INSTANCE #882"
+								})]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "stadium-bowl mini",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "stadium-inner-ring" })
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								padding: 12,
+								textAlign: "center"
+							},
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+								className: "btn btn-primary",
+								onClick: () => navigate("/operations"),
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
+									name: "expand",
+									size: 14
+								}), " Full Ops View"]
+							})
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "grid",
+							gridTemplateColumns: "1fr 1fr",
+							gap: 12
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
+							compact: true,
+							label: "Live Occupancy",
+							value: occupancy.toLocaleString(),
+							progress: pct,
+							subtext: `/ 82,500 CAP`
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
+							compact: true,
+							label: "Kickoff Countdown",
+							value: `${String(countdown.h).padStart(2, "0")}:${String(countdown.m).padStart(2, "0")}:${String(countdown.s).padStart(2, "0")}`,
+							subtext: "T-MINUS MATCH"
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
+						header: "Rolling Intelligence",
+						headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "label-accent",
+							children: "Real-Time"
+						}),
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "intel-stack",
+							children: [
+								{
+									tag: "SEC",
+									msg: "Gate 4 entry surge detected. Deploying auxiliary staff.",
+									color: "var(--status-warning)"
+								},
+								{
+									tag: "SYS",
+									msg: "Sensor Node 12-B recalibrated successfully.",
+									color: "var(--text-secondary)"
+								},
+								{
+									tag: "FAC",
+									msg: "Section 203 beverage spill reported. Custodial dispatched.",
+									color: "var(--status-alert)"
+								}
+							].map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "intel-row",
+								style: { borderLeftColor: item.color },
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										style: {
+											color: item.color,
+											fontWeight: 700
+										},
+										children: [
+											"[",
+											item.tag,
+											"]"
+										]
+									}),
+									" ",
+									item.msg
+								]
+							}, i))
+						})
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
+				header: "Command Palette",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						display: "flex",
+						flexDirection: "column",
+						gap: 8
+					},
+					children: quickCommands.map((cmd, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "command-tile",
+						onClick: () => handleCommand(cmd),
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "command-icon",
+							children: cmd.icon
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "command-info",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "command-label",
+								children: cmd.label
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "command-sub",
+								children: cmd.sub
+							})]
+						})]
+					}, i))
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				style: {
+					display: "flex",
+					flexDirection: "column",
+					gap: 20
+				},
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
+					header: "Event Schedule",
+					headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							gap: 4
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn-icon",
+							onClick: () => navigate("/venue-admin/events"),
+							children: "‹"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn-icon",
+							onClick: () => navigate("/venue-admin/events"),
+							children: "›"
+						})]
+					}),
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							display: "flex",
+							gap: 4,
+							marginBottom: 16
+						},
+						children: days.map((d) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: `btn ${selectedDay === d ? "btn-primary" : "btn-ghost"}`,
+							style: {
+								flex: 1,
+								padding: "6px 0",
+								fontSize: "0.68rem"
+							},
+							onClick: () => {
+								setSelectedDay(d);
+								showToast(`Viewing schedule for ${d}`, "info");
+							},
+							children: d
+						}, d))
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "schedule-stack",
+						style: { minHeight: 180 },
+						children: [venueEvents.filter((e) => e.date === selectedDay).map((evt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: `card ${i === 0 ? "card-accent" : ""}`,
+							style: {
+								padding: 14,
+								marginBottom: 10,
+								cursor: "pointer"
+							},
+							onClick: () => navigate("/venue-admin/events"),
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									style: {
+										display: "flex",
+										justifyContent: "space-between",
+										marginBottom: 6
+									},
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+										style: { fontSize: "0.95rem" },
+										children: evt.name
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										style: { textAlign: "right" },
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											className: "mono",
+											style: { fontWeight: 700 },
+											children: evt.expected.toLocaleString()
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											className: "label-caps",
+											style: { fontSize: "0.55rem" },
+											children: "Expected"
+										})]
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "schedule-meta",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
+											name: "clock",
+											size: 12
+										}),
+										" ",
+										evt.time,
+										" START"
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									style: {
+										display: "flex",
+										justifyContent: "space-between",
+										alignItems: "center",
+										marginTop: 8
+									},
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										className: `badge badge-${evt.staffing === "full" ? "success" : "warning"}`,
+										children: [
+											"[ ",
+											evt.staffing.toUpperCase(),
+											" ]"
+										]
+									}), i === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "label-accent",
+										style: { fontSize: "0.65rem" },
+										children: "Brief →"
+									})]
+								})
+							]
+						}, evt.id)), venueEvents.filter((e) => e.date === selectedDay).length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								textAlign: "center",
+								padding: 40,
+								color: "var(--text-muted)",
+								fontSize: "0.8rem"
+							},
+							children: "NO EVENTS SCHEDULED"
+						})]
+					})]
+				})
+			})
+		]
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
+		padding: "12px 20px",
+		style: {
+			display: "flex",
+			justifyContent: "space-between",
+			alignItems: "center"
+		},
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			style: {
 				display: "flex",
 				alignItems: "center",
 				gap: 16
 			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				style: {
-					display: "flex",
-					gap: 12,
-					borderRight: "1px solid var(--border-subtle)",
-					paddingRight: 16
-				},
-				children: [
-					"Overview",
-					"Traffic",
-					"Network"
-				].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: activeTab === t ? "label-accent" : "label-caps",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "weather-widget",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					style: { fontSize: "1.2rem" },
+					children: "☀️"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					style: {
-						cursor: "pointer",
-						whiteSpace: "nowrap"
+						fontWeight: 600,
+						fontSize: "0.85rem"
 					},
-					onClick: () => {
-						setActiveTab(t);
-						showToast(`Switching to ${t} telemetry`, "info");
+					children: "Clear Skies"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mono",
+					style: {
+						color: "var(--accent)",
+						fontWeight: 700
 					},
-					children: t
-				}, t))
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				className: "btn btn-secondary",
-				style: {
-					fontSize: "0.65rem",
-					padding: "6px 10px"
-				},
-				onClick: () => showToast("Syncing all stadium nodes...", "success"),
-				children: "Sync Hub"
+					children: "22°C"
+				})] })]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "weather-forecast",
+				children: [{
+					d: "MON",
+					t: "24°"
+				}, {
+					d: "TUE",
+					t: "26°"
+				}].map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "forecast-item",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "label-caps",
+						style: { fontSize: "0.55rem" },
+						children: f.d
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "mono",
+						children: f.t
+					})]
+				}, f.d))
 			})]
-		}),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "grid",
-				gridTemplateColumns: "1.2fr 0.8fr 1fr",
-				gap: 20,
-				marginBottom: 20
-			},
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: {
-						display: "flex",
-						flexDirection: "column",
-						gap: 20
-					},
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
-							padding: 0,
-							style: { overflow: "hidden" },
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "map-placeholder-bg",
-								style: { height: 200 },
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										position: "absolute",
-										top: 12,
-										left: 12,
-										display: "flex",
-										alignItems: "center",
-										gap: 6
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online pulse" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "mono",
-										style: {
-											fontSize: "0.68rem",
-											opacity: .7
-										},
-										children: "LIVE: TWIN INSTANCE #882"
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "stadium-bowl mini",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "stadium-inner-ring" })
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									padding: 12,
-									textAlign: "center"
-								},
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									className: "btn btn-primary",
-									onClick: () => navigate("/operations"),
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
-										name: "expand",
-										size: 14
-									}), " Full Ops View"]
-								})
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "grid",
-								gridTemplateColumns: "1fr 1fr",
-								gap: 12
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
-								compact: true,
-								label: "Live Occupancy",
-								value: occupancy.toLocaleString(),
-								progress: pct,
-								subtext: `/ 82,500 CAP`
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
-								compact: true,
-								label: "Kickoff Countdown",
-								value: `${String(countdown.h).padStart(2, "0")}:${String(countdown.m).padStart(2, "0")}:${String(countdown.s).padStart(2, "0")}`,
-								subtext: "T-MINUS MATCH"
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
-							header: "Rolling Intelligence",
-							headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "label-accent",
-								children: "Real-Time"
-							}),
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "intel-stack",
-								children: [
-									{
-										tag: "SEC",
-										msg: "Gate 4 entry surge detected. Deploying auxiliary staff.",
-										color: "var(--status-warning)"
-									},
-									{
-										tag: "SYS",
-										msg: "Sensor Node 12-B recalibrated successfully.",
-										color: "var(--text-secondary)"
-									},
-									{
-										tag: "FAC",
-										msg: "Section 203 beverage spill reported. Custodial dispatched.",
-										color: "var(--status-alert)"
-									}
-								].map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "intel-row",
-									style: { borderLeftColor: item.color },
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-											style: {
-												color: item.color,
-												fontWeight: 700
-											},
-											children: [
-												"[",
-												item.tag,
-												"]"
-											]
-										}),
-										" ",
-										item.msg
-									]
-								}, i))
-							})
-						})
-					]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
-					header: "Command Palette",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							display: "flex",
-							flexDirection: "column",
-							gap: 8
-						},
-						children: quickCommands.map((cmd, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "command-tile",
-							onClick: () => handleCommand(cmd),
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "command-icon",
-								children: cmd.icon
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "command-info",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "command-label",
-									children: cmd.label
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "command-sub",
-									children: cmd.sub
-								})]
-							})]
-						}, i))
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					style: {
-						display: "flex",
-						flexDirection: "column",
-						gap: 20
-					},
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
-						header: "Event Schedule",
-						headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								gap: 4
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn-icon",
-								onClick: () => navigate("/venue-admin/events"),
-								children: "‹"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn-icon",
-								onClick: () => navigate("/venue-admin/events"),
-								children: "›"
-							})]
-						}),
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								display: "flex",
-								gap: 4,
-								marginBottom: 16
-							},
-							children: days.map((d) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: `btn ${selectedDay === d ? "btn-primary" : "btn-ghost"}`,
-								style: {
-									flex: 1,
-									padding: "6px 0",
-									fontSize: "0.68rem"
-								},
-								onClick: () => {
-									setSelectedDay(d);
-									showToast(`Viewing schedule for ${d}`, "info");
-								},
-								children: d
-							}, d))
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "schedule-stack",
-							style: { minHeight: 180 },
-							children: [venueEvents.filter((e) => e.date === selectedDay).map((evt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: `card ${i === 0 ? "card-accent" : ""}`,
-								style: {
-									padding: 14,
-									marginBottom: 10,
-									cursor: "pointer"
-								},
-								onClick: () => navigate("/venue-admin/events"),
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										style: {
-											display: "flex",
-											justifyContent: "space-between",
-											marginBottom: 6
-										},
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-											style: { fontSize: "0.95rem" },
-											children: evt.name
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											style: { textAlign: "right" },
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "mono",
-												style: { fontWeight: 700 },
-												children: evt.expected.toLocaleString()
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "label-caps",
-												style: { fontSize: "0.55rem" },
-												children: "Expected"
-											})]
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "schedule-meta",
-										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
-												name: "clock",
-												size: 12
-											}),
-											" ",
-											evt.time,
-											" START"
-										]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										style: {
-											display: "flex",
-											justifyContent: "space-between",
-											alignItems: "center",
-											marginTop: 8
-										},
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-											className: `badge badge-${evt.staffing === "full" ? "success" : "warning"}`,
-											children: [
-												"[ ",
-												evt.staffing.toUpperCase(),
-												" ]"
-											]
-										}), i === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "label-accent",
-											style: { fontSize: "0.65rem" },
-											children: "Brief →"
-										})]
-									})
-								]
-							}, evt.id)), venueEvents.filter((e) => e.date === selectedDay).length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									textAlign: "center",
-									padding: 40,
-									color: "var(--text-muted)",
-									fontSize: "0.8rem"
-								},
-								children: "NO EVENTS SCHEDULED"
-							})]
-						})]
-					})
-				})
-			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
-			padding: "12px 20px",
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			style: {
 				display: "flex",
-				justifyContent: "space-between",
-				alignItems: "center"
+				alignItems: "center",
+				gap: 16
 			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "flex",
-					alignItems: "center",
-					gap: 16
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "weather-widget",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						style: { fontSize: "1.2rem" },
-						children: "☀️"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							fontWeight: 600,
-							fontSize: "0.85rem"
-						},
-						children: "Clear Skies"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "mono",
-						style: {
-							color: "var(--accent)",
-							fontWeight: 700
-						},
-						children: "22°C"
-					})] })]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "weather-forecast",
-					children: [{
-						d: "MON",
-						t: "24°"
-					}, {
-						d: "TUE",
-						t: "26°"
-					}].map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "forecast-item",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "label-caps",
-							style: { fontSize: "0.55rem" },
-							children: f.d
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "mono",
-							children: f.t
-						})]
-					}, f.d))
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "flex",
-					alignItems: "center",
-					gap: 16
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-					className: "status-item",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online" }), " SYSTEM: OK"]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "badge badge-neutral",
-					children: "v2.4.92-STABLE"
-				})]
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+				className: "status-item",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online" }), " SYSTEM: OK"]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "badge badge-neutral",
+				children: "v2.4.92-STABLE"
 			})]
 		})]
-	});
+	})] });
 }
 //#endregion
 //#region src/components/modals/CreateEventModal.jsx
@@ -8524,201 +9189,193 @@ function EventManagement() {
 			alert("Failed to delete event: " + err.message);
 		}
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: venueAdminSidebar,
-		brand: venueAdminBrand.brand,
-		brandSub: venueAdminBrand.brandSub,
-		user: venueAdminUser,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 16
-			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				style: {
-					display: "flex",
-					gap: 12,
-					borderRight: "1px solid var(--border-subtle)",
-					paddingRight: 16
-				},
-				children: [
-					"Registry",
-					"Calendar",
-					"Drafts"
-				].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: activeSubView === t ? "label-accent" : "label-caps",
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "page-pretitle",
+						children: ["Event Operations / ", activeTab]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Event Management" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "page-subtitle",
+						children: "Schedule, configure, and monitor all events within your venue infrastructure."
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
-						cursor: "pointer",
-						whiteSpace: "nowrap"
+						display: "flex",
+						gap: 12
 					},
-					onClick: () => {
-						setActiveSubView(t);
-						showToast(`Switching to ${t} view`, "info");
-					},
-					children: t
-				}, t))
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				className: "btn btn-secondary",
-				style: {
-					fontSize: "0.65rem",
-					padding: "6px 10px"
-				},
-				onClick: () => showToast("Exporting event manifest...", "success"),
-				children: "Export Grid"
-			})]
-		}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "page-header",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-header-top",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "page-pretitle",
-							children: "Event Operations"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Event Management" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "page-subtitle",
-							children: "Schedule, configure, and monitor all events within your venue infrastructure."
-						})
-					] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: "btn btn-primary",
-						onClick: () => setIsCreateOpen(true),
-						children: "+ Create Event"
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "tabs",
-				style: { marginBottom: 24 },
-				children: [
-					"Upcoming",
-					"Active",
-					"Completed",
-					"Archived"
-				].map((tab) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: `tab ${activeTab === tab ? "active" : ""}`,
-					onClick: () => setActiveTab(tab),
-					children: tab
-				}, tab))
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "card",
-				style: { padding: 0 },
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-					className: "data-table",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Event" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Type" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Date & Time" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Expected Capacity" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Staffing" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Status" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Actions" })
-					] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-						colSpan: "7",
-						style: {
-							padding: 40,
-							textAlign: "center"
-						},
-						children: "Synchronizing local node..."
-					}) }) : events.filter((e) => {
-						if (activeTab === "Upcoming") return e.status === "upcoming";
-						if (activeTab === "Active") return e.status === "live";
-						if (activeTab === "Completed") return e.status === "completed";
-						if (activeTab === "Archived") return e.status === "archived" || e.status === "cancelled";
-						return true;
-					}).length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
-						colSpan: "7",
-						style: {
-							padding: 40,
-							textAlign: "center"
-						},
-						children: [
-							"No ",
-							activeTab.toLowerCase(),
-							" events."
-						]
-					}) }) : events.filter((e) => {
-						if (activeTab === "Upcoming") return e.status === "upcoming";
-						if (activeTab === "Active") return e.status === "live";
-						if (activeTab === "Completed") return e.status === "completed";
-						if (activeTab === "Archived") return e.status === "archived" || e.status === "cancelled";
-						return true;
-					}).map((e) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-							style: { fontWeight: 600 },
-							children: e.name
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: `badge ${e.type === "sports" ? "badge-accent" : e.type === "concert" ? "badge-info" : "badge-neutral"}`,
-							children: e.type
-						}) }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: e.date }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "mono",
-							style: {
-								fontSize: "0.72rem",
-								color: "var(--text-muted)"
-							},
-							children: e.time
-						})] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-							className: "mono",
-							style: { fontWeight: 600 },
-							children: (e.expected || 0).toLocaleString()
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: e.staffing === "full" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							style: { color: "var(--status-ok)" },
-							children: "✓ Full"
-						}) : e.staffing === "partial" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							style: { color: "var(--status-warning)" },
-							children: "⚠ Partial"
-						}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							style: { color: "var(--text-muted)" },
-							children: "─ Minimal"
-						}) }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: `badge ${e.status === "live" ? "badge-critical" : "badge-success"}`,
-							children: e.status === "live" ? "● LIVE" : "○ " + e.status
-						}) }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							style: {
 								display: "flex",
-								gap: 6
+								gap: 12,
+								borderRight: "1px solid var(--border-subtle)",
+								paddingRight: 16
 							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-ghost",
-								style: { fontSize: "0.72rem" },
-								onClick: () => handleEdit(e),
-								children: "Edit"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-ghost",
+							children: [
+								"Registry",
+								"Calendar",
+								"Drafts"
+							].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: activeSubView === t ? "label-accent" : "label-caps",
 								style: {
-									fontSize: "0.72rem",
-									color: "var(--status-alert)"
+									cursor: "pointer",
+									whiteSpace: "nowrap"
 								},
-								onClick: () => handleCancelEvent(e._id),
-								children: "Cancel"
-							})]
-						}) })
-					] }, e._id)) })]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CreateEventModal, {
-				isOpen: isCreateOpen,
-				onClose: () => setIsCreateOpen(false),
-				onCreated: fetchEvents
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditEventModal, {
-				isOpen: isEditOpen,
-				onClose: () => setIsEditOpen(false),
-				onUpdated: fetchEvents,
-				event: selectedEvent
+								onClick: () => {
+									setActiveSubView(t);
+									showToast(`Switching to ${t} view`, "info");
+								},
+								children: t
+							}, t))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-secondary",
+							onClick: () => showToast("Exporting event manifest...", "success"),
+							children: "Export Grid"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-primary",
+							onClick: () => setIsCreateOpen(true),
+							children: "+ Create Event"
+						})
+					]
+				})]
 			})
-		]
-	});
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "tabs",
+			style: { marginBottom: 24 },
+			children: [
+				"Upcoming",
+				"Active",
+				"Completed",
+				"Archived"
+			].map((tab) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+				className: `tab ${activeTab === tab ? "active" : ""}`,
+				onClick: () => setActiveTab(tab),
+				children: tab
+			}, tab))
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "card",
+			style: { padding: 0 },
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+				className: "data-table",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Event" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Type" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Date & Time" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Expected Capacity" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Staffing" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Status" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Actions" })
+				] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+					colSpan: "7",
+					style: {
+						padding: 40,
+						textAlign: "center"
+					},
+					children: "Synchronizing local node..."
+				}) }) : events.filter((e) => {
+					if (activeTab === "Upcoming") return e.status === "upcoming";
+					if (activeTab === "Active") return e.status === "live";
+					if (activeTab === "Completed") return e.status === "completed";
+					if (activeTab === "Archived") return e.status === "archived" || e.status === "cancelled";
+					return true;
+				}).length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
+					colSpan: "7",
+					style: {
+						padding: 40,
+						textAlign: "center"
+					},
+					children: [
+						"No ",
+						activeTab.toLowerCase(),
+						" events."
+					]
+				}) }) : events.filter((e) => {
+					if (activeTab === "Upcoming") return e.status === "upcoming";
+					if (activeTab === "Active") return e.status === "live";
+					if (activeTab === "Completed") return e.status === "completed";
+					if (activeTab === "Archived") return e.status === "archived" || e.status === "cancelled";
+					return true;
+				}).map((e) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+						style: { fontWeight: 600 },
+						children: e.name
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: `badge ${e.type === "sports" ? "badge-accent" : e.type === "concert" ? "badge-info" : "badge-neutral"}`,
+						children: e.type
+					}) }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: e.date }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mono",
+						style: {
+							fontSize: "0.72rem",
+							color: "var(--text-muted)"
+						},
+						children: e.time
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+						className: "mono",
+						style: { fontWeight: 600 },
+						children: (e.expected || 0).toLocaleString()
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: e.staffing === "full" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						style: { color: "var(--status-ok)" },
+						children: "✓ Full"
+					}) : e.staffing === "partial" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						style: { color: "var(--status-warning)" },
+						children: "⚠ Partial"
+					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						style: { color: "var(--text-muted)" },
+						children: "─ Minimal"
+					}) }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: `badge ${e.status === "live" ? "badge-critical" : "badge-success"}`,
+						children: e.status === "live" ? "● LIVE" : "○ " + e.status
+					}) }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							gap: 6
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-ghost",
+							style: { fontSize: "0.72rem" },
+							onClick: () => handleEdit(e),
+							children: "Edit"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-ghost",
+							style: {
+								fontSize: "0.72rem",
+								color: "var(--status-alert)"
+							},
+							onClick: () => handleCancelEvent(e._id),
+							children: "Cancel"
+						})]
+					}) })
+				] }, e._id)) })]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CreateEventModal, {
+			isOpen: isCreateOpen,
+			onClose: () => setIsCreateOpen(false),
+			onCreated: fetchEvents
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(EditEventModal, {
+			isOpen: isEditOpen,
+			onClose: () => setIsEditOpen(false),
+			onUpdated: fetchEvents,
+			event: selectedEvent
+		})
+	] });
 }
 //#endregion
 //#region src/components/modals/InviteStaffModal.jsx
@@ -8944,7 +9601,6 @@ function StaffManagement() {
 	const filteredStaff = staff.filter((m) => m.name.toLowerCase().includes(searchTerm.toLowerCase()) || m.email.toLowerCase().includes(searchTerm.toLowerCase()) || m.role.toLowerCase().includes(searchTerm.toLowerCase()));
 	const s = filteredStaff[selected] || filteredStaff[0] || null;
 	const handleRevokeAccess = async (id) => {
-		if (!window.confirm("Are you sure you want to revoke system clearance for this operator? This action is irreversible.")) return;
 		setProcessing(true);
 		try {
 			await userApi.remove(id);
@@ -8965,345 +9621,337 @@ function StaffManagement() {
 			console.error("Failed to update permission:", err);
 		}
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: venueAdminSidebar,
-		brand: venueAdminBrand.brand,
-		brandSub: venueAdminBrand.brandSub,
-		user: venueAdminUser,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 16
-			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				style: {
-					display: "flex",
-					gap: 12,
-					borderRight: "1px solid var(--border-subtle)",
-					paddingRight: 16
-				},
-				children: [
-					"Directory",
-					"Clearance",
-					"Rosters"
-				].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: activeTab === t ? "label-accent" : "label-caps",
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "page-pretitle",
+						children: ["Personnel Matrix / ", activeTab]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Staff & Role Management" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "page-subtitle",
+						children: "Manage your venue's human assets, assign roles, and control access permissions."
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
-						cursor: "pointer",
-						whiteSpace: "nowrap"
+						display: "flex",
+						gap: 12
 					},
-					onClick: () => {
-						setActiveTab(t);
-						showToast(`Switching to ${t} panel`, "info");
-					},
-					children: t
-				}, t))
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				className: "btn btn-secondary",
-				style: {
-					fontSize: "0.65rem",
-					padding: "6px 10px"
-				},
-				onClick: () => showToast("Compiling personnel audit report...", "success"),
-				children: "Audit"
-			})]
-		}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "page-header",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-header-top",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "page-pretitle",
-							children: "Personnel Matrix"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Staff & Role Management" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "page-subtitle",
-							children: "Manage your venue's human assets, assign roles, and control access permissions."
-						})
-					] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: "btn btn-primary",
-						onClick: () => setIsModalOpen(true),
-						children: "+ Invite Member"
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "grid",
-					gridTemplateColumns: "1fr 1.5fr",
-					gap: 24
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					style: { padding: 0 },
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							padding: "16px 20px",
-							borderBottom: "1px solid var(--border-color)"
-						},
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-							placeholder: "Search team members by name or role...",
-							style: { width: "100%" },
-							value: searchTerm,
-							onChange: (e) => setSearchTerm(e.target.value)
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							maxHeight: "calc(100vh - 350px)",
-							overflowY: "auto"
-						},
-						children: loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								padding: 40,
-								textAlign: "center"
-							},
-							children: "Syncing matrix..."
-						}) : filteredStaff.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								padding: 40,
-								textAlign: "center"
-							},
-							children: "No matching personnel found."
-						}) : filteredStaff.map((m, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							onClick: () => setSelected(i),
 							style: {
 								display: "flex",
-								alignItems: "center",
-								gap: 14,
-								padding: "14px 20px",
-								cursor: "pointer",
-								background: s?._id === m._id ? "var(--accent-dim)" : "transparent",
-								borderLeft: s?._id === m._id ? "3px solid var(--accent)" : "3px solid transparent",
-								borderBottom: "1px solid var(--border-subtle)",
-								transition: "all 0.15s ease"
+								gap: 12,
+								borderRight: "1px solid var(--border-subtle)",
+								paddingRight: 16
 							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "sidebar-avatar",
+							children: [
+								"Directory",
+								"Clearance",
+								"Rosters"
+							].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: activeTab === t ? "label-accent" : "label-caps",
 								style: {
-									background: `var(--bg-elevated)`,
-									color: "var(--accent)",
-									borderColor: "var(--accent-border)"
+									cursor: "pointer",
+									whiteSpace: "nowrap"
 								},
-								children: m.name.charAt(0)
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: { flex: 1 },
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontWeight: 600,
-										fontSize: "0.9rem"
-									},
-									children: m.name
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "flex",
-										gap: 8,
-										alignItems: "center",
-										marginTop: 2
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: {
-											color: "var(--accent)",
-											fontFamily: "var(--font-mono)",
-											fontSize: "0.68rem",
-											fontWeight: 600
-										},
-										children: m.role
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: `badge ${m.status === "Active" ? "badge-success" : "badge-info"}`,
-										children: m.status
-									})]
-								})]
-							})]
-						}, m._id))
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: !s ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "card",
+								onClick: () => {
+									setActiveTab(t);
+									showToast(`Switching to ${t} panel`, "info");
+								},
+								children: t
+							}, t))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-secondary",
+							onClick: () => showToast("Compiling personnel audit report...", "success"),
+							children: "Audit Log"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-primary",
+							onClick: () => setIsModalOpen(true),
+							children: "+ Invite Member"
+						})
+					]
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "grid",
+				gridTemplateColumns: "1fr 1.5fr",
+				gap: 24
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				style: { padding: 0 },
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					style: {
-						textAlign: "center",
-						padding: 40
+						padding: "16px 20px",
+						borderBottom: "1px solid var(--border-color)"
 					},
-					children: "Select a member to view identity profile"
-				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					style: { marginBottom: 16 },
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						placeholder: "Search team members by name or role...",
+						style: { width: "100%" },
+						value: searchTerm,
+						onChange: (e) => setSearchTerm(e.target.value)
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						maxHeight: "calc(100vh - 350px)",
+						overflowY: "auto"
+					},
+					children: loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							padding: 40,
+							textAlign: "center"
+						},
+						children: "Syncing matrix..."
+					}) : filteredStaff.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							padding: 40,
+							textAlign: "center"
+						},
+						children: "No matching personnel found."
+					}) : filteredStaff.map((m, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						onClick: () => setSelected(i),
 						style: {
 							display: "flex",
-							gap: 20,
-							marginBottom: 20
+							alignItems: "center",
+							gap: 14,
+							padding: "14px 20px",
+							cursor: "pointer",
+							background: s?._id === m._id ? "var(--accent-dim)" : "transparent",
+							borderLeft: s?._id === m._id ? "3px solid var(--accent)" : "3px solid transparent",
+							borderBottom: "1px solid var(--border-subtle)",
+							transition: "all 0.15s ease"
 						},
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "sidebar-avatar",
 							style: {
-								width: 64,
-								height: 64,
-								fontSize: "1.3rem",
 								background: `var(--bg-elevated)`,
 								color: "var(--accent)",
 								borderColor: "var(--accent-border)"
 							},
-							children: s.name.charAt(0)
+							children: m.name.charAt(0)
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							style: { flex: 1 },
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-									style: { marginBottom: 4 },
-									children: s.name
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontWeight: 600,
+									fontSize: "0.9rem"
+								},
+								children: m.name
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "flex",
+									gap: 8,
+									alignItems: "center",
+									marginTop: 2
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									style: {
-										display: "flex",
-										gap: 8,
-										marginBottom: 8
+										color: "var(--accent)",
+										fontFamily: "var(--font-mono)",
+										fontSize: "0.68rem",
+										fontWeight: 600
 									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: `badge ${s.status === "Active" ? "badge-success" : "badge-info"}`,
-										children: s.status
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: {
-											color: "var(--accent)",
-											fontFamily: "var(--font-mono)",
-											fontSize: "0.72rem"
-										},
-										children: s.role
-									})]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "grid",
-										gridTemplateColumns: "1fr 1fr",
-										gap: 12
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "label-caps",
-										children: "Email"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontSize: "0.85rem",
-											marginTop: 2
-										},
-										children: s.email
-									})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "label-caps",
-										children: "Identity ID"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontSize: "0.82rem",
-											marginTop: 2,
-											fontFamily: "var(--font-mono)",
-											color: "var(--text-muted)"
-										},
-										children: s._id
-									})] })]
-								})
-							]
+									children: m.role
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: `badge ${m.status === "Active" ? "badge-success" : "badge-info"}`,
+									children: m.status
+								})]
+							})]
 						})]
+					}, m._id))
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: !s ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "card",
+				style: {
+					textAlign: "center",
+					padding: 40
+				},
+				children: "Select a member to view identity profile"
+			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				style: { marginBottom: 16 },
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						display: "flex",
+						gap: 20,
+						marginBottom: 20
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "sidebar-avatar",
+						style: {
+							width: 64,
+							height: 64,
+							fontSize: "1.3rem",
+							background: `var(--bg-elevated)`,
+							color: "var(--accent)",
+							borderColor: "var(--accent-border)"
+						},
+						children: s.name.charAt(0)
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: { flex: 1 },
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								style: { marginBottom: 4 },
+								children: s.name
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "flex",
+									gap: 8,
+									marginBottom: 8
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: `badge ${s.status === "Active" ? "badge-success" : "badge-info"}`,
+									children: s.status
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: {
+										color: "var(--accent)",
+										fontFamily: "var(--font-mono)",
+										fontSize: "0.72rem"
+									},
+									children: s.role
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "grid",
+									gridTemplateColumns: "1fr 1fr",
+									gap: 12
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "label-caps",
+									children: "Email"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontSize: "0.85rem",
+										marginTop: 2
+									},
+									children: s.email
+								})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "label-caps",
+									children: "Identity ID"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontSize: "0.82rem",
+										marginTop: 2,
+										fontFamily: "var(--font-mono)",
+										color: "var(--text-muted)"
+									},
+									children: s._id
+								})] })]
+							})
+						]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						display: "flex",
+						gap: 8
+					},
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-secondary",
+							style: { flex: 1 },
+							onClick: () => showToast("Password reset link dispatched via secure node", "success"),
+							children: "Reset Password"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-secondary",
+							style: { flex: 1 },
+							onClick: () => showToast(`Accessing audit history for ${s.name}...`, "info"),
+							children: "Audit Log"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: `btn btn-danger ${processing ? "loading" : ""}`,
+							style: { flex: .6 },
+							disabled: processing,
+							onClick: () => {
+								if (window.confirm("Are you sure you want to revoke system clearance for this operator? This action is irreversible.")) {
+									handleRevokeAccess(s._id);
+									showToast("Security revocation protocol initialized", "info");
+								}
+							},
+							children: processing ? "Processing..." : "Revoke Access"
+						})
+					]
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-header",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "card-title",
+						children: "Permissions Matrix"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						style: {
 							display: "flex",
 							gap: 8
 						},
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-secondary",
-								style: { flex: 1 },
-								onClick: () => showToast("Password reset link dispatched via secure node", "success"),
-								children: "Reset Password"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-secondary",
-								style: { flex: 1 },
-								onClick: () => showToast(`Accessing audit history for ${s.name}...`, "info"),
-								children: "Audit Log"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: `btn btn-danger ${processing ? "loading" : ""}`,
-								style: { flex: .6 },
-								disabled: processing,
-								onClick: () => {
-									if (window.confirm("Are you sure you want to revoke system clearance for this operator? This action is irreversible.")) {
-										handleRevokeAccess(s._id);
-										showToast("Security revocation protocol initialized", "info");
-									}
-								},
-								children: processing ? "Processing..." : "Revoke Access"
-							})
-						]
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card-header",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "card-title",
-							children: "Permissions Matrix"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								gap: 8
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "label-caps",
+							children: ["Role: ", s.role]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+							href: "#",
+							style: { fontSize: "0.78rem" },
+							onClick: (e) => {
+								e.preventDefault();
+								showToast("Opening role assignment matrix...", "info");
 							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "label-caps",
-								children: ["Role: ", s.role]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-								href: "#",
-								style: { fontSize: "0.78rem" },
-								onClick: (e) => {
-									e.preventDefault();
-									showToast("Opening role assignment matrix...", "info");
-								},
-								children: "Edit Role"
+							children: "Edit Role"
+						})]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						display: "grid",
+						gridTemplateColumns: "1fr 1fr 1fr",
+						gap: 8
+					},
+					children: permissionSets.map((p, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							padding: "10px 12px",
+							background: "var(--bg-deep)",
+							border: "1px solid var(--border-color)",
+							borderRadius: "var(--radius-sm)",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "space-between"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							style: { fontSize: "0.82rem" },
+							children: p.label
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: "toggle",
+							style: {
+								width: 36,
+								height: 20
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								type: "checkbox",
+								defaultChecked: i < 5,
+								onChange: (e) => handlePermissionToggle(p.id, e)
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "toggle-slider",
+								style: { borderRadius: 10 }
 							})]
 						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							display: "grid",
-							gridTemplateColumns: "1fr 1fr 1fr",
-							gap: 8
-						},
-						children: permissionSets.map((p, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								padding: "10px 12px",
-								background: "var(--bg-deep)",
-								border: "1px solid var(--border-color)",
-								borderRadius: "var(--radius-sm)",
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "space-between"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								style: { fontSize: "0.82rem" },
-								children: p.label
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
-								className: "toggle",
-								style: {
-									width: 36,
-									height: 20
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									type: "checkbox",
-									defaultChecked: i < 5,
-									onChange: (e) => handlePermissionToggle(p.id, e)
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "toggle-slider",
-									style: { borderRadius: 10 }
-								})]
-							})]
-						}, p.id))
-					})]
-				})] }) })]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InviteStaffModal, {
-				isOpen: isModalOpen,
-				onClose: () => setIsModalOpen(false),
-				onInvited: fetchStaff
-			})
-		]
-	});
+					}, p.id))
+				})]
+			})] }) })]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InviteStaffModal, {
+			isOpen: isModalOpen,
+			onClose: () => setIsModalOpen(false),
+			onInvited: fetchStaff
+		})
+	] });
 }
 //#endregion
 //#region src/components/modals/AddSensorModal.jsx
@@ -9567,402 +10215,392 @@ function SensorManagement() {
 		attention: sensors.filter((s) => s.needsCalibration).length,
 		offline: sensors.filter((s) => s.status === "Offline").length
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: venueAdminSidebar,
-		brand: venueAdminBrand.brand,
-		brandSub: venueAdminBrand.brandSub,
-		user: venueAdminUser,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 16
-			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				style: {
-					display: "flex",
-					gap: 12,
-					borderRight: "1px solid var(--border-subtle)",
-					paddingRight: 16
-				},
-				children: [
-					"Monitor",
-					"Inventory",
-					"Diagnostics"
-				].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: activeTab === t ? "label-accent" : "label-caps",
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "page-pretitle",
+						children: ["SENSOR NETWORK STATUS // ", activeTab]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Sensor Management" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "page-subtitle",
+						children: "Monitor, calibrate, and manage all sensors across your venue infrastructure."
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
-						cursor: "pointer",
-						whiteSpace: "nowrap"
+						display: "flex",
+						gap: 12
 					},
-					onClick: () => {
-						setActiveTab(t);
-						showToast(`Switching to sensor ${t.toLowerCase()} view`, "info");
-					},
-					children: t
-				}, t))
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				className: "btn btn-secondary",
-				style: {
-					fontSize: "0.65rem",
-					padding: "6px 10px"
-				},
-				onClick: () => showToast("Compiling hardware distribution manifest...", "success"),
-				children: "Export"
-			})]
-		}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "page-header",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-header-top",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "page-pretitle",
-							children: "SENSOR NETWORK STATUS"
+							style: {
+								display: "flex",
+								gap: 12,
+								borderRight: "1px solid var(--border-subtle)",
+								paddingRight: 16
+							},
+							children: [
+								"Monitor",
+								"Inventory",
+								"Diagnostics"
+							].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: activeTab === t ? "label-accent" : "label-caps",
+								style: {
+									cursor: "pointer",
+									whiteSpace: "nowrap"
+								},
+								onClick: () => {
+									setActiveTab(t);
+									showToast(`Switching to sensor ${t.toLowerCase()} view`, "info");
+								},
+								children: t
+							}, t))
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Sensor Management" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "page-subtitle",
-							children: "Monitor, calibrate, and manage all sensors across your venue infrastructure."
-						})
-					] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "page-actions",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-secondary",
+							onClick: () => showToast("Compiling hardware distribution manifest...", "success"),
+							children: "Export Intel"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 							className: `btn btn-secondary ${diagnosing ? "loading" : ""}`,
 							onClick: handleRunDiagnostics,
 							disabled: diagnosing,
 							children: diagnosing ? "Scanning Network..." : "Run Diagnostics"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 							className: "btn btn-primary",
 							onClick: () => setIsModalOpen(true),
 							children: "+ Add Sensor"
-						})]
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "grid-4",
-				style: { marginBottom: 24 },
-				children: [
-					{
-						label: "Total Deployed",
-						value: stats.total,
-						icon: "📡",
-						color: "var(--text-primary)",
-						sub: null
-					},
-					{
-						label: "Online",
-						value: stats.online,
-						icon: "✅",
-						color: "var(--status-ok)",
-						sub: `${stats.total > 0 ? (stats.online / stats.total * 100).toFixed(0) : 0}% uptime`
-					},
-					{
-						label: "Needs Attention",
-						value: stats.attention,
-						icon: "⚠️",
-						color: "var(--status-warning)",
-						sub: "Calibration overdue"
-					},
-					{
-						label: "Offline",
-						value: stats.offline,
-						icon: "🔴",
-						color: "var(--status-alert)",
-						sub: "Requires inspection"
-					}
-				].map((m, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "metric-card",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "metric-card-header",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "metric-card-label",
-								children: m.label
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								style: { fontSize: "1.2rem" },
-								children: m.icon
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "metric-card-value",
-							style: { color: m.color },
-							children: m.value
-						}),
-						m.sub && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "metric-card-sub",
-							children: m.sub
 						})
 					]
-				}, i))
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "grid",
-					gridTemplateColumns: "1.5fr 1fr",
-					gap: 24
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "grid-4",
+			style: { marginBottom: 24 },
+			children: [
+				{
+					label: "Total Deployed",
+					value: stats.total,
+					icon: "📡",
+					color: "var(--text-primary)",
+					sub: null
 				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card-header",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "card-title",
-							children: "Venue Sensor Map"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								gap: 8
-							},
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "badge badge-success",
-									children: "● Online"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "badge badge-warning",
-									children: "● Attention"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "badge badge-critical",
-									children: "● Offline"
-								})
-							]
+				{
+					label: "Online",
+					value: stats.online,
+					icon: "✅",
+					color: "var(--status-ok)",
+					sub: `${stats.total > 0 ? (stats.online / stats.total * 100).toFixed(0) : 0}% uptime`
+				},
+				{
+					label: "Needs Attention",
+					value: stats.attention,
+					icon: "⚠️",
+					color: "var(--status-warning)",
+					sub: "Calibration overdue"
+				},
+				{
+					label: "Offline",
+					value: stats.offline,
+					icon: "🔴",
+					color: "var(--status-alert)",
+					sub: "Requires inspection"
+				}
+			].map((m, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "metric-card",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "metric-card-header",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "metric-card-label",
+							children: m.label
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							style: { fontSize: "1.2rem" },
+							children: m.icon
 						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "metric-card-value",
+						style: { color: m.color },
+						children: m.value
+					}),
+					m.sub && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "metric-card-sub",
+						children: m.sub
+					})
+				]
+			}, i))
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "grid",
+				gridTemplateColumns: "1.5fr 1fr",
+				gap: 24
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-header",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "card-title",
+						children: "Venue Sensor Map"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						style: {
-							position: "relative",
-							height: 400,
-							background: "var(--bg-deep)",
-							borderRadius: "var(--radius-md)",
-							border: "1px solid var(--border-subtle)",
-							overflow: "hidden"
+							display: "flex",
+							gap: 8
 						},
 						children: [
-							[
-								20,
-								40,
-								60,
-								80
-							].map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-								position: "absolute",
-								left: 0,
-								right: 0,
-								top: `${p}%`,
-								height: 1,
-								background: "var(--border-subtle)",
-								opacity: .3
-							} }, `v-${p}`)),
-							[
-								20,
-								40,
-								60,
-								80
-							].map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-								position: "absolute",
-								top: 0,
-								bottom: 0,
-								left: `${p}%`,
-								width: 1,
-								background: "var(--border-subtle)",
-								opacity: .3
-							} }, `h-${p}`)),
-							sensors.map((s, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								onClick: () => setSelectedId(s._id),
-								style: {
-									position: "absolute",
-									left: `${s.x}%`,
-									top: `${s.y}%`,
-									transform: "translate(-50%, -50%)",
-									display: "flex",
-									flexDirection: "column",
-									alignItems: "center",
-									gap: 4,
-									zIndex: selectedId === s._id ? 10 : i
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-									width: selectedId === s._id ? 18 : 12,
-									height: selectedId === s._id ? 18 : 12,
-									borderRadius: "50%",
-									background: s.status === "Online" ? "var(--status-ok)" : s.status === "Offline" ? "var(--status-alert)" : "var(--text-muted)",
-									boxShadow: s.status === "Online" ? "0 0 12px var(--status-ok)" : "none",
-									cursor: "pointer",
-									border: selectedId === s._id ? "2px solid white" : "none",
-									transition: "all 0.2s ease"
-								} }), selectedId === s._id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "mono",
-									style: {
-										fontSize: "0.58rem",
-										color: "var(--text-primary)",
-										whiteSpace: "nowrap",
-										background: "rgba(0,0,0,0.6)",
-										padding: "2px 4px",
-										borderRadius: 4
-									},
-									children: s.sensorId
-								})]
-							}, s._id))
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "badge badge-success",
+								children: "● Online"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "badge badge-warning",
+								children: "● Attention"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "badge badge-critical",
+								children: "● Offline"
+							})
 						]
 					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
-						marginBottom: 16,
-						padding: 0
+						position: "relative",
+						height: 400,
+						background: "var(--bg-deep)",
+						borderRadius: "var(--radius-md)",
+						border: "1px solid var(--border-subtle)",
+						overflow: "hidden"
 					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							padding: "16px 20px",
-							borderBottom: "1px solid var(--border-color)",
-							fontWeight: 600
-						},
-						children: "Hardware Registry"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							maxHeight: 350,
-							overflowY: "auto"
-						},
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-							className: "data-table",
-							style: { fontSize: "0.82rem" },
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Sensor ID" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Type" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Status" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Signal" })
-							] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-								colSpan: "4",
-								style: {
-									padding: 20,
-									textAlign: "center"
-								},
-								children: "Syncing telemetry..."
-							}) }) : sensors.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-								colSpan: "4",
-								style: {
-									padding: 20,
-									textAlign: "center"
-								},
-								children: "No active hardware."
-							}) }) : sensors.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", {
-								onClick: () => setSelectedId(s._id),
-								style: {
-									cursor: "pointer",
-									background: selectedId === s._id ? "var(--accent-dim)" : "transparent"
-								},
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
-										className: "mono",
-										style: { fontWeight: 600 },
-										children: [s.sensorId, s.needsCalibration && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "badge badge-warning",
-											style: {
-												marginLeft: 6,
-												fontSize: "0.55rem"
-											},
-											children: "CAL"
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										className: "label-caps",
-										style: { fontSize: "0.62rem" },
-										children: s.type
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: `badge ${statusColors[s.status] || "badge-neutral"}`,
-										children: s.status
-									}) }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
-										className: "mono",
-										children: [s.signal, "%"]
-									})
-								]
-							}, s._id)) })]
-						})
-					})]
-				}), selectedSensor && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card card-accent animate-in",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "label-caps",
-							children: ["Hardware Intel: ", selectedSensor.sensorId]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: { marginTop: 12 },
+						[
+							20,
+							40,
+							60,
+							80
+						].map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+							position: "absolute",
+							left: 0,
+							right: 0,
+							top: `${p}%`,
+							height: 1,
+							background: "var(--border-subtle)",
+							opacity: .3
+						} }, `v-${p}`)),
+						[
+							20,
+							40,
+							60,
+							80
+						].map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+							position: "absolute",
+							top: 0,
+							bottom: 0,
+							left: `${p}%`,
+							width: 1,
+							background: "var(--border-subtle)",
+							opacity: .3
+						} }, `h-${p}`)),
+						sensors.map((s, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							onClick: () => setSelectedId(s._id),
+							style: {
+								position: "absolute",
+								left: `${s.x}%`,
+								top: `${s.y}%`,
+								transform: "translate(-50%, -50%)",
+								display: "flex",
+								flexDirection: "column",
+								alignItems: "center",
+								gap: 4,
+								zIndex: selectedId === s._id ? 10 : i
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+								width: selectedId === s._id ? 18 : 12,
+								height: selectedId === s._id ? 18 : 12,
+								borderRadius: "50%",
+								background: s.status === "Online" ? "var(--status-ok)" : s.status === "Offline" ? "var(--status-alert)" : "var(--text-muted)",
+								boxShadow: s.status === "Online" ? "0 0 12px var(--status-ok)" : "none",
+								cursor: "pointer",
+								border: selectedId === s._id ? "2px solid white" : "none",
+								transition: "all 0.2s ease"
+							} }), selectedId === s._id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "mono",
+								style: {
+									fontSize: "0.58rem",
+									color: "var(--text-primary)",
+									whiteSpace: "nowrap",
+									background: "rgba(0,0,0,0.6)",
+									padding: "2px 4px",
+									borderRadius: 4
+								},
+								children: s.sensorId
+							})]
+						}, s._id))
+					]
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				style: {
+					marginBottom: 16,
+					padding: 0
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						padding: "16px 20px",
+						borderBottom: "1px solid var(--border-color)",
+						fontWeight: 600
+					},
+					children: "Hardware Registry"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						maxHeight: 350,
+						overflowY: "auto"
+					},
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+						className: "data-table",
+						style: { fontSize: "0.82rem" },
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Sensor ID" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Type" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Status" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Signal" })
+						] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+							colSpan: "4",
+							style: {
+								padding: 20,
+								textAlign: "center"
+							},
+							children: "Syncing telemetry..."
+						}) }) : sensors.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+							colSpan: "4",
+							style: {
+								padding: 20,
+								textAlign: "center"
+							},
+							children: "No active hardware."
+						}) }) : sensors.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", {
+							onClick: () => setSelectedId(s._id),
+							style: {
+								cursor: "pointer",
+								background: selectedId === s._id ? "var(--accent-dim)" : "transparent"
+							},
 							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "flex",
-										justifyContent: "space-between",
-										marginBottom: 8
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: { color: "var(--text-secondary)" },
-										children: "Uptime"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "mono",
-										children: "99.8%"
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
+									className: "mono",
+									style: { fontWeight: 600 },
+									children: [s.sensorId, s.needsCalibration && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "badge badge-warning",
+										style: {
+											marginLeft: 6,
+											fontSize: "0.55rem"
+										},
+										children: "CAL"
 									})]
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "flex",
-										justifyContent: "space-between",
-										marginBottom: 8
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: { color: "var(--text-secondary)" },
-										children: "Last Sync"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "mono",
-										children: "2m ago"
-									})]
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "label-caps",
+									style: { fontSize: "0.62rem" },
+									children: s.type
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "flex",
-										justifyContent: "space-between"
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: { color: "var(--text-secondary)" },
-										children: "Battery"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: { color: "var(--status-ok)" },
-										children: "82%"
-									})]
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: `badge ${statusColors[s.status] || "badge-neutral"}`,
+									children: s.status
+								}) }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
+									className: "mono",
+									children: [s.signal, "%"]
 								})
 							]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								gap: 8,
-								marginTop: 16
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-secondary w-full",
-								style: { fontSize: "0.72rem" },
-								onClick: () => showToast(`Calibrating sensor node ${selectedSensor.sensorId}...`, "info"),
-								children: "Calibrate"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-ghost w-full",
-								style: { fontSize: "0.72rem" },
-								onClick: () => showToast("Accessing low-level hardware logs...", "info"),
-								children: "Sync Log"
-							})]
-						})
-					]
-				})] })]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AddSensorModal, {
-				isOpen: isModalOpen,
-				onClose: () => setIsModalOpen(false),
-				onCreated: fetchSensors
-			})
-		]
-	});
+						}, s._id)) })]
+					})
+				})]
+			}), selectedSensor && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card card-accent animate-in",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "label-caps",
+						children: ["Hardware Intel: ", selectedSensor.sensorId]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: { marginTop: 12 },
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "flex",
+									justifyContent: "space-between",
+									marginBottom: 8
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: { color: "var(--text-secondary)" },
+									children: "Uptime"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "mono",
+									children: "99.8%"
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "flex",
+									justifyContent: "space-between",
+									marginBottom: 8
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: { color: "var(--text-secondary)" },
+									children: "Last Sync"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "mono",
+									children: "2m ago"
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "flex",
+									justifyContent: "space-between"
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: { color: "var(--text-secondary)" },
+									children: "Battery"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: { color: "var(--status-ok)" },
+									children: "82%"
+								})]
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							gap: 8,
+							marginTop: 16
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-secondary w-full",
+							style: { fontSize: "0.72rem" },
+							onClick: () => showToast(`Calibrating sensor node ${selectedSensor.sensorId}...`, "info"),
+							children: "Calibrate"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-ghost w-full",
+							style: { fontSize: "0.72rem" },
+							onClick: () => showToast("Accessing low-level hardware logs...", "info"),
+							children: "Sync Log"
+						})]
+					})
+				]
+			})] })]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AddSensorModal, {
+			isOpen: isModalOpen,
+			onClose: () => setIsModalOpen(false),
+			onCreated: fetchSensors
+		})
+	] });
 }
 //#endregion
 //#region src/pages/venue-admin/VenueSettings.jsx
@@ -10001,410 +10639,395 @@ function VenueSettings() {
 		setHasChanges(false);
 	};
 	const v = profile;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: venueAdminSidebar,
-		brand: venueAdminBrand.brand,
-		brandSub: venueAdminBrand.brandSub,
-		user: null,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 16
-			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				style: {
-					display: "flex",
-					gap: 12,
-					borderRight: "1px solid var(--border-subtle)",
-					paddingRight: 16
-				},
-				children: [
-					"General",
-					"Policies",
-					"Advanced"
-				].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "label-caps",
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Venue Profile" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "page-subtitle",
+					children: "Configure core operational parameters and architectural mapping."
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
-						cursor: "pointer",
-						whiteSpace: "nowrap"
+						display: "flex",
+						gap: 12
 					},
-					onClick: () => showToast(`Opening ${t.toLowerCase()} configuration...`, "info"),
-					children: t
-				}, t))
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				className: "btn btn-secondary",
-				style: {
-					fontSize: "0.65rem",
-					padding: "6px 10px"
-				},
-				onClick: () => showToast("Broadcasting system configuration update...", "success"),
-				children: "Deploy Changes"
-			})]
-		}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "page-header",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-header-top",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Venue Profile" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "page-subtitle",
-						children: "Configure core operational parameters and architectural mapping."
-					})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "page-actions",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								display: "flex",
+								gap: 12,
+								borderRight: "1px solid var(--border-subtle)",
+								paddingRight: 16
+							},
+							children: [
+								"General",
+								"Policies",
+								"Advanced"
+							].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "label-caps",
+								style: {
+									cursor: "pointer",
+									whiteSpace: "nowrap"
+								},
+								onClick: () => showToast(`Opening ${t.toLowerCase()} configuration...`, "info"),
+								children: t
+							}, t))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 							className: "btn btn-secondary",
 							onClick: () => {
 								setHasChanges(false);
 								showToast("Changes Discarded");
 							},
 							children: "Discard"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 							className: "btn btn-primary",
 							onClick: handleSave,
 							disabled: !hasChanges,
 							children: "Save Changes"
+						})
+					]
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "grid",
+				gridTemplateColumns: "1.5fr 1fr",
+				gap: 24,
+				marginBottom: 24
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card-header",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "card-title",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+								viewBox: "0 0 24 24",
+								width: "18",
+								height: "18",
+								fill: "none",
+								stroke: "var(--accent)",
+								strokeWidth: "2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" })]
+							}), "Core Identity"]
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: { marginBottom: 16 },
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginBottom: 8 },
+							children: "Venue Name"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							value: v.name,
+							onChange: (e) => handleUpdate("name", e.target.value)
 						})]
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "grid",
-					gridTemplateColumns: "1.5fr 1fr",
-					gap: 24,
-					marginBottom: 24
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card-header",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "card-title",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-									viewBox: "0 0 24 24",
-									width: "18",
-									height: "18",
-									fill: "none",
-									stroke: "var(--accent)",
-									strokeWidth: "2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" })]
-								}), "Core Identity"]
-							})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: { marginBottom: 16 },
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { marginBottom: 8 },
-								children: "Venue Name"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-								value: v.name,
-								onChange: (e) => handleUpdate("name", e.target.value)
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "grid",
+							gridTemplateColumns: "1fr 1fr",
+							gap: 16,
+							marginBottom: 16
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginBottom: 8 },
+							children: "Venue Type"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+							value: v.type,
+							onChange: (e) => handleUpdate("type", e.target.value),
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Stadium" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Arena" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Campus" })
+							]
+						})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginBottom: 8 },
+							children: "Region Code"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							value: v.regionCode,
+							onChange: (e) => handleUpdate("regionCode", e.target.value)
+						})] })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
+						style: { marginBottom: 8 },
+						children: "Geographical Coordinates"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						value: v.coordinates,
+						onChange: (e) => handleUpdate("coordinates", e.target.value)
+					})] })
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "card-header",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "card-title",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+								viewBox: "0 0 24 24",
+								width: "18",
+								height: "18",
+								fill: "none",
+								stroke: "var(--accent)",
+								strokeWidth: "2",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" })
+							}), "3D Architecture"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "badge badge-accent",
+							children: "V2.4.81-FINAL"
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							height: 120,
+							background: "var(--bg-deep)",
+							borderRadius: "var(--radius-md)",
+							border: "2px dashed var(--border-color)",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							marginBottom: 16,
+							cursor: "pointer"
+						},
+						onClick: () => showToast("Accessing secure CAD repository...", "info"),
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: { textAlign: "center" },
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontSize: "2rem",
+										marginBottom: 8
+									},
+									children: "🏗️"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									style: { fontSize: "0.85rem" },
+									children: "Drag & Drop BIM/CAD Model"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "label-caps",
+									children: "SUPPORTS OBJ, FBX, IFC"
+								})
+							]
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card",
+						style: {
+							padding: "12px 16px",
+							background: "var(--accent-dim)",
+							borderColor: "var(--accent-border)"
+						},
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							style: {
-								display: "grid",
-								gridTemplateColumns: "1fr 1fr",
-								gap: 16,
-								marginBottom: 16
+								display: "flex",
+								justifyContent: "space-between",
+								alignItems: "center"
 							},
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								className: "label-caps",
-								style: { marginBottom: 8 },
-								children: "Venue Type"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
-								value: v.type,
-								onChange: (e) => handleUpdate("type", e.target.value),
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Stadium" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Arena" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: "Campus" })
-								]
-							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { marginBottom: 8 },
-								children: "Region Code"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-								value: v.regionCode,
-								onChange: (e) => handleUpdate("regionCode", e.target.value)
-							})] })]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: { marginBottom: 8 },
-							children: "Geographical Coordinates"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-							value: v.coordinates,
-							onChange: (e) => handleUpdate("coordinates", e.target.value)
-						})] })
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "card-header",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "card-title",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-									viewBox: "0 0 24 24",
-									width: "18",
-									height: "18",
-									fill: "none",
-									stroke: "var(--accent)",
-									strokeWidth: "2",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" })
-								}), "3D Architecture"]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "badge badge-accent",
-								children: "V2.4.81-FINAL"
+								style: { marginBottom: 4 },
+								children: "ACTIVE MODEL"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mono",
+								style: { fontWeight: 600 },
+								children: v.activeModel
+							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+								width: "18",
+								height: "18",
+								viewBox: "0 0 24 24",
+								fill: "none",
+								stroke: "var(--status-ok)",
+								strokeWidth: "2",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 6L9 17l-5-5" })
 							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								height: 120,
-								background: "var(--bg-deep)",
-								borderRadius: "var(--radius-md)",
-								border: "2px dashed var(--border-color)",
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-								marginBottom: 16,
-								cursor: "pointer"
-							},
-							onClick: () => showToast("Accessing secure CAD repository...", "info"),
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: { textAlign: "center" },
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontSize: "2rem",
-											marginBottom: 8
-										},
-										children: "🏗️"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										style: { fontSize: "0.85rem" },
-										children: "Drag & Drop BIM/CAD Model"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "label-caps",
-										children: "SUPPORTS OBJ, FBX, IFC"
-									})
-								]
-							})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card",
-							style: {
-								padding: "12px 16px",
-								background: "var(--accent-dim)",
-								borderColor: "var(--accent-border)"
-							},
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									justifyContent: "space-between",
-									alignItems: "center"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-caps",
-									style: { marginBottom: 4 },
-									children: "ACTIVE MODEL"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "mono",
-									style: { fontWeight: 600 },
-									children: v.activeModel
-								})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-									width: "18",
-									height: "18",
-									viewBox: "0 0 24 24",
-									fill: "none",
-									stroke: "var(--status-ok)",
-									strokeWidth: "2",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 6L9 17l-5-5" })
-								})]
-							})
 						})
-					]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "grid",
-					gridTemplateColumns: "1fr 1fr",
-					gap: 24
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card-header",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "card-title",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-									viewBox: "0 0 24 24",
-									width: "18",
-									height: "18",
-									fill: "none",
-									stroke: "var(--status-warning)",
-									strokeWidth: "2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-										cx: "12",
-										cy: "12",
-										r: "10"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "12 6 12 12 16 14" })]
-								}), "Operational Hours"]
+					})
+				]
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "grid",
+				gridTemplateColumns: "1fr 1fr",
+				gap: 24
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card-header",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "card-title",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+								viewBox: "0 0 24 24",
+								width: "18",
+								height: "18",
+								fill: "none",
+								stroke: "var(--status-warning)",
+								strokeWidth: "2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+									cx: "12",
+									cy: "12",
+									r: "10"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "12 6 12 12 16 14" })]
+							}), "Operational Hours"]
+						})
+					}),
+					Object.entries(v.operationalHours).map(([period, times]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							alignItems: "center",
+							gap: 16,
+							marginBottom: 12
+						},
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "label-caps",
+								style: { width: 80 },
+								children: period === "weekday" ? "MON - FRI" : period.toUpperCase()
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								value: times.open,
+								style: {
+									width: 120,
+									textAlign: "center"
+								},
+								onChange: () => setHasChanges(true)
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								value: times.close,
+								style: {
+									width: 120,
+									textAlign: "center"
+								},
+								onChange: () => setHasChanges(true)
 							})
-						}),
-						Object.entries(v.operationalHours).map(([period, times]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						]
+					}, period)),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: "btn btn-ghost",
+						style: {
+							marginTop: 8,
+							width: "100%",
+							justifyContent: "center"
+						},
+						onClick: () => showToast("Holiday scheduling protocol activated", "info"),
+						children: "Add Special Holiday Hours"
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card-header",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "card-title",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+								viewBox: "0 0 24 24",
+								width: "18",
+								height: "18",
+								fill: "none",
+								stroke: "var(--status-alert)",
+								strokeWidth: "2",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" })
+							}), "Emergency Logistics"]
+						})
+					}),
+					v.emergencyContacts.map((c, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card",
+						style: {
+							padding: 14,
+							background: "var(--bg-deep)",
+							marginBottom: 10
+						},
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							style: {
-								display: "flex",
-								alignItems: "center",
-								gap: 16,
-								marginBottom: 12
+								display: "grid",
+								gridTemplateColumns: "1fr 1fr auto",
+								gap: 12,
+								alignItems: "center"
 							},
 							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 									className: "label-caps",
-									style: { width: 80 },
-									children: period === "weekday" ? "MON - FRI" : period.toUpperCase()
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									value: times.open,
+									style: { marginBottom: 4 },
+									children: c.role
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: { fontWeight: 500 },
+									children: c.name
+								})] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "label-caps",
+									style: { marginBottom: 4 },
+									children: "Direct Line"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "mono",
+									style: { fontSize: "0.85rem" },
+									children: c.phone
+								})] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+									className: "btn-icon",
 									style: {
-										width: 120,
-										textAlign: "center"
+										height: 28,
+										width: 28,
+										color: "var(--status-alert)"
 									},
-									onChange: () => setHasChanges(true)
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									value: times.close,
-									style: {
-										width: 120,
-										textAlign: "center"
-									},
-									onChange: () => setHasChanges(true)
+									onClick: () => showToast("⚠️ Contact access revoked", "info"),
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+										width: "14",
+										height: "14",
+										viewBox: "0 0 24 24",
+										fill: "none",
+										stroke: "currentColor",
+										strokeWidth: "2",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "3 6 5 6 21 6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" })]
+									})
 								})
 							]
-						}, period)),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							className: "btn btn-ghost",
-							style: {
-								marginTop: 8,
-								width: "100%",
-								justifyContent: "center"
-							},
-							onClick: () => showToast("Holiday scheduling protocol activated", "info"),
-							children: "Add Special Holiday Hours"
 						})
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card-header",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "card-title",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-									viewBox: "0 0 24 24",
-									width: "18",
-									height: "18",
-									fill: "none",
-									stroke: "var(--status-alert)",
-									strokeWidth: "2",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" })
-								}), "Emergency Logistics"]
-							})
-						}),
-						v.emergencyContacts.map((c, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card",
-							style: {
-								padding: 14,
-								background: "var(--bg-deep)",
-								marginBottom: 10
-							},
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "grid",
-									gridTemplateColumns: "1fr 1fr auto",
-									gap: 12,
-									alignItems: "center"
-								},
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "label-caps",
-										style: { marginBottom: 4 },
-										children: c.role
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: { fontWeight: 500 },
-										children: c.name
-									})] }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "label-caps",
-										style: { marginBottom: 4 },
-										children: "Direct Line"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "mono",
-										style: { fontSize: "0.85rem" },
-										children: c.phone
-									})] }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										className: "btn-icon",
-										style: {
-											height: 28,
-											width: 28,
-											color: "var(--status-alert)"
-										},
-										onClick: () => showToast("⚠️ Contact access revoked", "info"),
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-											width: "14",
-											height: "14",
-											viewBox: "0 0 24 24",
-											fill: "none",
-											stroke: "currentColor",
-											strokeWidth: "2",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "3 6 5 6 21 6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" })]
-										})
-									})
-								]
-							})
-						}, i)),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							className: "btn btn-ghost",
-							style: {
-								marginTop: 4,
-								width: "100%",
-								justifyContent: "center"
-							},
-							onClick: () => showToast("Initializing new contact registration...", "info"),
-							children: "+ Add Contact Registry"
-						})
-					]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				style: { marginTop: 24 },
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					className: "btn btn-primary",
-					style: { padding: "14px 24px" },
-					onClick: handleSave,
-					disabled: !hasChanges,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-						width: "14",
-						height: "14",
-						viewBox: "0 0 24 24",
-						fill: "none",
-						stroke: "currentColor",
-						strokeWidth: "2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "17 1 21 5 17 9" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3 11V9a4 4 0 0 1 4-4h14" })]
-					}), "Deploy Update"]
-				})
+					}, i)),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: "btn btn-ghost",
+						style: {
+							marginTop: 4,
+							width: "100%",
+							justifyContent: "center"
+						},
+						onClick: () => showToast("Initializing new contact registration...", "info"),
+						children: "+ Add Contact Registry"
+					})
+				]
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			style: { marginTop: 24 },
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+				className: "btn btn-primary",
+				style: { padding: "14px 24px" },
+				onClick: handleSave,
+				disabled: !hasChanges,
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+					width: "14",
+					height: "14",
+					viewBox: "0 0 24 24",
+					fill: "none",
+					stroke: "currentColor",
+					strokeWidth: "2",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "17 1 21 5 17 9" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3 11V9a4 4 0 0 1 4-4h14" })]
+				}), "Deploy Update"]
 			})
-		]
-	});
+		})
+	] });
 }
 //#endregion
 //#region src/pages/operations/OperationsCommand.jsx
@@ -10487,119 +11110,130 @@ function OperationsCommand() {
 				minHeight: 340,
 				background: "#080A0F"
 			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-				style: {
-					position: "absolute",
-					inset: 0,
-					width: "100%",
-					height: "100%",
-					opacity: .15,
-					pointerEvents: "none"
-				},
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("pattern", {
-						id: "grid-3d",
-						width: "40",
-						height: "40",
-						patternUnits: "userSpaceOnUse",
-						patternTransform: "rotate(15)",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M 40 0 L 0 0 0 40",
-							fill: "none",
-							stroke: "var(--accent)",
-							strokeWidth: "0.5"
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-						width: "100%",
-						height: "100%",
-						fill: "url(#grid-3d)"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-						d: "M 50,50 L 350,50 M 50,150 L 350,150 M 50,250 L 350,250",
-						stroke: "var(--accent)",
-						strokeWidth: "1",
-						strokeDasharray: "5,5"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-						d: "M 100,20 L 100,320 M 200,20 L 200,320 M 300,20 L 300,320",
-						stroke: "var(--accent)",
-						strokeWidth: "1",
-						strokeDasharray: "5,5"
-					})
-				]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "heatmap-overlay",
-				style: {
-					position: "absolute",
-					inset: 0,
-					background: `radial-gradient(circle at 50% 50%, rgba(255, 71, 87, ${occPct / 120}) 0%, rgba(255, 107, 107, 0.05) 50%, transparent 100%)`,
-					zIndex: 1
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "stadium-bowl",
-					style: {
-						position: "relative",
-						opacity: .6,
-						border: "2px solid var(--accent)",
-						margin: "40px auto",
-						width: "280px",
-						height: "180px",
-						borderRadius: "80px",
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-						boxShadow: "0 0 30px rgba(0, 212, 170, 0.2)"
-					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							position: "absolute",
-							top: -20,
-							left: "50%",
-							transform: "translateX(-50%)",
-							background: "var(--bg-deep)",
-							padding: "2px 8px",
-							border: "1px solid var(--accent)",
-							borderRadius: 4,
-							fontSize: "0.6rem",
-							color: "var(--accent)"
-						},
-						children: "MUMBAI_ARENA_NORTH"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: `heat-zone ${occPct > 80 ? "critical" : occPct > 60 ? "warning" : "info"}`,
-						style: {
-							width: "60%",
-							height: "60%",
-							borderRadius: "50%",
-							background: occPct > 80 ? "var(--status-alert)" : "var(--accent)",
-							filter: "blur(40px)",
-							opacity: occPct / 150,
-							transition: "all 1.5s ease"
-						}
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
 					style: {
 						position: "absolute",
-						bottom: 20,
-						left: 20,
-						zIndex: 2
+						inset: 0,
+						width: "100%",
+						height: "100%",
+						opacity: .15,
+						pointerEvents: "none"
 					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "label-caps",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("pattern", {
+							id: "grid-3d",
+							width: "40",
+							height: "40",
+							patternUnits: "userSpaceOnUse",
+							patternTransform: "rotate(15)",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+								d: "M 40 0 L 0 0 0 40",
+								fill: "none",
+								stroke: "var(--accent)",
+								strokeWidth: "0.5"
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+							width: "100%",
+							height: "100%",
+							fill: "url(#grid-3d)"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+							d: "M 50,50 L 350,50 M 50,150 L 350,150 M 50,250 L 350,250",
+							stroke: "var(--accent)",
+							strokeWidth: "1",
+							strokeDasharray: "5,5"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+							d: "M 100,20 L 100,320 M 200,20 L 200,320 M 300,20 L 300,320",
+							stroke: "var(--accent)",
+							strokeWidth: "1",
+							strokeDasharray: "5,5"
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "hud-scanline",
+					style: {
+						position: "absolute",
+						opacity: .15,
+						height: "100px"
+					}
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "heatmap-overlay",
+					style: {
+						position: "absolute",
+						inset: 0,
+						background: `radial-gradient(circle at 50% 50%, rgba(255, 71, 87, ${occPct / 120}) 0%, rgba(255, 107, 107, 0.05) 50%, transparent 100%)`,
+						zIndex: 1
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "stadium-bowl",
 						style: {
-							color: "var(--accent)",
-							fontWeight: 700
+							position: "relative",
+							opacity: .6,
+							border: "2px solid var(--accent)",
+							margin: "40px auto",
+							width: "280px",
+							height: "180px",
+							borderRadius: "80px",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							boxShadow: "0 0 30px rgba(0, 212, 170, 0.2)"
 						},
-						children: "BLUEPRINT_DENSITY_TRACKER"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								position: "absolute",
+								top: -20,
+								left: "50%",
+								transform: "translateX(-50%)",
+								background: "var(--bg-deep)",
+								padding: "2px 8px",
+								border: "1px solid var(--accent)",
+								borderRadius: 4,
+								fontSize: "0.6rem",
+								color: "var(--accent)"
+							},
+							children: "MUMBAI_ARENA_NORTH"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: `heat-zone ${occPct > 80 ? "critical" : occPct > 60 ? "warning" : "info"}`,
+							style: {
+								width: "60%",
+								height: "60%",
+								borderRadius: "50%",
+								background: occPct > 80 ? "var(--status-alert)" : "var(--accent)",
+								filter: "blur(40px)",
+								opacity: occPct / 150,
+								transition: "all 1.5s ease"
+							}
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						style: {
-							fontSize: "0.75rem",
-							color: "var(--text-muted)"
+							position: "absolute",
+							bottom: 20,
+							left: 20,
+							zIndex: 2
 						},
-						children: "Structural load: SEC_427 | SEC_428 [MUMBAI]"
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: {
+								color: "var(--accent)",
+								fontWeight: 700
+							},
+							children: "BLUEPRINT_DENSITY_TRACKER"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								fontSize: "0.75rem",
+								color: "var(--text-muted)"
+							},
+							children: "Structural load: SEC_427 | SEC_428 [MUMBAI]"
+						})]
 					})]
-				})]
-			})]
+				})
+			]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			style: {
 				display: "flex",
@@ -10608,10 +11242,12 @@ function OperationsCommand() {
 			},
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "stagger-item",
 					style: {
 						display: "grid",
 						gridTemplateColumns: "130px 1fr",
-						gap: 10
+						gap: 10,
+						animationDelay: "0.1s"
 					},
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
 						compact: true,
@@ -10627,10 +11263,12 @@ function OperationsCommand() {
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "stagger-item",
 					style: {
 						display: "grid",
 						gridTemplateColumns: "1fr 1fr",
-						gap: 10
+						gap: 10,
+						animationDelay: "0.2s"
 					},
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
 						compact: true,
@@ -10644,10 +11282,14 @@ function OperationsCommand() {
 						accent: true
 					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
-					label: "Egress Projection",
-					value: venue?.status === "Evacuating" ? "ACTIVE_EXIT" : d.egressEstimate,
-					subtext: venue?.status === "Evacuating" ? "Estimated clearance in 8.2m" : "Standard exit protocol"
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "stagger-item",
+					style: { animationDelay: "0.3s" },
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
+						label: "Egress Projection",
+						value: venue?.status === "Evacuating" ? "ACTIVE_EXIT" : d.egressEstimate,
+						subtext: venue?.status === "Evacuating" ? "Estimated clearance in 8.2m" : "Standard exit protocol"
+					})
 				})
 			]
 		})]
@@ -11031,131 +11673,79 @@ function OperationsCommand() {
 			]
 		})
 	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: operationsSidebar,
-		brand: operationsBrand.brand,
-		brandSub: operationsBrand.brandSub,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "telemetry-strip",
+		style: {
+			display: "flex",
+			justifyContent: "space-between",
+			marginBottom: 20
+		},
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			style: {
 				display: "flex",
-				alignItems: "center",
 				gap: 24
 			},
 			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: `badge ${venue?.status === "Evacuating" ? "badge-critical" : "badge-accent"}`,
-					style: { padding: "6px 14px" },
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `status-dot ${venue?.status === "Evacuating" ? "alert" : "online"} pulse` }), venue?.status === "Evacuating" ? "OVERRIDE: EVACUATION" : "CHAMPIONSHIP_LIVE"]
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
+					compact: true,
+					label: "NEXUS TIME",
+					value: clock,
+					style: {
+						background: "transparent",
+						padding: 0
+					}
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
+					compact: true,
+					label: "GAME STATE",
+					value: gameStatus,
+					style: {
+						background: "transparent",
+						padding: 0
+					}
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
 						display: "flex",
-						gap: 20
+						flexDirection: "column",
+						gap: 4
 					},
-					children: [
-						"Dashboard",
-						"Analytics",
-						"Live Map"
-					].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: activeTab === t ? "label-accent" : "label-caps",
-						style: { cursor: "pointer" },
-						onClick: () => {
-							setActiveTab(t);
-							showToast(`Switching view to ${t}`, "info");
-						},
-						children: t
-					}, t))
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-					width: 1,
-					height: 16,
-					background: "var(--border-subtle)"
-				} }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: "btn btn-secondary",
-					style: {
-						fontSize: "0.62rem",
-						padding: "4px 12px"
-					},
-					onClick: () => showToast("Compiling system intelligence report...", "success"),
-					children: "System Report"
-				})
-			]
-		}),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "telemetry-strip",
-			style: {
-				display: "flex",
-				justifyContent: "space-between",
-				marginBottom: 20
-			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "flex",
-					gap: 24
-				},
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
-						compact: true,
-						label: "NEXUS TIME",
-						value: clock,
-						style: {
-							background: "transparent",
-							padding: 0
-						}
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
-						compact: true,
-						label: "GAME STATE",
-						value: gameStatus,
-						style: {
-							background: "transparent",
-							padding: 0
-						}
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
+						children: "SIGNAL STATUS"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						style: {
 							display: "flex",
-							flexDirection: "column",
 							gap: 4
 						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							children: "SIGNAL STATUS"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								display: "flex",
-								gap: 4
-							},
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: `badge ${venue ? "badge-success" : "badge-critical"}`,
-								children: venue ? "NODE_CONNECTED" : "NODE_OFFLINE"
-							})
-						})]
-					})
-				]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: { textAlign: "right" },
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "label-caps",
-					children: "Command Center"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					style: {
-						fontWeight: 700,
-						fontSize: "1.2rem"
-					},
-					children: venue?.name || d.eventName
-				})]
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "tab-content page-enter",
-			children: [
-				activeTab === "Dashboard" && renderDashboard(),
-				activeTab === "Analytics" && renderAnalytics(),
-				activeTab === "Live Map" && renderLiveMap()
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: `badge ${venue ? "badge-success" : "badge-critical"}`,
+							children: venue ? "NODE_CONNECTED" : "NODE_OFFLINE"
+						})
+					})]
+				})
 			]
-		}, activeTab)]
-	});
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: { textAlign: "right" },
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "label-caps",
+				children: "Command Center"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				style: {
+					fontWeight: 700,
+					fontSize: "1.2rem"
+				},
+				children: venue?.name || d.eventName
+			})]
+		})]
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "tab-content",
+		children: [
+			activeTab === "Dashboard" && renderDashboard(),
+			activeTab === "Analytics" && renderAnalytics(),
+			activeTab === "Live Map" && renderLiveMap()
+		]
+	}, activeTab)] });
 }
 //#endregion
 //#region src/pages/operations/WhatIfSandbox.jsx
@@ -11192,357 +11782,320 @@ function WhatIfSandbox() {
 			setTimeout(() => toast.remove(), 300);
 		}, 3e3);
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: operationsSidebar,
-		brand: operationsBrand.brand,
-		brandSub: operationsBrand.brandSub,
-		user: null,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 24
-			},
-			children: [[
-				"Parameters",
-				"Scenarios",
-				"Historical"
-			].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: activeTab === t ? "label-accent" : "label-caps",
-				style: {
-					cursor: "pointer",
-					whiteSpace: "nowrap"
-				},
-				onClick: () => {
-					setActiveTab(t);
-					showToast(`Loading simulation set: ${t}`, "info");
-				},
-				children: t
-			}, t)), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				className: "btn btn-secondary",
-				style: {
-					fontSize: "0.62rem",
-					padding: "4px 12px"
-				},
-				onClick: () => showToast("Predictive model weights updated", "success"),
-				children: "Update Model"
-			})]
-		}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "page-header",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-header-top",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "page-pretitle",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online pulse" }), "SANDBOX SESSION ACTIVE"]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "What-If Sandbox" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "page-subtitle",
-							children: "Test hypothetical scenarios against baseline data without affecting live operations."
-						})
-					] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "page-actions",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "badge badge-accent",
-								children: d.sessionId
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-secondary",
-								onClick: () => showToast("Scenario reset to baseline.", "info"),
-								children: "Reset Scenario"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-primary",
-								onClick: () => showToast("▶ Running simulation... Computing vectors."),
-								children: "▶ Run Simulation"
-							})
-						]
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "grid",
-					gridTemplateColumns: "1fr 1fr",
-					gap: 24,
-					marginBottom: 24
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card hover-scale",
-					style: { minHeight: 300 },
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card-header",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-							className: "card-title",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online pulse" }), " Simulation Viewport"]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "page-pretitle",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online pulse" }), "SANDBOX SESSION ACTIVE"]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "What-If Sandbox" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "page-subtitle",
+						children: "Test hypothetical scenarios against baseline data without affecting live operations."
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "page-actions",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "badge badge-accent",
-							children: "ACTIVE_MODEL: NEXUS_SIM_V1"
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						style: {
-							height: 250,
-							background: "linear-gradient(135deg, #0D1117 0%, #1A2332 100%)",
-							borderRadius: "var(--radius-md)",
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-							position: "relative",
-							border: "1px solid var(--accent-border)"
-						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								width: "60%",
-								height: "50%",
-								borderRadius: "50%",
-								border: "2px solid var(--accent-border)",
-								position: "relative"
-							},
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-									position: "absolute",
-									inset: "20%",
-									borderRadius: "50%",
-									border: "1px solid var(--border-color)"
-								} }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										position: "absolute",
-										top: "-10%",
-										left: "45%",
-										color: "var(--accent)",
-										fontSize: "1.2rem",
-										animation: "pulse-dot 2s infinite"
-									},
-									children: "↓"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										position: "absolute",
-										bottom: "-10%",
-										left: "45%",
-										color: "var(--status-ok)",
-										fontSize: "1.2rem",
-										animation: "pulse-dot 2s infinite"
-									},
-									children: "↑"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										position: "absolute",
-										left: "-10%",
-										top: "45%",
-										color: "var(--status-warning)",
-										fontSize: "1.2rem",
-										animation: "pulse-dot 2s infinite"
-									},
-									children: "→"
-								})
-							]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								position: "absolute",
-								bottom: 12,
-								left: 12
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { fontSize: "0.6rem" },
-								children: "Dataset"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "mono",
-								style: { fontSize: "0.78rem" },
-								children: d.baselineDataset
-							})]
-						})]
+							children: d.sessionId
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-secondary",
+							onClick: () => showToast("Scenario reset to baseline.", "info"),
+							children: "Reset Scenario"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-primary",
+							onClick: () => showToast("▶ Running simulation... Computing vectors."),
+							children: "▶ Run Simulation"
+						})
+					]
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "grid",
+				gridTemplateColumns: "1fr 1fr",
+				gap: 24,
+				marginBottom: 24
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card hover-scale",
+				style: { minHeight: 300 },
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-header",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "card-title",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online pulse" }), " Simulation Viewport"]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "badge badge-accent",
+						children: "ACTIVE_MODEL: NEXUS_SIM_V1"
 					})]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
+					style: {
+						height: 250,
+						background: "linear-gradient(135deg, #0D1117 0%, #1A2332 100%)",
+						borderRadius: "var(--radius-md)",
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+						position: "relative",
+						border: "1px solid var(--accent-border)"
+					},
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card-header",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "card-title",
-							children: "Scenario Parameters"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							className: "btn btn-ghost",
-							style: { fontSize: "0.72rem" },
-							onClick: () => showToast("Opening intervention registry...", "info"),
-							children: "+ Add Intervention"
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						style: {
-							display: "flex",
-							flexDirection: "column",
-							gap: 12
+							width: "60%",
+							height: "50%",
+							borderRadius: "50%",
+							border: "2px solid var(--accent-border)",
+							position: "relative"
 						},
 						children: [
-							{
-								label: "Open Gate 6 (+15 min early)",
-								type: "GATE TIMING"
-							},
-							{
-								label: "Deploy 3 Extra Staff to Section 427",
-								type: "STAFFING"
-							},
-							{
-								label: "Redirect Flow: North Corridor → East Bypass",
-								type: "FLOW CONTROL"
-							}
-						].map((p, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "card",
-							style: {
-								padding: 14,
-								background: "var(--bg-deep)",
-								display: "flex",
-								justifyContent: "space-between",
-								alignItems: "center"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+								position: "absolute",
+								inset: "20%",
+								borderRadius: "50%",
+								border: "1px solid var(--border-color)"
+							} }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								style: {
-									fontWeight: 500,
-									fontSize: "0.88rem"
+									position: "absolute",
+									top: "-10%",
+									left: "45%",
+									color: "var(--accent)",
+									fontSize: "1.2rem",
+									animation: "pulse-dot 2s infinite"
 								},
-								children: p.label
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { marginTop: 4 },
-								children: p.type
-							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
-								className: "toggle",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									type: "checkbox",
-									defaultChecked: true,
-									onChange: (e) => showToast(`Intervention ${e.target.checked ? "activated" : "deactivated"}`, "info")
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "toggle-slider" })]
-							})]
-						}, i))
+								children: "↓"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									position: "absolute",
+									bottom: "-10%",
+									left: "45%",
+									color: "var(--status-ok)",
+									fontSize: "1.2rem",
+									animation: "pulse-dot 2s infinite"
+								},
+								children: "↑"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									position: "absolute",
+									left: "-10%",
+									top: "45%",
+									color: "var(--status-warning)",
+									fontSize: "1.2rem",
+									animation: "pulse-dot 2s infinite"
+								},
+								children: "→"
+							})
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							position: "absolute",
+							bottom: 12,
+							left: 12
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { fontSize: "0.6rem" },
+							children: "Dataset"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mono",
+							style: { fontSize: "0.78rem" },
+							children: d.baselineDataset
+						})]
 					})]
 				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "card",
-				style: { marginBottom: 24 },
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "card-header",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 						className: "card-title",
-						children: "Performance Comparison"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "badge badge-accent",
-						children: "BASELINE vs SCENARIO"
+						children: "Scenario Parameters"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: "btn btn-ghost",
+						style: { fontSize: "0.72rem" },
+						onClick: () => showToast("Opening intervention registry...", "info"),
+						children: "+ Add Intervention"
 					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-					className: "data-table",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Metric" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Baseline" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Scenario" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Impact" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Grade" })
-					] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: d.performanceComparison.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-							style: { fontWeight: 600 },
-							children: r.metric
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-							className: "mono",
-							children: r.metric === "Revenue Impact" ? formatCurrency(parseInt(r.baseline.replace("k", "")) * 1e3, { notation: "compact" }) : r.baseline
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-							className: "mono",
-							style: { color: "var(--accent)" },
-							children: r.metric === "Revenue Impact" ? formatCurrency(parseInt(r.scenario.replace("k", "")) * 1e3, { notation: "compact" }) : r.scenario
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-							className: "mono",
-							style: { color: r.impact.startsWith("+") && r.metric !== "Revenue Impact" ? "var(--status-alert)" : "var(--status-ok)" },
-							children: r.impact
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "mono",
-							style: {
-								fontWeight: 700,
-								color: gradeColors[r.grade] || "var(--text-primary)"
-							},
-							children: r.grade
-						}) })
-					] }, i)) })]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "grid",
-					gridTemplateColumns: "1fr 1fr",
-					gap: 24
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "card glass-card-accent",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						style: {
-							display: "flex",
-							gap: 12,
-							alignItems: "flex-start"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						display: "flex",
+						flexDirection: "column",
+						gap: 12
+					},
+					children: [
+						{
+							label: "Open Gate 6 (+15 min early)",
+							type: "GATE TIMING"
 						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							style: { fontSize: "1.5rem" },
-							children: "🧠"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						{
+							label: "Deploy 3 Extra Staff to Section 427",
+							type: "STAFFING"
+						},
+						{
+							label: "Redirect Flow: North Corridor → East Bypass",
+							type: "FLOW CONTROL"
+						}
+					].map((p, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "card",
+						style: {
+							padding: 14,
+							background: "var(--bg-deep)",
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								fontWeight: 500,
+								fontSize: "0.88rem"
+							},
+							children: p.label
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginTop: 4 },
+							children: p.type
+						})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: "toggle",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								type: "checkbox",
+								defaultChecked: true,
+								onChange: (e) => showToast(`Intervention ${e.target.checked ? "activated" : "deactivated"}`, "info")
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "toggle-slider" })]
+						})]
+					}, i))
+				})]
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "card",
+			style: { marginBottom: 24 },
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card-header",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "card-title",
+					children: "Performance Comparison"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "badge badge-accent",
+					children: "BASELINE vs SCENARIO"
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+				className: "data-table",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Metric" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Baseline" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Scenario" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Impact" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Grade" })
+				] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: d.performanceComparison.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+						style: { fontWeight: 600 },
+						children: r.metric
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+						className: "mono",
+						children: r.metric === "Revenue Impact" ? formatCurrency(parseInt(r.baseline.replace("k", "")) * 1e3, { notation: "compact" }) : r.baseline
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+						className: "mono",
+						style: { color: "var(--accent)" },
+						children: r.metric === "Revenue Impact" ? formatCurrency(parseInt(r.scenario.replace("k", "")) * 1e3, { notation: "compact" }) : r.scenario
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+						className: "mono",
+						style: { color: r.impact.startsWith("+") && r.metric !== "Revenue Impact" ? "var(--status-alert)" : "var(--status-ok)" },
+						children: r.impact
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "mono",
+						style: {
+							fontWeight: 700,
+							color: gradeColors[r.grade] || "var(--text-primary)"
+						},
+						children: r.grade
+					}) })
+				] }, i)) })]
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "grid",
+				gridTemplateColumns: "1fr 1fr",
+				gap: 24
+			},
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "card glass-card-accent",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						display: "flex",
+						gap: 12,
+						alignItems: "flex-start"
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						style: { fontSize: "1.5rem" },
+						children: "🧠"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-accent",
+						style: { marginBottom: 8 },
+						children: "AI Insight"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						style: {
+							fontSize: "0.88rem",
+							color: "var(--text-secondary)",
+							lineHeight: 1.6
+						},
+						children: d.aiInsight
+					})] })]
+				})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "card glass-card-accent",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						display: "flex",
+						gap: 12,
+						alignItems: "flex-start"
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						style: { fontSize: "1.5rem" },
+						children: "💡"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "label-accent",
 							style: { marginBottom: 8 },
-							children: "AI Insight"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							children: "Recommendation"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 							style: {
 								fontSize: "0.88rem",
 								color: "var(--text-secondary)",
 								lineHeight: 1.6
 							},
-							children: d.aiInsight
-						})] })]
-					})
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "card glass-card-accent",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						style: {
-							display: "flex",
-							gap: 12,
-							alignItems: "flex-start"
-						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							style: { fontSize: "1.5rem" },
-							children: "💡"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-accent",
-								style: { marginBottom: 8 },
-								children: "Recommendation"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								style: {
-									fontSize: "0.88rem",
-									color: "var(--text-secondary)",
-									lineHeight: 1.6
-								},
-								children: d.aiReco
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-primary",
-								style: {
-									marginTop: 12,
-									fontSize: "0.75rem"
-								},
-								onClick: () => showToast("Success! Configurations applied to layout grid.", "success"),
-								children: "Apply to Live Config →"
-							})
-						] })]
-					})
-				})]
-			})
-		]
-	});
+							children: d.aiReco
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-primary",
+							style: {
+								marginTop: 12,
+								fontSize: "0.75rem"
+							},
+							onClick: () => showToast("Success! Configurations applied to layout grid.", "success"),
+							children: "Apply to Live Config →"
+						})
+					] })]
+				})
+			})]
+		})
+	] });
 }
 //#endregion
 //#region src/pages/security/SafetyOverview.jsx
@@ -11579,58 +12132,73 @@ function SafetyOverview() {
 		medium: "badge-warning",
 		low: "badge-neutral"
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: securitySidebar,
-		brand: securityBrand.brand,
-		brandSub: securityBrand.brandSub,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 24
-			},
-			children: [[
-				"All",
-				"Watch",
-				"Alert"
-			].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: activeTab === t ? "label-accent" : "label-caps",
-				style: { cursor: "pointer" },
-				onClick: () => {
-					setActiveTab(t);
-					showToast(`Filtering security nodes by ${t}`, "info");
-				},
-				children: t
-			}, t)), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-				className: "badge badge-success",
-				style: { padding: "6px 14px" },
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "status-dot online pulse",
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
-						width: 6,
-						height: 6
-					}
-				}), "CHAMPIONSHIP_ACTIVE"]
-			})]
-		}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "page-header",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "page-header-top",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						display: "flex",
+						alignItems: "center",
+						gap: 12,
+						marginBottom: 4
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "label-caps",
 						children: "SAFETY & SECURITY MONITORING"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Real-Time Safety Dashboard" })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "page-actions",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							display: "flex",
+							alignItems: "center",
+							gap: 12,
+							marginLeft: 12,
+							borderLeft: "1px solid var(--border-subtle)",
+							paddingLeft: 12
+						},
+						children: [
+							"All",
+							"Watch",
+							"Alert"
+						].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: activeTab === t ? "label-accent" : "label-caps",
+							style: {
+								cursor: "pointer",
+								fontSize: "0.65rem"
+							},
+							onClick: () => {
+								setActiveTab(t);
+								showToast(`Filtering security nodes by ${t}`, "info");
+							},
+							children: t
+						}, t))
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Real-Time Safety Dashboard" })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "page-actions",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "badge badge-success",
+							style: {
+								padding: "6px 14px",
+								marginRight: 12
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "status-dot online pulse",
+								style: {
+									width: 6,
+									height: 6
+								}
+							}), "CHAMPIONSHIP_ACTIVE"]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 							className: "btn btn-secondary",
 							onClick: () => showToast("Compiling Security Audit Report...", "success"),
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
 								name: "export",
 								size: 14
 							}), " Generate Report"]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 							className: "btn btn-primary",
 							style: {
 								background: "var(--status-alert)",
@@ -11638,242 +12206,242 @@ function SafetyOverview() {
 							},
 							onClick: () => showToast("WARNING: Initializing Emergency Protocol Systems...", "info"),
 							children: "⚠ EMERGENCY PROTOCOLS"
-						})]
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "grid-4",
-				style: { marginBottom: 24 },
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
-						label: "Crowd Pressure Index",
-						value: d.crowdPressureIndex.value,
-						progress: d.crowdPressureIndex.value,
-						progressColor: d.crowdPressureIndex.value < 60 ? "accent" : "warning",
-						subtext: d.crowdPressureIndex.trend
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
-						label: "Evacuation Readiness",
-						value: `${d.evacuationReadiness.value} min`,
-						subtext: d.evacuationReadiness.status
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
-						label: "Medical Incident Rate",
-						value: `${d.medicalRate.value} ${d.medicalRate.unit}`,
-						subtext: d.medicalRate.status
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
-						label: "Security Response Time",
-						value: `${d.securityResponse.value} min`,
-						subtext: `${d.securityResponse.activeUnits} Active Units`
-					})
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "grid",
-					gridTemplateColumns: "1.5fr 1fr",
-					gap: 24,
-					marginBottom: 24
-				},
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
-						header: "Zone Status Grid",
-						headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "label-accent",
-							children: "Live Telemetry"
-						}),
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-							className: "data-table",
-							style: { fontSize: "0.82rem" },
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Zone" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Occupancy" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Pressure" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Status" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Staff" })
-							] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: d.zones.map((z, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-									style: { fontWeight: 600 },
-									children: z.name
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
-									className: "mono",
-									style: { opacity: .8 },
-									children: [
-										z.occupancy,
-										" / ",
-										z.capacity
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "flex",
-										alignItems: "center",
-										gap: 8
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "progress-bar",
-										style: { width: 60 },
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: `progress-bar-fill ${parseInt(z.pressure) > 90 ? "red" : parseInt(z.pressure) > 70 ? "yellow" : "green"}`,
-											style: { width: z.pressure }
-										})
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "mono",
-										children: z.pressure
-									})]
-								}) }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: `badge ${zoneColors[z.status]}`,
-									children: z.status
-								}) }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									className: "btn btn-ghost",
-									style: {
-										fontSize: "0.72rem",
-										padding: "4px 8px"
-									},
-									onClick: () => showToast(`Optimizing staffing roster for ${z.name}...`, "success"),
-									children: "Manage"
-								}) })
-							] }, i)) })]
 						})
+					]
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "grid-4",
+			style: { marginBottom: 24 },
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
+					label: "Crowd Pressure Index",
+					value: d.crowdPressureIndex.value,
+					progress: d.crowdPressureIndex.value,
+					progressColor: d.crowdPressureIndex.value < 60 ? "accent" : "warning",
+					subtext: d.crowdPressureIndex.trend
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
+					label: "Evacuation Readiness",
+					value: `${d.evacuationReadiness.value} min`,
+					subtext: d.evacuationReadiness.status
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
+					label: "Medical Incident Rate",
+					value: `${d.medicalRate.value} ${d.medicalRate.unit}`,
+					subtext: d.medicalRate.status
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatCard, {
+					label: "Security Response Time",
+					value: `${d.securityResponse.value} min`,
+					subtext: `${d.securityResponse.activeUnits} Active Units`
+				})
+			]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			style: {
+				display: "grid",
+				gridTemplateColumns: "1.5fr 1fr",
+				gap: 24,
+				marginBottom: 24
+			},
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
+					header: "Zone Status Grid",
+					headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "label-accent",
+						children: "Live Telemetry"
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
-						header: "Risk Correlation Grid (AI-Flow)",
-						style: {
-							marginTop: 24,
-							border: "1px solid var(--accent-border)"
-						},
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								height: 120,
-								background: "var(--bg-deep)",
-								borderRadius: "var(--radius-md)",
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-								position: "relative",
-								overflow: "hidden"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-								width: "100%",
-								height: "100%",
-								style: { position: "absolute" },
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+						className: "data-table",
+						style: { fontSize: "0.82rem" },
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Zone" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Occupancy" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Pressure" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Status" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Staff" })
+						] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: d.zones.map((z, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+								style: { fontWeight: 600 },
+								children: z.name
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
+								className: "mono",
+								style: { opacity: .8 },
 								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-										cx: "20%",
-										cy: "50%",
-										r: "4",
-										fill: "var(--accent)",
-										className: "pulse"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-										cx: "50%",
-										cy: "50%",
-										r: "4",
-										fill: "var(--status-alert)",
-										className: "pulse"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-										cx: "80%",
-										cy: "50%",
-										r: "4",
-										fill: "var(--status-ok)",
-										className: "pulse"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-										x1: "20%",
-										y1: "50%",
-										x2: "50%",
-										y2: "50%",
-										stroke: "var(--border-subtle)",
-										strokeDasharray: "4 2"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-										x1: "50%",
-										y1: "50%",
-										x2: "80%",
-										y2: "50%",
-										stroke: "var(--border-subtle)",
-										strokeDasharray: "4 2"
-									})
+									z.occupancy,
+									" / ",
+									z.capacity
 								]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								style: {
-									zIndex: 2,
-									textAlign: "center"
+									display: "flex",
+									alignItems: "center",
+									gap: 8
 								},
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-accent",
-									children: "AI MODEL: NEXUS_SENSE_V4"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontSize: "0.75rem",
-										color: "var(--text-muted)"
-									},
-									children: "Proactive anomaly detection active across all nodes"
-								})]
-							})]
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
-						header: "Recent Incidents",
-						headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							className: "btn btn-primary",
-							style: { fontSize: "0.72rem" },
-							onClick: () => showToast("Opening Incident Dispatch Form...", "info"),
-							children: "+ Report"
-						}),
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-							className: "data-table",
-							style: { fontSize: "0.78rem" },
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Time" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Location" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Severity" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Status" })
-							] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: d.incidents.map((inc, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "progress-bar",
+									style: { width: 60 },
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: `progress-bar-fill ${parseInt(z.pressure) > 90 ? "red" : parseInt(z.pressure) > 70 ? "yellow" : "green"}`,
+										style: { width: z.pressure }
+									})
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "mono",
-									children: inc.time
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: inc.location }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: `badge ${incSevColors[inc.severity]}`,
-									children: inc.severity
-								}) }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "flex",
-										gap: 8,
-										alignItems: "center"
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: {
-											fontWeight: 600,
-											color: inc.status === "Reported" ? "var(--status-alert)" : inc.status === "En Route" ? "var(--status-warning)" : "var(--status-ok)"
-										},
-										children: inc.status
-									}), inc.status === "Reported" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										className: "btn btn-secondary",
-										style: {
-											fontSize: "0.55rem",
-											padding: "2px 6px"
-										},
-										onClick: () => showToast("Dispatching emergency unit to location...", "success"),
-										children: "Dispatch"
-									})]
-								}) })
-							] }, i)) })]
-						})
+									children: z.pressure
+								})]
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: `badge ${zoneColors[z.status]}`,
+								children: z.status
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								className: "btn btn-ghost",
+								style: {
+									fontSize: "0.72rem",
+									padding: "4px 8px"
+								},
+								onClick: () => showToast(`Optimizing staffing roster for ${z.name}...`, "success"),
+								children: "Manage"
+							}) })
+						] }, i)) })]
 					})
-				]
-			})
-		]
-	});
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
+					header: "Risk Correlation Grid (AI-Flow)",
+					style: {
+						marginTop: 24,
+						border: "1px solid var(--accent-border)"
+					},
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							height: 120,
+							background: "var(--bg-deep)",
+							borderRadius: "var(--radius-md)",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							position: "relative",
+							overflow: "hidden"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+							width: "100%",
+							height: "100%",
+							style: { position: "absolute" },
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+									cx: "20%",
+									cy: "50%",
+									r: "4",
+									fill: "var(--accent)",
+									className: "pulse"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+									cx: "50%",
+									cy: "50%",
+									r: "4",
+									fill: "var(--status-alert)",
+									className: "pulse"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+									cx: "80%",
+									cy: "50%",
+									r: "4",
+									fill: "var(--status-ok)",
+									className: "pulse"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+									x1: "20%",
+									y1: "50%",
+									x2: "50%",
+									y2: "50%",
+									stroke: "var(--border-subtle)",
+									strokeDasharray: "4 2"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+									x1: "50%",
+									y1: "50%",
+									x2: "80%",
+									y2: "50%",
+									stroke: "var(--border-subtle)",
+									strokeDasharray: "4 2"
+								})
+							]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								zIndex: 2,
+								textAlign: "center"
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "label-accent",
+								children: "AI MODEL: NEXUS_SENSE_V4"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontSize: "0.75rem",
+									color: "var(--text-muted)"
+								},
+								children: "Proactive anomaly detection active across all nodes"
+							})]
+						})]
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
+					header: "Recent Incidents",
+					headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: "btn btn-primary",
+						style: { fontSize: "0.72rem" },
+						onClick: () => showToast("Opening Incident Dispatch Form...", "info"),
+						children: "+ Report"
+					}),
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+						className: "data-table",
+						style: { fontSize: "0.78rem" },
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Time" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Location" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Severity" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Status" })
+						] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: d.incidents.map((inc, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+								className: "mono",
+								children: inc.time
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: inc.location }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: `badge ${incSevColors[inc.severity]}`,
+								children: inc.severity
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "flex",
+									gap: 8,
+									alignItems: "center"
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: {
+										fontWeight: 600,
+										color: inc.status === "Reported" ? "var(--status-alert)" : inc.status === "En Route" ? "var(--status-warning)" : "var(--status-ok)"
+									},
+									children: inc.status
+								}), inc.status === "Reported" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+									className: "btn btn-secondary",
+									style: {
+										fontSize: "0.55rem",
+										padding: "2px 6px"
+									},
+									onClick: () => showToast("Dispatching emergency unit to location...", "success"),
+									children: "Dispatch"
+								})]
+							}) })
+						] }, i)) })]
+					})
+				})
+			]
+		})
+	] });
 }
 //#endregion
 //#region src/pages/security/EvacuationControl.jsx
@@ -11959,48 +12527,59 @@ function EvacuationControl() {
 		clearing: "var(--status-warning)",
 		pending: "var(--text-muted)"
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: securitySidebar,
-		brand: securityBrand.brand,
-		brandSub: securityBrand.brandSub,
-		user: null,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 16
-			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				style: {
-					display: "flex",
-					gap: 12,
-					borderRight: "1px solid var(--border-subtle)",
-					paddingRight: 16
-				},
-				children: [
-					"Protocol",
-					"Egress",
-					"Agencies"
-				].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "label-caps",
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
-						cursor: "pointer",
-						whiteSpace: "nowrap"
+						display: "flex",
+						alignItems: "center",
+						gap: 12,
+						marginBottom: 4
 					},
-					onClick: () => showToast(`Opening ${t.toLowerCase()} control panel...`, "info"),
-					children: t
-				}, t))
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				className: "btn btn-secondary",
-				style: {
-					fontSize: "0.65rem",
-					padding: "6px 10px"
-				},
-				onClick: () => showToast("Compiling emergency egress report...", "success"),
-				children: "Export Intel"
-			})]
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "label-caps",
+						children: "MASS EGRESS & EMERGENCY OPS"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							display: "flex",
+							gap: 12,
+							marginLeft: 12,
+							borderLeft: "1px solid var(--border-subtle)",
+							paddingLeft: 12
+						},
+						children: [
+							"Protocol",
+							"Egress",
+							"Agencies"
+						].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "label-caps",
+							style: {
+								cursor: "pointer",
+								whiteSpace: "nowrap",
+								fontSize: "0.65rem"
+							},
+							onClick: () => showToast(`Opening ${t.toLowerCase()} control panel...`, "info"),
+							children: t
+						}, t))
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Evacuation Command Centre" })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "page-actions",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: "btn btn-secondary",
+						onClick: () => showToast("Compiling emergency egress report...", "success"),
+						children: "Export Intel"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: `btn ${isEvacuating ? "btn-danger" : "btn-primary"}`,
+						onClick: handleEvacToggle,
+						children: isEvacuating ? "TERMINATE PROTOCOL" : "TRIGGER MASS EVACUATION"
+					})]
+				})]
+			})
 		}),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: `evac-header ${isEvacuating ? "emergency-active" : ""}`,
 			style: {
 				background: isEvacuating ? "rgba(255, 71, 87, 0.15)" : "var(--bg-elevated)",
@@ -12075,7 +12654,8 @@ function EvacuationControl() {
 					children: isEvacuating ? "TERMINATE PROTOCOL" : "TRIGGER MASS EVACUATION"
 				})
 			]
-		}), loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		}),
+		loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "card",
 			style: {
 				padding: 60,
@@ -12224,8 +12804,580 @@ function EvacuationControl() {
 					})]
 				}, i))]
 			})]
-		})] })]
+		})] })
+	] });
+}
+//#endregion
+//#region src/pages/security/IncidentManagement.jsx
+function IncidentManagement() {
+	const [incidents, setIncidents] = (0, import_react.useState)(() => securityData.incidents.map((inc) => ({
+		...inc,
+		id: Math.random().toString(36).substr(2, 9)
+	})));
+	const [teams] = (0, import_react.useState)(incidentTeams);
+	const [filter, setFilter] = (0, import_react.useState)("active");
+	const updateStatus = (id, newStatus) => {
+		setIncidents((prev) => prev.map((inc) => inc.id === id ? {
+			...inc,
+			status: newStatus
+		} : inc));
+	};
+	const handleAssign = (incId, teamId) => {
+		const team = teams.find((t) => t.id === teamId);
+		setIncidents((prev) => prev.map((inc) => inc.id === incId ? {
+			...inc,
+			assigned: team?.name || "Assigned",
+			status: "En Route"
+		} : inc));
+	};
+	const filteredIncidents = incidents.filter((inc) => {
+		if (filter === "active") return inc.status !== "Resolved";
+		if (filter === "resolved") return inc.status === "Resolved";
+		return true;
 	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", {
+		className: "page-header",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "page-header-top",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
+				className: "mono",
+				children: ["INCIDENT COMMAND / ", filter.toUpperCase()]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-secondary",
+				children: "Active Security & Medical Response Dispatch • Node: SEC_INCIDENT_CMDR"
+			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "flex",
+					gap: 10
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: `btn ${filter === "active" ? "btn-primary" : "btn-secondary"}`,
+						onClick: () => setFilter("active"),
+						children: "ACTIVE"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: `btn ${filter === "resolved" ? "btn-primary" : "btn-secondary"}`,
+						onClick: () => setFilter("resolved"),
+						children: "RESOLVED"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: `btn ${filter === "all" ? "btn-primary" : "btn-secondary"}`,
+						onClick: () => setFilter("all"),
+						children: "ALL LOGS"
+					})
+				]
+			})]
+		})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "grid grid-cols-12 gap-6",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "col-span-8",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card h-full",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "card-header",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "mono",
+						children: "LIVE INCIDENT BOARD"
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "card-body",
+					style: { padding: 0 },
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+						className: "data-table",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "TIME" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "TYPE / SEVERITY" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "LOCATION" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "STATUS" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "ASSIGNED TEAM" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "ACTIONS" })
+						] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: filteredIncidents.map((inc) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", {
+							style: { opacity: inc.status === "Resolved" ? .6 : 1 },
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "mono",
+									children: inc.time
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: `badge badge-${inc.severity}`,
+									children: inc.severity.toUpperCase()
+								}) }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									style: { fontWeight: 600 },
+									children: inc.location
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									style: {
+										display: "flex",
+										alignItems: "center",
+										gap: 8
+									},
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `status-dot ${inc.status === "Resolved" ? "online" : "critical pulse"}` }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mono",
+										style: { fontSize: "0.75rem" },
+										children: inc.status.toUpperCase()
+									})]
+								}) }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "mono",
+									style: { color: "var(--accent)" },
+									children: inc.assigned === "UNAS..." ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										style: { color: "var(--status-alert)" },
+										children: "PENDING DISPATCH"
+									}) : inc.assigned
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: inc.status !== "Resolved" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									style: {
+										display: "flex",
+										gap: 6
+									},
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+										className: "btn btn-secondary",
+										style: {
+											fontSize: "0.65rem",
+											padding: "4px 8px"
+										},
+										onChange: (e) => handleAssign(inc.id, e.target.value),
+										defaultValue: "",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+											value: "",
+											disabled: true,
+											children: "Assign Unit..."
+										}), teams.map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("option", {
+											value: t.id,
+											children: [
+												t.name,
+												" (",
+												t.type,
+												")"
+											]
+										}, t.id))]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										className: "btn btn-primary",
+										style: {
+											fontSize: "0.65rem",
+											padding: "4px 8px"
+										},
+										onClick: () => updateStatus(inc.id, "Resolved"),
+										children: "RESOLVE"
+									})]
+								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: {
+										fontSize: "0.65rem",
+										color: "var(--text-muted)"
+									},
+									children: "LOGGED"
+								}) })
+							]
+						}, inc.id)) })]
+					})
+				})]
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "col-span-4 space-y-6",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "card-header",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "mono",
+						children: "RESPONDER STATUS"
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "card-body space-y-4",
+					children: teams.map((team) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "card-accent",
+						style: {
+							padding: 12,
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "label-accent",
+								children: team.id
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: { fontWeight: 600 },
+								children: team.name
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									fontSize: "0.7rem",
+									color: "var(--text-secondary)"
+								},
+								children: [
+									team.type,
+									" • ",
+									team.location
+								]
+							})
+						] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mono",
+							style: { textAlign: "right" },
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontSize: "0.75rem",
+									color: team.status === "Available" ? "var(--status-ok)" : "var(--status-warning)"
+								},
+								children: team.status.toUpperCase()
+							})
+						})]
+					}, team.id))
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "card card-alert",
+				style: { background: "linear-gradient(135deg, rgba(255,59,48,0.1) 0%, rgba(255,59,48,0.02) 100%)" },
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-body",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+							className: "mono",
+							style: {
+								color: "var(--status-alert)",
+								marginBottom: 12
+							},
+							children: "SYSTEM ANNOUNCEMENT"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							style: {
+								fontSize: "0.85rem",
+								marginBottom: 16
+							},
+							children: "Broadcast an emergency alert to all responder devices in the stadium."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+							className: "btn btn-secondary w-full",
+							placeholder: "Type priority message...",
+							style: {
+								height: 80,
+								padding: 10,
+								background: "var(--bg-deep)",
+								textAlign: "left",
+								marginBottom: 12
+							}
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-primary w-full",
+							style: {
+								background: "var(--status-alert)",
+								color: "white"
+							},
+							onClick: () => alert("BROADCAST SENT"),
+							children: "SEND WIDE-CHANNEL ALERT"
+						})
+					]
+				})
+			})]
+		})]
+	})] });
+}
+//#endregion
+//#region src/pages/logistics/TransitHub.jsx
+function TransitHub() {
+	const [data] = (0, import_react.useState)(transitData);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", {
+		className: "page-header",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "page-header-top",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+				className: "mono",
+				children: "TRANSIT & LOGISTICS"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-secondary",
+				children: "Global Mobility Intelligence • Stadium Perimeters • Node: LOGISTICS_HUB"
+			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "header-status",
+				style: {
+					display: "flex",
+					gap: 12
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+					className: "badge badge-info",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online pulse" }), "METRO_OS_LINKED"]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					className: "btn btn-secondary",
+					style: { fontSize: "0.65rem" },
+					onClick: () => alert("RE-SYNCING WITH METRO_OS..."),
+					children: "FORCE_SYNC"
+				})]
+			})]
+		})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "grid grid-cols-12 gap-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "col-span-12",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "card-header",
+						style: {
+							display: "flex",
+							justifyContent: "space-between"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "mono",
+							children: "PARKING INFRASTRUCTURE"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mono",
+							style: {
+								fontSize: "0.8rem",
+								color: "var(--accent)"
+							},
+							children: "TOTAL CAPACITY: 15,200 UNITS"
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card-body",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "grid grid-cols-4 gap-6",
+							children: data.parking.map((lot) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "card-accent",
+								style: { padding: 20 },
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "label-accent",
+										style: { marginBottom: 12 },
+										children: [
+											lot.id,
+											" • ",
+											lot.name
+										]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										style: {
+											display: "flex",
+											alignItems: "flex-end",
+											gap: 10,
+											marginBottom: 8
+										},
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "mono",
+											style: {
+												fontSize: "1.8rem",
+												fontWeight: 700
+											},
+											children: [lot.fill, "%"]
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											style: {
+												fontSize: "0.75rem",
+												color: "var(--text-muted)",
+												marginBottom: 6
+											},
+											children: "OCCUPIED"
+										})]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										style: {
+											width: "100%",
+											height: 4,
+											background: "var(--bg-deep)",
+											borderRadius: 2,
+											marginBottom: 16
+										},
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+											width: `${lot.fill}%`,
+											height: "100%",
+											background: lot.fill > 80 ? "var(--status-alert)" : lot.fill > 40 ? "var(--status-warning)" : "var(--accent)",
+											borderRadius: 2,
+											boxShadow: `0 0 10px ${lot.fill > 80 ? "var(--status-alert)" : "var(--accent)"}`
+										} })
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										style: {
+											display: "flex",
+											justifyContent: "space-between",
+											fontSize: "0.7rem"
+										},
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "mono",
+											style: { color: "var(--text-secondary)" },
+											children: ["CAPACITY: ", lot.capacity]
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "mono",
+											style: { color: lot.status === "open" ? "var(--status-ok)" : "var(--status-warning)" },
+											children: lot.status.toUpperCase()
+										})]
+									})
+								]
+							}, lot.id))
+						})
+					})]
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "col-span-8",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card-header",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "mono",
+							children: "PUBLIC TRANSIT CHANNELS"
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card-body",
+						style: { padding: 0 },
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+							className: "data-table",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "MODE" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "LINE / ROUTE" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "DIRECTION" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "NEXT ARRIVAL" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "STATUS" })
+							] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tbody", { children: [data.trains.map((train) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									style: { fontSize: "1.2rem" },
+									children: "🚆"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									style: { fontWeight: 600 },
+									children: train.line
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "mono",
+									children: train.direction
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "mono",
+									style: {
+										color: "var(--accent)",
+										fontWeight: 700
+									},
+									children: train.time
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: `badge ${train.status === "on-time" ? "badge-low" : "badge-medium"}`,
+									children: train.status.toUpperCase()
+								}) })
+							] }, train.id)), data.buses.map((bus) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									style: { fontSize: "1.2rem" },
+									children: "🚌"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									style: { fontWeight: 600 },
+									children: bus.shuttle
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "mono",
+									children: bus.route
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "mono",
+									style: {
+										color: "var(--accent)",
+										fontWeight: 700
+									},
+									children: bus.time
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "badge badge-low",
+									style: {
+										background: "var(--bg-elevated)",
+										color: "var(--text-secondary)"
+									},
+									children: [
+										"ACTIVE (",
+										bus.count,
+										" UNITS)"
+									]
+								}) })
+							] }, bus.id))] })]
+						})
+					})]
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "col-span-4",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card h-full",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card-header",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "mono",
+							children: "MOBILITY ON-DEMAND"
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "card-body",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "card-accent",
+								style: {
+									padding: 16,
+									marginBottom: 20,
+									textAlign: "center",
+									border: "1px solid var(--accent)"
+								},
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "label-accent",
+										children: "CURR. SURGE MULTIPLIER"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "mono",
+										style: {
+											fontSize: "2.5rem",
+											fontWeight: 800,
+											color: "var(--accent)"
+										},
+										children: data.rideshare.surge
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										style: {
+											fontSize: "0.8rem",
+											color: "var(--text-secondary)"
+										},
+										children: "Global Transit Sync Active"
+									})
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "space-y-4",
+								children: data.rideshare.zones.map((zone) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									style: {
+										display: "flex",
+										justifyContent: "space-between",
+										alignItems: "center",
+										padding: "10px 0",
+										borderBottom: "1px solid var(--border-color)"
+									},
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										style: { fontWeight: 600 },
+										children: zone.name
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										style: {
+											fontSize: "0.7rem",
+											color: "var(--text-muted)"
+										},
+										children: ["Avg. Wait: ", data.rideshare.avgWait]
+									})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										className: `badge ${zone.load === "HIGH" ? "badge-medium" : "badge-low"}`,
+										children: [zone.load, " LOAD"]
+									})]
+								}, zone.id))
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: { marginTop: 24 },
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+									className: "btn btn-secondary w-full",
+									style: { marginBottom: 10 },
+									children: "REQUEST RIDE SURGE MITIGATION"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+									className: "btn btn-primary w-full",
+									children: "DISPATCH AUX BUS FLEET"
+								})]
+							})
+						]
+					})]
+				})
+			})
+		]
+	})] });
 }
 //#endregion
 //#region src/pages/analytics/PostEventReport.jsx
@@ -12278,657 +13430,660 @@ function PostEventReport() {
 		fetchReport();
 	}, []);
 	const d = reportData || postEventReport;
-	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AppShell, {
-		sidebarItems: analyticsSidebar,
-		brand: analyticsBrand.brand,
-		brandSub: analyticsBrand.brandSub,
+	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "page-header",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			style: {
-				padding: 60,
-				textAlign: "center"
-			},
-			children: "Generating Intelligence Report..."
+			className: "page-header-top",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Generating Analytics..." }) })
 		})
-	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: analyticsSidebar,
-		brand: analyticsBrand.brand,
-		brandSub: analyticsBrand.brandSub,
-		user: null,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 16
-			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				style: {
-					display: "flex",
-					gap: 12,
-					borderRight: "1px solid var(--border-subtle)",
-					paddingRight: 16,
-					marginRight: 8
-				},
-				children: [
-					"Dashboard",
-					"Analytics",
-					"Stakeholders"
-				].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: activeTab === t ? "label-accent" : "label-caps",
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		style: {
+			padding: 60,
+			textAlign: "center"
+		},
+		children: "Generating Intelligence Report..."
+	})] });
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
-						cursor: "pointer",
-						whiteSpace: "nowrap"
+						display: "flex",
+						alignItems: "center",
+						gap: 12,
+						marginBottom: 4
 					},
-					onClick: () => {
-						setActiveTab(t);
-						showToast(`Switching to ${t} view`, "info");
-					},
-					children: t
-				}, t))
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "flex",
-					gap: 8
-				},
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: "btn btn-secondary",
-						style: {
-							fontSize: "0.65rem",
-							padding: "6px 10px"
-						},
-						onClick: () => showToast("Compiling high-resolution PDF...", "success"),
-						children: "PDF"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: "btn btn-secondary",
-						style: {
-							fontSize: "0.65rem",
-							padding: "6px 10px"
-						},
-						onClick: () => showToast("Secure sharing link copied to clipboard", "success"),
-						children: "Share"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: "btn btn-primary",
-						style: {
-							fontSize: "0.65rem",
-							padding: "6px 12px"
-						},
-						onClick: () => showToast("Report scheduled for recursive delivery", "success"),
-						children: "Schedule"
-					})
-				]
-			})]
-		}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "card card-accent",
-				style: {
-					marginBottom: 24,
-					padding: "28px 32px"
-				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "grid-2",
-					style: { gridTemplateColumns: "1.5fr 1fr" },
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-accent",
-							style: { marginBottom: 8 },
-							children: "Executive Summary"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
-							style: {
-								fontSize: "2.5rem",
-								marginBottom: 12
-							},
-							children: ["Overall Grade: ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								style: { color: "var(--accent)" },
-								children: d.overallGrade
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								gap: 24,
-								marginTop: 16
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									gap: 10,
-									alignItems: "flex-start"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										width: 32,
-										height: 32,
-										borderRadius: "50%",
-										background: "rgba(46,204,113,0.15)",
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "center"
-									},
-									children: "✅"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-caps",
-									style: { marginBottom: 2 },
-									children: "Key Achievement"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: { fontSize: "0.88rem" },
-									children: d.keyAchievement
-								})] })]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									gap: 10,
-									alignItems: "flex-start"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										width: 32,
-										height: 32,
-										borderRadius: "50%",
-										background: "rgba(255,71,87,0.15)",
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "center"
-									},
-									children: "⚠️"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-caps",
-									style: { marginBottom: 2 },
-									children: "Improvement Area"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: { fontSize: "0.88rem" },
-									children: d.improvementArea
-								})] })]
-							})]
-						})
-					] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card",
-						style: {
-							padding: 16,
-							background: "var(--bg-deep)"
-						},
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: { marginBottom: 8 },
-								children: "Venue Utilization"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									display: "flex",
-									alignItems: "flex-end",
-									gap: 4,
-									height: 100
-								},
-								children: [
-									40,
-									55,
-									70,
-									85,
-									95,
-									92,
-									88,
-									75,
-									60,
-									45,
-									30,
-									20
-								].map((v, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-									flex: 1,
-									height: `${v}%`,
-									background: i === 4 ? "var(--accent)" : "var(--accent-dim)",
-									borderRadius: "2px 2px 0 0",
-									border: `1px solid ${i === 4 ? "var(--accent)" : "var(--accent-border)"}`
-								} }, i))
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									justifyContent: "space-between",
-									marginTop: 8
-								},
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "label-caps",
-										style: { fontSize: "0.58rem" },
-										children: "16:00"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "label-accent",
-										style: { fontSize: "0.58rem" },
-										children: "PEAK"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "label-caps",
-										style: { fontSize: "0.58rem" },
-										children: "22:00"
-									})
-								]
-							})
-						]
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "grid-4",
-				style: { marginBottom: 24 },
-				children: d.grades.map((g, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					style: {
-						textAlign: "center",
-						padding: 20,
-						borderTop: `3px solid ${i === 0 ? "var(--accent)" : i === 1 ? "var(--status-ok)" : i === 2 ? "var(--accent)" : "var(--status-info)"}`
-					},
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								justifyContent: "center",
-								gap: 8,
-								marginBottom: 8
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								style: { fontSize: "1.2rem" },
-								children: g.icon
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "mono",
-								style: {
-									fontSize: "1.5rem",
-									fontWeight: 700
-								},
-								children: ["Grade: ", g.grade]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-accent",
-							style: { marginBottom: 8 },
-							children: g.sublabel
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								fontSize: "0.85rem",
-								marginBottom: 4
-							},
-							children: g.label
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "metric-medium mono",
-							style: { color: "var(--accent)" },
-							children: g.label === "Revenue Growth" ? `+${formatCurrency(parseInt(g.value.replace("K", "")) * 1e3, { notation: "compact" })}` : g.value
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								fontSize: "0.72rem",
-								color: "var(--text-muted)",
-								marginTop: 4
-							},
-							children: g.target
-						})
-					]
-				}, i))
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "grid-2",
-				style: { marginBottom: 24 },
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card-header",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "card-title",
-							children: "Prediction Performance"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-							className: "badge badge-accent",
-							children: ["MODEL VERSION ", d.predictionPerformance.modelVersion]
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							display: "grid",
-							gridTemplateColumns: "1fr 1fr 1fr",
-							gap: 12
-						},
-						children: [
-							{
-								label: "15M HORIZON",
-								value: d.predictionPerformance.horizon15
-							},
-							{
-								label: "30M HORIZON",
-								value: d.predictionPerformance.horizon30
-							},
-							{
-								label: "60M HORIZON",
-								value: d.predictionPerformance.horizon60
-							}
-						].map((h, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "card",
-							style: {
-								padding: 16,
-								background: "var(--bg-deep)",
-								textAlign: "center"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								children: h.label
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "metric-medium mono",
-								style: {
-									marginTop: 8,
-									color: h.value > 85 ? "var(--accent)" : "var(--status-warning)"
-								},
-								children: [h.value, "%"]
-							})]
-						}, i))
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card-header",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "card-title",
-							children: "Safety & Security"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "badge badge-success",
-							children: "● Active Monitoring"
-						})]
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						className: "label-caps",
+						children: ["POST-EVENT INTELLIGENCE // ", activeTab.toUpperCase()]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						style: {
 							display: "flex",
-							flexDirection: "column",
-							gap: 14
+							gap: 12,
+							marginLeft: 12,
+							borderLeft: "1px solid var(--border-subtle)",
+							paddingLeft: 12
 						},
 						children: [
-							{
-								label: "Crowd Pressure Incidents",
-								value: d.safety.pressureIncidents,
-								icon: "⚡"
+							"Dashboard",
+							"Analytics",
+							"Stakeholders"
+						].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: activeTab === t ? "label-accent" : "label-caps",
+							style: {
+								cursor: "pointer",
+								whiteSpace: "nowrap",
+								fontSize: "0.65rem"
 							},
-							{
-								label: "Avg Response Time",
-								value: d.safety.responseTime,
-								sub: "Dispatch to Arrival",
-								icon: "🚨"
+							onClick: () => {
+								setActiveTab(t);
+								showToast(`Switching to ${t} view`, "info");
 							},
-							{
-								label: "Evacuation Testing",
-								value: d.safety.evacTesting,
-								sub: `Predicted: 18m ${d.safety.evacDelta} DELTA`,
-								icon: "🚪"
-							}
-						].map((s, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							children: t
+						}, t))
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", { children: ["Performance Report: ", d.eventName] })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "page-actions",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-secondary",
+							style: {
+								fontSize: "0.65rem",
+								padding: "6px 10px"
+							},
+							onClick: () => showToast("Compiling high-resolution PDF...", "success"),
+							children: "PDF Export"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-secondary",
+							style: {
+								fontSize: "0.65rem",
+								padding: "6px 10px"
+							},
+							onClick: () => showToast("Secure sharing link copied to clipboard", "success"),
+							children: "Share"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-primary",
+							style: {
+								fontSize: "0.65rem",
+								padding: "6px 12px"
+							},
+							onClick: () => showToast("Report scheduled for recursive delivery", "success"),
+							children: "Schedule Audit"
+						})
+					]
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "card card-accent",
+			style: {
+				marginBottom: 24,
+				padding: "28px 32px"
+			},
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid-2",
+				style: { gridTemplateColumns: "1.5fr 1fr" },
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-accent",
+						style: { marginBottom: 8 },
+						children: "Executive Summary"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
+						style: {
+							fontSize: "2.5rem",
+							marginBottom: 12
+						},
+						children: ["Overall Grade: ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							style: { color: "var(--accent)" },
+							children: d.overallGrade
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							gap: 24,
+							marginTop: 16
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								display: "flex",
+								gap: 10,
+								alignItems: "flex-start"
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									width: 32,
+									height: 32,
+									borderRadius: "50%",
+									background: "rgba(46,204,113,0.15)",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center"
+								},
+								children: "✅"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "label-caps",
+								style: { marginBottom: 2 },
+								children: "Key Achievement"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: { fontSize: "0.88rem" },
+								children: d.keyAchievement
+							})] })]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								display: "flex",
+								gap: 10,
+								alignItems: "flex-start"
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									width: 32,
+									height: 32,
+									borderRadius: "50%",
+									background: "rgba(255,71,87,0.15)",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center"
+								},
+								children: "⚠️"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "label-caps",
+								style: { marginBottom: 2 },
+								children: "Improvement Area"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: { fontSize: "0.88rem" },
+								children: d.improvementArea
+							})] })]
+						})]
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card",
+					style: {
+						padding: 16,
+						background: "var(--bg-deep)"
+					},
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							style: { marginBottom: 8 },
+							children: "Venue Utilization"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								display: "flex",
+								alignItems: "flex-end",
+								gap: 4,
+								height: 100
+							},
+							children: [
+								40,
+								55,
+								70,
+								85,
+								95,
+								92,
+								88,
+								75,
+								60,
+								45,
+								30,
+								20
+							].map((v, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+								flex: 1,
+								height: `${v}%`,
+								background: i === 4 ? "var(--accent)" : "var(--accent-dim)",
+								borderRadius: "2px 2px 0 0",
+								border: `1px solid ${i === 4 ? "var(--accent)" : "var(--accent-border)"}`
+							} }, i))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							style: {
 								display: "flex",
 								justifyContent: "space-between",
-								alignItems: "center"
+								marginTop: 8
 							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									alignItems: "center",
-									gap: 10
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									style: { fontSize: "1.1rem" },
-									children: s.icon
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: { fontSize: "0.88rem" },
-									children: s.label
-								}), s.sub && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontSize: "0.72rem",
-										color: "var(--text-muted)"
-									},
-									children: s.sub
-								})] })]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "mono",
-								style: {
-									fontSize: "1.3rem",
-									fontWeight: 700
-								},
-								children: s.value
-							})]
-						}, i))
-					})]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "grid-2",
-				style: { marginBottom: 24 },
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "card-header",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "card-title",
-								children: "Revenue Impact"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "mono",
-								style: {
-									fontWeight: 700,
-									color: "var(--accent)",
-									fontSize: "1.1rem"
-								},
-								children: ["+", formatCurrency(d.revenue.concessionRevenue)]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "grid",
-								gridTemplateColumns: "1fr 1fr",
-								gap: 12,
-								marginBottom: 12
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "card",
-								style: {
-									padding: 14,
-									background: "var(--bg-deep)"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "label-caps",
-									children: "Seat Upgrades"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "metric-medium mono",
-									style: { marginTop: 4 },
-									children: d.revenue.seatUpgrades
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "card",
-								style: {
-									padding: 14,
-									background: "var(--bg-deep)"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-caps",
-									children: "In-Seat Orders"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "metric-medium mono",
-									style: { marginTop: 4 },
-									children: d.revenue.inSeatOrders.toLocaleString()
-								})]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card",
-							style: {
-								padding: 12,
-								background: "var(--accent-dim)",
-								borderColor: "var(--accent-border)"
-							},
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									gap: 8,
-									alignItems: "center"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									style: { color: "var(--accent)" },
-									children: "🎯"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: { fontSize: "0.58rem" },
+									children: "16:00"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "label-accent",
-									children: "Stockout Avoidance Savings"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										fontSize: "0.82rem",
-										color: "var(--text-secondary)"
-									},
-									children: [
-										"Predictive replenishment saved ",
-										formatCurrency(d.revenue.stockoutSavings),
-										" this session."
-									]
-								})] })]
-							})
+									style: { fontSize: "0.58rem" },
+									children: "PEAK"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "label-caps",
+									style: { fontSize: "0.58rem" },
+									children: "22:00"
+								})
+							]
 						})
 					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "grid-4",
+			style: { marginBottom: 24 },
+			children: d.grades.map((g, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				style: {
+					textAlign: "center",
+					padding: 20,
+					borderTop: `3px solid ${i === 0 ? "var(--accent)" : i === 1 ? "var(--status-ok)" : i === 2 ? "var(--accent)" : "var(--status-info)"}`
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							justifyContent: "center",
+							gap: 8,
+							marginBottom: 8
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							style: { fontSize: "1.2rem" },
+							children: g.icon
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "mono",
+							style: {
+								fontSize: "1.5rem",
+								fontWeight: 700
+							},
+							children: ["Grade: ", g.grade]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-accent",
+						style: { marginBottom: 8 },
+						children: g.sublabel
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							fontSize: "0.85rem",
+							marginBottom: 4
+						},
+						children: g.label
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "metric-medium mono",
+						style: { color: "var(--accent)" },
+						children: g.label === "Revenue Growth" ? `+${formatCurrency(parseInt(g.value.replace("K", "")) * 1e3, { notation: "compact" })}` : g.value
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							fontSize: "0.72rem",
+							color: "var(--text-muted)",
+							marginTop: 4
+						},
+						children: g.target
+					})
+				]
+			}, i))
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "grid-2",
+			style: { marginBottom: 24 },
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-header",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "card-title",
+						children: "Prediction Performance"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "badge badge-accent",
+						children: ["MODEL VERSION ", d.predictionPerformance.modelVersion]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						display: "grid",
+						gridTemplateColumns: "1fr 1fr 1fr",
+						gap: 12
+					},
+					children: [
+						{
+							label: "15M HORIZON",
+							value: d.predictionPerformance.horizon15
+						},
+						{
+							label: "30M HORIZON",
+							value: d.predictionPerformance.horizon30
+						},
+						{
+							label: "60M HORIZON",
+							value: d.predictionPerformance.horizon60
+						}
+					].map((h, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "card",
+						style: {
+							padding: 16,
+							background: "var(--bg-deep)",
+							textAlign: "center"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-caps",
+							children: h.label
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "metric-medium mono",
+							style: {
+								marginTop: 8,
+								color: h.value > 85 ? "var(--accent)" : "var(--status-warning)"
+							},
+							children: [h.value, "%"]
+						})]
+					}, i))
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-header",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "card-title",
+						children: "Safety & Security"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "badge badge-success",
+						children: "● Active Monitoring"
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						display: "flex",
+						flexDirection: "column",
+						gap: 14
+					},
+					children: [
+						{
+							label: "Crowd Pressure Incidents",
+							value: d.safety.pressureIncidents,
+							icon: "⚡"
+						},
+						{
+							label: "Avg Response Time",
+							value: d.safety.responseTime,
+							sub: "Dispatch to Arrival",
+							icon: "🚨"
+						},
+						{
+							label: "Evacuation Testing",
+							value: d.safety.evacTesting,
+							sub: `Predicted: 18m ${d.safety.evacDelta} DELTA`,
+							icon: "🚪"
+						}
+					].map((s, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								display: "flex",
+								alignItems: "center",
+								gap: 10
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								style: { fontSize: "1.1rem" },
+								children: s.icon
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: { fontSize: "0.88rem" },
+								children: s.label
+							}), s.sub && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontSize: "0.72rem",
+									color: "var(--text-muted)"
+								},
+								children: s.sub
+							})] })]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mono",
+							style: {
+								fontSize: "1.3rem",
+								fontWeight: 700
+							},
+							children: s.value
+						})]
+					}, i))
+				})]
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "grid-2",
+			style: { marginBottom: 24 },
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "card-header",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "card-title",
-							children: "Operational Efficiency"
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							children: "Revenue Impact"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "mono",
+							style: {
+								fontWeight: 700,
+								color: "var(--accent)",
+								fontSize: "1.1rem"
+							},
+							children: ["+", formatCurrency(d.revenue.concessionRevenue)]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						style: {
 							display: "grid",
 							gridTemplateColumns: "1fr 1fr",
-							gap: 12
+							gap: 12,
+							marginBottom: 12
 						},
-						children: [
-							{
-								label: "ENTRY FLOW",
-								value: d.efficiency.entryFlow,
-								sub: "Reduction in wait time",
-								color: "var(--accent)"
-							},
-							{
-								label: "STAFF UTILIZATION",
-								value: d.efficiency.staffUtil,
-								sub: "Fewer labor hours required",
-								color: "var(--status-info)"
-							},
-							{
-								label: "CLEAR-OUT TIME",
-								value: d.efficiency.clearOutTime,
-								sub: "Post-event evacuation",
-								color: "var(--text-primary)"
-							},
-							{
-								label: "FAN NPS SCORE",
-								value: d.efficiency.fanNps,
-								sub: "Increase vs previous event",
-								color: "var(--accent)"
-							}
-						].map((e, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "card",
 							style: {
 								padding: 14,
 								background: "var(--bg-deep)"
 							},
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-caps",
-									children: e.label
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "metric-medium mono",
-									style: {
-										marginTop: 4,
-										color: e.color
-									},
-									children: e.value
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontSize: "0.72rem",
-										color: "var(--text-muted)",
-										marginTop: 4
-									},
-									children: e.sub
-								})
-							]
-						}, i))
-					})]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "label-caps",
+								children: "Seat Upgrades"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "metric-medium mono",
+								style: { marginTop: 4 },
+								children: d.revenue.seatUpgrades
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "card",
+							style: {
+								padding: 14,
+								background: "var(--bg-deep)"
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "label-caps",
+								children: "In-Seat Orders"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "metric-medium mono",
+								style: { marginTop: 4 },
+								children: d.revenue.inSeatOrders.toLocaleString()
+							})]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "card",
+						style: {
+							padding: 12,
+							background: "var(--accent-dim)",
+							borderColor: "var(--accent-border)"
+						},
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								display: "flex",
+								gap: 8,
+								alignItems: "center"
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								style: { color: "var(--accent)" },
+								children: "🎯"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "label-accent",
+								children: "Stockout Avoidance Savings"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									fontSize: "0.82rem",
+									color: "var(--text-secondary)"
+								},
+								children: [
+									"Predictive replenishment saved ",
+									formatCurrency(d.revenue.stockoutSavings),
+									" this session."
+								]
+							})] })]
+						})
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "card",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "card-header",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 						className: "card-title",
-						style: { fontSize: "1.05rem" },
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							style: { color: "var(--accent)" },
-							children: "✨"
-						}), "AI Optimization Recommendations"]
+						children: "Operational Efficiency"
 					})
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					style: {
 						display: "grid",
-						gridTemplateColumns: "1fr 1fr 1fr",
-						gap: 16
+						gridTemplateColumns: "1fr 1fr",
+						gap: 12
 					},
-					children: d.aiRecommendations.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					children: [
+						{
+							label: "ENTRY FLOW",
+							value: d.efficiency.entryFlow,
+							sub: "Reduction in wait time",
+							color: "var(--accent)"
+						},
+						{
+							label: "STAFF UTILIZATION",
+							value: d.efficiency.staffUtil,
+							sub: "Fewer labor hours required",
+							color: "var(--status-info)"
+						},
+						{
+							label: "CLEAR-OUT TIME",
+							value: d.efficiency.clearOutTime,
+							sub: "Post-event evacuation",
+							color: "var(--text-primary)"
+						},
+						{
+							label: "FAN NPS SCORE",
+							value: d.efficiency.fanNps,
+							sub: "Increase vs previous event",
+							color: "var(--accent)"
+						}
+					].map((e, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "card",
 						style: {
-							padding: 20,
-							background: "var(--bg-deep)",
-							borderTop: "3px solid var(--accent)",
-							display: "flex",
-							flexDirection: "column"
+							padding: 14,
+							background: "var(--bg-deep)"
 						},
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									width: 32,
-									height: 32,
-									borderRadius: "var(--radius-sm)",
-									background: "var(--accent-dim)",
-									border: "1px solid var(--accent-border)",
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									color: "var(--accent)",
-									fontWeight: 700,
-									marginBottom: 14,
-									fontFamily: "var(--font-mono)",
-									flexShrink: 0
-								},
-								children: r.num
+								className: "label-caps",
+								children: e.label
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "metric-medium mono",
 								style: {
-									fontSize: "0.88rem",
-									lineHeight: 1.6,
-									marginBottom: 16,
-									flex: 1
+									marginTop: 4,
+									color: e.color
 								},
-								children: r.text
+								children: e.value
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-								href: "#",
-								className: "label-accent",
-								style: { textDecoration: "none" },
-								onClick: (e) => {
-									e.preventDefault();
-									showToast(`Applying strategy: ${r.action}`, "success");
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontSize: "0.72rem",
+									color: "var(--text-muted)",
+									marginTop: 4
 								},
-								children: [r.action, " →"]
+								children: e.sub
 							})
 						]
 					}, i))
 				})]
-			})
-		]
-	});
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "card",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "card-header",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+					className: "card-title",
+					style: { fontSize: "1.05rem" },
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						style: { color: "var(--accent)" },
+						children: "✨"
+					}), "AI Optimization Recommendations"]
+				})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				style: {
+					display: "grid",
+					gridTemplateColumns: "1fr 1fr 1fr",
+					gap: 16
+				},
+				children: d.aiRecommendations.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card",
+					style: {
+						padding: 20,
+						background: "var(--bg-deep)",
+						borderTop: "3px solid var(--accent)",
+						display: "flex",
+						flexDirection: "column"
+					},
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								width: 32,
+								height: 32,
+								borderRadius: "var(--radius-sm)",
+								background: "var(--accent-dim)",
+								border: "1px solid var(--accent-border)",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								color: "var(--accent)",
+								fontWeight: 700,
+								marginBottom: 14,
+								fontFamily: "var(--font-mono)",
+								flexShrink: 0
+							},
+							children: r.num
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							style: {
+								fontSize: "0.88rem",
+								lineHeight: 1.6,
+								marginBottom: 16,
+								flex: 1
+							},
+							children: r.text
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							href: "#",
+							className: "label-accent",
+							style: { textDecoration: "none" },
+							onClick: (e) => {
+								e.preventDefault();
+								showToast(`Applying strategy: ${r.action}`, "success");
+							},
+							children: [r.action, " →"]
+						})
+					]
+				}, i))
+			})]
+		})
+	] });
 }
 //#endregion
 //#region src/pages/analytics/EventReplay.jsx
@@ -12993,59 +14148,77 @@ function EventReplay() {
 		Revenue: "badge-info",
 		Incidents: "badge-critical"
 	};
-	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AppShell, {
-		sidebarItems: analyticsSidebar,
-		brand: analyticsBrand.brand,
-		brandSub: analyticsBrand.brandSub,
+	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "page-header",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			style: {
-				padding: 60,
-				textAlign: "center"
-			},
-			children: "Reconstructing Spatio-Temporal Data..."
+			className: "page-header-top",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "Temporal Syncing..." }) })
 		})
-	});
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		style: {
+			padding: 60,
+			textAlign: "center"
+		},
+		children: "Reconstructing Spatio-Temporal Data..."
+	})] });
 	const currentOccupancy = Math.floor((event?.peakAttendance || 75e3) * (scrubber / 100));
 	const currentRevenue = (currentOccupancy * .15).toFixed(2);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		sidebarItems: analyticsSidebar,
-		brand: analyticsBrand.brand,
-		brandSub: analyticsBrand.brandSub,
-		user: null,
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				gap: 12
-			},
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "badge badge-accent",
-					style: { padding: "6px 14px" },
-					children: [
-						event?.name || "Replay Node",
-						" - ",
-						event?.date
-					]
-				}),
-				[
-					"Dashboard",
-					"Analytics",
-					"Live Map",
-					"Archive"
-				].map((t, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: i === 1 ? "label-accent" : "label-caps",
-					style: { cursor: "pointer" },
-					children: t
-				}, t)),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: "btn btn-primary",
-					style: { fontSize: "0.72rem" },
-					children: "↓ Export Intelligence"
-				})
-			]
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "page-header-top",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						display: "flex",
+						alignItems: "center",
+						gap: 12,
+						marginBottom: 4
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "label-caps",
+						children: "FORENSIC ANALYSIS // SPATIO-TEMPORAL"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							display: "flex",
+							alignItems: "center",
+							gap: 12,
+							marginLeft: 12,
+							borderLeft: "1px solid var(--border-subtle)",
+							paddingLeft: 12
+						},
+						children: [
+							"Dashboard",
+							"Analytics",
+							"Live Map",
+							"Archive"
+						].map((t, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: i === 1 ? "label-accent" : "label-caps",
+							style: {
+								cursor: "pointer",
+								fontSize: "0.65rem"
+							},
+							children: t
+						}, t))
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", { children: ["Event Replay: ", event?.name || "Replay Node"] })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "page-actions",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "badge badge-accent",
+						style: {
+							padding: "6px 14px",
+							marginRight: 8
+						},
+						children: event?.date
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						className: "btn btn-primary",
+						style: { fontSize: "0.72rem" },
+						children: "↓ Export Intelligence"
+					})]
+				})]
+			})
 		}),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			style: {
 				display: "flex",
 				gap: 20,
@@ -13074,7 +14247,8 @@ function EventReplay() {
 					]
 				}, l))
 			})] })
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			style: {
 				display: "grid",
 				gridTemplateColumns: "280px 1fr",
@@ -13359,740 +14533,8 @@ function EventReplay() {
 					})]
 				})]
 			})] })]
-		})]
-	});
-}
-//#endregion
-//#region src/pages/security/IncidentManagement.jsx
-function IncidentManagement() {
-	const [incidents, setIncidents] = (0, import_react.useState)(() => securityData.incidents.map((inc) => ({
-		...inc,
-		id: Math.random().toString(36).substr(2, 9)
-	})));
-	const [teams] = (0, import_react.useState)(incidentTeams);
-	const [filter, setFilter] = (0, import_react.useState)("active");
-	const updateStatus = (id, newStatus) => {
-		setIncidents((prev) => prev.map((inc) => inc.id === id ? {
-			...inc,
-			status: newStatus
-		} : inc));
-	};
-	const handleAssign = (incId, teamId) => {
-		const team = teams.find((t) => t.id === teamId);
-		setIncidents((prev) => prev.map((inc) => inc.id === incId ? {
-			...inc,
-			assigned: team?.name || "Assigned",
-			status: "En Route"
-		} : inc));
-	};
-	const filteredIncidents = incidents.filter((inc) => {
-		if (filter === "active") return inc.status !== "Resolved";
-		if (filter === "resolved") return inc.status === "Resolved";
-		return true;
-	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		brandSub: "SEC_INCIDENT_CMDR",
-		sidebarItems: securitySidebar,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
-			className: "panel-header",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-				className: "mono",
-				children: "INCIDENT COMMAND"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "text-secondary",
-				children: "Active Security & Medical Response Dispatch"
-			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "flex",
-					gap: 10
-				},
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: `btn ${filter === "active" ? "btn-primary" : "btn-secondary"}`,
-						onClick: () => setFilter("active"),
-						children: "ACTIVE"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: `btn ${filter === "resolved" ? "btn-primary" : "btn-secondary"}`,
-						onClick: () => setFilter("resolved"),
-						children: "RESOLVED"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: `btn ${filter === "all" ? "btn-primary" : "btn-secondary"}`,
-						onClick: () => setFilter("all"),
-						children: "ALL LOGS"
-					})
-				]
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "grid grid-cols-12 gap-6",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "col-span-8",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card h-full",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "card-header",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-							className: "mono",
-							children: "LIVE INCIDENT BOARD"
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "card-body",
-						style: { padding: 0 },
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-							className: "data-table",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "TIME" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "TYPE / SEVERITY" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "LOCATION" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "STATUS" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "ASSIGNED TEAM" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "ACTIONS" })
-							] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: filteredIncidents.map((inc) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", {
-								style: { opacity: inc.status === "Resolved" ? .6 : 1 },
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										className: "mono",
-										children: inc.time
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: `badge badge-${inc.severity}`,
-										children: inc.severity.toUpperCase()
-									}) }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										style: { fontWeight: 600 },
-										children: inc.location
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										style: {
-											display: "flex",
-											alignItems: "center",
-											gap: 8
-										},
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `status-dot ${inc.status === "Resolved" ? "online" : "critical pulse"}` }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "mono",
-											style: { fontSize: "0.75rem" },
-											children: inc.status.toUpperCase()
-										})]
-									}) }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										className: "mono",
-										style: { color: "var(--accent)" },
-										children: inc.assigned === "UNAS..." ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											style: { color: "var(--status-alert)" },
-											children: "PENDING DISPATCH"
-										}) : inc.assigned
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: inc.status !== "Resolved" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										style: {
-											display: "flex",
-											gap: 6
-										},
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
-											className: "btn btn-secondary",
-											style: {
-												fontSize: "0.65rem",
-												padding: "4px 8px"
-											},
-											onChange: (e) => handleAssign(inc.id, e.target.value),
-											defaultValue: "",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-												value: "",
-												disabled: true,
-												children: "Assign Unit..."
-											}), teams.map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("option", {
-												value: t.id,
-												children: [
-													t.name,
-													" (",
-													t.type,
-													")"
-												]
-											}, t.id))]
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-											className: "btn btn-primary",
-											style: {
-												fontSize: "0.65rem",
-												padding: "4px 8px"
-											},
-											onClick: () => updateStatus(inc.id, "Resolved"),
-											children: "RESOLVE"
-										})]
-									}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: {
-											fontSize: "0.65rem",
-											color: "var(--text-muted)"
-										},
-										children: "LOGGED"
-									}) })
-								]
-							}, inc.id)) })]
-						})
-					})]
-				})
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "col-span-4 space-y-6",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "card-header",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-							className: "mono",
-							children: "RESPONDER STATUS"
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "card-body space-y-4",
-						children: teams.map((team) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "card-accent",
-							style: {
-								padding: 12,
-								display: "flex",
-								justifyContent: "space-between",
-								alignItems: "center"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-accent",
-									children: team.id
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: { fontWeight: 600 },
-									children: team.name
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										fontSize: "0.7rem",
-										color: "var(--text-secondary)"
-									},
-									children: [
-										team.type,
-										" • ",
-										team.location
-									]
-								})
-							] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "mono",
-								style: { textAlign: "right" },
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontSize: "0.75rem",
-										color: team.status === "Available" ? "var(--status-ok)" : "var(--status-warning)"
-									},
-									children: team.status.toUpperCase()
-								})
-							})]
-						}, team.id))
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "card card-alert",
-					style: { background: "linear-gradient(135deg, rgba(255,59,48,0.1) 0%, rgba(255,59,48,0.02) 100%)" },
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card-body",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-								className: "mono",
-								style: {
-									color: "var(--status-alert)",
-									marginBottom: 12
-								},
-								children: "SYSTEM ANNOUNCEMENT"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								style: {
-									fontSize: "0.85rem",
-									marginBottom: 16
-								},
-								children: "Broadcast an emergency alert to all responder devices in the stadium."
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
-								className: "btn btn-secondary w-full",
-								placeholder: "Type priority message...",
-								style: {
-									height: 80,
-									padding: 10,
-									background: "var(--bg-deep)",
-									textAlign: "left",
-									marginBottom: 12
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-primary w-full",
-								style: {
-									background: "var(--status-alert)",
-									color: "white"
-								},
-								onClick: () => alert("BROADCAST SENT"),
-								children: "SEND WIDE-CHANNEL ALERT"
-							})
-						]
-					})
-				})]
-			})]
-		})]
-	});
-}
-//#endregion
-//#region src/pages/logistics/TransitHub.jsx
-function TransitHub() {
-	const [data] = (0, import_react.useState)(transitData);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		brandSub: "LOGISTICS_HUB",
-		sidebarItems: [],
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
-			className: "panel-header",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-				className: "mono",
-				children: "TRANSIT & LOGISTICS"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "text-secondary",
-				children: "Global Mobility Intelligence • Stadium Perimeters"
-			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "header-status",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online pulse" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "mono",
-					children: "LINKED TO METRO_OS"
-				})]
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "grid grid-cols-12 gap-6",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "col-span-12",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "card-header",
-							style: {
-								display: "flex",
-								justifyContent: "space-between"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "mono",
-								children: "PARKING INFRASTRUCTURE"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "mono",
-								style: {
-									fontSize: "0.8rem",
-									color: "var(--accent)"
-								},
-								children: "TOTAL CAPACITY: 15,200 UNITS"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card-body",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "grid grid-cols-4 gap-6",
-								children: data.parking.map((lot) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "card-accent",
-									style: { padding: 20 },
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "label-accent",
-											style: { marginBottom: 12 },
-											children: [
-												lot.id,
-												" • ",
-												lot.name
-											]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											style: {
-												display: "flex",
-												alignItems: "flex-end",
-												gap: 10,
-												marginBottom: 8
-											},
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-												className: "mono",
-												style: {
-													fontSize: "1.8rem",
-													fontWeight: 700
-												},
-												children: [lot.fill, "%"]
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												style: {
-													fontSize: "0.75rem",
-													color: "var(--text-muted)",
-													marginBottom: 6
-												},
-												children: "OCCUPIED"
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											style: {
-												width: "100%",
-												height: 4,
-												background: "var(--bg-deep)",
-												borderRadius: 2,
-												marginBottom: 16
-											},
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-												width: `${lot.fill}%`,
-												height: "100%",
-												background: lot.fill > 80 ? "var(--status-alert)" : lot.fill > 40 ? "var(--status-warning)" : "var(--accent)",
-												borderRadius: 2,
-												boxShadow: `0 0 10px ${lot.fill > 80 ? "var(--status-alert)" : "var(--accent)"}`
-											} })
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											style: {
-												display: "flex",
-												justifyContent: "space-between",
-												fontSize: "0.7rem"
-											},
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-												className: "mono",
-												style: { color: "var(--text-secondary)" },
-												children: ["CAPACITY: ", lot.capacity]
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "mono",
-												style: { color: lot.status === "open" ? "var(--status-ok)" : "var(--status-warning)" },
-												children: lot.status.toUpperCase()
-											})]
-										})
-									]
-								}, lot.id))
-							})
-						})]
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "col-span-8",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card-header",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "mono",
-								children: "PUBLIC TRANSIT CHANNELS"
-							})
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card-body",
-							style: { padding: 0 },
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-								className: "data-table",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "MODE" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "LINE / ROUTE" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "DIRECTION" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "NEXT ARRIVAL" }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "STATUS" })
-								] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tbody", { children: [data.trains.map((train) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										style: { fontSize: "1.2rem" },
-										children: "🚆"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										style: { fontWeight: 600 },
-										children: train.line
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										className: "mono",
-										children: train.direction
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										className: "mono",
-										style: {
-											color: "var(--accent)",
-											fontWeight: 700
-										},
-										children: train.time
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: `badge ${train.status === "on-time" ? "badge-low" : "badge-medium"}`,
-										children: train.status.toUpperCase()
-									}) })
-								] }, train.id)), data.buses.map((bus) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										style: { fontSize: "1.2rem" },
-										children: "🚌"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										style: { fontWeight: 600 },
-										children: bus.shuttle
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										className: "mono",
-										children: bus.route
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-										className: "mono",
-										style: {
-											color: "var(--accent)",
-											fontWeight: 700
-										},
-										children: bus.time
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-										className: "badge badge-low",
-										style: {
-											background: "var(--bg-elevated)",
-											color: "var(--text-secondary)"
-										},
-										children: [
-											"ACTIVE (",
-											bus.count,
-											" UNITS)"
-										]
-									}) })
-								] }, bus.id))] })]
-							})
-						})]
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "col-span-4",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card h-full",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "card-header",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "mono",
-								children: "MOBILITY ON-DEMAND"
-							})
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "card-body",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "card-accent",
-									style: {
-										padding: 16,
-										marginBottom: 20,
-										textAlign: "center",
-										border: "1px solid var(--accent)"
-									},
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "label-accent",
-											children: "CURR. SURGE MULTIPLIER"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "mono",
-											style: {
-												fontSize: "2.5rem",
-												fontWeight: 800,
-												color: "var(--accent)"
-											},
-											children: data.rideshare.surge
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											style: {
-												fontSize: "0.8rem",
-												color: "var(--text-secondary)"
-											},
-											children: "Global Transit Sync Active"
-										})
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "space-y-4",
-									children: data.rideshare.zones.map((zone) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										style: {
-											display: "flex",
-											justifyContent: "space-between",
-											alignItems: "center",
-											padding: "10px 0",
-											borderBottom: "1px solid var(--border-color)"
-										},
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											style: { fontWeight: 600 },
-											children: zone.name
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											style: {
-												fontSize: "0.7rem",
-												color: "var(--text-muted)"
-											},
-											children: ["Avg. Wait: ", data.rideshare.avgWait]
-										})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-											className: `badge ${zone.load === "HIGH" ? "badge-medium" : "badge-low"}`,
-											children: [zone.load, " LOAD"]
-										})]
-									}, zone.id))
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: { marginTop: 24 },
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										className: "btn btn-secondary w-full",
-										style: { marginBottom: 10 },
-										children: "REQUEST RIDE SURGE MITIGATION"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										className: "btn btn-primary w-full",
-										children: "DISPATCH AUX BUS FLEET"
-									})]
-								})
-							]
-						})]
-					})
-				})
-			]
-		})]
-	});
-}
-//#endregion
-//#region src/layouts/AttendeeShell.jsx
-function AttendeeShell({ children, title, isEvacuating }) {
-	const navigate = useNavigate();
-	const location = useLocation();
-	const handleLogout = () => {
-		localStorage.removeItem("flowstate_last_user");
-		navigate("/");
-	};
-	(0, import_react.useEffect)(() => {
-		document.body.classList.add("attendee-portal");
-		return () => {
-			document.body.classList.remove("attendee-portal");
-		};
-	}, []);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: `mobile-shell ${isEvacuating ? "emergency-mode" : ""}`,
-		children: [
-			isEvacuating && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				style: {
-					background: "var(--status-alert)",
-					color: "white",
-					padding: "12px 16px",
-					textAlign: "center",
-					fontWeight: 700,
-					animation: "pulse-dot 1.5s infinite",
-					position: "sticky",
-					top: 0,
-					zIndex: 100
-				},
-				children: "⚠️ URGENT: EVACUATE NOW - PROCURE NEAREST EXIT"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "mobile-header",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-					width: "20",
-					height: "20",
-					viewBox: "0 0 24 24",
-					fill: "none",
-					stroke: "currentColor",
-					strokeWidth: "2",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" })
-				}), title || "Stadium Connect"] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: {
-						display: "flex",
-						gap: 12,
-						alignItems: "center"
-					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						onClick: handleLogout,
-						style: {
-							padding: 8,
-							color: "var(--text-muted)",
-							transition: "color 0.2s"
-						},
-						title: "Disconnect Session",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-							width: "18",
-							height: "18",
-							viewBox: "0 0 24 24",
-							fill: "none",
-							stroke: "currentColor",
-							strokeWidth: "2",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "16 17 21 12 16 7" }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-									x1: "21",
-									y1: "12",
-									x2: "9",
-									y2: "12"
-								})
-							]
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							width: 36,
-							height: 36,
-							borderRadius: "50%",
-							background: "var(--bg-elevated)",
-							border: "2px solid var(--accent-border)",
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center"
-						},
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-							width: "16",
-							height: "16",
-							viewBox: "0 0 24 24",
-							fill: "none",
-							stroke: "var(--text-secondary)",
-							strokeWidth: "2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "12",
-								cy: "7",
-								r: "4"
-							})]
-						})
-					})]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "mobile-content",
-				children
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "mobile-bottom-nav",
-				children: [
-					{
-						label: "Home",
-						path: "/attendee",
-						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" })
-					},
-					{
-						label: "Map",
-						path: "/attendee/navigate",
-						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-							cx: "12",
-							cy: "10",
-							r: "3"
-						})] })
-					},
-					{
-						label: "Social",
-						path: "/attendee/friends",
-						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "9",
-								cy: "7",
-								r: "4"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M23 21v-2a4 4 0 0 0-3-3.87" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M16 3.13a4 4 0 0 1 0 7.75" })
-						] })
-					},
-					{
-						label: "Food",
-						path: "/attendee/food",
-						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 8h1a4 4 0 0 1 0 8h-1" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" })] })
-					},
-					{
-						label: "Me",
-						path: "/attendee/profile",
-						iconPath: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-							cx: "12",
-							cy: "7",
-							r: "4"
-						})] })
-					}
-				].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					className: `mobile-nav-item ${location.pathname === item.path ? "active" : ""}`,
-					onClick: () => navigate(item.path),
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-						width: "22",
-						height: "22",
-						viewBox: "0 0 24 24",
-						fill: "none",
-						stroke: "currentColor",
-						strokeWidth: "2",
-						children: item.iconPath
-					}), item.label]
-				}, item.path))
-			})
-		]
-	});
+		})
+	] });
 }
 //#endregion
 //#region src/pages/attendee/AttendeeHome.jsx
@@ -14116,856 +14558,843 @@ function AttendeeHome() {
 		const i = setInterval(fetchLiveStatus, 3e3);
 		return () => clearInterval(i);
 	}, []);
-	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeShell, {
-		title: "Syncing...",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			style: {
-				padding: 40,
-				textAlign: "center",
-				color: "var(--accent)"
-			},
-			className: "pulse",
-			children: "ESTABLISHING SECURE LINK..."
-		})
-	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeShell, {
-		title: "Connect",
-		isEvacuating,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "attendee-home page-enter",
-			style: { paddingBottom: 40 },
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		style: {
+			padding: 40,
+			textAlign: "center",
+			color: "var(--accent)"
+		},
+		className: "pulse",
+		children: "ESTABLISHING SECURE LINK..."
+	}) });
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "attendee-home",
+		style: { paddingBottom: 40 },
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					position: "relative",
+					margin: "-20px -20px 24px -20px",
+					padding: "40px 24px 30px",
+					background: isEvacuating ? "radial-gradient(circle at top, rgba(255, 71, 87, 0.4), var(--bg-deep))" : "radial-gradient(circle at top, rgba(0, 212, 170, 0.15), var(--bg-deep))",
+					overflow: "hidden"
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+					position: "absolute",
+					inset: 0,
+					backgroundImage: "radial-gradient(var(--border-subtle) 1px, transparent 1px)",
+					backgroundSize: "15px 15px",
+					opacity: .2
+				} }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					style: {
 						position: "relative",
-						margin: "-20px -20px 24px -20px",
-						padding: "40px 24px 30px",
-						background: isEvacuating ? "radial-gradient(circle at top, rgba(255, 71, 87, 0.4), var(--bg-deep))" : "radial-gradient(circle at top, rgba(0, 212, 170, 0.15), var(--bg-deep))",
-						overflow: "hidden"
+						zIndex: 2
 					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-						position: "absolute",
-						inset: 0,
-						backgroundImage: "radial-gradient(var(--border-subtle) 1px, transparent 1px)",
-						backgroundSize: "15px 15px",
-						opacity: .2
-					} }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
 						style: {
-							position: "relative",
-							zIndex: 2
+							fontSize: "2.5rem",
+							fontWeight: 900,
+							background: isEvacuating ? "var(--status-alert)" : "linear-gradient(90deg, #fff, var(--accent))",
+							WebkitBackgroundClip: "text",
+							WebkitTextFillColor: "transparent",
+							lineHeight: 1,
+							marginBottom: 10,
+							letterSpacing: "-0.03em"
 						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-							style: {
-								fontSize: "2.2rem",
-								fontWeight: 900,
-								background: isEvacuating ? "var(--status-alert)" : "linear-gradient(90deg, #fff, var(--accent))",
-								WebkitBackgroundClip: "text",
-								WebkitTextFillColor: "transparent",
-								lineHeight: 1.1,
-								marginBottom: 8
-							},
-							children: isEvacuating ? "EVACUATE" : `Namaste, ${userName}.`
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							style: {
-								color: isEvacuating ? "var(--status-alert)" : "var(--text-secondary)",
-								fontSize: "0.95rem"
-							},
-							children: isEvacuating ? "Emergency protocol initialized." : `Digital Pass Active • ${venue?.name}`
-						})]
+						children: isEvacuating ? "EVACUATE" : userName ? `NAMASTE, ${userName}.` : "NAMASTE."
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						style: {
+							color: isEvacuating ? "var(--status-alert)" : "var(--text-secondary)",
+							fontSize: "0.95rem"
+						},
+						children: isEvacuating ? "Emergency protocol initialized." : `Digital Pass Active • ${venue?.name}`
 					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "glass-card-accent",
-					style: {
-						background: "rgba(255,255,255,0.03)",
-						backdropFilter: "blur(20px)",
-						borderRadius: 24,
-						padding: 20,
-						marginBottom: 24,
-						border: `1px solid ${isEvacuating ? "var(--status-alert)" : "var(--accent-border)"}`,
-						boxShadow: isEvacuating ? "0 10px 40px rgba(255, 71, 87, 0.2)" : "0 10px 40px rgba(0, 212, 170, 0.08)"
-					},
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card-premium stagger-item",
+				style: {
+					borderRadius: 28,
+					padding: 24,
+					marginBottom: 24,
+					border: `1px solid ${isEvacuating ? "var(--status-alert)" : "var(--border-accent)"}`,
+					boxShadow: isEvacuating ? "0 10px 40px rgba(255, 71, 87, 0.2)" : "var(--shadow-card)",
+					animationDelay: "0.1s"
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							position: "absolute",
+							top: 12,
+							right: 24,
+							fontSize: "0.6rem",
+							color: isEvacuating ? "var(--status-alert)" : "var(--accent)",
+							opacity: .5
+						},
+						className: "mono",
+						children: "SYST_LINK_OK"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center",
+							marginBottom: 20
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "label-accent",
 							style: {
-								display: "flex",
-								justifyContent: "space-between",
-								alignItems: "center",
-								marginBottom: 20
+								color: isEvacuating ? "var(--status-alert)" : "var(--accent)",
+								fontSize: "0.75rem"
 							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-accent",
+							children: "✦ SMART TICKET"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `status-dot pulse ${isEvacuating ? "critical" : "online"}` })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							padding: "0 10px",
+							display: "flex",
+							justifyContent: "space-between"
+						},
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								style: {
-									color: isEvacuating ? "var(--status-alert)" : "var(--accent)",
-									fontSize: "0.75rem"
+									color: "var(--text-muted)",
+									fontSize: "0.75rem",
+									textTransform: "uppercase",
+									marginBottom: 4
 								},
-								children: "✦ SMART TICKET"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `status-dot pulse ${isEvacuating ? "critical" : "online"}` })]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								padding: "0 10px",
-								display: "flex",
-								justifyContent: "space-between"
-							},
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								children: "Gate"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mono",
+								style: {
+									fontSize: "1.8rem",
+									fontWeight: 700
+								},
+								children: isEvacuating ? "EXT 4" : "G-6"
+							})] }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+								borderLeft: "1px dashed var(--border-color)",
+								margin: "0 20px"
+							} }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: { textAlign: "right" },
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 									style: {
 										color: "var(--text-muted)",
 										fontSize: "0.75rem",
 										textTransform: "uppercase",
 										marginBottom: 4
 									},
-									children: "Gate"
+									children: "Section"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 									className: "mono",
 									style: {
 										fontSize: "1.8rem",
-										fontWeight: 700
+										fontWeight: 700,
+										color: "var(--text-primary)"
 									},
-									children: isEvacuating ? "EXT 4" : "G-6"
-								})] }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-									borderLeft: "1px dashed var(--border-color)",
-									margin: "0 20px"
-								} }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: { textAlign: "right" },
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											color: "var(--text-muted)",
-											fontSize: "0.75rem",
-											textTransform: "uppercase",
-											marginBottom: 4
-										},
-										children: "Section"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "mono",
-										style: {
-											fontSize: "1.8rem",
-											fontWeight: 700,
-											color: "var(--text-primary)"
-										},
-										children: "427"
-									})]
-								})
-							]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							onClick: () => navigate("/attendee/navigate"),
-							className: `btn w-full`,
-							style: {
-								marginTop: 24,
-								padding: "16px",
-								fontSize: "0.9rem",
-								borderRadius: 14,
-								background: isEvacuating ? "var(--status-alert)" : "rgba(0, 212, 170, 0.1)",
-								color: isEvacuating ? "#fff" : "var(--accent)",
-								border: isEvacuating ? "none" : "1px solid var(--accent-border)",
-								transition: "all 0.3s ease"
-							},
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									gap: 10
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-									width: "20",
-									height: "20",
-									viewBox: "0 0 24 24",
-									fill: "none",
-									stroke: "currentColor",
-									strokeWidth: "2",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91" })
-								}), isEvacuating ? "INITIATE EVACUATION ROUTE" : "ACTIVATE NAVIGATION"]
+									children: "427"
+								})]
 							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: () => navigate("/attendee/navigate"),
+						className: `btn w-full`,
+						style: {
+							marginTop: 24,
+							padding: "16px",
+							fontSize: "0.9rem",
+							borderRadius: 14,
+							background: isEvacuating ? "var(--status-alert)" : "rgba(0, 212, 170, 0.1)",
+							color: isEvacuating ? "#fff" : "var(--accent)",
+							border: isEvacuating ? "none" : "1px solid var(--accent-border)",
+							transition: "all 0.3s ease"
+						},
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								gap: 10
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+								width: "20",
+								height: "20",
+								viewBox: "0 0 24 24",
+								fill: "none",
+								stroke: "currentColor",
+								strokeWidth: "2",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91" })
+							}), isEvacuating ? "INITIATE EVACUATION ROUTE" : "ACTIVATE NAVIGATION"]
+						})
+					})
+				]
+			}),
+			!isEvacuating && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "grid",
+					gridTemplateColumns: "1fr 1fr",
+					gap: 16,
+					marginBottom: 24
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-premium hover-scale stagger-item",
+					onClick: () => navigate("/attendee/food"),
+					style: {
+						padding: 20,
+						cursor: "pointer",
+						borderRadius: 20,
+						animationDelay: "0.2s"
+					},
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								fontSize: "2rem",
+								marginBottom: 12
+							},
+							children: "🍔"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								fontWeight: 800,
+								fontSize: "1rem",
+								color: "white"
+							},
+							children: "Express Food"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								fontSize: "0.72rem",
+								color: "var(--status-ok)",
+								marginTop: 6,
+								display: "flex",
+								alignItems: "center",
+								gap: 6
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online small pulse" }), " 2 Quick Lines"]
 						})
 					]
-				}),
-				!isEvacuating && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-premium hover-scale stagger-item",
+					onClick: () => navigate("/attendee/friends"),
 					style: {
-						display: "grid",
-						gridTemplateColumns: "1fr 1fr",
-						gap: 12,
-						marginBottom: 24
+						padding: 20,
+						cursor: "pointer",
+						borderRadius: 20,
+						animationDelay: "0.25s"
+					},
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								fontSize: "2rem",
+								marginBottom: 12
+							},
+							children: "📡"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								fontWeight: 800,
+								fontSize: "1rem",
+								color: "white"
+							},
+							children: "Friend Radar"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								fontSize: "0.72rem",
+								color: "var(--accent)",
+								marginTop: 6,
+								display: "flex",
+								alignItems: "center",
+								gap: 6
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "status-dot online small" }), " 3 Nearby"]
+						})
+					]
+				})]
+			}),
+			!isEvacuating && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: { marginTop: 24 },
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+					style: {
+						fontSize: "1rem",
+						fontWeight: 700,
+						marginBottom: 12,
+						display: "flex",
+						alignItems: "center",
+						gap: 8
+					},
+					children: ["TRANSIT HUB", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "badge badge-accent",
+						style: { fontSize: "0.5rem" },
+						children: "LIVE"
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card",
+					style: {
+						padding: 0,
+						borderRadius: 20,
+						overflow: "hidden"
 					},
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card hover-scale",
-						onClick: () => navigate("/attendee/food"),
 						style: {
 							padding: 16,
-							cursor: "pointer",
-							borderRadius: 18,
-							border: "1px solid var(--border-subtle)",
-							background: "linear-gradient(145deg, var(--bg-card), var(--bg-deep))"
-						},
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									fontSize: "1.8rem",
-									marginBottom: 8
-								},
-								children: "🍔"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									fontWeight: 700,
-									fontSize: "0.95rem"
-								},
-								children: "Express Food"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									fontSize: "0.7rem",
-									color: "var(--status-ok)",
-									marginTop: 4
-								},
-								children: "+2 Quick Lines"
-							})
-						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card hover-scale",
-						onClick: () => navigate("/attendee/friends"),
-						style: {
-							padding: 16,
-							cursor: "pointer",
-							borderRadius: 18,
-							border: "1px solid var(--border-subtle)",
-							background: "linear-gradient(145deg, var(--bg-card), var(--bg-deep))"
-						},
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									fontSize: "1.8rem",
-									marginBottom: 8
-								},
-								children: "📡"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									fontWeight: 700,
-									fontSize: "0.95rem"
-								},
-								children: "Friend Radar"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									fontSize: "0.7rem",
-									color: "var(--accent)",
-									marginTop: 4
-								},
-								children: "3 Friends Nearby"
-							})
-						]
-					})]
-				}),
-				!isEvacuating && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: { marginTop: 24 },
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
-						style: {
-							fontSize: "1rem",
-							fontWeight: 700,
-							marginBottom: 12,
+							borderBottom: "1px solid var(--border-subtle)",
 							display: "flex",
-							alignItems: "center",
-							gap: 8
-						},
-						children: ["TRANSIT HUB", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "badge badge-accent",
-							style: { fontSize: "0.5rem" },
-							children: "LIVE"
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card",
-						style: {
-							padding: 0,
-							borderRadius: 20,
-							overflow: "hidden"
+							justifyContent: "space-between",
+							alignItems: "center"
 						},
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							style: {
-								padding: 16,
-								borderBottom: "1px solid var(--border-subtle)",
 								display: "flex",
-								justifyContent: "space-between",
-								alignItems: "center"
+								alignItems: "center",
+								gap: 12
 							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								style: {
+									width: 36,
+									height: 36,
+									borderRadius: 10,
+									background: "rgba(59, 130, 246, 0.1)",
+									color: "#3b82f6",
 									display: "flex",
 									alignItems: "center",
-									gap: 12
+									justifyContent: "center",
+									fontSize: "1.2rem"
 								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										width: 36,
-										height: 36,
-										borderRadius: 10,
-										background: "rgba(59, 130, 246, 0.1)",
-										color: "#3b82f6",
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "center",
-										fontSize: "1.2rem"
-									},
-									children: "🚆"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontWeight: 600,
-										fontSize: "0.9rem"
-									},
-									children: "Blue Line Terminal"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontSize: "0.75rem",
-										color: "var(--text-muted)"
-									},
-									children: "To Downtown"
-								})] })]
+								children: "🚆"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontWeight: 600,
+									fontSize: "0.9rem"
+								},
+								children: "Blue Line Terminal"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontSize: "0.75rem",
+									color: "var(--text-muted)"
+								},
+								children: "To Downtown"
+							})] })]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mono",
+							style: {
+								fontSize: "1.1rem",
+								fontWeight: 800,
+								color: "var(--accent)"
+							},
+							children: "4m"
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							display: "flex",
+							background: "rgba(0,0,0,0.2)"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								flex: 1,
+								padding: 16,
+								textAlign: "center",
+								borderRight: "1px solid var(--border-subtle)"
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "label-accent",
+								style: {
+									fontSize: "0.6rem",
+									marginBottom: 4
+								},
+								children: "PARKING P2"
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								className: "mono",
-								style: {
-									fontSize: "1.1rem",
-									fontWeight: 800,
-									color: "var(--accent)"
-								},
-								children: "4m"
+								style: { fontWeight: 700 },
+								children: "45% FULL"
 							})]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							style: {
-								display: "flex",
-								background: "rgba(0,0,0,0.2)"
+								flex: 1,
+								padding: 16,
+								textAlign: "center"
 							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "label-accent",
 								style: {
-									flex: 1,
-									padding: 16,
-									textAlign: "center",
-									borderRight: "1px solid var(--border-subtle)"
+									fontSize: "0.6rem",
+									marginBottom: 4
 								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-accent",
-									style: {
-										fontSize: "0.6rem",
-										marginBottom: 4
-									},
-									children: "PARKING P2"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "mono",
-									style: { fontWeight: 700 },
-									children: "45% FULL"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									flex: 1,
-									padding: 16,
-									textAlign: "center"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-accent",
-									style: {
-										fontSize: "0.6rem",
-										marginBottom: 4
-									},
-									children: "SHUTTLE B"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "mono",
-									style: { fontWeight: 700 },
-									children: "8m WAIT"
-								})]
+								children: "SHUTTLE B"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mono",
+								style: { fontWeight: 700 },
+								children: "8m WAIT"
 							})]
 						})]
 					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				style: {
+					marginTop: 40,
+					textAlign: "center"
+				},
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					onClick: () => setIsEvacuating(!isEvacuating),
+					className: `badge ${isEvacuating ? "badge-neutral" : "badge-critical"}`,
 					style: {
-						marginTop: 40,
-						textAlign: "center"
+						cursor: "pointer",
+						opacity: .5
 					},
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						onClick: () => setIsEvacuating(!isEvacuating),
-						className: `badge ${isEvacuating ? "badge-neutral" : "badge-critical"}`,
-						style: {
-							cursor: "pointer",
-							opacity: .5
-						},
-						children: isEvacuating ? "RESET SIMULATION" : "SIMULATE EMERGENCY PROTOCOL"
-					})
+					children: isEvacuating ? "RESET SIMULATION" : "SIMULATE EMERGENCY PROTOCOL"
 				})
-			]
-		})
-	});
+			})
+		]
+	}) });
 }
 //#endregion
 //#region src/pages/attendee/AttendeeNavigate.jsx
 function AttendeeNavigate() {
 	const [loading, setLoading] = (0, import_react.useState)(true);
-	const [activeLayer, setActiveLayer] = (0, import_react.useState)("full");
+	const [activeLayer, setActiveLayer] = (0, import_react.useState)("wayfinding");
+	const [userLocation, setUserLocation] = (0, import_react.useState)({
+		x: 45,
+		y: 60
+	});
+	const [destination, setDestination] = (0, import_react.useState)("Section 427");
 	(0, import_react.useEffect)(() => {
-		const timer = setTimeout(() => setLoading(false), 800);
+		const timer = setTimeout(() => setLoading(false), 1500);
 		return () => clearTimeout(timer);
 	}, []);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeShell, {
-		title: "Smart Navigation",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "attendee-navigate page-enter",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: {
-						background: "var(--bg-elevated)",
-						borderRadius: 20,
-						padding: 16,
-						marginBottom: 20,
-						border: "1px solid var(--border-subtle)"
-					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "page-header",
+		style: {
+			position: "sticky",
+			top: 0,
+			zIndex: 10,
+			background: "var(--bg-deep)",
+			margin: "-20px -20px 20px -20px",
+			padding: "16px 20px",
+			borderBottom: "1px solid var(--border-subtle)"
+		},
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+			style: {
+				fontSize: "1.2rem",
+				fontWeight: 800
+			},
+			children: "Digital Beacon"
+		})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "attendee-navigate page-enter",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card-premium",
+				style: {
+					borderRadius: 24,
+					padding: 20,
+					marginBottom: 20,
+					position: "relative",
+					overflow: "hidden"
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "hud-scanline",
+						style: { opacity: .1 }
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						style: {
 							display: "flex",
 							justifyContent: "space-between",
-							alignItems: "center",
-							marginBottom: 12
+							alignItems: "flex-start",
+							marginBottom: 20
 						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "label-caps",
-							children: "Signal Strength"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "label-hud",
+							children: "TACTICAL_POSITIONING_SYSTEM"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 							style: {
-								color: "var(--status-ok)",
-								fontSize: "0.75rem",
-								fontWeight: 700
+								fontSize: "1.4rem",
+								fontWeight: 900,
+								color: "white",
+								marginTop: 4
 							},
-							children: "HIGH PRECISION (0.2m)"
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							children: "NAV_NEXUS_01"
+						})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "status-dot online small pulse" })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						style: {
 							display: "flex",
 							gap: 8
 						},
 						children: [
-							"full",
+							"wayfinding",
 							"seating",
 							"services"
 						].map((layer) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 							onClick: () => setActiveLayer(layer),
+							className: `btn-premium ${activeLayer === layer ? "active" : ""}`,
 							style: {
 								flex: 1,
-								padding: "8px",
-								borderRadius: "8px",
+								padding: "12px 0",
 								fontSize: "0.65rem",
-								fontWeight: 700,
 								textTransform: "uppercase",
-								background: activeLayer === layer ? "var(--accent)" : "var(--bg-deep)",
-								color: activeLayer === layer ? "var(--text-inverse)" : "var(--text-secondary)",
-								border: "1px solid var(--border-subtle)"
+								letterSpacing: "0.1em",
+								background: activeLayer === layer ? "var(--accent)" : "rgba(255,255,255,0.03)",
+								color: activeLayer === layer ? "black" : "var(--text-secondary)",
+								borderRadius: 14,
+								border: activeLayer === layer ? "none" : "1px solid var(--border-subtle)"
 							},
 							children: layer
 						}, layer))
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "map-container",
-					style: {
-						position: "relative",
-						height: 400,
-						background: "#0a0d14",
-						borderRadius: 24,
-						border: "1px solid var(--accent-border)",
-						overflow: "hidden",
-						boxShadow: "inset 0 0 40px rgba(0,0,0,0.5)"
-					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-						position: "absolute",
-						inset: 0,
-						backgroundImage: "radial-gradient(var(--border-subtle) 1px, transparent 1px)",
-						backgroundSize: "20px 20px",
-						opacity: .3
-					} }), loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "isometric-viewport",
+				style: {
+					height: 480,
+					background: "radial-gradient(circle at center, #0f172a 0%, #020617 100%)",
+					borderRadius: 32,
+					border: "1px solid var(--border-accent)",
+					position: "relative",
+					overflow: "hidden",
+					boxShadow: "0 40px 80px rgba(0,0,0,0.9), inset 0 0 100px rgba(0,212,170,0.05)"
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "radar-field" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "isometric-map",
 						style: {
-							display: "flex",
-							flexDirection: "column",
-							alignItems: "center",
-							justifyContent: "center",
+							width: "100%",
 							height: "100%",
-							gap: 16
+							position: "relative"
+						},
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								position: "absolute",
+								top: "50%",
+								left: "50%",
+								transform: "translate(-50%, -50%)",
+								width: 500,
+								height: 600,
+								border: "2px solid rgba(0, 212, 170, 0.1)",
+								borderRadius: "100px 100px 150px 150px",
+								background: "rgba(0,0,0,0.2)",
+								boxShadow: "0 0 40px rgba(0, 212, 170, 0.05)"
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+								position: "absolute",
+								inset: 0,
+								backgroundImage: "linear-gradient(rgba(0, 212, 170, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 170, 0.05) 1px, transparent 1px)",
+								backgroundSize: "40px 40px",
+								borderRadius: "inherit"
+							} }), loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									position: "absolute",
+									inset: 0,
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									transform: "rotateZ(35deg) rotateX(-55deg)"
+								},
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "label-hud data-pulse",
+									children: "LINKING_SATELLITE_FEED..."
+								})
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									position: "relative",
+									width: "100%",
+									height: "100%"
+								},
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										style: {
+											position: "absolute",
+											top: "15%",
+											left: "20%",
+											width: 120,
+											height: 80,
+											background: "rgba(255,255,255,0.03)",
+											border: "1px solid rgba(255,255,255,0.1)",
+											borderRadius: 12,
+											boxShadow: "10px 10px 0 rgba(0,0,0,0.5)"
+										},
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											style: {
+												padding: 8,
+												fontSize: "0.6rem",
+												color: "var(--text-muted)"
+											},
+											className: "mono",
+											children: "SEC_101"
+										})
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										style: {
+											position: "absolute",
+											top: "15%",
+											right: "20%",
+											width: 120,
+											height: 80,
+											background: "rgba(0, 212, 170, 0.08)",
+											border: "2px solid var(--accent)",
+											borderRadius: 12,
+											boxShadow: "15px 15px 30px rgba(0, 212, 170, 0.1)"
+										},
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											style: {
+												padding: 8,
+												fontSize: "0.6rem",
+												color: "var(--accent)",
+												fontWeight: 800
+											},
+											className: "mono",
+											children: "TARGET_ZONE_427"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											style: {
+												position: "absolute",
+												bottom: 8,
+												right: 8,
+												width: 8,
+												height: 8,
+												borderRadius: "50%",
+												background: "var(--status-alert)"
+											},
+											className: "data-pulse"
+										})]
+									}),
+									activeLayer === "wayfinding" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+										width: "100%",
+										height: "100%",
+										style: {
+											position: "absolute",
+											top: 0,
+											left: 0
+										},
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+											d: "M 120 480 L 120 280 L 320 280 L 320 200",
+											fill: "none",
+											stroke: "var(--accent)",
+											strokeWidth: "8",
+											strokeLinecap: "round",
+											style: {
+												filter: "drop-shadow(0 0 20px var(--accent))",
+												strokeDasharray: "500",
+												strokeDashoffset: "500",
+												animation: "draw-path-3d 3s linear infinite",
+												opacity: .8
+											}
+										})
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										style: {
+											position: "absolute",
+											top: "20%",
+											right: "35%",
+											width: 2,
+											height: 200,
+											background: "linear-gradient(to top, var(--accent) 0%, transparent 100%)",
+											boxShadow: "0 0 20px var(--accent)",
+											animation: "beam-pulse 2s ease-in-out infinite",
+											zIndex: 20
+										},
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+											position: "absolute",
+											bottom: -5,
+											left: "50%",
+											transform: "translateX(-50%)",
+											width: 20,
+											height: 10,
+											background: "var(--accent)",
+											filter: "blur(8px)",
+											opacity: .5
+										} })
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										style: {
+											position: "absolute",
+											bottom: "20%",
+											left: "24%"
+										},
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											style: {
+												width: 40,
+												height: 40,
+												border: "2px solid white",
+												borderRadius: "50%",
+												background: "rgba(255,255,255,0.1)",
+												transform: "translate(-50%, -50%)"
+											},
+											className: "data-pulse"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+											width: 12,
+											height: 12,
+											background: "white",
+											borderRadius: "50%",
+											transform: "translate(-50%, -50%)",
+											boxShadow: "0 0 20px white"
+										} })]
+									}),
+									activeLayer === "services" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "page-enter",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											style: {
+												position: "absolute",
+												top: "40%",
+												left: "15%"
+											},
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												style: {
+													width: 48,
+													height: 48,
+													background: "rgba(59, 130, 246, 0.1)",
+													border: "2px solid #3b82f6",
+													borderRadius: "12px",
+													display: "flex",
+													alignItems: "center",
+													justifyContent: "center",
+													fontSize: "1.4rem",
+													boxShadow: "0 0 30px rgba(59, 130, 246, 0.3)"
+												},
+												className: "data-pulse",
+												children: "🚻"
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "label-hud",
+												style: {
+													marginTop: 8,
+													textAlign: "center"
+												},
+												children: "NORTH_GATE"
+											})]
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											style: {
+												position: "absolute",
+												top: "50%",
+												right: "15%"
+											},
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												style: {
+													width: 60,
+													height: 60,
+													background: "rgba(0, 212, 170, 0.1)",
+													border: "2px solid var(--accent)",
+													borderRadius: "12px",
+													display: "flex",
+													alignItems: "center",
+													justifyContent: "center",
+													fontSize: "1.8rem",
+													boxShadow: "0 0 40px rgba(0, 212, 170, 0.3)"
+												},
+												className: "data-pulse",
+												children: "🍔"
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "label-hud",
+												style: {
+													marginTop: 8,
+													textAlign: "center"
+												},
+												children: "PLAZA_FOOD"
+											})]
+										})]
+									})
+								]
+							})]
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							position: "absolute",
+							bottom: 20,
+							right: 24,
+							textAlign: "right",
+							pointerEvents: "none"
 						},
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "pulse",
+							className: "label-hud",
 							style: {
-								width: 40,
-								height: 40,
-								borderRadius: "50%",
-								border: "3px solid var(--accent)",
-								borderTopColor: "transparent",
-								animation: "spin 1s linear infinite"
-							}
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								fontSize: "0.6rem",
+								opacity: .5
+							},
+							children: "SYST_LOAD: STABLE"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "mono",
 							style: {
-								fontSize: "0.7rem",
+								fontSize: "0.9rem",
+								fontWeight: 900,
 								color: "var(--accent)"
 							},
-							children: "LOADING GRID..."
+							children: "LEVEL_01 // SEC_427"
 						})]
-					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-						activeLayer === "full" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-								width: "100%",
-								height: "100%",
-								style: {
-									position: "absolute",
-									top: 0,
-									left: 0
-								},
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-									d: "M 50 350 L 150 200 L 250 250 L 340 50",
-									fill: "none",
-									stroke: "var(--accent)",
-									strokeWidth: "4",
-									strokeDasharray: "8 4",
-									strokeLinecap: "round",
-									style: { filter: "drop-shadow(0 0 8px var(--accent))" }
-								})
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									position: "absolute",
-									top: "50px",
-									left: "340px",
-									transform: "translate(-50%, -100%)"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										color: "var(--status-alert)",
-										fontSize: "2rem"
-									},
-									children: "📍"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										background: "var(--bg-elevated)",
-										padding: "4px 10px",
-										borderRadius: 6,
-										border: "1px solid var(--border-accent)",
-										fontSize: "0.65rem",
-										fontWeight: 700,
-										whiteSpace: "nowrap"
-									},
-									children: "SEC 102"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									position: "absolute",
-									bottom: "50px",
-									left: "50px",
-									transform: "translate(-50%, -50%)"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-									width: 24,
-									height: 24,
-									background: "var(--accent)",
-									borderRadius: "50%",
-									opacity: .3,
-									position: "absolute",
-									top: -10,
-									left: -10,
-									animation: "glowPulse 2s infinite"
-								} }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-									width: 12,
-									height: 12,
-									background: "var(--accent)",
-									borderRadius: "50%",
-									border: "2px solid white"
-								} })]
-							})
-						] }),
-						activeLayer === "seating" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-							width: "100%",
-							height: "100%",
-							style: {
-								position: "absolute",
-								top: 0,
-								left: 0,
-								opacity: .2
-							},
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pattern", {
-									id: "blueprint-grid",
-									width: "40",
-									height: "40",
-									patternUnits: "userSpaceOnUse",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-										d: "M 40 0 L 0 0 0 40",
-										fill: "none",
-										stroke: "var(--accent)",
-										strokeWidth: "0.5"
-									})
-								}) }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-									width: "100%",
-									height: "100%",
-									fill: "url(#blueprint-grid)"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-									d: "M0,50 L400,50 M0,150 L400,150 M0,250 L400,250",
-									stroke: "var(--accent)",
-									strokeWidth: "0.5",
-									strokeDasharray: "4 4"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-									d: "M50,0 L50,400 M150,0 L150,400 M250,0 L250,400",
-									stroke: "var(--accent)",
-									strokeWidth: "0.5",
-									strokeDasharray: "4 4"
-								})
-							]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-							width: "100%",
-							height: "100%",
-							style: {
-								position: "absolute",
-								top: 0,
-								left: 0,
-								opacity: .8
-							},
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polygon", {
-									points: "40,20 180,20 160,120 20,120",
-									fill: "rgba(0, 212, 170, 0.05)",
-									stroke: "var(--accent)",
-									strokeWidth: "1",
-									strokeDasharray: "2 1"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("text", {
-									x: "70",
-									y: "75",
-									fill: "var(--text-muted)",
-									fontSize: "10",
-									fontWeight: "bold",
-									className: "mono",
-									children: "ZONE_A [427]"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("polygon", {
-									points: "190,20 330,20 350,120 210,120",
-									fill: "rgba(0, 212, 170, 0.1)",
-									stroke: "var(--accent)",
-									strokeWidth: "2"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("text", {
-									x: "250",
-									y: "75",
-									fill: "var(--accent)",
-									fontSize: "10",
-									fontWeight: "bold",
-									className: "mono",
-									children: "ZONE_B [428]"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-									d: "M20,140 L350,140 L370,260 L0,260 Z",
-									fill: "rgba(255,255,255,0.02)",
-									stroke: "var(--border-subtle)",
-									strokeWidth: "1"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("text", {
-									x: "140",
-									y: "200",
-									fill: "var(--text-muted)",
-									fontSize: "10",
-									fontWeight: "bold",
-									className: "mono",
-									children: "LOWER_BOWL_PRIME"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-									d: "M360,140 L380,140 M370,130 L380,140 L370,150",
-									fill: "none",
-									stroke: "var(--status-alert)",
-									strokeWidth: "2"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("text", {
-									x: "340",
-									y: "130",
-									fill: "var(--status-alert)",
-									fontSize: "8",
-									className: "mono",
-									children: "EXIT_04"
-								})
-							]
-						})] }),
-						activeLayer === "services" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-								width: "100%",
-								height: "100%",
-								style: {
-									position: "absolute",
-									top: 0,
-									left: 0,
-									opacity: .15
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-									d: "M0,100 L400,100 M0,300 L400,300",
-									stroke: "var(--accent)",
-									strokeWidth: "1"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-									d: "M100,0 L100,400 M300,0 L300,400",
-									stroke: "var(--accent)",
-									strokeWidth: "1"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									position: "absolute",
-									top: 80,
-									left: 100,
-									textAlign: "center"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										width: 40,
-										height: 40,
-										background: "#3b82f6",
-										borderRadius: "50%",
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "center",
-										fontSize: "1.2rem",
-										marginBottom: 4,
-										border: "2px solid white",
-										boxShadow: "0 0 15px rgba(59, 130, 246, 0.4)"
-									},
-									children: "🚻"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-caps",
-									style: {
-										background: "var(--bg-deep)",
-										padding: "2px 6px",
-										borderRadius: 4,
-										fontSize: "0.6rem"
-									},
-									children: "RESTROOM_NORTH"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									position: "absolute",
-									top: 180,
-									right: 80,
-									textAlign: "center"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										width: 40,
-										height: 40,
-										background: "var(--accent)",
-										borderRadius: "50%",
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "center",
-										fontSize: "1.2rem",
-										marginBottom: 4,
-										border: "2px solid white",
-										boxShadow: "0 0 15px rgba(0, 212, 170, 0.4)"
-									},
-									children: "🍔"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-caps",
-									style: {
-										background: "var(--bg-deep)",
-										padding: "2px 6px",
-										borderRadius: 4,
-										fontSize: "0.6rem"
-									},
-									children: "KHANA_PLAZA"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									position: "absolute",
-									bottom: 60,
-									left: 140,
-									textAlign: "center"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										width: 40,
-										height: 40,
-										background: "var(--status-alert)",
-										borderRadius: "50%",
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "center",
-										fontSize: "1.2rem",
-										marginBottom: 4,
-										border: "2px solid white",
-										boxShadow: "0 0 15px rgba(255, 71, 87, 0.4)"
-									},
-									children: "⚕️"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "label-caps",
-									style: {
-										background: "var(--bg-deep)",
-										padding: "2px 6px",
-										borderRadius: 4,
-										fontSize: "0.6rem"
-									},
-									children: "MEDICAL_U02"
-								})]
-							})
-						] })
-					] })]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card-premium stagger-item",
+				style: {
+					marginTop: 20,
+					padding: 24,
+					borderRadius: 28,
+					position: "relative",
+					background: "rgba(0, 212, 170, 0.05)",
+					border: "1px solid var(--border-accent)"
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					style: {
-						background: "rgba(0, 212, 170, 0.05)",
-						border: "1px solid var(--accent-border)",
-						borderRadius: 20,
-						padding: 20,
-						marginTop: 20
+						position: "absolute",
+						top: 12,
+						right: 20,
+						fontSize: "0.5rem",
+						color: "var(--accent)",
+						opacity: .4
 					},
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mono",
+					children: "TACTICAL_GUIDE_V4"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						display: "flex",
+						alignItems: "center",
+						gap: 24
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "data-pulse",
 						style: {
+							width: 64,
+							height: 64,
+							background: "var(--accent)",
+							borderRadius: 20,
 							display: "flex",
 							alignItems: "center",
-							gap: 16
+							justifyContent: "center",
+							color: "black",
+							boxShadow: "0 0 30px var(--accent-glow)"
 						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								width: 48,
-								height: 48,
-								background: "var(--accent)",
-								borderRadius: 12,
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-								color: "black"
-							},
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-								width: "24",
-								height: "24",
-								viewBox: "0 0 24 24",
-								fill: "none",
-								stroke: "currentColor",
-								strokeWidth: "3",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "9 18 15 12 9 6" })
-							})
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								fontSize: "1.1rem",
-								fontWeight: 800
-							},
-							children: "In 50 Meters"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								fontSize: "0.85rem",
-								color: "var(--text-secondary)"
-							},
-							children: "Turn right at Concession Hub B"
-						})] })]
-					})
-				})
-			]
-		})
-	});
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+							width: "32",
+							height: "32",
+							viewBox: "0 0 24 24",
+							fill: "none",
+							stroke: "currentColor",
+							strokeWidth: "4",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "9 18 15 12 9 6" })
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							fontSize: "1.3rem",
+							fontWeight: 900,
+							color: "white"
+						},
+						children: "IN 50 METERS"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							fontSize: "0.9rem",
+							color: "var(--text-secondary)"
+						},
+						children: "Follow the **Neon Trail** to Section 427"
+					})] })]
+				})]
+			})
+		]
+	})] });
 }
 //#endregion
 //#region src/pages/attendee/AttendeeFood.jsx
@@ -15009,25 +15438,55 @@ function AttendeeFood() {
 		setShowCheckout(false);
 		setOrderConfirmed(false);
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeShell, {
-		title: "Express Food",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "attendee-food page-enter",
-			children: [
-				activeOrders.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: { marginBottom: 24 },
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "label-accent",
-						style: { marginBottom: 12 },
-						children: "ACTIVE ORDERS"
-					}), activeOrders.map((order) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "card",
-						style: {
-							padding: 16,
-							marginBottom: 10,
-							borderLeft: "4px solid var(--status-warning)"
-						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "page-header",
+		style: {
+			position: "sticky",
+			top: 0,
+			zIndex: 10,
+			background: "var(--bg-deep)",
+			margin: "-20px -20px 20px -20px",
+			padding: "16px 20px",
+			borderBottom: "1px solid var(--border-subtle)"
+		},
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+			style: {
+				fontSize: "1.2rem",
+				fontWeight: 800
+			},
+			children: "Express Food"
+		})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "attendee-food page-enter",
+		children: [
+			activeOrders.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: { marginBottom: 24 },
+				className: "stagger-item",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "label-hud",
+					style: { marginBottom: 12 },
+					children: "ACTIVE_ORDERS // HUB_SYNC"
+				}), activeOrders.map((order) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-premium",
+					style: {
+						padding: 20,
+						marginBottom: 12,
+						borderLeft: "4px solid var(--status-warning)",
+						borderRadius: 16
+					},
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								position: "absolute",
+								top: 12,
+								right: 16,
+								fontSize: "0.6rem",
+								color: "var(--status-warning)"
+							},
+							className: "mono data-pulse",
+							children: "TRACKING..."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							style: {
 								display: "flex",
 								justifyContent: "space-between",
@@ -15044,350 +15503,377 @@ function AttendeeFood() {
 								style: { fontSize: "0.6rem" },
 								children: order.status
 							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							style: {
 								fontSize: "0.75rem",
 								color: "var(--text-secondary)"
 							},
 							children: [order.items.length, " items • Ready in ~12 mins"]
-						})]
-					}, order.id))]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						})
+					]
+				}, order.id))]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				style: {
+					display: "flex",
+					gap: 10,
+					overflowX: "auto",
+					paddingBottom: 16,
+					scrollbarWidth: "none"
+				},
+				children: categories.map((cat) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					onClick: () => setActiveCategory(cat),
+					style: {
+						flexShrink: 0,
+						padding: "8px 16px",
+						borderRadius: "var(--radius-full)",
+						border: "1px solid var(--border-color)",
+						background: activeCategory === cat ? "var(--accent)" : "var(--bg-elevated)",
+						color: activeCategory === cat ? "var(--text-inverse)" : "var(--text-primary)",
+						fontSize: "0.75rem",
+						fontWeight: 600,
+						transition: "all 0.2s"
+					},
+					children: cat
+				}, cat))
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				style: {
+					display: "flex",
+					flexDirection: "column",
+					gap: 16
+				},
+				children: filteredItems.map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "card-premium stagger-item",
 					style: {
 						display: "flex",
-						gap: 10,
-						overflowX: "auto",
-						paddingBottom: 16,
-						scrollbarWidth: "none"
+						padding: 12,
+						borderRadius: 20,
+						animationDelay: `${idx % 5 * .1}s`
 					},
-					children: categories.map((cat) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						onClick: () => setActiveCategory(cat),
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								width: 80,
+								height: 80,
+								borderRadius: 16,
+								background: "var(--bg-deep)",
+								border: "1px solid var(--border-subtle)",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								fontSize: "2rem"
+							},
+							children: item.category === "Beverages" ? "🥤" : item.category === "Fast Food" ? "🍔" : "🥗"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								flex: 1,
+								paddingLeft: 16,
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "center"
+							},
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontWeight: 800,
+										fontSize: "1rem",
+										color: "white",
+										marginBottom: 2
+									},
+									children: item.name
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "label-hud",
+									style: {
+										fontSize: "0.62rem",
+										marginBottom: 6
+									},
+									children: item.standName
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "mono",
+									style: {
+										fontWeight: 800,
+										color: "var(--accent)",
+										fontSize: "1.1rem"
+									},
+									children: formatCurrency(item.price)
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							onClick: () => addToCart(item),
+							className: "btn-premium",
+							style: {
+								alignSelf: "center",
+								width: 44,
+								height: 44,
+								padding: 0,
+								borderRadius: 12
+							},
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+								width: "24",
+								height: "24",
+								viewBox: "0 0 24 24",
+								fill: "none",
+								stroke: "currentColor",
+								strokeWidth: "3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+									x1: "12",
+									y1: "5",
+									x2: "12",
+									y2: "19"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+									x1: "5",
+									y1: "12",
+									x2: "19",
+									y2: "12"
+								})]
+							})
+						})
+					]
+				}, idx))
+			}),
+			cart.length > 0 && !showCheckout && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				onClick: () => setShowCheckout(true),
+				style: {
+					position: "fixed",
+					bottom: 90,
+					left: 16,
+					right: 16,
+					background: "var(--accent)",
+					color: "black",
+					padding: "16px 20px",
+					borderRadius: 16,
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center",
+					boxShadow: "0 8px 32px rgba(0,212,170,0.4)",
+					cursor: "pointer",
+					zIndex: 1e3
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						display: "flex",
+						alignItems: "center",
+						gap: 12
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						style: {
-							flexShrink: 0,
-							padding: "8px 16px",
-							borderRadius: "var(--radius-full)",
-							border: "1px solid var(--border-color)",
-							background: activeCategory === cat ? "var(--accent)" : "var(--bg-elevated)",
-							color: activeCategory === cat ? "var(--text-inverse)" : "var(--text-primary)",
-							fontSize: "0.75rem",
-							fontWeight: 600,
-							transition: "all 0.2s"
+							background: "rgba(0,0,0,0.1)",
+							padding: "4px 10px",
+							borderRadius: 8,
+							fontWeight: 800
 						},
-						children: cat
-					}, cat))
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						children: cart.length
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						style: { fontWeight: 700 },
+						children: "VIEW BASKET"
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 					style: {
-						display: "flex",
-						flexDirection: "column",
-						gap: 14
+						fontWeight: 800,
+						fontSize: "1.1rem"
 					},
-					children: filteredItems.map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "food-card",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "food-card-img",
-								style: {
-									background: "#1a2332",
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									fontSize: "1.5rem"
-								},
-								children: item.category === "Beverages" ? "🥤" : item.category === "Fast Food" ? "🍔" : "🥗"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "food-card-info",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "food-card-name",
-										children: item.name
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontSize: "0.7rem",
-											color: "var(--text-muted)",
-											marginBottom: 4
-										},
-										children: item.standName
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "food-card-price",
-										children: formatCurrency(item.price)
-									})
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								onClick: () => addToCart(item),
+					children: formatCurrency(cartTotal)
+				})]
+			}),
+			showCheckout && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "modal-overlay",
+				style: { zIndex: 11e3 },
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "modal-content",
+					style: {
+						width: "90%",
+						maxWidth: 360,
+						maxHeight: "80vh",
+						overflowY: "auto"
+					},
+					children: !orderConfirmed ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "modal-header",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { children: "Your Basket" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 								className: "btn-icon",
-								style: {
-									alignSelf: "center",
-									background: "var(--accent-dim)",
-									color: "var(--accent)",
-									border: "none"
-								},
+								onClick: () => setShowCheckout(false),
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
 									width: "20",
 									height: "20",
 									viewBox: "0 0 24 24",
 									fill: "none",
 									stroke: "currentColor",
-									strokeWidth: "2.5",
+									strokeWidth: "2",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-										x1: "12",
-										y1: "5",
-										x2: "12",
-										y2: "19"
+										x1: "18",
+										y1: "6",
+										x2: "6",
+										y2: "18"
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-										x1: "5",
-										y1: "12",
-										x2: "19",
-										y2: "12"
+										x1: "6",
+										y1: "6",
+										x2: "18",
+										y2: "18"
 									})]
 								})
-							})
-						]
-					}, idx))
-				}),
-				cart.length > 0 && !showCheckout && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					onClick: () => setShowCheckout(true),
-					style: {
-						position: "absolute",
-						bottom: 90,
-						left: 16,
-						right: 16,
-						background: "var(--accent)",
-						color: "black",
-						padding: "16px 20px",
-						borderRadius: 16,
-						display: "flex",
-						justifyContent: "space-between",
-						alignItems: "center",
-						boxShadow: "0 8px 32px rgba(0,212,170,0.4)",
-						cursor: "pointer",
-						animation: "slideUp 0.3s ease-out"
-					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						style: {
-							display: "flex",
-							alignItems: "center",
-							gap: 12
-						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							style: {
-								background: "rgba(0,0,0,0.1)",
-								padding: "4px 10px",
-								borderRadius: 8,
-								fontWeight: 800
+								display: "flex",
+								flexDirection: "column",
+								gap: 12,
+								marginBottom: 24
 							},
-							children: cart.length
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							style: { fontWeight: 700 },
-							children: "VIEW BASKET"
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						style: {
-							fontWeight: 800,
-							fontSize: "1.1rem"
-						},
-						children: formatCurrency(cartTotal)
-					})]
-				}),
-				showCheckout && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "modal-overlay",
-					style: { zIndex: 11e3 },
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "modal-content",
-						style: {
-							width: "90%",
-							maxWidth: 360,
-							maxHeight: "80vh",
-							overflowY: "auto"
-						},
-						children: !orderConfirmed ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "modal-header",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { children: "Your Basket" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									className: "btn-icon",
-									onClick: () => setShowCheckout(false),
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-										width: "20",
-										height: "20",
-										viewBox: "0 0 24 24",
-										fill: "none",
-										stroke: "currentColor",
-										strokeWidth: "2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-											x1: "18",
-											y1: "6",
-											x2: "6",
-											y2: "18"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-											x1: "6",
-											y1: "6",
-											x2: "18",
-											y2: "18"
-										})]
-									})
+							children: cart.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "flex",
+									justifyContent: "space-between",
+									alignItems: "center",
+									padding: "8px 0",
+									borderBottom: "1px solid var(--border-subtle)"
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontWeight: 600,
+										fontSize: "0.9rem"
+									},
+									children: item.name
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontSize: "0.7rem",
+										color: "var(--text-muted)"
+									},
+									children: item.standName
+								})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									style: {
+										display: "flex",
+										alignItems: "center",
+										gap: 12
+									},
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										style: { fontWeight: 700 },
+										children: formatCurrency(item.price)
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => removeFromCart(item.cartId),
+										style: { color: "var(--status-alert)" },
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+											width: "16",
+											height: "16",
+											viewBox: "0 0 24 24",
+											fill: "none",
+											stroke: "currentColor",
+											strokeWidth: "2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3 6h18" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" })]
+										})
+									})]
 								})]
+							}, item.cartId))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: {
+								padding: 16,
+								background: "var(--bg-deep)",
+								borderRadius: 12,
+								marginBottom: 24
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "flex",
+									justifyContent: "space-between",
+									marginBottom: 8
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: { color: "var(--text-secondary)" },
+									children: "Subtotal"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatCurrency(cartTotal) })]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								style: {
+									display: "flex",
+									justifyContent: "space-between",
+									fontWeight: 800,
+									fontSize: "1.2rem",
+									paddingTop: 8,
+									borderTop: "1px solid var(--border-color)"
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Total" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									style: { color: "var(--accent)" },
+									children: formatCurrency(cartTotal)
+								})]
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							className: "btn btn-primary w-full",
+							onClick: handleCheckout,
+							style: { padding: 16 },
+							children: "PLACE EXPRESS ORDER"
+						})
+					] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							textAlign: "center",
+							padding: "20px 0"
+						},
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									width: 80,
+									height: 80,
+									background: "var(--status-ok)",
+									borderRadius: "50%",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									margin: "0 auto 24px",
+									color: "black"
+								},
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+									width: "40",
+									height: "40",
+									viewBox: "0 0 24 24",
+									fill: "none",
+									stroke: "currentColor",
+									strokeWidth: "3",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "20 6 9 17 4 12" })
+								})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								style: { marginBottom: 8 },
+								children: "Order Confirmed!"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								style: {
+									color: "var(--text-secondary)",
+									marginBottom: 32
+								},
+								children: "Your order is being prepared. Scan the code below at the pickup counter."
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								style: {
-									display: "flex",
-									flexDirection: "column",
-									gap: 12,
-									marginBottom: 24
+									width: 200,
+									height: 200,
+									background: "white",
+									padding: 10,
+									margin: "0 auto 32px",
+									borderRadius: 12
 								},
-								children: cart.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "flex",
-										justifyContent: "space-between",
-										alignItems: "center",
-										padding: "8px 0",
-										borderBottom: "1px solid var(--border-subtle)"
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontWeight: 600,
-											fontSize: "0.9rem"
-										},
-										children: item.name
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontSize: "0.7rem",
-											color: "var(--text-muted)"
-										},
-										children: item.standName
-									})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										style: {
-											display: "flex",
-											alignItems: "center",
-											gap: 12
-										},
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											style: { fontWeight: 700 },
-											children: formatCurrency(item.price)
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-											onClick: () => removeFromCart(item.cartId),
-											style: { color: "var(--status-alert)" },
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-												width: "16",
-												height: "16",
-												viewBox: "0 0 24 24",
-												fill: "none",
-												stroke: "currentColor",
-												strokeWidth: "2",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M3 6h18" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" })]
-											})
-										})]
-									})]
-								}, item.cartId))
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									padding: 16,
-									background: "var(--bg-deep)",
-									borderRadius: 12,
-									marginBottom: 24
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "flex",
-										justifyContent: "space-between",
-										marginBottom: 8
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: { color: "var(--text-secondary)" },
-										children: "Subtotal"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatCurrency(cartTotal) })]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									style: {
-										display: "flex",
-										justifyContent: "space-between",
-										fontWeight: 800,
-										fontSize: "1.2rem",
-										paddingTop: 8,
-										borderTop: "1px solid var(--border-color)"
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Total" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: { color: "var(--accent)" },
-										children: formatCurrency(cartTotal)
-									})]
-								})]
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+									width: "100%",
+									height: "100%",
+									background: "url(https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=FLOWSTATE-ORDER) center/cover"
+								} })
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 								className: "btn btn-primary w-full",
-								onClick: handleCheckout,
-								style: { padding: 16 },
-								children: "PLACE EXPRESS ORDER"
+								onClick: handleDone,
+								children: "DONE"
 							})
-						] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								textAlign: "center",
-								padding: "20px 0"
-							},
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										width: 80,
-										height: 80,
-										background: "var(--status-ok)",
-										borderRadius: "50%",
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "center",
-										margin: "0 auto 24px",
-										color: "black"
-									},
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-										width: "40",
-										height: "40",
-										viewBox: "0 0 24 24",
-										fill: "none",
-										stroke: "currentColor",
-										strokeWidth: "3",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "20 6 9 17 4 12" })
-									})
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-									style: { marginBottom: 8 },
-									children: "Order Confirmed!"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									style: {
-										color: "var(--text-secondary)",
-										marginBottom: 32
-									},
-									children: "Your order is being prepared. Scan the code below at the pickup counter."
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										width: 200,
-										height: 200,
-										background: "white",
-										padding: 10,
-										margin: "0 auto 32px",
-										borderRadius: 12
-									},
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-										width: "100%",
-										height: "100%",
-										background: "url(https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=FLOWSTATE-ORDER) center/cover"
-									} })
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									className: "btn btn-primary w-full",
-									onClick: handleDone,
-									children: "DONE"
-								})
-							]
-						})
+						]
 					})
 				})
-			]
-		})
-	});
+			})
+		]
+	})] });
 }
 //#endregion
 //#region src/pages/attendee/AttendeeProfile.jsx
@@ -15445,428 +15931,458 @@ function AttendeeProfile() {
 			setTimeout(() => setSaved(false), 3e3);
 		}, 1200);
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeShell, {
-		title: "My Journey Prefs",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "attendee-profile page-enter",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					style: {
-						fontSize: "1.4rem",
-						lineHeight: 1.3,
-						marginBottom: 8
-					},
-					children: "How can we help you move better?"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					style: {
-						color: "var(--text-secondary)",
-						marginBottom: 24,
-						fontSize: "0.85rem"
-					},
-					children: "Tailor your navigation experience for the best stadium journey."
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "label-accent",
-					style: { marginBottom: 12 },
-					children: "Mobility Profile"
-				}),
-				mobilityOptions.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					onClick: () => setSelectedMobility(i),
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "page-header",
+		style: {
+			position: "sticky",
+			top: 0,
+			zIndex: 10,
+			background: "var(--bg-deep)",
+			margin: "-20px -20px 20px -20px",
+			padding: "16px 20px",
+			borderBottom: "1px solid var(--border-subtle)"
+		},
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+			style: {
+				fontSize: "1.2rem",
+				fontWeight: 800
+			},
+			children: "My Journey Prefs"
+		})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "attendee-profile page-enter",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				style: {
+					fontSize: "1.4rem",
+					lineHeight: 1.3,
+					marginBottom: 8
+				},
+				children: "How can we help you move better?"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				style: {
+					color: "var(--text-secondary)",
+					marginBottom: 24,
+					fontSize: "0.85rem"
+				},
+				children: "Tailor your navigation experience for the best stadium journey."
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "label-accent",
+				style: { marginBottom: 12 },
+				children: "Mobility Profile"
+			}),
+			mobilityOptions.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				onClick: () => setSelectedMobility(i),
+				className: "card",
+				style: {
+					padding: "14px 18px",
+					marginBottom: 8,
+					display: "flex",
+					alignItems: "center",
+					gap: 14,
+					cursor: "pointer",
+					background: i === selectedMobility ? "var(--accent-dim)" : "var(--bg-card)",
+					borderColor: i === selectedMobility ? "var(--accent)" : "var(--border-color)"
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							width: 36,
+							height: 36,
+							borderRadius: "var(--radius-sm)",
+							background: i === selectedMobility ? "var(--accent-dim)" : "var(--bg-deep)",
+							border: `1px solid ${i === selectedMobility ? "var(--accent)" : "var(--border-color)"}`,
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							fontSize: "1.1rem"
+						},
+						children: opt.icon
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						style: {
+							flex: 1,
+							fontWeight: 500,
+							fontSize: "0.9rem"
+						},
+						children: opt.label
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							width: 22,
+							height: 22,
+							borderRadius: "50%",
+							border: `2px solid ${i === selectedMobility ? "var(--accent)" : "var(--border-color)"}`,
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center"
+						},
+						children: i === selectedMobility && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+							width: 12,
+							height: 12,
+							borderRadius: "50%",
+							background: "var(--accent)"
+						} })
+					})
+				]
+			}, i)),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "label-accent",
+				style: {
+					marginTop: 24,
+					marginBottom: 12
+				},
+				children: "Route Logic"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				style: {
+					display: "grid",
+					gridTemplateColumns: "1fr 1fr",
+					gap: 8
+				},
+				children: routeOptions.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					onClick: () => setSelectedRoute(i),
 					className: "card",
 					style: {
-						padding: "14px 18px",
-						marginBottom: 8,
-						display: "flex",
-						alignItems: "center",
-						gap: 14,
-						cursor: "pointer",
-						background: i === selectedMobility ? "var(--accent-dim)" : "var(--bg-card)",
-						borderColor: i === selectedMobility ? "var(--accent)" : "var(--border-color)"
-					},
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								width: 36,
-								height: 36,
-								borderRadius: "var(--radius-sm)",
-								background: i === selectedMobility ? "var(--accent-dim)" : "var(--bg-deep)",
-								border: `1px solid ${i === selectedMobility ? "var(--accent)" : "var(--border-color)"}`,
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-								fontSize: "1.1rem"
-							},
-							children: opt.icon
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							style: {
-								flex: 1,
-								fontWeight: 500,
-								fontSize: "0.9rem"
-							},
-							children: opt.label
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								width: 22,
-								height: 22,
-								borderRadius: "50%",
-								border: `2px solid ${i === selectedMobility ? "var(--accent)" : "var(--border-color)"}`,
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center"
-							},
-							children: i === selectedMobility && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-								width: 12,
-								height: 12,
-								borderRadius: "50%",
-								background: "var(--accent)"
-							} })
-						})
-					]
-				}, i)),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "label-accent",
-					style: {
-						marginTop: 24,
-						marginBottom: 12
-					},
-					children: "Route Logic"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					style: {
-						display: "grid",
-						gridTemplateColumns: "1fr 1fr",
-						gap: 8
-					},
-					children: routeOptions.map((opt, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						onClick: () => setSelectedRoute(i),
-						className: "card",
-						style: {
-							padding: "16px",
-							textAlign: "center",
-							cursor: "pointer",
-							background: i === selectedRoute ? "var(--accent-dim)" : "var(--bg-card)",
-							borderColor: i === selectedRoute ? "var(--accent)" : "var(--border-color)"
-						},
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								fontSize: "1.5rem",
-								marginBottom: 8
-							},
-							children: opt.icon
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								fontSize: "0.82rem",
-								fontWeight: 500,
-								color: i === selectedRoute ? "var(--accent)" : "var(--text-primary)"
-							},
-							children: opt.label
-						})]
-					}, i))
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: `btn w-full ${saved ? "btn-secondary" : "btn-primary"}`,
-					style: {
-						marginTop: 24,
 						padding: "16px",
-						fontSize: "0.92rem",
-						justifyContent: "center",
-						background: saved ? "var(--status-ok)" : "",
-						color: saved ? "#000" : "",
-						border: saved ? "none" : ""
+						textAlign: "center",
+						cursor: "pointer",
+						background: i === selectedRoute ? "var(--accent-dim)" : "var(--bg-card)",
+						borderColor: i === selectedRoute ? "var(--accent)" : "var(--border-color)"
 					},
-					onClick: handleSave,
-					disabled: isSaving,
-					children: isSaving ? "SYNCING PREFERENCES..." : saved ? "✓ SAVED SUCCESSFULLY" : "Save Preferences"
-				})
-			]
-		})
-	});
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							fontSize: "1.5rem",
+							marginBottom: 8
+						},
+						children: opt.icon
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: {
+							fontSize: "0.82rem",
+							fontWeight: 500,
+							color: i === selectedRoute ? "var(--accent)" : "var(--text-primary)"
+						},
+						children: opt.label
+					})]
+				}, i))
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+				className: `btn w-full ${saved ? "btn-secondary" : "btn-primary"}`,
+				style: {
+					marginTop: 24,
+					padding: "16px",
+					fontSize: "0.92rem",
+					justifyContent: "center",
+					background: saved ? "var(--status-ok)" : "",
+					color: saved ? "#000" : "",
+					border: saved ? "none" : ""
+				},
+				onClick: handleSave,
+				disabled: isSaving,
+				children: isSaving ? "SYNCING PREFERENCES..." : saved ? "✓ SAVED SUCCESSFULLY" : "Save Preferences"
+			})
+		]
+	})] });
 }
 //#endregion
 //#region src/pages/attendee/AttendeeRecap.jsx
 function AttendeeRecap() {
 	const d = attendeeRecap;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeShell, {
-		title: "Journey Recap",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "attendee-recap page-enter",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: {
-						textAlign: "center",
-						padding: "24px 0"
-					},
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: { marginBottom: 8 },
-							children: "Total Distance"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								position: "relative",
-								display: "inline-block"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-								width: "120",
-								height: "120",
-								viewBox: "0 0 120 120",
-								style: { transform: "rotate(-90deg)" },
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "60",
-									cy: "60",
-									r: "52",
-									fill: "none",
-									stroke: "var(--border-color)",
-									strokeWidth: "4",
-									strokeDasharray: "4 6"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "60",
-									cy: "60",
-									r: "52",
-									fill: "none",
-									stroke: "var(--accent)",
-									strokeWidth: "4",
-									strokeDasharray: "245 82",
-									strokeLinecap: "round"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									position: "absolute",
-									top: "50%",
-									left: "50%",
-									transform: "translate(-50%, -50%)",
-									textAlign: "center"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "mono",
-									style: {
-										fontSize: "2rem",
-										fontWeight: 800,
-										color: "var(--accent)"
-									},
-									children: d.totalDistance
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontSize: "0.7rem",
-										color: "var(--text-secondary)"
-									},
-									children: "miles"
-								})]
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "page-header",
+		style: {
+			position: "sticky",
+			top: 0,
+			zIndex: 10,
+			background: "var(--bg-deep)",
+			margin: "-20px -20px 20px -20px",
+			padding: "16px 20px",
+			borderBottom: "1px solid var(--border-subtle)"
+		},
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+			style: {
+				fontSize: "1.2rem",
+				fontWeight: 800
+			},
+			children: "Journey Recap"
+		})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "attendee-recap page-enter",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					textAlign: "center",
+					padding: "24px 0"
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
+						style: { marginBottom: 8 },
+						children: "Total Distance"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						style: {
+							position: "relative",
+							display: "inline-block"
+						},
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+							width: "120",
+							height: "120",
+							viewBox: "0 0 120 120",
+							style: { transform: "rotate(-90deg)" },
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+								cx: "60",
+								cy: "60",
+								r: "52",
+								fill: "none",
+								stroke: "var(--border-color)",
+								strokeWidth: "4",
+								strokeDasharray: "4 6"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+								cx: "60",
+								cy: "60",
+								r: "52",
+								fill: "none",
+								stroke: "var(--accent)",
+								strokeWidth: "4",
+								strokeDasharray: "245 82",
+								strokeLinecap: "round"
 							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: { marginTop: 12 },
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "badge badge-accent",
-								style: { padding: "6px 16px" },
-								children: ["↗ ", d.distancePercentile]
-							})
-						})
-					]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: {
-						display: "grid",
-						gridTemplateColumns: "1fr 1fr",
-						gap: 12,
-						marginBottom: 24,
-						padding: "16px 0",
-						borderTop: "1px solid var(--border-color)",
-						borderBottom: "1px solid var(--border-color)"
-					},
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: {
-								marginBottom: 4,
-								fontSize: "0.65rem"
-							},
-							children: "Time in Seat"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "mono",
-							style: {
-								fontSize: "1.2rem",
-								fontWeight: 700
-							},
-							children: d.timeInSeat
-						})] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: {
-								marginBottom: 4,
-								fontSize: "0.65rem"
-							},
-							children: "Time Saved"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "mono",
-							style: {
-								fontSize: "1.2rem",
-								fontWeight: 700,
-								color: "var(--accent)"
-							},
-							children: d.timeSaved
-						})] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: {
-								marginBottom: 4,
-								fontSize: "0.65rem"
-							},
-							children: "Steps Taken"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "mono",
-							style: {
-								fontSize: "1.2rem",
-								fontWeight: 700
-							},
-							children: d.stepsTaken.toLocaleString()
-						})] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-caps",
-							style: {
-								marginBottom: 4,
-								fontSize: "0.65rem"
-							},
-							children: "Crowd Areas"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "mono",
 							style: {
-								fontSize: "1.2rem",
-								fontWeight: 700,
-								color: "var(--accent)"
+								position: "absolute",
+								top: "50%",
+								left: "50%",
+								transform: "translate(-50%, -50%)",
+								textAlign: "center"
 							},
-							children: [
-								String(d.crowdZonesAvoided).padStart(2, "0"),
-								" ",
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									style: {
-										fontSize: "0.65rem",
-										color: "var(--text-muted)"
-									},
-									children: "avoided"
-								})
-							]
-						})] })
-					]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "card",
-					style: {
-						padding: 16,
-						marginBottom: 24,
-						display: "flex",
-						justifyContent: "space-between",
-						alignItems: "center"
-					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "mono",
+								style: {
+									fontSize: "2rem",
+									fontWeight: 800,
+									color: "var(--accent)"
+								},
+								children: d.totalDistance
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								style: {
+									fontSize: "0.7rem",
+									color: "var(--text-secondary)"
+								},
+								children: "miles"
+							})]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						style: { marginTop: 12 },
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "badge badge-accent",
+							style: { padding: "6px 16px" },
+							children: ["↗ ", d.distancePercentile]
+						})
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "grid",
+					gridTemplateColumns: "1fr 1fr",
+					gap: 12,
+					marginBottom: 24,
+					padding: "16px 0",
+					borderTop: "1px solid var(--border-color)",
+					borderBottom: "1px solid var(--border-color)"
+				},
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
 						style: {
-							fontWeight: 600,
-							marginBottom: 2,
-							fontSize: "0.9rem"
+							marginBottom: 4,
+							fontSize: "0.65rem"
 						},
-						children: "Route Visualized"
+						children: "Time in Seat"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mono",
 						style: {
-							fontSize: "0.7rem",
-							color: "var(--text-muted)"
+							fontSize: "1.2rem",
+							fontWeight: 700
 						},
-						children: "2.3 MILES THROUGH STADIUM"
-					})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: "btn btn-secondary",
+						children: d.timeInSeat
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
 						style: {
-							fontSize: "0.65rem",
-							padding: "6px 12px"
+							marginBottom: 4,
+							fontSize: "0.65rem"
 						},
-						children: "▶ Replay"
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: { marginBottom: 24 },
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-						className: "label-accent",
-						style: { marginBottom: 16 },
-						children: "JOURNEY LOG"
-					}), d.journeyLog.map((entry, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						children: "Time Saved"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mono",
 						style: {
-							display: "flex",
-							gap: 14,
-							marginBottom: 16,
-							position: "relative"
+							fontSize: "1.2rem",
+							fontWeight: 700,
+							color: "var(--accent)"
+						},
+						children: d.timeSaved
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
+						style: {
+							marginBottom: 4,
+							fontSize: "0.65rem"
+						},
+						children: "Steps Taken"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mono",
+						style: {
+							fontSize: "1.2rem",
+							fontWeight: 700
+						},
+						children: d.stepsTaken.toLocaleString()
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "label-caps",
+						style: {
+							marginBottom: 4,
+							fontSize: "0.65rem"
+						},
+						children: "Crowd Areas"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mono",
+						style: {
+							fontSize: "1.2rem",
+							fontWeight: 700,
+							color: "var(--accent)"
 						},
 						children: [
-							i < d.journeyLog.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-								position: "absolute",
-								left: 15,
-								top: 28,
-								bottom: -12,
-								width: 1,
-								background: "var(--border-color)"
-							} }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							String(d.crowdZonesAvoided).padStart(2, "0"),
+							" ",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								style: {
-									width: 32,
-									height: 32,
-									borderRadius: "50%",
-									background: entry.time ? "var(--accent-dim)" : "var(--bg-elevated)",
-									border: `1px solid ${entry.time ? "var(--accent-border)" : "var(--border-color)"}`,
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									fontSize: "0.85rem",
-									flexShrink: 0,
-									zIndex: 2
+									fontSize: "0.65rem",
+									color: "var(--text-muted)"
 								},
-								children: entry.icon
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: { flex: 1 },
-								children: [
-									entry.time && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "mono",
-										style: {
-											fontSize: "0.7rem",
-											color: "var(--accent)",
-											marginBottom: 2
-										},
-										children: entry.time
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontWeight: 700,
-											fontSize: "0.9rem",
-											marginBottom: 2
-										},
-										children: entry.title
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										style: {
-											fontSize: "0.8rem",
-											color: "var(--text-secondary)"
-										},
-										children: entry.subtitle
-									})
-								]
+								children: "avoided"
 							})
 						]
-					}, i))]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: "btn btn-primary w-full",
+					})] })
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "card",
+				style: {
+					padding: 16,
+					marginBottom: 24,
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center"
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					style: {
-						padding: "14px",
-						fontSize: "0.88rem",
-						justifyContent: "center",
-						marginBottom: 20
+						fontWeight: 600,
+						marginBottom: 2,
+						fontSize: "0.9rem"
 					},
-					children: "⊕ Export to Story"
-				})
-			]
-		})
-	});
+					children: "Route Visualized"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					style: {
+						fontSize: "0.7rem",
+						color: "var(--text-muted)"
+					},
+					children: "2.3 MILES THROUGH STADIUM"
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					className: "btn btn-secondary",
+					style: {
+						fontSize: "0.65rem",
+						padding: "6px 12px"
+					},
+					children: "▶ Replay"
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: { marginBottom: 24 },
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+					className: "label-accent",
+					style: { marginBottom: 16 },
+					children: "JOURNEY LOG"
+				}), d.journeyLog.map((entry, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					style: {
+						display: "flex",
+						gap: 14,
+						marginBottom: 16,
+						position: "relative"
+					},
+					children: [
+						i < d.journeyLog.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+							position: "absolute",
+							left: 15,
+							top: 28,
+							bottom: -12,
+							width: 1,
+							background: "var(--border-color)"
+						} }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							style: {
+								width: 32,
+								height: 32,
+								borderRadius: "50%",
+								background: entry.time ? "var(--accent-dim)" : "var(--bg-elevated)",
+								border: `1px solid ${entry.time ? "var(--accent-border)" : "var(--border-color)"}`,
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								fontSize: "0.85rem",
+								flexShrink: 0,
+								zIndex: 2
+							},
+							children: entry.icon
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							style: { flex: 1 },
+							children: [
+								entry.time && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "mono",
+									style: {
+										fontSize: "0.7rem",
+										color: "var(--accent)",
+										marginBottom: 2
+									},
+									children: entry.time
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontWeight: 700,
+										fontSize: "0.9rem",
+										marginBottom: 2
+									},
+									children: entry.title
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									style: {
+										fontSize: "0.8rem",
+										color: "var(--text-secondary)"
+									},
+									children: entry.subtitle
+								})
+							]
+						})
+					]
+				}, i))]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+				className: "btn btn-primary w-full",
+				style: {
+					padding: "14px",
+					fontSize: "0.88rem",
+					justifyContent: "center",
+					marginBottom: 20
+				},
+				children: "⊕ Export to Story"
+			})
+		]
+	})] });
 }
 //#endregion
 //#region src/pages/attendee/AttendeeFriends.jsx
@@ -15922,9 +16438,27 @@ function AttendeeFriends() {
 		setPingMessage(msg);
 		setTimeout(() => setPingMessage(""), 3e3);
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AttendeeShell, {
-		title: "Social Hub",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "page-header",
+			style: {
+				position: "sticky",
+				top: 0,
+				zIndex: 10,
+				background: "var(--bg-deep)",
+				margin: "-20px -20px 20px -20px",
+				padding: "16px 20px",
+				borderBottom: "1px solid var(--border-subtle)"
+			},
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				style: {
+					fontSize: "1.2rem",
+					fontWeight: 800
+				},
+				children: "Social Hub"
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "attendee-friends page-enter",
 			children: [
 				pingMessage && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -16318,7 +16852,8 @@ function AttendeeFriends() {
 					]
 				})
 			]
-		}), showInviteModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		}),
+		showInviteModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "modal-overlay",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "modal-content",
@@ -16378,401 +16913,8 @@ function AttendeeFriends() {
 					})
 				]
 			})
-		})]
-	});
-}
-//#endregion
-//#region src/pages/auth/ProfileHub.jsx
-function ProfileHub() {
-	const location = useLocation();
-	const [activeTab, setActiveTab] = (0, import_react.useState)(location.state?.activeTab || "Identity");
-	(0, import_react.useEffect)(() => {
-		if (location.state?.activeTab) setActiveTab(location.state.activeTab);
-	}, [location.state]);
-	const showToast = (msg, type = "success") => {
-		const toast = document.createElement("div");
-		toast.className = `toast toast-${type}`;
-		toast.style.zIndex = "10000";
-		const icon = document.createElement("div");
-		icon.className = "toast-icon";
-		icon.innerHTML = type === "success" ? "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\"><path d=\"M20 6L9 17l-5-5\"/></svg>" : "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"/><polyline points=\"11 12 12 12 12 16 13 16\"/></svg>";
-		const text = document.createElement("div");
-		text.innerText = msg;
-		text.style.fontWeight = "500";
-		text.style.fontSize = "0.9rem";
-		toast.appendChild(icon);
-		toast.appendChild(text);
-		document.body.appendChild(toast);
-		setTimeout(() => {
-			toast.style.opacity = "0";
-			toast.style.transition = "opacity 0.3s ease";
-			setTimeout(() => toast.remove(), 300);
-		}, 3e3);
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AppShell, {
-		headerExtra: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			style: {
-				display: "flex",
-				gap: 12
-			},
-			children: [
-				"Identity",
-				"Security",
-				"Activity Log"
-			].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: activeTab === t ? "label-accent" : "label-caps",
-				style: { cursor: "pointer" },
-				onClick: () => setActiveTab(t),
-				children: t
-			}, t))
-		}),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "page-header",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "page-header-top",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "page-pretitle",
-					children: "USER_MANAGEMENT // CLEARANCE_LEVEL_4"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "User Profile & Security Hub" })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: "btn btn-secondary",
-					onClick: () => showToast("Syncing profile with central node...", "info"),
-					children: "Sync Identity"
-				})]
-			})
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			style: {
-				display: "grid",
-				gridTemplateColumns: "minmax(250px, 0.8fr) 2fr",
-				gap: 24
-			},
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				style: {
-					display: "flex",
-					flexDirection: "column",
-					gap: 24
-				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
-					style: {
-						textAlign: "center",
-						padding: "32px 20px"
-					},
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "sidebar-avatar",
-							style: {
-								width: 80,
-								height: 80,
-								fontSize: "2rem",
-								margin: "0 auto 16px",
-								background: "var(--accent-dim)",
-								color: "var(--accent)",
-								border: "2px solid var(--accent-border)"
-							},
-							children: "R"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-							style: { marginBottom: 4 },
-							children: "Rahul"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "label-accent",
-							style: { marginBottom: 16 },
-							children: "Venue Administrator"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								padding: "12px",
-								background: "var(--bg-deep)",
-								borderRadius: "var(--radius-sm)",
-								border: "1px solid var(--border-color)",
-								textAlign: "left"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "label-caps",
-								style: {
-									fontSize: "0.65rem",
-									marginBottom: 4
-								},
-								children: "Last Login"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "mono",
-								style: { fontSize: "0.78rem" },
-								children: "2026-04-13 14:30:11"
-							})]
-						})
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					style: {
-						display: "flex",
-						flexDirection: "column",
-						gap: 8
-					},
-					children: [
-						"Identity",
-						"Security",
-						"Activity Log"
-					].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: `btn ${activeTab === t ? "btn-primary" : "btn-ghost"}`,
-						style: {
-							justifyContent: "flex-start",
-							textAlign: "left"
-						},
-						onClick: () => setActiveTab(t),
-						children: t
-					}, t))
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-				activeTab === "Identity" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
-					header: "Identity Management",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "grid-2",
-						style: { gap: 24 },
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "form-group",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									className: "label-caps",
-									children: "Display Name"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									defaultValue: "Rahul",
-									style: { width: "100%" }
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "form-group",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									className: "label-caps",
-									children: "Primary Email"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									defaultValue: "rahul@flowstate.ai",
-									style: { width: "100%" },
-									readOnly: true
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "form-group",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									className: "label-caps",
-									children: "Assigned Role"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									defaultValue: "Venue Administrator",
-									style: { width: "100%" },
-									readOnly: true
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "form-group",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									className: "label-caps",
-									children: "Organization"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									defaultValue: "Nexus Sports Entertainment",
-									style: { width: "100%" }
-								})]
-							})
-						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						style: {
-							marginTop: 24,
-							display: "flex",
-							gap: 12
-						},
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							className: "btn btn-primary",
-							onClick: () => showToast("Identity attributes updated successfully"),
-							children: "Update Profile"
-						})
-					})]
-				}),
-				activeTab === "Security" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					style: {
-						display: "flex",
-						flexDirection: "column",
-						gap: 24
-					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
-						header: "System Access & Authentication",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								flexDirection: "column",
-								gap: 20
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									justifyContent: "space-between",
-									alignItems: "center",
-									padding: "16px",
-									background: "var(--bg-deep)",
-									borderRadius: "var(--radius-md)"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: { fontWeight: 600 },
-									children: "Password Authentication"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontSize: "0.82rem",
-										color: "var(--text-muted)"
-									},
-									children: "Last changed 42 days ago. Strong entropy detected."
-								})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									className: "btn btn-secondary",
-									onClick: () => showToast("Sending password reset protocol to email...", "info"),
-									children: "Change Password"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								style: {
-									display: "flex",
-									justifyContent: "space-between",
-									alignItems: "center",
-									padding: "16px",
-									background: "var(--bg-deep)",
-									borderRadius: "var(--radius-md)"
-								},
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: { fontWeight: 600 },
-									children: "Multi-Factor Authentication (MFA)"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									style: {
-										fontSize: "0.82rem",
-										color: "var(--status-ok)"
-									},
-									children: "Hardware Security Key Enabled (Yubikey)"
-								})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									className: "btn btn-secondary",
-									onClick: () => showToast("Opening MFA management vault...", "info"),
-									children: "Configure"
-								})]
-							})]
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(GlassPanel, {
-						header: "Active Operative Sessions",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							style: {
-								display: "flex",
-								justifyContent: "space-between",
-								alignItems: "center",
-								padding: "12px 0",
-								borderBottom: "1px solid var(--border-subtle)"
-							},
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									fontSize: "0.9rem",
-									fontWeight: 600
-								},
-								children: "Windows Desktop // Chrome"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								style: {
-									fontSize: "0.75rem",
-									color: "var(--text-muted)"
-								},
-								children: "Current Session • Delhi, India"
-							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "badge badge-success",
-								children: "ACTIVE"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							style: {
-								padding: "12px 0",
-								textAlign: "center"
-							},
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								className: "btn btn-ghost",
-								style: { color: "var(--status-alert)" },
-								onClick: () => showToast("Terminating all other system instances...", "info"),
-								children: "Terminate All Other Sessions"
-							})
-						})]
-					})]
-				}),
-				activeTab === "Activity Log" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlassPanel, {
-					header: "Operative Activity Log",
-					headerActions: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						className: "btn btn-secondary",
-						style: { fontSize: "0.72rem" },
-						onClick: () => showToast("Exporting session history as encrypted CSV...", "success"),
-						children: "Export Log"
-					}),
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-						className: "data-table",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Timestamp" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Action" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Access Point" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "IP Address" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: "Result" })
-						] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: [
-							{
-								id: 1,
-								action: "System Login",
-								time: "2026-04-13 09:12:44",
-								node: "NODE-ALPHA-04",
-								ip: "192.168.1.42",
-								status: "Success"
-							},
-							{
-								id: 2,
-								action: "Security Protocol Override",
-								time: "2026-04-13 10:45:21",
-								node: "SEC-CONTROL-01",
-								ip: "192.168.1.42",
-								status: "Authorized"
-							},
-							{
-								id: 3,
-								action: "Sensor Calibration Update",
-								time: "2026-04-13 11:22:05",
-								node: "SNS-NET-B",
-								ip: "192.168.1.42",
-								status: "Complete"
-							},
-							{
-								id: 4,
-								action: "Access Management Update",
-								time: "2026-04-13 11:58:30",
-								node: "SYS-AUTH",
-								ip: "192.168.1.42",
-								status: "Success"
-							},
-							{
-								id: 5,
-								action: "Intelligence Report Export",
-								time: "2026-04-13 14:05:12",
-								node: "ANLYT-HUB",
-								ip: "192.168.1.42",
-								status: "Encrypted"
-							}
-						].map((log) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-								className: "mono",
-								style: { fontSize: "0.75rem" },
-								children: log.time
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-								style: { fontWeight: 600 },
-								children: log.action
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-								className: "label-caps",
-								style: { fontSize: "0.65rem" },
-								children: log.node
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
-								className: "mono",
-								style: { fontSize: "0.75rem" },
-								children: log.ip
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: `badge ${log.status === "Success" || log.status === "Authorized" || log.status === "Encrypted" ? "badge-success" : "badge-alert"}`,
-								children: log.status
-							}) })
-						] }, log.id)) })]
-					})
-				})
-			] })]
-		})]
-	});
+		})
+	] });
 }
 //#endregion
 //#region src/App.jsx
@@ -16805,146 +16947,120 @@ function App() {
 			})
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/profile",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"fan",
-					"venue-admin",
-					"super-admin",
-					"operations",
-					"security",
-					"observer"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProfileHub, {})
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SharedProfileLayout, {}),
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+				path: "/profile",
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
+					allowedRoles: [
+						"fan",
+						"venue-admin",
+						"super-admin",
+						"operations",
+						"security",
+						"observer"
+					],
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProfileHub, {})
+				})
 			})
 		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/super-admin",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: ["super-admin", "observer"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SuperAdminDashboard, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/super-admin/venues",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: ["super-admin"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VenueManagement, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/super-admin/venues/new",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: ["super-admin"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AddVenueWizard, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/super-admin/analytics",
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
 				allowedRoles: ["super-admin", "observer"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlobalAnalytics, {})
-			})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AdminLayout, { role: "super-admin" })
+			}),
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/super-admin",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SuperAdminDashboard, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/super-admin/venues",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VenueManagement, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/super-admin/venues/new",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AddVenueWizard, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/super-admin/analytics",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(GlobalAnalytics, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/super-admin/settings",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SystemConfiguration, {})
+				})
+			]
 		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/super-admin/settings",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: ["super-admin"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SystemConfiguration, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/venue-admin",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: ["venue-admin", "super-admin"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VenueCommandCenter, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/venue-admin/events",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: ["venue-admin", "super-admin"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EventManagement, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/venue-admin/staff",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: ["venue-admin", "super-admin"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StaffManagement, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/venue-admin/sensors",
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
 				allowedRoles: ["venue-admin", "super-admin"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SensorManagement, {})
-			})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AdminLayout, { role: "venue-admin" })
+			}),
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/venue-admin",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VenueCommandCenter, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/venue-admin/events",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EventManagement, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/venue-admin/staff",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StaffManagement, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/venue-admin/sensors",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SensorManagement, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/venue-admin/settings",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VenueSettings, {})
+				})
+			]
 		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/venue-admin/settings",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: ["venue-admin", "super-admin"],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VenueSettings, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/operations",
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
 				allowedRoles: [
 					"operations",
 					"venue-admin",
 					"super-admin"
 				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(OperationsCommand, {})
-			})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AdminLayout, { role: "operations" })
+			}),
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+				path: "/operations",
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(OperationsCommand, {})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+				path: "/operations/sandbox",
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WhatIfSandbox, {})
+			})]
 		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/operations/sandbox",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"operations",
-					"venue-admin",
-					"super-admin"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WhatIfSandbox, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/security",
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
 				allowedRoles: [
 					"security",
 					"venue-admin",
 					"super-admin"
 				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyOverview, {})
-			})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AdminLayout, { role: "security" })
+			}),
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/security",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SafetyOverview, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/security/evacuation",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EvacuationControl, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/security/incidents",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(IncidentManagement, {})
+				})
+			]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/security/evacuation",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"security",
-					"venue-admin",
-					"super-admin"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EvacuationControl, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/security/incidents",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"security",
-					"venue-admin",
-					"super-admin"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(IncidentManagement, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/logistics/transit",
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
 				allowedRoles: [
 					"logistics",
@@ -16952,96 +17068,65 @@ function App() {
 					"venue-admin",
 					"super-admin"
 				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TransitHub, {})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AdminLayout, { role: "operations" })
+			}),
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+				path: "/logistics/transit",
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TransitHub, {})
 			})
 		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/analytics/report",
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
 				allowedRoles: [
 					"observer",
 					"super-admin",
 					"venue-admin"
 				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PostEventReport, {})
-			})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AdminLayout, { role: "super-admin" })
+			}),
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+				path: "/analytics/report",
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PostEventReport, {})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+				path: "/analytics/replay",
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EventReplay, {})
+			})]
 		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/analytics/replay",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"observer",
-					"super-admin",
-					"venue-admin"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EventReplay, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/attendee",
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
 				allowedRoles: [
 					"fan",
 					"venue-admin",
 					"super-admin"
 				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeHome, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/attendee/navigate",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"fan",
-					"venue-admin",
-					"super-admin"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeNavigate, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/attendee/food",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"fan",
-					"venue-admin",
-					"super-admin"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeFood, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/attendee/profile",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"fan",
-					"venue-admin",
-					"super-admin"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeProfile, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/attendee/recap",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"fan",
-					"venue-admin",
-					"super-admin"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeRecap, {})
-			})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/attendee/friends",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectedRoute, {
-				allowedRoles: [
-					"fan",
-					"venue-admin",
-					"super-admin"
-				],
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeFriends, {})
-			})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeLayout, {})
+			}),
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/attendee",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeHome, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/attendee/navigate",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeNavigate, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/attendee/food",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeFood, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/attendee/profile",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeProfile, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/attendee/recap",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeRecap, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/attendee/friends",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AttendeeFriends, {})
+				})
+			]
 		})
 	] }) });
 }

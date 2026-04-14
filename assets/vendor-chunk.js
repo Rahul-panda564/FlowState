@@ -10524,7 +10524,11 @@ function useNavigateUnstable() {
 		dataRouterContext
 	]);
 }
-import_react.createContext(null);
+var OutletContext = import_react.createContext(null);
+function useOutlet(context) {
+	let outlet = import_react.useContext(RouteContext).outlet;
+	return import_react.useMemo(() => outlet && /* @__PURE__ */ import_react.createElement(OutletContext.Provider, { value: context }, outlet), [outlet, context]);
+}
 function useResolvedPath(to, { relative } = {}) {
 	let { matches } = import_react.useContext(RouteContext);
 	let { pathname: locationPathname } = useLocation();
@@ -10872,6 +10876,9 @@ function Navigate({ to, replace: replace2, state, relative }) {
 		state
 	]);
 	return null;
+}
+function Outlet(props) {
+	return useOutlet(props.context);
 }
 function Route(props) {
 	invariant(false, `A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.`);
@@ -20436,4 +20443,4 @@ _setExternalJSProvider({
 });
 registerAuth("Browser");
 //#endregion
-export { require_client as _, signInWithPopup as a, require_jsx_runtime as c, NavLink as d, Navigate as f, useNavigate as g, useLocation as h, signInWithEmailAndPassword as i, HashRouter as l, Routes as m, createUserWithEmailAndPassword as n, updateProfile as o, Route as p, getAuth as r, initializeApp as s, GoogleAuthProvider as t, Link as u, require_react as v };
+export { useNavigate as _, signInWithPopup as a, require_jsx_runtime as c, NavLink as d, Navigate as f, useLocation as g, Routes as h, signInWithEmailAndPassword as i, HashRouter as l, Route as m, createUserWithEmailAndPassword as n, updateProfile as o, Outlet as p, getAuth as r, initializeApp as s, GoogleAuthProvider as t, Link as u, require_client as v, require_react as y };
