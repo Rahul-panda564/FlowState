@@ -14,9 +14,9 @@ export default defineConfig({
     cssMinify: false,
     rollupOptions: {
       output: {
-        entryFileNames: 'assets/[name].js',
-        chunkFileNames: 'assets/[name]-chunk.js',
-        assetFileNames: 'assets/[name].[ext]',
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name]-chunk.[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]',
         manualChunks(id) {
           if (id.includes('node_modules')) {
             return 'vendor';
