@@ -35,7 +35,7 @@ dist-ssr
 coverage
 
 # Build artifacts
-assets/
-dist/
-build/
+/assets/
+/dist/
+/build/
 
