@@ -22,9 +22,9 @@
 ### 🏢 **Venue Command Center**
 The operational heartbeat. Monitor gate loads, sensor health, and automated staff dispatching in a glassmorphic intelligence suite.
 <div align="center">
-  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Venue Dashboard Overview" width="90%"/>
+  <img src="frontend/src/assets/screenshots/admin-dashboard.png" alt="Venue Dashboard Overview" width="90%"/>
   <br/>
-  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="Command Center Logic" width="90%"/>
+  <img src="frontend/src/assets/screenshots/venue-command.png" alt="Command Center Logic" width="90%"/>
 </div>
 
 ### 🌍 **Global Intelligence Hub**
@@ -33,8 +33,7 @@ Multi-venue management at scale. Super Administrators oversee regional clusters,
 ### 🧍‍♂️ **Stadium Connect (Fan Terminal)**
 A mobile-first attendee experience optimized for the Indian market. Includes real-time concession wait times (INR localized), friend radar, and interactive stadium navigation.
 <div align="center">
-  <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1000&auto=format&fit=crop" alt="Fan Terminal Mockup" width="45%"/>
-  <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop" alt="Fan Terminal Screenshot" width="45%"/>
+  <img src="frontend/src/assets/screenshots/fan-terminal.png" alt="Fan Terminal Mockup" width="90%"/>
 </div>
 
 ---
