@@ -5,11 +5,11 @@ const isVercel = process.env.VERCEL === '1';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: isVercel ? '/' : '/FlowState/',
+  base: '/FlowState/',
   plugins: [react()],
   build: {
-    outDir: isVercel ? 'dist' : '../',
-    emptyOutDir: false,
+    outDir: 'dist',
+    emptyOutDir: true,
     minify: false,
     cssMinify: false,
     rollupOptions: {
