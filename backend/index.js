@@ -2,6 +2,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import morgan from 'morgan';
 import Venue from './models/Venue.js';
 import venueRoutes from './routes/venueRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
@@ -15,9 +18,24 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+// Security & Optimization Middleware
+app.use(helmet()); // Secure headers
+app.use(morgan('dev')); // Operations logging
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Rate Limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: { error: 'Too many requests from this IP, please try again after 15 minutes.' }
+});
+app.use('/api/', limiter);
+
+app.use(express.json({ limit: '10kb' })); // Body limit for security
 
 // MongoDB Connection with Resilience
 mongoose.connect(process.env.MONGODB_URI, { 

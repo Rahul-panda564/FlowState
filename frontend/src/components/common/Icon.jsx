@@ -72,6 +72,7 @@ export default function Icon({ name, size = 18, color = 'currentColor', classNam
     width: size,
     height: size,
     stroke: color,
-    className: `fs-icon ${className}`
+    className: `fs-icon ${className}`,
+    'aria-hidden': 'true'
   });
 }

@@ -25,8 +25,8 @@ export default function ProfileHub() {
   ];
 
   return (
-    <>
-      <div className="page-header page-enter">
+    <main className="page-enter">
+      <header className="page-header" aria-labelledby="profile-title">
         <div className="page-header-top">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
@@ -44,65 +44,68 @@ export default function ProfileHub() {
                 ))}
               </div>
             </div>
-            <h1>User Profile & Security Hub</h1>
+            <h1 id="profile-title">User Profile & Security Hub</h1>
           </div>
-          <button className="btn btn-secondary" onClick={() => showToast('Syncing profile with central node...', 'info')}>Sync Identity</button>
+          <button className="btn btn-secondary" onClick={() => showToast('Syncing profile with central node...', 'info')} aria-label="Synchronize profile data">Sync Identity</button>
         </div>
-      </div>
+      </header>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(250px, 0.8fr) 2fr', gap: 24 }}>
         {/* Sidebar Mini-Card */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-          <GlassPanel className="stagger-item" style={{ textAlign: 'center', padding: '40px 24px', animationDelay: '0.1s' }}>
-            <div className="sidebar-avatar data-pulse" style={{ width: 100, height: 100, fontSize: '2.5rem', margin: '0 auto 20px', background: 'var(--accent-dim)', color: 'var(--accent)', border: '2px solid var(--accent-border)', boxShadow: '0 0 30px rgba(0, 212, 170, 0.2)' }}>R</div>
+          <GlassPanel className="stagger-item" style={{ textAlign: 'center', padding: '40px 24px', animationDelay: '0.1s' }} role="complementary">
+            <div className="sidebar-avatar data-pulse" style={{ width: 100, height: 100, fontSize: '2.5rem', margin: '0 auto 20px', background: 'var(--accent-dim)', color: 'var(--accent)', border: '2px solid var(--accent-border)', boxShadow: '0 0 30px rgba(0, 212, 170, 0.2)' }} aria-hidden="true">R</div>
             <h2 style={{ marginBottom: 4, letterSpacing: '0.02em' }}>Rahul</h2>
             <div className="label-accent" style={{ marginBottom: 16 }}>Venue Administrator</div>
             <div style={{ padding: '12px', background: 'var(--bg-deep)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', textAlign: 'left' }}>
               <div className="label-caps" style={{ fontSize: '0.65rem', marginBottom: 4 }}>Last Login</div>
-              <div className="mono" style={{ fontSize: '0.78rem' }}>2026-04-13 14:30:11</div>
+              <div className="mono" style={{ fontSize: '0.78rem' }} aria-label="Last active at">2026-04-13 14:30:11</div>
             </div>
           </GlassPanel>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <nav aria-label="Profile navigation" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {['Identity', 'Security', 'Activity Log'].map(t => (
               <button 
                 key={t} 
                 className={`btn ${activeTab === t ? 'btn-primary' : 'btn-ghost'}`} 
                 style={{ justifyContent: 'flex-start', textAlign: 'left' }}
                 onClick={() => setActiveTab(t)}
+                aria-pressed={activeTab === t}
               >
                 {t}
               </button>
             ))}
-          </div>
+          </nav>
         </div>
 
         {/* Content Area */}
         <div>
           {activeTab === 'Identity' && (
-            <GlassPanel header="Identity Management">
-              <div className="grid-2" style={{ gap: 24 }}>
-                <div className="form-group">
-                  <label className="label-caps">Display Name</label>
-                  <input defaultValue="Rahul" style={{ width: '100%' }} />
+            <section aria-labelledby="identity-heading">
+              <GlassPanel header={<span id="identity-heading">Identity Management</span>}>
+                <div className="grid-2" style={{ gap: 24 }}>
+                  <div className="form-group">
+                    <label className="label-caps" htmlFor="display-name">Display Name</label>
+                    <input id="display-name" defaultValue="Rahul" style={{ width: '100%' }} />
+                  </div>
+                  <div className="form-group">
+                    <label className="label-caps" htmlFor="email">Primary Email</label>
+                    <input id="email" defaultValue="rahul@flowstate.ai" style={{ width: '100%' }} readOnly />
+                  </div>
+                  <div className="form-group">
+                    <label className="label-caps" htmlFor="role">Assigned Role</label>
+                    <input id="role" defaultValue="Venue Administrator" style={{ width: '100%' }} readOnly />
+                  </div>
+                  <div className="form-group">
+                    <label className="label-caps" htmlFor="org">Organization</label>
+                    <input id="org" defaultValue="Nexus Sports Entertainment" style={{ width: '100%' }} />
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label className="label-caps">Primary Email</label>
-                  <input defaultValue="rahul@flowstate.ai" style={{ width: '100%' }} readOnly />
+                <div style={{ marginTop: 24, display: 'flex', gap: 12 }}>
+                  <button className="btn btn-primary" onClick={() => showToast('Identity attributes updated successfully')}>Update Profile</button>
                 </div>
-                <div className="form-group">
-                  <label className="label-caps">Assigned Role</label>
-                  <input defaultValue="Venue Administrator" style={{ width: '100%' }} readOnly />
-                </div>
-                <div className="form-group">
-                  <label className="label-caps">Organization</label>
-                  <input defaultValue="Nexus Sports Entertainment" style={{ width: '100%' }} />
-                </div>
-              </div>
-              <div style={{ marginTop: 24, display: 'flex', gap: 12 }}>
-                <button className="btn btn-primary" onClick={() => showToast('Identity attributes updated successfully')}>Update Profile</button>
-              </div>
-            </GlassPanel>
+              </GlassPanel>
+            </section>
           )}
 
           {activeTab === 'Security' && (
@@ -166,6 +169,6 @@ export default function ProfileHub() {
           )}
         </div>
       </div>
-    </>
+    </main>
   );
 }

@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getAnalytics } from "firebase/analytics";
+import { getPerformance } from "firebase/performance";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -14,4 +16,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+// Initialize Google Services
+export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
+export const performance = typeof window !== 'undefined' ? getPerformance(app) : null;
+
 export default app;
