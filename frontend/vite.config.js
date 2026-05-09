@@ -5,7 +5,6 @@ const isVercel = process.env.VERCEL === '1';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/FlowState/',
   plugins: [react()],
   build: {
     outDir: 'dist',
