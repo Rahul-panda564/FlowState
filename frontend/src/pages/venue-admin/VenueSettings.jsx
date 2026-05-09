@@ -3,7 +3,14 @@ import { venueProfile } from '../../data/mockData';
 import { useNotifications } from '../../context/NotificationContext';
 
 export default function VenueSettings() {
-  const [profile, setProfile] = useState(venueProfile);
+  const [profile, setProfile] = useState({
+    ...venueProfile,
+    safetyProtocols: [
+      { label: 'Auto-Evacuation Trigger', desc: 'Allow AI to initialize evacuation on Level 3 threat', status: true },
+      { label: 'Panic Mode Lockdown', desc: 'Secure all egress points on manual override', status: false },
+      { label: 'External Relay', desc: 'Auto-notify local emergency response nodes', status: true }
+    ]
+  });
   const [hasChanges, setHasChanges] = useState(false);
   const [activeTab, setActiveTab] = useState('General');
   const [deploying, setDeploying] = useState(false);
@@ -99,8 +106,14 @@ export default function VenueSettings() {
         {Object.entries(v.operationalHours).map(([period, times]) => (
           <div key={period} style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
             <span className="label-caps" style={{ width: 80 }}>{period === 'weekday' ? 'MON - FRI' : period.toUpperCase()}</span>
-            <input value={times.open} style={{ width: 120, textAlign: 'center' }} onChange={() => setHasChanges(true)} />
-            <input value={times.close} style={{ width: 120, textAlign: 'center' }} onChange={() => setHasChanges(true)} />
+            <input value={times.open} style={{ width: 120, textAlign: 'center' }} onChange={(e) => {
+              const nh = { ...v.operationalHours, [period]: { ...v.operationalHours[period], open: e.target.value } };
+              handleUpdate('operationalHours', nh);
+            }} />
+            <input value={times.close} style={{ width: 120, textAlign: 'center' }} onChange={(e) => {
+              const nh = { ...v.operationalHours, [period]: { ...v.operationalHours[period], close: e.target.value } };
+              handleUpdate('operationalHours', nh);
+            }} />
           </div>
         ))}
         <button className="btn btn-ghost" style={{ marginTop: 8, width: '100%' }} onClick={() => showToast('Holiday scheduling protocol activated', 'info')}>Add Special Holiday Hours</button>
@@ -110,18 +123,18 @@ export default function VenueSettings() {
       <div className="card">
         <div className="card-header"><span className="card-title">Safety & Security Protocols</span></div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {[
-            { label: 'Auto-Evacuation Trigger', desc: 'Allow AI to initialize evacuation on Level 3 threat', status: true },
-            { label: 'Panic Mode Lockdown', desc: 'Secure all egress points on manual override', status: false },
-            { label: 'External Relay', desc: 'Auto-notify local emergency response nodes', status: true }
-          ].map((p, i) => (
+          {v.safetyProtocols.map((p, i) => (
             <div key={i} className="card" style={{ padding: 14, background: 'var(--bg-deep)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontWeight: 500, fontSize: '0.88rem' }}>{p.label}</div>
                 <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 2 }}>{p.desc}</div>
               </div>
               <label className="toggle">
-                <input type="checkbox" defaultChecked={p.status} onChange={() => setHasChanges(true)} />
+                <input type="checkbox" checked={p.status} onChange={(e) => {
+                  const np = [...v.safetyProtocols];
+                  np[i].status = e.target.checked;
+                  handleUpdate('safetyProtocols', np);
+                }} />
                 <span className="toggle-slider"></span>
               </label>
             </div>

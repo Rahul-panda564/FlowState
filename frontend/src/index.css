@@ -2429,65 +2429,6 @@ h4 {
   margin-bottom: 8px;
 }
 
-/* -- Demo Access System ------------------------------------ */
-.btn-demo-bypass {
-  width: 100%;
-  padding: 14px 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: var(--radius-md);
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  text-align: left;
-  transition: all var(--transition-base);
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  cursor: pointer;
-}
-
-.btn-demo-bypass:hover {
-  background: rgba(0, 212, 170, 0.08);
-  border-color: var(--accent-border);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 212, 170, 0.1);
-}
-
-.btn-demo-bypass .title {
-  display: block;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-}
-
-.btn-demo-bypass .desc {
-  display: block;
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-
-.btn-demo-bypass .arrow {
-  color: var(--accent);
-  font-size: 1.2rem;
-  opacity: 0.5;
-  transition: all 0.2s;
-}
-
-.btn-demo-bypass:hover .arrow {
-  opacity: 1;
-  transform: translateX(4px);
-}
-
-.btn-demo-bypass.fan:hover {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.3);
-}
-
-.btn-demo-bypass.fan:hover .arrow {
-  color: #3b82f6;
-}
-
 /* ── Cinematic Intelligence Enhancements ────────────────── */
 
 .page-enter {

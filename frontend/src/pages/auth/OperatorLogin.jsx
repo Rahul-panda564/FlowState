@@ -1,64 +1,63 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../../firebase';
 import {
-  createUserWithEmailAndPassword,
-  updateProfile,
+  signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider
 } from 'firebase/auth';
+import { platformRoles } from '../../data/rolesConfig';
 import './Auth.css';
 
-export default function Signup() {
+export default function OperatorLogin() {
   const navigate = useNavigate();
-  const location = useLocation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [isGoogleAuth, setIsGoogleAuth] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (!location.state?.googleUser) {
-        setEmail('');
-        setPassword('');
-        setName('');
-      }
+      setEmail('');
+      setPassword('');
+      localStorage.removeItem('flowstate_last_user');
     }, 100);
     return () => clearTimeout(timer);
-  }, [location.state]);
+  }, []);
 
-  useEffect(() => {
-    if (location.state?.googleUser) {
-      setEmail(location.state.googleUser.email);
-      setName(location.state.googleUser.name);
-      setIsGoogleAuth(true);
-      finalizeRegistration(location.state.googleUser.email);
-    }
-  }, [location]);
-
-  const finalizeRegistration = (userEmail) => {
-    localStorage.setItem(`flowstate_role_${userEmail}`, 'fan');
-    localStorage.setItem('flowstate_last_user', userEmail);
-    navigate('/attendee');
-  };
-
-  const handleGoogleSignup = async () => {
-    const provider = new GoogleAuthProvider();
+  const handleLogin = async (e) => {
+    e.preventDefault();
     setLoading(true);
     setError('');
 
     try {
-      const userCredential = await signInWithPopup(auth, provider);
-      const user = userCredential.user;
-      setEmail(user.email);
-      setName(user.displayName || 'Fan');
-      setIsGoogleAuth(true);
+      if (import.meta.env.DEV && email === 'admin@gmail.com' && password === 'admin123') {
+        localStorage.setItem(`flowstate_role_${email}`, 'super-admin');
+        localStorage.setItem('flowstate_last_user', email);
+        setTimeout(() => navigate('/super-admin'), 500);
+        return;
+      }
 
-      finalizeRegistration(user.email);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      const storedRoleId = localStorage.getItem(`flowstate_role_${user.email}`);
+      if (storedRoleId) {
+        if (storedRoleId === 'fan') {
+          setError('Unauthorized: This terminal is for system operators only. Fans must sign in via the Fan Portal.');
+          auth.signOut();
+          return;
+        }
+        const role = platformRoles.find(r => r.id === storedRoleId);
+        if (role) {
+          navigate(role.path);
+          return;
+        }
+      }
+
+      setError('Access Denied: Your account is not provisioned for administrative access. Please contact Super Admin.');
+      auth.signOut();
     } catch (err) {
       setError(err.message.replace('Firebase:', ''));
     } finally {
@@ -66,24 +65,31 @@ export default function Signup() {
     }
   };
 
-  const handleSignup = async (e) => {
-    e.preventDefault();
-    if (!email || !password || !name) return;
-
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
     setLoading(true);
     setError('');
 
     try {
-      let finalEmail = email;
+      const userCredential = await signInWithPopup(auth, provider);
+      const user = userCredential.user;
 
-      if (!isGoogleAuth) {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-        await updateProfile(user, { displayName: name });
-        finalEmail = user.email;
+      const storedRoleId = localStorage.getItem(`flowstate_role_${user.email}`);
+      if (storedRoleId) {
+        if (storedRoleId === 'fan') {
+          setError('Unauthorized: This terminal is for system operators only. Fans must sign in via the Fan Portal.');
+          auth.signOut();
+          return;
+        }
+        const role = platformRoles.find(r => r.id === storedRoleId);
+        if (role) {
+          navigate(role.path);
+          return;
+        }
       }
 
-      finalizeRegistration(finalEmail);
+      setError('Access Denied: Your account is not provisioned for administrative access.');
+      auth.signOut();
     } catch (err) {
       setError(err.message.replace('Firebase:', ''));
     } finally {
@@ -95,8 +101,8 @@ export default function Signup() {
     <div className="auth-wrapper">
       <img 
         className="auth-bg-image" 
-        alt="A sprawling cinematic view of a futuristic digital nebula" 
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdKcdQSwCvuha-Ly_7GVsiBhpbtUW-LsDlFChpHc7CEeHdynrmPAJGV303iyqaUKOL5bz0Sq1eRqVjaAO7y0yeJ61d1oUIUwpo66jGXzt0AsBuGGqAlLes5xBy6cp7YkZf6hAHF2S2OuE6_CjHVmZ9qJYtv2Z9VxqislBJ4tltTR0Q5YQ3Uj4cW728nxdzGvspzMiDn4V0YTSdZpTdQuj1ezUvcfP9V3x1P8PqYEsg7t2Ic0l9Jf_wpkalTIpBNSKiEBH_4leiAQQ"
+        alt="Cinematic high-tech 3D holographic wireframe of a stadium" 
+        src="/bg/operator_bg.png"
       />
       <div className="auth-circuit-bg"></div>
       <div className="auth-gradient-overlay"></div>
@@ -113,43 +119,28 @@ export default function Signup() {
             <div className="auth-panel-accent"></div>
             
             <div className="auth-form-header">
-              <h2 className="auth-form-title">Fan Registration</h2>
-              <span className="auth-form-badge">NEW ENROLLMENT</span>
+              <h2 className="auth-form-title">Operator Login</h2>
+              <span className="auth-form-badge">LVL-4 ACCESS</span>
             </div>
 
             {error && <div className="auth-error">{error}</div>}
 
             <button 
-              type="button"
               className="auth-google-btn" 
-              onClick={handleGoogleSignup} 
+              onClick={handleGoogleLogin} 
               disabled={loading}
             >
               <img src="https://www.google.com/favicon.ico" alt="Google" />
-              Register with Google
+              Initialize Link via Google
             </button>
 
             <div className="auth-divider-container">
               <div className="auth-divider-line"></div>
-              <span className="auth-divider-text">OR PREFER MANUAL</span>
+              <span className="auth-divider-text">OR MANUAL OVERRIDE</span>
               <div className="auth-divider-line"></div>
             </div>
 
-            <form onSubmit={handleSignup}>
-              <div className="auth-input-group">
-                <label className="auth-label">FULL NAME</label>
-                <div className="auth-input-wrapper">
-                  <input 
-                    className="auth-input" 
-                    placeholder="OPERATOR NAME" 
-                    type="text"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    required
-                  />
-                </div>
-              </div>
-
+            <form onSubmit={handleLogin}>
               <div className="auth-input-group">
                 <label className="auth-label">OPERATOR EMAIL</label>
                 <div className="auth-input-wrapper">
@@ -164,12 +155,12 @@ export default function Signup() {
                 </div>
               </div>
 
-              <div className="auth-input-group" style={{ marginBottom: '2rem' }}>
-                <label className="auth-label">SECURE ACCESS KEY</label>
+              <div className="auth-input-group">
+                <label className="auth-label">SECURITY KEY</label>
                 <div className="auth-input-wrapper">
                   <input 
                     className="auth-input" 
-                    placeholder="CREATE ACCESS KEY" 
+                    placeholder="••••••••••••" 
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={e => setPassword(e.target.value)}
@@ -187,19 +178,29 @@ export default function Signup() {
                 </div>
               </div>
 
+              <div className="auth-options">
+                <label className="auth-checkbox-label">
+                  <input type="checkbox" className="auth-checkbox" />
+                  <span className="auth-checkbox-text">REMEMBER VECTOR</span>
+                </label>
+                <a href="#" className="auth-forgot-link">FORGOT KEY?</a>
+              </div>
+
               <button 
                 type="submit" 
                 className="auth-submit-btn"
                 disabled={loading}
               >
-                {loading ? 'Initializing...' : 'Register Operator'}
+                {loading ? 'Establishing Link...' : 'Initialize Session'}
               </button>
             </form>
 
-            <div className="auth-switch-state">
-              <Link to="/login" className="auth-switch-btn" style={{ border: 'none' }}>
-                Return to Terminal Login
-              </Link>
+            {/* Operator Signup link removed as requested */}
+            
+            <div className="auth-switch-state" style={{ marginTop: '1rem' }}>
+               <Link to="/fan/login" className="auth-forgot-link" style={{ fontSize: '0.75rem', textDecoration: 'none' }}>
+                  → Access Fan Terminal
+               </Link>
             </div>
           </div>
 

@@ -9,7 +9,7 @@ import {
 } from 'firebase/auth';
 import './Auth.css';
 
-export default function Signup() {
+export default function FanSignup() {
   const navigate = useNavigate();
   const location = useLocation();
   const [email, setEmail] = useState('');
@@ -95,8 +95,8 @@ export default function Signup() {
     <div className="auth-wrapper">
       <img 
         className="auth-bg-image" 
-        alt="A sprawling cinematic view of a futuristic digital nebula" 
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdKcdQSwCvuha-Ly_7GVsiBhpbtUW-LsDlFChpHc7CEeHdynrmPAJGV303iyqaUKOL5bz0Sq1eRqVjaAO7y0yeJ61d1oUIUwpo66jGXzt0AsBuGGqAlLes5xBy6cp7YkZf6hAHF2S2OuE6_CjHVmZ9qJYtv2Z9VxqislBJ4tltTR0Q5YQ3Uj4cW728nxdzGvspzMiDn4V0YTSdZpTdQuj1ezUvcfP9V3x1P8PqYEsg7t2Ic0l9Jf_wpkalTIpBNSKiEBH_4leiAQQ"
+        alt="Vibrant futuristic stadium at night" 
+        src="/bg/fan_bg.png"
       />
       <div className="auth-circuit-bg"></div>
       <div className="auth-gradient-overlay"></div>
@@ -141,7 +141,7 @@ export default function Signup() {
                 <div className="auth-input-wrapper">
                   <input 
                     className="auth-input" 
-                    placeholder="OPERATOR NAME" 
+                    placeholder="YOUR NAME" 
                     type="text"
                     value={name}
                     onChange={e => setName(e.target.value)}
@@ -151,11 +151,11 @@ export default function Signup() {
               </div>
 
               <div className="auth-input-group">
-                <label className="auth-label">OPERATOR EMAIL</label>
+                <label className="auth-label">FAN EMAIL</label>
                 <div className="auth-input-wrapper">
                   <input 
                     className="auth-input" 
-                    placeholder="IDENTITY@FLOWSTATE.SYS" 
+                    placeholder="ATTENDEE@EMAIL.COM" 
                     type="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
@@ -192,13 +192,13 @@ export default function Signup() {
                 className="auth-submit-btn"
                 disabled={loading}
               >
-                {loading ? 'Initializing...' : 'Register Operator'}
+                {loading ? 'Initializing...' : 'Register as Fan'}
               </button>
             </form>
 
             <div className="auth-switch-state">
-              <Link to="/login" className="auth-switch-btn" style={{ border: 'none' }}>
-                Return to Terminal Login
+              <Link to="/fan/login" className="auth-switch-btn" style={{ border: 'none', textDecoration: 'none' }}>
+                Return to Fan Login
               </Link>
             </div>
           </div>

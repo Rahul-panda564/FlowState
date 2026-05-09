@@ -10,6 +10,8 @@ export default function VenueManagement() {
   const [search, setSearch] = useState('');
   const [region, setRegion] = useState('All Regions');
   const [status, setStatus] = useState('Any Status');
+  const [capacityFilter, setCapacityFilter] = useState(85000);
+  const [limit, setLimit] = useState(25);
 
   const fetchVenues = useCallback(async () => {
     setLoading(true);
@@ -75,8 +77,8 @@ export default function VenueManagement() {
             </select>
           </div>
           <div>
-            <div className="label-caps" style={{ marginBottom: 8 }}>Capacity Range <span style={{ float: 'right' }}>0 - 85K</span></div>
-            <input type="range" min="0" max="85000" style={{ width: '100%', accentColor: 'var(--accent)' }} />
+            <div className="label-caps" style={{ marginBottom: 8 }}>Capacity Range <span style={{ float: 'right' }}>0 - {Math.round(capacityFilter/1000)}K</span></div>
+            <input type="range" min="0" max="85000" step="1000" value={capacityFilter} onChange={e => setCapacityFilter(parseInt(e.target.value))} style={{ width: '100%', accentColor: 'var(--accent)' }} />
           </div>
         </div>
       </div>
@@ -162,7 +164,11 @@ export default function VenueManagement() {
           <div className="pagination-info">
             <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <span className="label-caps">Items per page:</span>
-              <select style={{ width: 65, padding: '4px 8px' }}><option>25</option></select>
+              <select style={{ width: 65, padding: '4px 8px' }} value={limit} onChange={e => setLimit(Number(e.target.value))}>
+                <option value={10}>10</option>
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+              </select>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>Showing {venues.length} nodes in primary cluster</span>
             </span>
           </div>

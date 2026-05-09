@@ -8,6 +8,7 @@ export default function IncidentManagement() {
   })));
   const [teams] = useState(incidentTeams);
   const [filter, setFilter] = useState('active');
+  const [broadcastMessage, setBroadcastMessage] = useState('');
 
   const updateStatus = (id, newStatus) => {
     setIncidents(prev => prev.map(inc => 
@@ -143,12 +144,18 @@ export default function IncidentManagement() {
               <textarea 
                 className="btn btn-secondary w-full" 
                 placeholder="Type priority message..." 
+                value={broadcastMessage}
+                onChange={(e) => setBroadcastMessage(e.target.value)}
                 style={{ height: 80, padding: 10, background: 'var(--bg-deep)', textAlign: 'left', marginBottom: 12 }}
               />
               <button 
                 className="btn btn-primary w-full" 
                 style={{ background: 'var(--status-alert)', color: 'white' }}
-                onClick={() => alert('BROADCAST SENT')}
+                onClick={() => { 
+                  if (!broadcastMessage) return alert('Message cannot be empty.');
+                  alert('BROADCAST SENT: ' + broadcastMessage); 
+                  setBroadcastMessage(''); 
+                }}
               >
                 SEND WIDE-CHANNEL ALERT
               </button>

@@ -82,10 +82,74 @@ export default function LandingPage() {
     { icon: featureOps, title: 'Seamless Operations', desc: 'End-to-end operational intelligence from ingress to egress, optimizing every touchpoint of the guest experience.', tag: 'REAL-TIME' },
   ];
 
+  // SVG Icons for tech stack
+  const lidarIcon = (
+    <svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" strokeWidth="2">
+      <circle cx="50" cy="50" r="30" />
+      <path d="M50 20 L50 30 M50 70 L50 80 M20 50 L30 50 M70 50 L80 50" strokeWidth="2" />
+      <path d="M35 35 L65 65 M65 35 L35 65" opacity="0.5" />
+    </svg>
+  );
+
+  const aiIcon = (
+    <svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" strokeWidth="2">
+      <rect x="20" y="20" width="60" height="60" rx="8" />
+      <circle cx="35" cy="35" r="5" fill="var(--accent)" />
+      <circle cx="65" cy="35" r="5" fill="var(--accent)" />
+      <path d="M35 55 Q50 70 65 55" strokeLinecap="round" />
+    </svg>
+  );
+
+  const meshIcon = (
+    <svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" strokeWidth="2">
+      <circle cx="30" cy="30" r="5" fill="var(--accent)" />
+      <circle cx="70" cy="30" r="5" fill="var(--accent)" />
+      <circle cx="50" cy="70" r="5" fill="var(--accent)" />
+      <line x1="30" y1="30" x2="70" y2="30" />
+      <line x1="30" y1="30" x2="50" y2="70" />
+      <line x1="70" y1="30" x2="50" y2="70" />
+    </svg>
+  );
+
+  // Fan Terminal Icons
+  const socialHubIcon = (
+    <svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" strokeWidth="2">
+      <circle cx="35" cy="35" r="12" fill="var(--accent)" opacity="0.2" />
+      <circle cx="65" cy="35" r="12" fill="var(--accent)" opacity="0.2" />
+      <circle cx="50" cy="65" r="12" fill="var(--accent)" opacity="0.2" />
+      <circle cx="35" cy="35" r="8" fill="var(--accent)" />
+      <circle cx="65" cy="35" r="8" fill="var(--accent)" />
+      <circle cx="50" cy="65" r="8" fill="var(--accent)" />
+      <line x1="35" y1="35" x2="65" y2="35" strokeWidth="1.5" />
+      <line x1="35" y1="35" x2="50" y2="65" strokeWidth="1.5" />
+      <line x1="65" y1="35" x2="50" y2="65" strokeWidth="1.5" />
+    </svg>
+  );
+
+  const smartMapIcon = (
+    <svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" strokeWidth="2">
+      <rect x="20" y="20" width="60" height="60" rx="4" />
+      <circle cx="50" cy="50" r="6" fill="var(--accent)" />
+      <path d="M50 35 L55 50 L50 60 L45 50 Z" fill="var(--accent)" opacity="0.3" />
+      <line x1="20" y1="35" x2="80" y2="35" strokeWidth="1" opacity="0.5" />
+      <line x1="20" y1="65" x2="80" y2="65" strokeWidth="1" opacity="0.5" />
+    </svg>
+  );
+
+  const expressOrderIcon = (
+    <svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" strokeWidth="2">
+      <path d="M25 35 L25 75 Q25 80 30 80 L70 80 Q75 80 75 75 L75 35 Z" />
+      <path d="M25 35 L35 20 L65 20 L75 35" />
+      <circle cx="40" cy="55" r="8" fill="var(--accent)" opacity="0.3" />
+      <circle cx="60" cy="55" r="8" fill="var(--accent)" opacity="0.3" />
+      <line x1="30" y1="40" x2="70" y2="40" strokeWidth="1" opacity="0.5" />
+    </svg>
+  );
+
   const techStack = [
-    { icon: techIcons, label: 'LiDAR Integration', sub: 'Sub-centimeter precision venue mapping with real-time point cloud processing.' },
-    { icon: techIcons, label: 'Physics-Based AI', sub: 'Proprietary crowd dynamics engine based on fluid mechanics and agent-based modeling.' },
-    { icon: techIcons, label: 'Mesh-First Platform', sub: 'Distributed edge computing architecture for zero-latency sensor data aggregation.' },
+    { icon: lidarIcon, label: 'LiDAR Integration', sub: 'Sub-centimeter precision venue mapping with real-time point cloud processing.' },
+    { icon: aiIcon, label: 'Physics-Based AI', sub: 'Proprietary crowd dynamics engine based on fluid mechanics and agent-based modeling.' },
+    { icon: meshIcon, label: 'Mesh-First Platform', sub: 'Distributed edge computing architecture for zero-latency sensor data aggregation.' },
   ];
 
   const venues = ['OLYMPIC ARENA', 'TECH-DOME', 'METRO-PLEX', 'VELOCITY-CIRCUIT', 'NEXUS PARK'];
@@ -112,7 +176,7 @@ export default function LandingPage() {
             <a href="#technology" onClick={(e) => { e.preventDefault(); scrollToSection('technology'); }} style={{ fontSize: mobileMenu ? '1.5rem' : 'inherit' }}>Technology</a>
           </div>
           <div className="landing-nav-actions">
-            <button className="btn btn-primary nav-cta" onClick={() => navigate('/login')}>Get Started</button>
+            <button className="btn btn-primary nav-cta" onClick={() => navigate('/operator/login')}>Get Started</button>
           </div>
           <button 
             className="landing-menu-toggle" 
@@ -149,10 +213,10 @@ export default function LandingPage() {
           </p>
 
           <div className="hero-cta">
-            <button className="btn-hero-primary" onClick={() => navigate('/login')}>
+            <button className="btn-hero-primary" onClick={() => navigate('/operator/login')}>
               ADMIN COMMAND
             </button>
-            <button className="btn-hero-terminal" onClick={() => navigate('/signup')}>
+            <button className="btn-hero-terminal" onClick={() => navigate('/fan/login')}>
                LAUNCH FAN TERMINAL
             </button>
             <button className="btn-hero-secondary" onClick={() => scrollToSection('showcase')}>
@@ -223,7 +287,9 @@ export default function LandingPage() {
           <div className="fan-grid">
             <div className="fan-card" onClick={() => navigate('/attendee/friends')}>
               <div className="fan-card-icon">
-                <img src={fanIcons} alt="Social Hub" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'drop-shadow(0 0 8px var(--accent))' }} />
+                <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {socialHubIcon}
+                </div>
               </div>
               <h4>Social Hub</h4>
               <p>Locate friends in real-time with sub-meter precision and shared safety beacons.</p>
@@ -231,7 +297,9 @@ export default function LandingPage() {
             </div>
             <div className="fan-card" onClick={() => navigate('/attendee/navigate')}>
               <div className="fan-card-icon">
-                <img src={fanIcons} alt="Smart Map" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'drop-shadow(0 0 8px var(--accent))' }} />
+                <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {smartMapIcon}
+                </div>
               </div>
               <h4>Smart Map</h4>
               <p>Interactive 3D navigation to seats, amenities, and exits with live wait-times.</p>
@@ -239,7 +307,9 @@ export default function LandingPage() {
             </div>
             <div className="fan-card" onClick={() => navigate('/attendee/food')}>
               <div className="fan-card-icon">
-                <img src={fanIcons} alt="Express Order" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'drop-shadow(0 0 8px var(--accent))' }} />
+                <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {expressOrderIcon}
+                </div>
               </div>
               <h4>Express Order</h4>
               <p>Skip the lines. Pre-order food and drinks with AI-predicted pickup windows.</p>
@@ -287,7 +357,13 @@ export default function LandingPage() {
               {techStack.map((t, i) => (
                 <div key={i} className="tech-card" style={{ animationDelay: `${i * 0.1}s` }}>
                   <div className="tech-card-icon">
-                    <img src={t.icon} alt={t.label} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                    {typeof t.icon === 'string' ? (
+                      <img src={t.icon} alt={t.label} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                    ) : (
+                      <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        {t.icon}
+                      </div>
+                    )}
                   </div>
                   <div>
                     <h4>{t.label}</h4>
@@ -361,8 +437,8 @@ export default function LandingPage() {
               Join the elite network of stadiums redefining the guest experience through predictive crowd technology.
             </p>
             <div className="cta-buttons">
-              <button className="btn-hero-primary" onClick={() => navigate('/login')}>Start Free Trial</button>
-              <button className="btn-hero-secondary" onClick={() => navigate('/login')}>
+              <button className="btn-hero-primary" onClick={() => navigate('/operator/login')}>Start Free Trial</button>
+              <button className="btn-hero-secondary" onClick={() => navigate('/operator/login')}>
                 Schedule a Demo
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
               </button>

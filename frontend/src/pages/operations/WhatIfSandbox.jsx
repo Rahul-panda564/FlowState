@@ -13,6 +13,21 @@ export default function WhatIfSandbox() {
   const initialTab = location.state?.activeTab || 'Parameters';
   const [activeTab, setActiveTab] = useState(initialTab);
   
+  const [interventions, setInterventions] = useState([
+    { label: 'Open Gate 6 (+15 min early)', type: 'GATE TIMING', active: true },
+    { label: 'Deploy 3 Extra Staff to Section 427', type: 'STAFFING', active: true },
+    { label: 'Redirect Flow: North Corridor → East Bypass', type: 'FLOW CONTROL', active: true },
+  ]);
+
+  const toggleIntervention = (index, checked) => {
+    setInterventions(prev => {
+      const next = [...prev];
+      next[index].active = checked;
+      return next;
+    });
+    showToast(`Intervention ${checked ? 'activated' : 'deactivated'}`, 'info');
+  };
+  
   useEffect(() => {
     if (location.state?.activeTab) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -70,18 +85,14 @@ export default function WhatIfSandbox() {
             <button className="btn btn-ghost" style={{ fontSize: '0.72rem' }} onClick={() => showToast('Opening intervention registry...', 'info')}>+ Add Intervention</button>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {[
-              { label: 'Open Gate 6 (+15 min early)', type: 'GATE TIMING' },
-              { label: 'Deploy 3 Extra Staff to Section 427', type: 'STAFFING' },
-              { label: 'Redirect Flow: North Corridor → East Bypass', type: 'FLOW CONTROL' },
-            ].map((p, i) => (
+            {interventions.map((p, i) => (
               <div key={i} className="card" style={{ padding: 14, background: 'var(--bg-deep)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                   <div style={{ fontWeight: 500, fontSize: '0.88rem' }}>{p.label}</div>
                   <div className="label-caps" style={{ marginTop: 4 }}>{p.type}</div>
                 </div>
                 <label className="toggle">
-                  <input type="checkbox" defaultChecked onChange={(e) => showToast(`Intervention ${e.target.checked ? 'activated' : 'deactivated'}`, 'info')} />
+                  <input type="checkbox" checked={p.active} onChange={(e) => toggleIntervention(i, e.target.checked)} />
                   <span className="toggle-slider"></span>
                 </label>
               </div>

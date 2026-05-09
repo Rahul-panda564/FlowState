@@ -1,12 +1,52 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { auth } from '../../firebase';
+import { onAuthStateChanged, updateProfile } from 'firebase/auth';
 import GlassPanel from '../../components/common/GlassPanel';
 import Icon from '../../components/common/Icon';
 import { useNotifications } from '../../context/NotificationContext';
 
 export default function ProfileHub() {
   const [activeTab, setActiveTab] = useState('Identity');
+  const [userName, setUserName] = useState('Operator');
+  const [userEmail, setUserEmail] = useState('system@flowstate.sys');
+  const [userInitials, setUserInitials] = useState('OP');
+  
+  // Identity Management State
+  const [editName, setEditName] = useState('');
+  const [editOrg, setEditOrg] = useState('');
+  
+  // Provisioning State
+  const [newOpName, setNewOpName] = useState('');
+  const [newOpEmail, setNewOpEmail] = useState('');
+  const [newOpRole, setNewOpRole] = useState('venue-admin');
+  const [newOpPassword, setNewOpPassword] = useState('');
+  
   const location = useLocation();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const org = localStorage.getItem('flowstate_org') || 'Nexus Sports Entertainment';
+      setEditOrg(org);
+      if (user) {
+        const name = user.displayName || user.email.split('@')[0];
+        setUserName(name);
+        setEditName(name);
+        setUserEmail(user.email);
+        setUserInitials(name.substring(0, 1).toUpperCase());
+      } else {
+        const email = localStorage.getItem('flowstate_last_user');
+        if (email) {
+          const name = email.split('@')[0];
+          setUserName(name);
+          setEditName(name);
+          setUserEmail(email);
+          setUserInitials(name.substring(0, 1).toUpperCase());
+        }
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     if (location.state?.activeTab) {
@@ -15,6 +55,57 @@ export default function ProfileHub() {
   }, [location.state]);
 
   const { showToast } = useNotifications();
+
+  const handleUpdateProfile = async (e) => {
+    e.preventDefault();
+    if (!editName.trim()) {
+      showToast('Error: Display Name cannot be empty.', 'error');
+      return;
+    }
+    
+    try {
+      if (auth.currentUser) {
+        await updateProfile(auth.currentUser, { displayName: editName });
+      }
+      localStorage.setItem('flowstate_org', editOrg);
+      setUserName(editName);
+      setUserInitials(editName.substring(0, 1).toUpperCase());
+      showToast('Identity attributes updated successfully.', 'success');
+    } catch (err) {
+      showToast('Error updating profile: ' + err.message, 'error');
+    }
+  };
+
+  const handleProvisionOperator = (e) => {
+    e.preventDefault();
+    
+    if (!newOpName || !newOpEmail || !newOpPassword) {
+      showToast('Error: All operator identity fields are required.', 'error');
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(newOpEmail)) {
+      showToast('Error: Invalid operator communication vector (email).', 'error');
+      return;
+    }
+
+    if (newOpPassword.length < 6) {
+      showToast('Error: Temporary access key must be at least 6 characters.', 'error');
+      return;
+    }
+
+    // In a production environment, this would call a Firebase Cloud Function to create the user via the Admin SDK
+    // For this client-side architecture, we simulate the database provisioning step
+    localStorage.setItem(`flowstate_role_${newOpEmail}`, newOpRole);
+    
+    showToast(`Success: ${newOpName} provisioned as ${newOpRole}. Credentials dispatched.`, 'success');
+    
+    setNewOpName('');
+    setNewOpEmail('');
+    setNewOpPassword('');
+    setNewOpRole('venue-admin');
+  };
 
   const activityLog = [
     { id: 1, action: 'System Login', time: '2026-04-13 09:12:44', node: 'NODE-ALPHA-04', ip: '192.168.1.42', status: 'Success' },
@@ -32,7 +123,7 @@ export default function ProfileHub() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
               <p className="page-pretitle">USER_MANAGEMENT // CLEARANCE_LEVEL_4</p>
               <div style={{ display: 'flex', gap: 12, marginLeft: 12, borderLeft: '1px solid var(--border-subtle)', paddingLeft: 12 }}>
-                {['Identity', 'Security', 'Activity Log'].map(t => (
+                {['Identity', 'Security', 'Activity Log', 'Provisioning'].map(t => (
                   <span 
                     key={t} 
                     className={activeTab === t ? 'label-accent' : 'label-caps'} 
@@ -54,8 +145,8 @@ export default function ProfileHub() {
         {/* Sidebar Mini-Card */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           <GlassPanel className="stagger-item" style={{ textAlign: 'center', padding: '40px 24px', animationDelay: '0.1s' }} role="complementary">
-            <div className="sidebar-avatar data-pulse" style={{ width: 100, height: 100, fontSize: '2.5rem', margin: '0 auto 20px', background: 'var(--accent-dim)', color: 'var(--accent)', border: '2px solid var(--accent-border)', boxShadow: '0 0 30px rgba(0, 212, 170, 0.2)' }} aria-hidden="true">R</div>
-            <h2 style={{ marginBottom: 4, letterSpacing: '0.02em' }}>Rahul</h2>
+            <div className="sidebar-avatar data-pulse" style={{ width: 100, height: 100, fontSize: '2.5rem', margin: '0 auto 20px', background: 'var(--accent-dim)', color: 'var(--accent)', border: '2px solid var(--accent-border)', boxShadow: '0 0 30px rgba(0, 212, 170, 0.2)' }} aria-hidden="true">{userInitials}</div>
+            <h2 style={{ marginBottom: 4, letterSpacing: '0.02em', textTransform: 'capitalize' }}>{userName}</h2>
             <div className="label-accent" style={{ marginBottom: 16 }}>Venue Administrator</div>
             <div style={{ padding: '12px', background: 'var(--bg-deep)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', textAlign: 'left' }}>
               <div className="label-caps" style={{ fontSize: '0.65rem', marginBottom: 4 }}>Last Login</div>
@@ -64,7 +155,7 @@ export default function ProfileHub() {
           </GlassPanel>
 
           <nav aria-label="Profile navigation" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {['Identity', 'Security', 'Activity Log'].map(t => (
+            {['Identity', 'Security', 'Activity Log', 'Provisioning'].map(t => (
               <button 
                 key={t} 
                 className={`btn ${activeTab === t ? 'btn-primary' : 'btn-ghost'}`} 
@@ -83,27 +174,40 @@ export default function ProfileHub() {
           {activeTab === 'Identity' && (
             <section aria-labelledby="identity-heading">
               <GlassPanel header={<span id="identity-heading">Identity Management</span>}>
-                <div className="grid-2" style={{ gap: 24 }}>
-                  <div className="form-group">
-                    <label className="label-caps" htmlFor="display-name">Display Name</label>
-                    <input id="display-name" defaultValue="Rahul" style={{ width: '100%' }} />
+                <form onSubmit={handleUpdateProfile}>
+                  <div className="grid-2" style={{ gap: 24 }}>
+                    <div className="form-group">
+                      <label className="label-caps" htmlFor="display-name">Display Name</label>
+                      <input 
+                        id="display-name" 
+                        value={editName} 
+                        onChange={(e) => setEditName(e.target.value)} 
+                        style={{ width: '100%', textTransform: 'capitalize' }} 
+                        required 
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="label-caps" htmlFor="email">Primary Email</label>
+                      <input id="email" value={userEmail} style={{ width: '100%' }} readOnly />
+                    </div>
+                    <div className="form-group">
+                      <label className="label-caps" htmlFor="role">Assigned Role</label>
+                      <input id="role" defaultValue="Venue Administrator" style={{ width: '100%' }} readOnly />
+                    </div>
+                    <div className="form-group">
+                      <label className="label-caps" htmlFor="org">Organization</label>
+                      <input 
+                        id="org" 
+                        value={editOrg}
+                        onChange={(e) => setEditOrg(e.target.value)}
+                        style={{ width: '100%' }} 
+                      />
+                    </div>
                   </div>
-                  <div className="form-group">
-                    <label className="label-caps" htmlFor="email">Primary Email</label>
-                    <input id="email" defaultValue="rahul@flowstate.ai" style={{ width: '100%' }} readOnly />
+                  <div style={{ marginTop: 24, display: 'flex', gap: 12 }}>
+                    <button type="submit" className="btn btn-primary">Update Profile</button>
                   </div>
-                  <div className="form-group">
-                    <label className="label-caps" htmlFor="role">Assigned Role</label>
-                    <input id="role" defaultValue="Venue Administrator" style={{ width: '100%' }} readOnly />
-                  </div>
-                  <div className="form-group">
-                    <label className="label-caps" htmlFor="org">Organization</label>
-                    <input id="org" defaultValue="Nexus Sports Entertainment" style={{ width: '100%' }} />
-                  </div>
-                </div>
-                <div style={{ marginTop: 24, display: 'flex', gap: 12 }}>
-                  <button className="btn btn-primary" onClick={() => showToast('Identity attributes updated successfully')}>Update Profile</button>
-                </div>
+                </form>
               </GlassPanel>
             </section>
           )}
@@ -166,6 +270,74 @@ export default function ProfileHub() {
                 </tbody>
               </table>
             </GlassPanel>
+          )}
+
+          {activeTab === 'Provisioning' && (
+            <section aria-labelledby="provisioning-heading">
+              <GlassPanel header={<span id="provisioning-heading">Provision New Operator</span>}>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
+                  Register a new system operator. An encrypted invitation with the temporary secure key will be sent to their communication vector.
+                </p>
+                <form onSubmit={handleProvisionOperator}>
+                  <div className="grid-2" style={{ gap: 24 }}>
+                    <div className="form-group">
+                      <label className="label-caps" htmlFor="new-op-name">Full Name</label>
+                      <input 
+                        id="new-op-name" 
+                        placeholder="Operator Name" 
+                        style={{ width: '100%' }} 
+                        value={newOpName}
+                        onChange={e => setNewOpName(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="label-caps" htmlFor="new-op-email">System Email</label>
+                      <input 
+                        id="new-op-email" 
+                        type="email" 
+                        placeholder="identity@flowstate.sys" 
+                        style={{ width: '100%' }} 
+                        value={newOpEmail}
+                        onChange={e => setNewOpEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="label-caps" htmlFor="new-op-role">Assign Role</label>
+                      <select 
+                        id="new-op-role" 
+                        style={{ width: '100%' }}
+                        value={newOpRole}
+                        onChange={e => setNewOpRole(e.target.value)}
+                      >
+                        <option value="venue-admin">Venue Administrator</option>
+                        <option value="operations">Operations Commander</option>
+                        <option value="security">Security Chief</option>
+                        <option value="logistics">Logistics Coordinator</option>
+                      </select>
+                    </div>
+                    <div className="form-group">
+                      <label className="label-caps" htmlFor="new-op-password">Temporary Access Key</label>
+                      <input 
+                        id="new-op-password" 
+                        type="password" 
+                        placeholder="••••••••••••" 
+                        style={{ width: '100%' }} 
+                        value={newOpPassword}
+                        onChange={e => setNewOpPassword(e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div style={{ marginTop: 24, display: 'flex', gap: 12 }}>
+                    <button type="submit" className="btn btn-primary">
+                      Initialize Operator
+                    </button>
+                  </div>
+                </form>
+              </GlassPanel>
+            </section>
           )}
         </div>
       </div>

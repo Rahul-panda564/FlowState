@@ -13,6 +13,7 @@ export default function SensorManagement() {
   const [diagnosing, setDiagnosing] = useState(false);
   const [activeTab, setActiveTab] = useState('Monitor');
   const [searchTerm, setSearchTerm] = useState('');
+  const [filterType, setFilterType] = useState('All Hardware');
 
   const { showToast, addNotification } = useNotifications();
 
@@ -173,11 +174,11 @@ export default function SensorManagement() {
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
         />
-        <select style={{ width: 140 }}>
+        <select style={{ width: 140 }} value={filterType} onChange={e => setFilterType(e.target.value)}>
           <option>All Hardware</option>
-          <option>LIDAR Array</option>
-          <option>IOT Sensors</option>
-          <option>Optical Hubs</option>
+          <option>LIDAR</option>
+          <option>IOT SENSOR</option>
+          <option>CAMERA</option>
         </select>
       </div>
       <table className="data-table">
@@ -193,7 +194,10 @@ export default function SensorManagement() {
           </tr>
         </thead>
         <tbody>
-          {sensors.filter(s => s.sensorId.toLowerCase().includes(searchTerm.toLowerCase()) || s.type.toLowerCase().includes(searchTerm.toLowerCase())).map(s => (
+          {sensors.filter(s => 
+            (filterType === 'All Hardware' || s.type.includes(filterType)) &&
+            (s.sensorId.toLowerCase().includes(searchTerm.toLowerCase()) || s.type.toLowerCase().includes(searchTerm.toLowerCase()))
+          ).map(s => (
             <tr key={s._id}>
               <td className="mono" style={{ fontWeight: 600 }}>{s.sensorId}</td>
               <td className="label-caps" style={{ fontSize: '0.72rem' }}>{s.type}</td>

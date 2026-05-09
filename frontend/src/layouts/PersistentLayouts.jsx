@@ -1,4 +1,7 @@
+import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { auth } from '../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 import AppShell from './AppShell';
 import AttendeeShell from './AttendeeShell';
 import { 
@@ -10,30 +13,53 @@ import {
 
 // Generic Admin Layout for all system-access roles
 export function AdminLayout({ role }) {
+  const [userName, setUserName] = useState('Operator');
+  const [userInitials, setUserInitials] = useState('OP');
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const name = user.displayName || user.email.split('@')[0];
+        setUserName(name);
+        setUserInitials(name.substring(0, 2).toUpperCase());
+      } else {
+        const email = localStorage.getItem('flowstate_last_user');
+        if (email) {
+          const name = email.split('@')[0];
+          setUserName(name);
+          setUserInitials(name.substring(0, 2).toUpperCase());
+        }
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const dynamicUser = { ...superAdminUser, name: userName, initials: userInitials };
+
   const configs = {
     'super-admin': {
       sidebarItems: superAdminSidebar,
       brand: superAdminBrand.brand,
       brandSub: superAdminBrand.brandSub,
-      user: superAdminUser
+      user: { ...dynamicUser, role: 'Master Control' }
     },
     'venue-admin': {
       sidebarItems: venueAdminSidebar,
       brand: venueAdminBrand.brand,
       brandSub: venueAdminBrand.brandSub,
-      user: { ...superAdminUser, role: 'Venue Administrator' }
+      user: { ...dynamicUser, role: 'Venue Administrator' }
     },
     'operations': {
       sidebarItems: operationsSidebar,
       brand: operationsBrand.brand,
       brandSub: operationsBrand.brandSub,
-      user: { ...superAdminUser, role: 'Operations Lead' }
+      user: { ...dynamicUser, role: 'Operations Lead' }
     },
     'security': {
       sidebarItems: securitySidebar,
       brand: securityBrand.brand,
       brandSub: securityBrand.brandSub,
-      user: { ...superAdminUser, role: 'Security Chief' }
+      user: { ...dynamicUser, role: 'Security Chief' }
     }
   };
 

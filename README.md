@@ -103,10 +103,11 @@ npm install
 npm start
 ```
 
-### Credentials (Demo Access)
-For evaluators, utilize the **DEMO_TOOLKIT** on the login page for one-click access:
-- **Admin**: `admin@gmail.com` / `flowstate123`
-- **Fan**: Open via the **Demo Fan Explorer** on the signup portal.
+### Credentials
+For development access, contact your system administrator for provisioned credentials.
+In development mode, you can use:
+- **Admin Email**: `admin@gmail.com`
+- **Admin Password**: `admin123`
 
 ---
 

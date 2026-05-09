@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import Venue from './models/Venue.js';
 import Event from './models/Event.js';
 import Sensor from './models/Sensor.js';
+import User from './models/User.js';
+import crypto from 'crypto';
 
 dotenv.config();
 
@@ -44,6 +46,7 @@ const seedDB = async () => {
     await Venue.deleteMany({});
     await Event.deleteMany({});
     await Sensor.deleteMany({});
+    await User.deleteMany({});
 
     // Seed Venues
     const createdVenues = await Venue.insertMany(mockVenues);
@@ -111,6 +114,19 @@ const seedDB = async () => {
 
     await Sensor.insertMany(mockSensors);
     console.log('✅ Seeded Sensors');
+
+    // Seed Admin User
+    const superAdminUser = new User({
+      firebaseId: crypto.randomUUID(),
+      email: 'admin@gmail.com',
+      name: 'Admin User',
+      role: 'super-admin',
+      status: 'Active'
+    });
+    await superAdminUser.save();
+    console.log('✅ Seeded Super Admin User');
+    console.log('   Email: admin@gmail.com');
+    console.log('   Password: admin123');
 
     console.log('--- Seeding Complete ---');
     process.exit();

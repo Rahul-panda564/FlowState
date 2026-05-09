@@ -5,8 +5,9 @@ import { AdminLayout, AttendeeLayout, SharedProfileLayout } from './layouts/Pers
 
 // Public & Auth
 import LandingPage from './pages/LandingPage';
-import Login from './pages/auth/Login';
-import Signup from './pages/auth/Signup';
+import OperatorLogin from './pages/auth/OperatorLogin';
+import FanLogin from './pages/auth/FanLogin';
+import FanSignup from './pages/auth/FanSignup';
 import ProfileHub from './pages/auth/ProfileHub';
 
 // Admin Pages
@@ -50,8 +51,11 @@ function App() {
         <Routes>
           {/* ... existing routes ... */}
           <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/operator/login" element={<OperatorLogin />} />
+          <Route path="/fan/login" element={<FanLogin />} />
+          <Route path="/fan/signup" element={<FanSignup />} />
+          <Route path="/login" element={<Navigate to="/operator/login" replace />} />
+          <Route path="/signup" element={<Navigate to="/fan/signup" replace />} />
           
           <Route path="/dashboard" element={<Navigate to="/venue-admin" replace />} />
           <Route path="/analytics" element={<Navigate to="/analytics/report" replace />} />
